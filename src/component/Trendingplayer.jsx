@@ -78,9 +78,9 @@ const Trendingplayer = () => {
   const [clicked, setClicked] = useState(false);
   return (
     <>
-      <div
+      <div 
         onClick={() => setClicked(!clicked)}
-        className="flex justify-center items-center h-15 bg-slate-800 gap-3 text-xl  hover:text-slate-300 hover:cursor-pointer"
+        className="flex justify-center items-center h-15 bg-slate-800 gap-3 text-xl  hover:text-slate-300 hover:cursor-pointer hover:scale-[1.02]"
       >
         <h1 className="font-bold">Trending players</h1>
         <span>
@@ -94,7 +94,7 @@ const Trendingplayer = () => {
               return (
                 <div
                   key={i}
-                  className="w-56 border-2 bg-slate-700 border-black rounded-2xl p-4"
+                  className="w-56 border-2 bg-slate-700 border-black rounded-2xl p-4 "
                 >
                   <div className="flex justify-between items-start">
                     <span className="bg-slate-900 text-xs px-2 py-1 rounded-full">

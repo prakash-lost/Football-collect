@@ -13,6 +13,8 @@ import Players from "./pages/Players";
 import LoginForm from "./pages/LoginForm";
 import Team from "./component/Team";
 import TeamsPage from "./pages/TeamsPage";
+import News from "./component/News";
+import Leagues from "./component/Leagues";
 
 const Router = () => {
   const router = createBrowserRouter([
@@ -27,6 +29,8 @@ const Router = () => {
         { path: "login", Component: LoginForm },
         { path: "profile", Component: Profile },
         { path: "teams", Component: TeamsPage },
+        { path: "news", Component: News },
+        { path: "leagues", Component: Leagues },
       ],
     },
     {

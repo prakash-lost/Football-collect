@@ -20,7 +20,9 @@ const Navbar = () => {
           {/* <Link to={"aboutus"}>About us </Link> */}
           {/* <Link to={"contactus"}>Contact us </Link> */}
           <Link to={"players"}>Players </Link>
+          <Link to={"leagues"}>Leagues</Link>
           <Link to={"teams"}>Teams </Link>
+          <Link to={"news"}>News </Link>
         </div>
         <div className="flex flex-wrap mr-2 sm:mr-8 gap-4 sm:gap-8 items-center">
           <div className="hidden sm:flex bg-white  items-center focus-within:ring-2 rounded-full ">
