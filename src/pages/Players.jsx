@@ -22,7 +22,7 @@ const Players = () => {
   }, []);
 
   return (
-    <div className="flex flex-wrap gap-3 justify-evenly bg-slate-900">
+    <div className="flex flex-wrap gap-3 justify-evenly bg-white dark:bg-slate-600">
       {items.length > 0 &&
         items.map((val) => (
           <div
@@ -30,7 +30,7 @@ const Players = () => {
             onClick={() => setClicked(val)}
             className="  gap-3 my-2 flex justify-center text-white "
           >
-            <div className="rounded-lg bg-slate-800 h-100 w-80 flex-col  ">
+            <div className="rounded-lg  bg-slate-800 h-100 w-80 flex-col  ">
               <div className="h-90 w-90 rounded-2xl overflow-hidden  flex justify-center  items-center">
                 <img
                   className=" p-10 object-cover h-full w-full "

@@ -1,11 +1,15 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { Link } from "react-router";
 import { FaSearch } from "react-icons/fa";
 import LoginForm from "../pages/LoginForm";
+import { Switch } from "../components/ui/switch";
+import { ThemeContext } from "../context/ThemeContext";
 
 const Navbar = () => {
+
   const [clicked, setClicked] = useState(false);
   const [mobileSearchOpen, setMobileSearchOpen] = useState(false);
+  const{isDark,setIsDark}=useContext(ThemeContext)
   return (
     <div className="sticky top-0 z-50">
       <div className=" px-3 sm:px-8 min-h-16 py-2 flex justify-between items-center   font-bold  bg-blue-950 text-slate-100 flex-wrap sm:flex-row flex-col">
@@ -15,7 +19,7 @@ const Navbar = () => {
             src="./footballlogo.png"
           />
         </div>
-        <div className="flex flex-wrap gap-3 sm:gap-8 items-center text-base sm:text-lg font-serif">
+        <div className="flex flex-wrap gap-4 md:gap-3 items-center text-base sm:text-lg font-serif">
           <Link to={"/"}>Home </Link>
           {/* <Link to={"aboutus"}>About us </Link> */}
           {/* <Link to={"contactus"}>Contact us </Link> */}
@@ -24,7 +28,7 @@ const Navbar = () => {
           <Link to={"teams"}>Teams </Link>
           <Link to={"news"}>News </Link>
         </div>
-        <div className="flex flex-wrap mr-2 sm:mr-8 gap-4 sm:gap-8 items-center">
+        <div className="flex flex-wrap mr-1 sm:mr-8 gap-2 sm:gap-4 items-center">
           <div className="hidden sm:flex bg-white  items-center focus-within:ring-2 rounded-full ">
             <input
               name="search"
@@ -51,6 +55,11 @@ const Navbar = () => {
             </button>
             {/* </Link> */}
           </div>
+        </div>
+        <div>
+          <Switch 
+          checked={isDark} onCheckedChange={setIsDark} 
+          />
         </div>
       </div>
       {clicked && <LoginForm onclose={() => setClicked(false)} />}

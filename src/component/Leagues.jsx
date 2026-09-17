@@ -59,12 +59,12 @@ const Leagues = () => {
   // }, []);
   return (
     <>
-      <div className=" min-h-screen bg-slate-900 text-white p-3 md:p-6">
-        <header>
+      <div className=" min-h-screen bg-white dark:bg-slate-800 text-white p-3 md:p-6">
+        <header className="text-black dark:text-white">
           <h1 className="text-4xl  font-extrabold font-serif">
             Select a league
           </h1>
-          <p className="text-white/50">
+          <p className="text-black/50 dark:text-white/50">
             Explore the league and find your club then connect
           </p>
         </header>

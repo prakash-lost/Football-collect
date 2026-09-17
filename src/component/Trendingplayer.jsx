@@ -80,11 +80,11 @@ const Trendingplayer = () => {
     <>
       <div 
         onClick={() => setClicked(!clicked)}
-        className="flex justify-center items-center h-15 bg-slate-800 gap-3 text-xl  hover:text-slate-300 hover:cursor-pointer hover:scale-[1.02]"
+        className="flex justify-center items-center h-10 bg-blue-900 text-white gap-3 mx-10 text-xl  rounded-lg hover:text-slate-300 hover:cursor-pointer hover:scale-[1.02]"
       >
         <h1 className="font-bold">Trending players</h1>
         <span>
-          <GiClick className="" />
+          <GiClick  />
         </span>
       </div>
       {clicked && (

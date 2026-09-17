@@ -82,7 +82,7 @@ const Team = () => {
   const navigate=useNavigate()
   return (
     <>
-      <div onClick={()=>navigate("/teams")} className="bg-slate-800 h-12 text-white flex justify-between items-center px-2 hover:cursor-pointer">
+      <div onClick={()=>navigate("/teams")} className="bg-blue-900 m-10 rounded-lg h-12 text-white flex justify-between items-center px-2 hover:cursor-pointer hover:scale-110">
         <div>
 
         </div>
@@ -96,13 +96,13 @@ const Team = () => {
           </span>
         </div>
       </div>
-      <div onClick={()=>navigate("/teams")} className="grid grid-cols-2 md:grid-cols-4 gap-4 hover:cursor-pointer">
+      <div onClick={()=>navigate("/teams")} className="grid grid-cols-2 md:grid-cols-4 gap-4 hover:cursor-pointer ">
         {teamMembers.map((member) => (
-          <div key={member.id} className="h-32 overflow-hidden rounded-lg mt-2 hover:scale-[1.05]">
+          <div key={member.id} className="h-32 overflow-hidden rounded-lg mt-2 hover:scale-[1.05] border-2 border-black ">
             <img
               src={member.image}
               alt={member.name}
-              className="object-cover h-full w-full bg-slate-900"
+              className="object-cover h-full w-full "
             />
           </div>
         ))}

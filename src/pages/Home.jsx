@@ -9,7 +9,7 @@ import HeadIMG from "../component/HeadIMG";
 
 const Home = () => {
   return (
-    <div className="flex flex-col bg-slate-900 text-white">
+    <div className="flex flex-col bg-white dark:bg-slate-800 text-white">
       <HeadIMG />
 
       <div className=" p-4 flex flex-col gap-4 min-h-screen ">
