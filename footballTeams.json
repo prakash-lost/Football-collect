@@ -12,7 +12,16 @@
       "country": "England",
       "city": "London",
       "stadium": "Emirates Stadium",
-      "founded": 1886
+      "stadiumCapacity": 60704,
+      "founded": 1886,
+      "trophies": {
+        "leagueTitles": 13,
+        "championsLeague": 0,
+        "domesticCup": 14,
+        "europeanClubCup": 0
+      },
+      "description": "North London club known as 'The Gunners', famed for attacking football and a rich FA Cup history.",
+      "logo": "https://r2.thesportsdb.com/images/media/team/badge/uyhbfe1612467038.png"
     },
     {
       "id": 2,
@@ -23,7 +32,16 @@
       "country": "England",
       "city": "Birmingham",
       "stadium": "Villa Park",
-      "founded": 1874
+      "stadiumCapacity": 42682,
+      "founded": 1874,
+      "trophies": {
+        "leagueTitles": 7,
+        "championsLeague": 1,
+        "domesticCup": 7,
+        "europeanClubCup": 1
+      },
+      "description": "One of England's oldest clubs, European champions in 1982, based in Birmingham.",
+      "logo": ""
     },
     {
       "id": 3,
@@ -34,7 +52,16 @@
       "country": "England",
       "city": "Bournemouth",
       "stadium": "Vitality Stadium",
-      "founded": 1899
+      "stadiumCapacity": 11364,
+      "founded": 1899,
+      "trophies": {
+        "leagueTitles": 0,
+        "championsLeague": 0,
+        "domesticCup": 0,
+        "europeanClubCup": 0
+      },
+      "description": "South coast club nicknamed 'The Cherries', a modern Premier League regular.",
+      "logo": ""
     },
     {
       "id": 4,
@@ -45,7 +72,16 @@
       "country": "England",
       "city": "London",
       "stadium": "Gtech Community Stadium",
-      "founded": 1889
+      "stadiumCapacity": 17250,
+      "founded": 1889,
+      "trophies": {
+        "leagueTitles": 0,
+        "championsLeague": 0,
+        "domesticCup": 0,
+        "europeanClubCup": 0
+      },
+      "description": "West London club known as 'The Bees', praised for data-driven recruitment and rapid rise.",
+      "logo": ""
     },
     {
       "id": 5,
@@ -56,7 +92,16 @@
       "country": "England",
       "city": "Brighton",
       "stadium": "Amex Stadium",
-      "founded": 1901
+      "stadiumCapacity": 31800,
+      "founded": 1901,
+      "trophies": {
+        "leagueTitles": 0,
+        "championsLeague": 0,
+        "domesticCup": 0,
+        "europeanClubCup": 0
+      },
+      "description": "South coast club nicknamed 'The Seagulls', known for progressive coaching and youth development.",
+      "logo": ""
     },
     {
       "id": 6,
@@ -67,7 +112,16 @@
       "country": "England",
       "city": "London",
       "stadium": "Stamford Bridge",
-      "founded": 1905
+      "stadiumCapacity": 40834,
+      "founded": 1905,
+      "trophies": {
+        "leagueTitles": 6,
+        "championsLeague": 2,
+        "domesticCup": 8,
+        "europeanClubCup": 3
+      },
+      "description": "West London giants, two-time Champions League winners and 2021 FIFA Club World Cup champions.",
+      "logo": ""
     },
     {
       "id": 7,
@@ -78,7 +132,16 @@
       "country": "England",
       "city": "London",
       "stadium": "Selhurst Park",
-      "founded": 1905
+      "stadiumCapacity": 25486,
+      "founded": 1905,
+      "trophies": {
+        "leagueTitles": 0,
+        "championsLeague": 0,
+        "domesticCup": 1,
+        "europeanClubCup": 0
+      },
+      "description": "South London club nicknamed 'The Eagles', winners of their first major trophy, the 2025 FA Cup.",
+      "logo": ""
     },
     {
       "id": 8,
@@ -89,7 +152,16 @@
       "country": "England",
       "city": "Liverpool",
       "stadium": "Hill Dickinson Stadium",
-      "founded": 1878
+      "stadiumCapacity": 52888,
+      "founded": 1878,
+      "trophies": {
+        "leagueTitles": 9,
+        "championsLeague": 0,
+        "domesticCup": 5,
+        "europeanClubCup": 0
+      },
+      "description": "Merseyside's 'Toffees', founding members of the Football League with a long top-flight history.",
+      "logo": ""
     },
     {
       "id": 9,
@@ -100,7 +172,16 @@
       "country": "England",
       "city": "London",
       "stadium": "Craven Cottage",
-      "founded": 1879
+      "stadiumCapacity": 29600,
+      "founded": 1879,
+      "trophies": {
+        "leagueTitles": 0,
+        "championsLeague": 0,
+        "domesticCup": 0,
+        "europeanClubCup": 0
+      },
+      "description": "West London club, London's oldest professional football club, based on the banks of the Thames.",
+      "logo": ""
     },
     {
       "id": 10,
@@ -111,7 +192,16 @@
       "country": "England",
       "city": "Leeds",
       "stadium": "Elland Road",
-      "founded": 1919
+      "stadiumCapacity": 37890,
+      "founded": 1919,
+      "trophies": {
+        "leagueTitles": 3,
+        "championsLeague": 0,
+        "domesticCup": 1,
+        "europeanClubCup": 0
+      },
+      "description": "Yorkshire club with a storied 1960s-70s era under Don Revie, promoted back to the top flight.",
+      "logo": ""
     },
     {
       "id": 11,
@@ -122,7 +212,16 @@
       "country": "England",
       "city": "Liverpool",
       "stadium": "Anfield",
-      "founded": 1892
+      "stadiumCapacity": 61276,
+      "founded": 1892,
+      "trophies": {
+        "leagueTitles": 20,
+        "championsLeague": 6,
+        "domesticCup": 8,
+        "europeanClubCup": 5
+      },
+      "description": "Merseyside giants, one of Europe's most decorated clubs with six European Cup/Champions League titles.",
+      "logo": ""
     },
     {
       "id": 12,
@@ -133,7 +232,16 @@
       "country": "England",
       "city": "Manchester",
       "stadium": "Etihad Stadium",
-      "founded": 1880
+      "stadiumCapacity": 53400,
+      "founded": 1880,
+      "trophies": {
+        "leagueTitles": 10,
+        "championsLeague": 1,
+        "domesticCup": 7,
+        "europeanClubCup": 2
+      },
+      "description": "Reigning modern powerhouse of English football, 2023 treble winners and Club World Cup champions.",
+      "logo": ""
     },
     {
       "id": 13,
@@ -144,7 +252,16 @@
       "country": "England",
       "city": "Manchester",
       "stadium": "Old Trafford",
-      "founded": 1878
+      "stadiumCapacity": 74310,
+      "founded": 1878,
+      "trophies": {
+        "leagueTitles": 20,
+        "championsLeague": 3,
+        "domesticCup": 13,
+        "europeanClubCup": 2
+      },
+      "description": "One of the world's most famous clubs, three-time European Cup winners based at 'The Theatre of Dreams'.",
+      "logo": ""
     },
     {
       "id": 14,
@@ -155,7 +272,16 @@
       "country": "England",
       "city": "Newcastle upon Tyne",
       "stadium": "St James' Park",
-      "founded": 1892
+      "stadiumCapacity": 52258,
+      "founded": 1892,
+      "trophies": {
+        "leagueTitles": 4,
+        "championsLeague": 0,
+        "domesticCup": 6,
+        "europeanClubCup": 0
+      },
+      "description": "North East club nicknamed 'The Magpies', renowned for passionate support at St James' Park.",
+      "logo": ""
     },
     {
       "id": 15,
@@ -166,7 +292,16 @@
       "country": "England",
       "city": "Nottingham",
       "stadium": "City Ground",
-      "founded": 1865
+      "stadiumCapacity": 30445,
+      "founded": 1865,
+      "trophies": {
+        "leagueTitles": 1,
+        "championsLeague": 2,
+        "domesticCup": 2,
+        "europeanClubCup": 1
+      },
+      "description": "Shock back-to-back European Cup winners in 1979 and 1980 under Brian Clough.",
+      "logo": ""
     },
     {
       "id": 16,
@@ -177,7 +312,16 @@
       "country": "England",
       "city": "Sunderland",
       "stadium": "Stadium of Light",
-      "founded": 1879
+      "stadiumCapacity": 49000,
+      "founded": 1879,
+      "trophies": {
+        "leagueTitles": 6,
+        "championsLeague": 0,
+        "domesticCup": 2,
+        "europeanClubCup": 0
+      },
+      "description": "North East club with six historic English top-flight titles, nicknamed 'The Black Cats'.",
+      "logo": ""
     },
     {
       "id": 17,
@@ -188,7 +332,16 @@
       "country": "England",
       "city": "London",
       "stadium": "Tottenham Hotspur Stadium",
-      "founded": 1882
+      "stadiumCapacity": 62850,
+      "founded": 1882,
+      "trophies": {
+        "leagueTitles": 2,
+        "championsLeague": 0,
+        "domesticCup": 8,
+        "europeanClubCup": 0
+      },
+      "description": "North London club, the first British side to win a European trophy (1963 Cup Winners' Cup).",
+      "logo": ""
     },
     {
       "id": 18,
@@ -199,7 +352,16 @@
       "country": "England",
       "city": "Coventry",
       "stadium": "Coventry Building Society Arena",
-      "founded": 1883
+      "stadiumCapacity": 32609,
+      "founded": 1883,
+      "trophies": {
+        "leagueTitles": 0,
+        "championsLeague": 0,
+        "domesticCup": 1,
+        "europeanClubCup": 0
+      },
+      "description": "Midlands club famed for their shock 1987 FA Cup triumph, newly promoted to the top flight.",
+      "logo": ""
     },
     {
       "id": 19,
@@ -210,7 +372,16 @@
       "country": "England",
       "city": "Ipswich",
       "stadium": "Portman Road",
-      "founded": 1878
+      "stadiumCapacity": 30311,
+      "founded": 1878,
+      "trophies": {
+        "leagueTitles": 1,
+        "championsLeague": 0,
+        "domesticCup": 1,
+        "europeanClubCup": 0
+      },
+      "description": "Suffolk club that won the old First Division in 1962 under Alf Ramsey.",
+      "logo": ""
     },
     {
       "id": 20,
@@ -221,7 +392,16 @@
       "country": "England",
       "city": "Hull",
       "stadium": "MKM Stadium",
-      "founded": 1904
+      "stadiumCapacity": 25586,
+      "founded": 1904,
+      "trophies": {
+        "leagueTitles": 0,
+        "championsLeague": 0,
+        "domesticCup": 0,
+        "europeanClubCup": 0
+      },
+      "description": "East Yorkshire club nicknamed 'The Tigers', returning to the Premier League after a long absence.",
+      "logo": ""
     },
     {
       "id": 21,
@@ -232,7 +412,16 @@
       "country": "Spain",
       "city": "Vitoria-Gasteiz",
       "stadium": "Mendizorrotza",
-      "founded": 1921
+      "stadiumCapacity": 19840,
+      "founded": 1921,
+      "trophies": {
+        "leagueTitles": 0,
+        "championsLeague": 0,
+        "domesticCup": 0,
+        "europeanClubCup": 0
+      },
+      "description": "Basque club known for defensive resilience and a long modern spell in La Liga.",
+      "logo": ""
     },
     {
       "id": 22,
@@ -243,7 +432,16 @@
       "country": "Spain",
       "city": "Bilbao",
       "stadium": "San Mamés",
-      "founded": 1898
+      "stadiumCapacity": 53289,
+      "founded": 1898,
+      "trophies": {
+        "leagueTitles": 8,
+        "championsLeague": 0,
+        "domesticCup": 24,
+        "europeanClubCup": 0
+      },
+      "description": "Basque institution famous for its Basque-only player policy and historic Copa del Rey success.",
+      "logo": ""
     },
     {
       "id": 23,
@@ -254,7 +452,16 @@
       "country": "Spain",
       "city": "Madrid",
       "stadium": "Cívitas Metropolitano",
-      "founded": 1903
+      "stadiumCapacity": 70460,
+      "founded": 1903,
+      "trophies": {
+        "leagueTitles": 11,
+        "championsLeague": 0,
+        "domesticCup": 10,
+        "europeanClubCup": 3
+      },
+      "description": "Madrid's fiercely competitive 'Los Rojiblancos', known for defensive discipline under Diego Simeone.",
+      "logo": ""
     },
     {
       "id": 24,
@@ -265,7 +472,16 @@
       "country": "Spain",
       "city": "Barcelona",
       "stadium": "Spotify Camp Nou",
-      "founded": 1899
+      "stadiumCapacity": 105000,
+      "founded": 1899,
+      "trophies": {
+        "leagueTitles": 29,
+        "championsLeague": 5,
+        "domesticCup": 31,
+        "europeanClubCup": 8
+      },
+      "description": "Catalan giants renowned for 'tiki-taka' football, one of the most successful clubs in history.",
+      "logo": ""
     },
     {
       "id": 25,
@@ -276,7 +492,16 @@
       "country": "Spain",
       "city": "Seville",
       "stadium": "Estadio Benito Villamarín",
-      "founded": 1907
+      "stadiumCapacity": 60720,
+      "founded": 1907,
+      "trophies": {
+        "leagueTitles": 1,
+        "championsLeague": 0,
+        "domesticCup": 3,
+        "europeanClubCup": 0
+      },
+      "description": "Seville club with passionate support, one of Andalusia's two big rivals.",
+      "logo": ""
     },
     {
       "id": 26,
@@ -287,7 +512,16 @@
       "country": "Spain",
       "city": "Vigo",
       "stadium": "Estadio de Balaídos",
-      "founded": 1923
+      "stadiumCapacity": 24791,
+      "founded": 1923,
+      "trophies": {
+        "leagueTitles": 0,
+        "championsLeague": 0,
+        "domesticCup": 0,
+        "europeanClubCup": 0
+      },
+      "description": "Galician club known for technical, attacking football on Spain's northwest coast.",
+      "logo": ""
     },
     {
       "id": 27,
@@ -298,7 +532,16 @@
       "country": "Spain",
       "city": "Elche",
       "stadium": "Estadio Martínez Valero",
-      "founded": 1923
+      "stadiumCapacity": 31388,
+      "founded": 1923,
+      "trophies": {
+        "leagueTitles": 0,
+        "championsLeague": 0,
+        "domesticCup": 0,
+        "europeanClubCup": 0
+      },
+      "description": "Valencian community club with a modest history, a regular yo-yo between La Liga and Segunda.",
+      "logo": ""
     },
     {
       "id": 28,
@@ -309,7 +552,16 @@
       "country": "Spain",
       "city": "Barcelona",
       "stadium": "RCDE Stadium",
-      "founded": 1900
+      "stadiumCapacity": 40000,
+      "founded": 1900,
+      "trophies": {
+        "leagueTitles": 0,
+        "championsLeague": 0,
+        "domesticCup": 4,
+        "europeanClubCup": 0
+      },
+      "description": "Barcelona's 'other' club, four-time Copa del Rey winners with a proud founding history.",
+      "logo": ""
     },
     {
       "id": 29,
@@ -320,7 +572,16 @@
       "country": "Spain",
       "city": "Getafe",
       "stadium": "Coliseum Alfonso Pérez",
-      "founded": 1946
+      "stadiumCapacity": 17393,
+      "founded": 1946,
+      "trophies": {
+        "leagueTitles": 0,
+        "championsLeague": 0,
+        "domesticCup": 0,
+        "europeanClubCup": 0
+      },
+      "description": "Madrid-area club known for gritty, physical football and consistent top-flight survival.",
+      "logo": ""
     },
     {
       "id": 30,
@@ -331,7 +592,16 @@
       "country": "Spain",
       "city": "Valencia",
       "stadium": "Estadi Ciutat de València",
-      "founded": 1909
+      "stadiumCapacity": 26354,
+      "founded": 1909,
+      "trophies": {
+        "leagueTitles": 0,
+        "championsLeague": 0,
+        "domesticCup": 0,
+        "europeanClubCup": 0
+      },
+      "description": "Valencia-based club, historically a mid-table mainstay of Spanish football.",
+      "logo": ""
     },
     {
       "id": 31,
@@ -342,7 +612,16 @@
       "country": "Spain",
       "city": "Pamplona",
       "stadium": "El Sadar Stadium",
-      "founded": 1920
+      "stadiumCapacity": 23576,
+      "founded": 1920,
+      "trophies": {
+        "leagueTitles": 0,
+        "championsLeague": 0,
+        "domesticCup": 0,
+        "europeanClubCup": 0
+      },
+      "description": "Navarre club known for fierce home support at El Sadar and a communal ownership model.",
+      "logo": ""
     },
     {
       "id": 32,
@@ -353,7 +632,16 @@
       "country": "Spain",
       "city": "Madrid",
       "stadium": "Campo de Fútbol de Vallecas",
-      "founded": 1924
+      "stadiumCapacity": 14708,
+      "founded": 1924,
+      "trophies": {
+        "leagueTitles": 0,
+        "championsLeague": 0,
+        "domesticCup": 0,
+        "europeanClubCup": 0
+      },
+      "description": "Working-class Madrid club known for its passionate, left-leaning fanbase in the Vallecas district.",
+      "logo": ""
     },
     {
       "id": 33,
@@ -364,7 +652,16 @@
       "country": "Spain",
       "city": "Madrid",
       "stadium": "Santiago Bernabéu",
-      "founded": 1902
+      "stadiumCapacity": 78297,
+      "founded": 1902,
+      "trophies": {
+        "leagueTitles": 36,
+        "championsLeague": 15,
+        "domesticCup": 20,
+        "europeanClubCup": 13
+      },
+      "description": "The most decorated club in European football history, record 15-time Champions League winners.",
+      "logo": ""
     },
     {
       "id": 34,
@@ -375,7 +672,16 @@
       "country": "Spain",
       "city": "San Sebastián",
       "stadium": "Reale Arena",
-      "founded": 1909
+      "stadiumCapacity": 39313,
+      "founded": 1909,
+      "trophies": {
+        "leagueTitles": 2,
+        "championsLeague": 0,
+        "domesticCup": 3,
+        "europeanClubCup": 0
+      },
+      "description": "Basque club known for producing homegrown talent and a strong European pedigree.",
+      "logo": ""
     },
     {
       "id": 35,
@@ -386,7 +692,16 @@
       "country": "Spain",
       "city": "Seville",
       "stadium": "Ramón Sánchez-Pizjuán",
-      "founded": 1890
+      "stadiumCapacity": 43883,
+      "founded": 1890,
+      "trophies": {
+        "leagueTitles": 1,
+        "championsLeague": 0,
+        "domesticCup": 5,
+        "europeanClubCup": 1
+      },
+      "description": "Record seven-time Europa League winners, Andalusia's most successful modern club in Europe.",
+      "logo": ""
     },
     {
       "id": 36,
@@ -397,7 +712,16 @@
       "country": "Spain",
       "city": "Valencia",
       "stadium": "Estadio Mestalla",
-      "founded": 1919
+      "stadiumCapacity": 49430,
+      "founded": 1919,
+      "trophies": {
+        "leagueTitles": 6,
+        "championsLeague": 0,
+        "domesticCup": 8,
+        "europeanClubCup": 1
+      },
+      "description": "Historic Spanish club with six league titles and two Champions League final appearances.",
+      "logo": ""
     },
     {
       "id": 37,
@@ -408,7 +732,16 @@
       "country": "Spain",
       "city": "Villarreal",
       "stadium": "Estadio de la Cerámica",
-      "founded": 1923
+      "stadiumCapacity": 23500,
+      "founded": 1923,
+      "trophies": {
+        "leagueTitles": 0,
+        "championsLeague": 0,
+        "domesticCup": 0,
+        "europeanClubCup": 0
+      },
+      "description": "Small-town club known as the 'Yellow Submarine', a fixture in European competition.",
+      "logo": ""
     },
     {
       "id": 38,
@@ -419,7 +752,16 @@
       "country": "Spain",
       "city": "Santander",
       "stadium": "El Sardinero",
-      "founded": 1913
+      "stadiumCapacity": 22222,
+      "founded": 1913,
+      "trophies": {
+        "leagueTitles": 0,
+        "championsLeague": 0,
+        "domesticCup": 0,
+        "europeanClubCup": 0
+      },
+      "description": "Cantabrian club with a long La Liga history, promoted back to the top flight.",
+      "logo": ""
     },
     {
       "id": 39,
@@ -430,7 +772,16 @@
       "country": "Spain",
       "city": "A Coruña",
       "stadium": "Abanca Riazor",
-      "founded": 1906
+      "stadiumCapacity": 32660,
+      "founded": 1906,
+      "trophies": {
+        "leagueTitles": 1,
+        "championsLeague": 0,
+        "domesticCup": 2,
+        "europeanClubCup": 0
+      },
+      "description": "Galician club remembered for its 'Super Depor' era, La Liga champions in 2000.",
+      "logo": ""
     },
     {
       "id": 40,
@@ -441,7 +792,16 @@
       "country": "Spain",
       "city": "Málaga",
       "stadium": "La Rosaleda",
-      "founded": 1948
+      "stadiumCapacity": 30044,
+      "founded": 1948,
+      "trophies": {
+        "leagueTitles": 0,
+        "championsLeague": 0,
+        "domesticCup": 0,
+        "europeanClubCup": 0
+      },
+      "description": "Andalusian club that reached the Champions League quarter-finals in 2013, now back in the top flight.",
+      "logo": ""
     },
     {
       "id": 41,
@@ -452,7 +812,16 @@
       "country": "Italy",
       "city": "Bergamo",
       "stadium": "Gewiss Stadium",
-      "founded": 1907
+      "stadiumCapacity": 21300,
+      "founded": 1907,
+      "trophies": {
+        "leagueTitles": 0,
+        "championsLeague": 0,
+        "domesticCup": 1,
+        "europeanClubCup": 0
+      },
+      "description": "Bergamo club known for attacking football and prolific youth development under Gian Piero Gasperini.",
+      "logo": ""
     },
     {
       "id": 42,
@@ -463,7 +832,16 @@
       "country": "Italy",
       "city": "Bologna",
       "stadium": "Stadio Renato Dall'Ara",
-      "founded": 1909
+      "stadiumCapacity": 36462,
+      "founded": 1909,
+      "trophies": {
+        "leagueTitles": 7,
+        "championsLeague": 0,
+        "domesticCup": 2,
+        "europeanClubCup": 0
+      },
+      "description": "Historic Emilia-Romagna club, seven-time Italian champions with a proud early-20th-century pedigree.",
+      "logo": ""
     },
     {
       "id": 43,
@@ -474,7 +852,16 @@
       "country": "Italy",
       "city": "Cagliari",
       "stadium": "Unipol Domus",
-      "founded": 1920
+      "stadiumCapacity": 16233,
+      "founded": 1920,
+      "trophies": {
+        "leagueTitles": 1,
+        "championsLeague": 0,
+        "domesticCup": 0,
+        "europeanClubCup": 0
+      },
+      "description": "Sardinian club that won a surprise Serie A title in 1970 led by Gigi Riva.",
+      "logo": ""
     },
     {
       "id": 44,
@@ -485,7 +872,16 @@
       "country": "Italy",
       "city": "Como",
       "stadium": "Stadio Giuseppe Sinigaglia",
-      "founded": 1907
+      "stadiumCapacity": 13602,
+      "founded": 1907,
+      "trophies": {
+        "leagueTitles": 0,
+        "championsLeague": 0,
+        "domesticCup": 0,
+        "europeanClubCup": 0
+      },
+      "description": "Lakeside club that climbed back to Serie A after major recent investment.",
+      "logo": ""
     },
     {
       "id": 45,
@@ -496,7 +892,16 @@
       "country": "Italy",
       "city": "Florence",
       "stadium": "Stadio Artemio Franchi",
-      "founded": 1926
+      "stadiumCapacity": 43147,
+      "founded": 1926,
+      "trophies": {
+        "leagueTitles": 2,
+        "championsLeague": 0,
+        "domesticCup": 6,
+        "europeanClubCup": 0
+      },
+      "description": "Florence's 'Viola', two-time Serie A champions with a strong European cup history.",
+      "logo": ""
     },
     {
       "id": 46,
@@ -507,7 +912,16 @@
       "country": "Italy",
       "city": "Genoa",
       "stadium": "Stadio Luigi Ferraris",
-      "founded": 1893
+      "stadiumCapacity": 36599,
+      "founded": 1893,
+      "trophies": {
+        "leagueTitles": 9,
+        "championsLeague": 0,
+        "domesticCup": 1,
+        "europeanClubCup": 0
+      },
+      "description": "Italy's oldest football club, nine-time champions from the sport's earliest era in the country.",
+      "logo": ""
     },
     {
       "id": 47,
@@ -518,7 +932,16 @@
       "country": "Italy",
       "city": "Milan",
       "stadium": "San Siro",
-      "founded": 1908
+      "stadiumCapacity": 75923,
+      "founded": 1908,
+      "trophies": {
+        "leagueTitles": 21,
+        "championsLeague": 3,
+        "domesticCup": 9,
+        "europeanClubCup": 3
+      },
+      "description": "Milan giants known as 'Nerazzurri', three-time European Cup/Champions League winners.",
+      "logo": ""
     },
     {
       "id": 48,
@@ -529,7 +952,16 @@
       "country": "Italy",
       "city": "Turin",
       "stadium": "Allianz Stadium",
-      "founded": 1897
+      "stadiumCapacity": 41507,
+      "founded": 1897,
+      "trophies": {
+        "leagueTitles": 36,
+        "championsLeague": 2,
+        "domesticCup": 15,
+        "europeanClubCup": 4
+      },
+      "description": "Italy's most decorated club, record 36-time Serie A champions based in Turin.",
+      "logo": ""
     },
     {
       "id": 49,
@@ -540,7 +972,16 @@
       "country": "Italy",
       "city": "Rome",
       "stadium": "Stadio Olimpico",
-      "founded": 1900
+      "stadiumCapacity": 70634,
+      "founded": 1900,
+      "trophies": {
+        "leagueTitles": 2,
+        "championsLeague": 0,
+        "domesticCup": 7,
+        "europeanClubCup": 1
+      },
+      "description": "Rome-based club with a passionate Curva Nord support, two-time Serie A champions.",
+      "logo": ""
     },
     {
       "id": 50,
@@ -551,7 +992,16 @@
       "country": "Italy",
       "city": "Lecce",
       "stadium": "Stadio Via del Mare",
-      "founded": 1908
+      "stadiumCapacity": 31533,
+      "founded": 1908,
+      "trophies": {
+        "leagueTitles": 0,
+        "championsLeague": 0,
+        "domesticCup": 0,
+        "europeanClubCup": 0
+      },
+      "description": "Southern Italian club representing Puglia, known for resilient top-flight survival battles.",
+      "logo": ""
     },
     {
       "id": 51,
@@ -562,7 +1012,16 @@
       "country": "Italy",
       "city": "Milan",
       "stadium": "San Siro",
-      "founded": 1899
+      "stadiumCapacity": 75923,
+      "founded": 1899,
+      "trophies": {
+        "leagueTitles": 19,
+        "championsLeague": 7,
+        "domesticCup": 5,
+        "europeanClubCup": 9
+      },
+      "description": "One of the most successful clubs in European history, record seven-time European Cup winners.",
+      "logo": ""
     },
     {
       "id": 52,
@@ -573,7 +1032,16 @@
       "country": "Italy",
       "city": "Naples",
       "stadium": "Stadio Diego Armando Maradona",
-      "founded": 1926
+      "stadiumCapacity": 54726,
+      "founded": 1926,
+      "trophies": {
+        "leagueTitles": 4,
+        "championsLeague": 0,
+        "domesticCup": 6,
+        "europeanClubCup": 0
+      },
+      "description": "Southern Italy's flagship club, home of Diego Maradona's legendary 1980s era and recent titles.",
+      "logo": ""
     },
     {
       "id": 53,
@@ -584,7 +1052,16 @@
       "country": "Italy",
       "city": "Parma",
       "stadium": "Stadio Ennio Tardini",
-      "founded": 1913
+      "stadiumCapacity": 22352,
+      "founded": 1913,
+      "trophies": {
+        "leagueTitles": 0,
+        "championsLeague": 0,
+        "domesticCup": 3,
+        "europeanClubCup": 1
+      },
+      "description": "Emilia-Romagna club that enjoyed a golden European era in the 1990s.",
+      "logo": ""
     },
     {
       "id": 54,
@@ -595,7 +1072,16 @@
       "country": "Italy",
       "city": "Rome",
       "stadium": "Stadio Olimpico",
-      "founded": 1927
+      "stadiumCapacity": 70634,
+      "founded": 1927,
+      "trophies": {
+        "leagueTitles": 3,
+        "championsLeague": 0,
+        "domesticCup": 9,
+        "europeanClubCup": 0
+      },
+      "description": "Capital city club with passionate support, three-time Serie A champions.",
+      "logo": ""
     },
     {
       "id": 55,
@@ -606,7 +1092,16 @@
       "country": "Italy",
       "city": "Sassuolo",
       "stadium": "Mapei Stadium",
-      "founded": 1920
+      "stadiumCapacity": 21584,
+      "founded": 1920,
+      "trophies": {
+        "leagueTitles": 0,
+        "championsLeague": 0,
+        "domesticCup": 0,
+        "europeanClubCup": 0
+      },
+      "description": "Small-town club known for a modern rise through the Italian divisions and attacking football.",
+      "logo": ""
     },
     {
       "id": 56,
@@ -617,7 +1112,16 @@
       "country": "Italy",
       "city": "Turin",
       "stadium": "Stadio Olimpico Grande Torino",
-      "founded": 1906
+      "stadiumCapacity": 27958,
+      "founded": 1906,
+      "trophies": {
+        "leagueTitles": 7,
+        "championsLeague": 0,
+        "domesticCup": 5,
+        "europeanClubCup": 0
+      },
+      "description": "Turin club remembered for the legendary 'Grande Torino' side of the 1940s.",
+      "logo": ""
     },
     {
       "id": 57,
@@ -628,7 +1132,16 @@
       "country": "Italy",
       "city": "Udine",
       "stadium": "Bluenergy Stadium",
-      "founded": 1896
+      "stadiumCapacity": 25144,
+      "founded": 1896,
+      "trophies": {
+        "leagueTitles": 0,
+        "championsLeague": 0,
+        "domesticCup": 0,
+        "europeanClubCup": 0
+      },
+      "description": "Friuli region club known for shrewd scouting and player development.",
+      "logo": ""
     },
     {
       "id": 58,
@@ -639,7 +1152,16 @@
       "country": "Italy",
       "city": "Venice",
       "stadium": "Stadio Pier Luigi Penzo",
-      "founded": 1907
+      "stadiumCapacity": 11150,
+      "founded": 1907,
+      "trophies": {
+        "leagueTitles": 0,
+        "championsLeague": 0,
+        "domesticCup": 1,
+        "europeanClubCup": 0
+      },
+      "description": "Venice's club, playing at one of Italy's most picturesque waterside stadiums.",
+      "logo": ""
     },
     {
       "id": 59,
@@ -650,7 +1172,16 @@
       "country": "Italy",
       "city": "Frosinone",
       "stadium": "Stadio Benito Stirpe",
-      "founded": 1912
+      "stadiumCapacity": 16227,
+      "founded": 1912,
+      "trophies": {
+        "leagueTitles": 0,
+        "championsLeague": 0,
+        "domesticCup": 0,
+        "europeanClubCup": 0
+      },
+      "description": "Lazio-region club known for competitive spells shuttling between Serie A and Serie B.",
+      "logo": ""
     },
     {
       "id": 60,
@@ -661,7 +1192,16 @@
       "country": "Italy",
       "city": "Monza",
       "stadium": "U-Power Stadium",
-      "founded": 1912
+      "stadiumCapacity": 18568,
+      "founded": 1912,
+      "trophies": {
+        "leagueTitles": 0,
+        "championsLeague": 0,
+        "domesticCup": 0,
+        "europeanClubCup": 0
+      },
+      "description": "Lombardy club that reached Serie A for the first time in its history in 2022.",
+      "logo": ""
     },
     {
       "id": 61,
@@ -672,7 +1212,16 @@
       "country": "Germany",
       "city": "Munich",
       "stadium": "Allianz Arena",
-      "founded": 1900
+      "stadiumCapacity": 75000,
+      "founded": 1900,
+      "trophies": {
+        "leagueTitles": 34,
+        "championsLeague": 6,
+        "domesticCup": 20,
+        "europeanClubCup": 4
+      },
+      "description": "Germany's dominant club, six-time European Cup/Champions League winners and perennial Bundesliga champions.",
+      "logo": ""
     },
     {
       "id": 62,
@@ -683,7 +1232,16 @@
       "country": "Germany",
       "city": "Leverkusen",
       "stadium": "BayArena",
-      "founded": 1904
+      "stadiumCapacity": 30210,
+      "founded": 1904,
+      "trophies": {
+        "leagueTitles": 1,
+        "championsLeague": 0,
+        "domesticCup": 1,
+        "europeanClubCup": 0
+      },
+      "description": "Rhineland club that won a historic unbeaten Bundesliga title in 2024.",
+      "logo": ""
     },
     {
       "id": 63,
@@ -694,7 +1252,16 @@
       "country": "Germany",
       "city": "Leipzig",
       "stadium": "Red Bull Arena",
-      "founded": 2009
+      "stadiumCapacity": 47069,
+      "founded": 2009,
+      "trophies": {
+        "leagueTitles": 0,
+        "championsLeague": 0,
+        "domesticCup": 1,
+        "europeanClubCup": 0
+      },
+      "description": "Modern club founded in 2009, quickly established among Germany's top sides.",
+      "logo": ""
     },
     {
       "id": 64,
@@ -705,7 +1272,16 @@
       "country": "Germany",
       "city": "Dortmund",
       "stadium": "Signal Iduna Park",
-      "founded": 1909
+      "stadiumCapacity": 81365,
+      "founded": 1909,
+      "trophies": {
+        "leagueTitles": 8,
+        "championsLeague": 1,
+        "domesticCup": 5,
+        "europeanClubCup": 1
+      },
+      "description": "Famous for the 'Yellow Wall' at Signal Iduna Park, 1997 European Cup winners.",
+      "logo": ""
     },
     {
       "id": 65,
@@ -716,7 +1292,16 @@
       "country": "Germany",
       "city": "Frankfurt",
       "stadium": "Deutsche Bank Park",
-      "founded": 1899
+      "stadiumCapacity": 51500,
+      "founded": 1899,
+      "trophies": {
+        "leagueTitles": 1,
+        "championsLeague": 0,
+        "domesticCup": 5,
+        "europeanClubCup": 1
+      },
+      "description": "Frankfurt club known for strong cup pedigree and passionate travelling support.",
+      "logo": ""
     },
     {
       "id": 66,
@@ -727,7 +1312,16 @@
       "country": "Germany",
       "city": "Stuttgart",
       "stadium": "MHPArena",
-      "founded": 1893
+      "stadiumCapacity": 60469,
+      "founded": 1893,
+      "trophies": {
+        "leagueTitles": 5,
+        "championsLeague": 0,
+        "domesticCup": 3,
+        "europeanClubCup": 0
+      },
+      "description": "Baden-Württemberg club with a strong youth academy and five Bundesliga titles.",
+      "logo": ""
     },
     {
       "id": 67,
@@ -738,7 +1332,16 @@
       "country": "Germany",
       "city": "Mönchengladbach",
       "stadium": "Borussia-Park",
-      "founded": 1900
+      "stadiumCapacity": 54057,
+      "founded": 1900,
+      "trophies": {
+        "leagueTitles": 5,
+        "championsLeague": 0,
+        "domesticCup": 3,
+        "europeanClubCup": 0
+      },
+      "description": "Dominant force of 1970s German football, five-time Bundesliga champions.",
+      "logo": ""
     },
     {
       "id": 68,
@@ -749,7 +1352,16 @@
       "country": "Germany",
       "city": "Freiburg",
       "stadium": "Europa-Park Stadion",
-      "founded": 1904
+      "stadiumCapacity": 34700,
+      "founded": 1904,
+      "trophies": {
+        "leagueTitles": 0,
+        "championsLeague": 0,
+        "domesticCup": 0,
+        "europeanClubCup": 0
+      },
+      "description": "Black Forest club respected for consistent overperformance under long-serving coaching setups.",
+      "logo": ""
     },
     {
       "id": 69,
@@ -760,7 +1372,16 @@
       "country": "Germany",
       "city": "Sinsheim",
       "stadium": "PreZero Arena",
-      "founded": 1899
+      "stadiumCapacity": 30150,
+      "founded": 1899,
+      "trophies": {
+        "leagueTitles": 0,
+        "championsLeague": 0,
+        "domesticCup": 0,
+        "europeanClubCup": 0
+      },
+      "description": "Small-town club whose rapid modern rise was backed by major private investment.",
+      "logo": ""
     },
     {
       "id": 70,
@@ -771,7 +1392,16 @@
       "country": "Germany",
       "city": "Bremen",
       "stadium": "Weserstadion",
-      "founded": 1899
+      "stadiumCapacity": 42100,
+      "founded": 1899,
+      "trophies": {
+        "leagueTitles": 4,
+        "championsLeague": 0,
+        "domesticCup": 6,
+        "europeanClubCup": 0
+      },
+      "description": "North German club with a strong attacking tradition and four Bundesliga titles.",
+      "logo": ""
     },
     {
       "id": 71,
@@ -782,7 +1412,16 @@
       "country": "Germany",
       "city": "Mainz",
       "stadium": "Mewa Arena",
-      "founded": 1905
+      "stadiumCapacity": 33305,
+      "founded": 1905,
+      "trophies": {
+        "leagueTitles": 0,
+        "championsLeague": 0,
+        "domesticCup": 0,
+        "europeanClubCup": 0
+      },
+      "description": "Rhineland club known for developing coaches and players who go on to bigger stages.",
+      "logo": ""
     },
     {
       "id": 72,
@@ -793,7 +1432,16 @@
       "country": "Germany",
       "city": "Berlin",
       "stadium": "Stadion An der Alten Försterei",
-      "founded": 1966
+      "stadiumCapacity": 22012,
+      "founded": 1966,
+      "trophies": {
+        "leagueTitles": 0,
+        "championsLeague": 0,
+        "domesticCup": 0,
+        "europeanClubCup": 0
+      },
+      "description": "East Berlin club famed for its fiercely loyal, community-driven fanbase.",
+      "logo": ""
     },
     {
       "id": 73,
@@ -804,7 +1452,16 @@
       "country": "Germany",
       "city": "Augsburg",
       "stadium": "WWK Arena",
-      "founded": 1907
+      "stadiumCapacity": 30660,
+      "founded": 1907,
+      "trophies": {
+        "leagueTitles": 0,
+        "championsLeague": 0,
+        "domesticCup": 0,
+        "europeanClubCup": 0
+      },
+      "description": "Bavarian club that reached the Bundesliga for the first time in 2011.",
+      "logo": ""
     },
     {
       "id": 74,
@@ -815,7 +1472,16 @@
       "country": "Germany",
       "city": "Cologne",
       "stadium": "RheinEnergieStadion",
-      "founded": 1948
+      "stadiumCapacity": 50000,
+      "founded": 1948,
+      "trophies": {
+        "leagueTitles": 2,
+        "championsLeague": 0,
+        "domesticCup": 4,
+        "europeanClubCup": 0
+      },
+      "description": "Historic Rhineland club and founding member of the Bundesliga in 1963.",
+      "logo": ""
     },
     {
       "id": 75,
@@ -826,7 +1492,16 @@
       "country": "Germany",
       "city": "Hamburg",
       "stadium": "Volksparkstadion",
-      "founded": 1887
+      "stadiumCapacity": 57000,
+      "founded": 1887,
+      "trophies": {
+        "leagueTitles": 6,
+        "championsLeague": 1,
+        "domesticCup": 3,
+        "europeanClubCup": 0
+      },
+      "description": "One of Germany's oldest clubs, 1983 European Cup winners, back in the Bundesliga.",
+      "logo": ""
     },
     {
       "id": 76,
@@ -837,7 +1512,16 @@
       "country": "Germany",
       "city": "Gelsenkirchen",
       "stadium": "Veltins-Arena",
-      "founded": 1904
+      "stadiumCapacity": 62271,
+      "founded": 1904,
+      "trophies": {
+        "leagueTitles": 7,
+        "championsLeague": 0,
+        "domesticCup": 5,
+        "europeanClubCup": 0
+      },
+      "description": "Ruhr region club with passionate mining-town roots, back in the top flight.",
+      "logo": ""
     },
     {
       "id": 77,
@@ -848,7 +1532,16 @@
       "country": "Germany",
       "city": "Spiesen-Elversberg",
       "stadium": "Ursapharm-Arena Saar",
-      "founded": 1907
+      "stadiumCapacity": 10000,
+      "founded": 1907,
+      "trophies": {
+        "leagueTitles": 0,
+        "championsLeague": 0,
+        "domesticCup": 0,
+        "europeanClubCup": 0
+      },
+      "description": "Saarland club making its first appearance in the Bundesliga after a rapid rise.",
+      "logo": ""
     },
     {
       "id": 78,
@@ -859,7 +1552,16 @@
       "country": "Germany",
       "city": "Paderborn",
       "stadium": "Home Deluxe Arena",
-      "founded": 1985
+      "stadiumCapacity": 15000,
+      "founded": 1985,
+      "trophies": {
+        "leagueTitles": 0,
+        "championsLeague": 0,
+        "domesticCup": 0,
+        "europeanClubCup": 0
+      },
+      "description": "North Rhine-Westphalia club known for yo-yoing between the top two German divisions.",
+      "logo": ""
     },
     {
       "id": 79,
@@ -870,7 +1572,16 @@
       "country": "France",
       "city": "Paris",
       "stadium": "Parc des Princes",
-      "founded": 1970
+      "stadiumCapacity": 47929,
+      "founded": 1970,
+      "trophies": {
+        "leagueTitles": 13,
+        "championsLeague": 1,
+        "domesticCup": 16,
+        "europeanClubCup": 1
+      },
+      "description": "France's dominant modern club, 2025 Champions League and UEFA Super Cup winners.",
+      "logo": ""
     },
     {
       "id": 80,
@@ -881,7 +1592,16 @@
       "country": "France",
       "city": "Marseille",
       "stadium": "Orange Vélodrome",
-      "founded": 1899
+      "stadiumCapacity": 67394,
+      "founded": 1899,
+      "trophies": {
+        "leagueTitles": 9,
+        "championsLeague": 1,
+        "domesticCup": 10,
+        "europeanClubCup": 0
+      },
+      "description": "Southern France's passionate club, France's only European Cup winners (1993).",
+      "logo": ""
     },
     {
       "id": 81,
@@ -892,7 +1612,16 @@
       "country": "France",
       "city": "Monaco",
       "stadium": "Stade Louis II",
-      "founded": 1924
+      "stadiumCapacity": 16360,
+      "founded": 1924,
+      "trophies": {
+        "leagueTitles": 8,
+        "championsLeague": 0,
+        "domesticCup": 5,
+        "europeanClubCup": 0
+      },
+      "description": "Principality club known for developing young talent and regular Champions League football.",
+      "logo": ""
     },
     {
       "id": 82,
@@ -903,7 +1632,16 @@
       "country": "France",
       "city": "Lille",
       "stadium": "Stade Pierre-Mauroy",
-      "founded": 1944
+      "stadiumCapacity": 50186,
+      "founded": 1944,
+      "trophies": {
+        "leagueTitles": 4,
+        "championsLeague": 0,
+        "domesticCup": 6,
+        "europeanClubCup": 0
+      },
+      "description": "Northern France club that has produced surprise league title wins against bigger-spending rivals.",
+      "logo": ""
     },
     {
       "id": 83,
@@ -914,7 +1652,16 @@
       "country": "France",
       "city": "Lyon",
       "stadium": "Groupama Stadium",
-      "founded": 1950
+      "stadiumCapacity": 59186,
+      "founded": 1950,
+      "trophies": {
+        "leagueTitles": 7,
+        "championsLeague": 0,
+        "domesticCup": 5,
+        "europeanClubCup": 0
+      },
+      "description": "Dominant French club of the 2000s, winners of seven consecutive league titles.",
+      "logo": ""
     },
     {
       "id": 84,
@@ -925,7 +1672,16 @@
       "country": "France",
       "city": "Nice",
       "stadium": "Allianz Riviera",
-      "founded": 1904
+      "stadiumCapacity": 35624,
+      "founded": 1904,
+      "trophies": {
+        "leagueTitles": 4,
+        "championsLeague": 0,
+        "domesticCup": 3,
+        "europeanClubCup": 0
+      },
+      "description": "French Riviera club known for defensive solidity and a strong 1950s heritage.",
+      "logo": ""
     },
     {
       "id": 85,
@@ -936,7 +1692,16 @@
       "country": "France",
       "city": "Lens",
       "stadium": "Stade Bollaert-Delelis",
-      "founded": 1906
+      "stadiumCapacity": 38223,
+      "founded": 1906,
+      "trophies": {
+        "leagueTitles": 1,
+        "championsLeague": 0,
+        "domesticCup": 1,
+        "europeanClubCup": 0
+      },
+      "description": "Mining-region club famed for one of the most intense atmospheres in French football.",
+      "logo": ""
     },
     {
       "id": 86,
@@ -947,7 +1712,16 @@
       "country": "France",
       "city": "Rennes",
       "stadium": "Roazhon Park",
-      "founded": 1901
+      "stadiumCapacity": 29778,
+      "founded": 1901,
+      "trophies": {
+        "leagueTitles": 0,
+        "championsLeague": 0,
+        "domesticCup": 3,
+        "europeanClubCup": 0
+      },
+      "description": "Brittany club known for strong youth development and Coupe de France pedigree.",
+      "logo": ""
     },
     {
       "id": 87,
@@ -958,7 +1732,16 @@
       "country": "France",
       "city": "Strasbourg",
       "stadium": "Stade de la Meinau",
-      "founded": 1906
+      "stadiumCapacity": 29230,
+      "founded": 1906,
+      "trophies": {
+        "leagueTitles": 1,
+        "championsLeague": 0,
+        "domesticCup": 3,
+        "europeanClubCup": 0
+      },
+      "description": "Alsace club with a passionate fanbase, French champions in 1979.",
+      "logo": ""
     },
     {
       "id": 88,
@@ -969,7 +1752,16 @@
       "country": "France",
       "city": "Toulouse",
       "stadium": "Stadium de Toulouse",
-      "founded": 1970
+      "stadiumCapacity": 33150,
+      "founded": 1970,
+      "trophies": {
+        "leagueTitles": 0,
+        "championsLeague": 0,
+        "domesticCup": 2,
+        "europeanClubCup": 0
+      },
+      "description": "Southern France club playing at a World Cup-hosting stadium.",
+      "logo": ""
     },
     {
       "id": 89,
@@ -980,7 +1772,16 @@
       "country": "France",
       "city": "Auxerre",
       "stadium": "Stade Abbé-Deschamps",
-      "founded": 1905
+      "stadiumCapacity": 23467,
+      "founded": 1905,
+      "trophies": {
+        "leagueTitles": 0,
+        "championsLeague": 0,
+        "domesticCup": 1,
+        "europeanClubCup": 0
+      },
+      "description": "Burgundy club famous for the long managerial reign of Guy Roux.",
+      "logo": ""
     },
     {
       "id": 90,
@@ -991,7 +1792,16 @@
       "country": "France",
       "city": "Angers",
       "stadium": "Stade Raymond Kopa",
-      "founded": 1919
+      "stadiumCapacity": 18752,
+      "founded": 1919,
+      "trophies": {
+        "leagueTitles": 0,
+        "championsLeague": 0,
+        "domesticCup": 0,
+        "europeanClubCup": 0
+      },
+      "description": "Loire Valley club known for competitive mid-table Ligue 1 campaigns.",
+      "logo": ""
     },
     {
       "id": 91,
@@ -1002,7 +1812,16 @@
       "country": "France",
       "city": "Brest",
       "stadium": "Stade Francis-Le Blé",
-      "founded": 1950
+      "stadiumCapacity": 15931,
+      "founded": 1950,
+      "trophies": {
+        "leagueTitles": 0,
+        "championsLeague": 0,
+        "domesticCup": 0,
+        "europeanClubCup": 0
+      },
+      "description": "Brittany coastal club that reached the Champions League for the first time in 2024.",
+      "logo": ""
     },
     {
       "id": 92,
@@ -1013,7 +1832,16 @@
       "country": "France",
       "city": "Le Havre",
       "stadium": "Stade Océane",
-      "founded": 1872
+      "stadiumCapacity": 25178,
+      "founded": 1872,
+      "trophies": {
+        "leagueTitles": 0,
+        "championsLeague": 0,
+        "domesticCup": 0,
+        "europeanClubCup": 0
+      },
+      "description": "France's oldest football club, founded in the port city of Le Havre in 1872.",
+      "logo": ""
     },
     {
       "id": 93,
@@ -1024,7 +1852,16 @@
       "country": "France",
       "city": "Paris",
       "stadium": "Stade Jean-Bouin",
-      "founded": 1969
+      "stadiumCapacity": 20000,
+      "founded": 1969,
+      "trophies": {
+        "leagueTitles": 0,
+        "championsLeague": 0,
+        "domesticCup": 0,
+        "europeanClubCup": 0
+      },
+      "description": "Paris-based club distinct from PSG, promoted to Ligue 1 with new investment backing.",
+      "logo": ""
     },
     {
       "id": 94,
@@ -1035,7 +1872,16 @@
       "country": "France",
       "city": "Lorient",
       "stadium": "Stade du Moustoir",
-      "founded": 1926
+      "stadiumCapacity": 18890,
+      "founded": 1926,
+      "trophies": {
+        "leagueTitles": 0,
+        "championsLeague": 0,
+        "domesticCup": 1,
+        "europeanClubCup": 0
+      },
+      "description": "Brittany club known for a strong academy producing top French internationals.",
+      "logo": ""
     },
     {
       "id": 95,
@@ -1046,7 +1892,16 @@
       "country": "France",
       "city": "Troyes",
       "stadium": "Stade de l'Aube",
-      "founded": 1986
+      "stadiumCapacity": 20400,
+      "founded": 1986,
+      "trophies": {
+        "leagueTitles": 0,
+        "championsLeague": 0,
+        "domesticCup": 0,
+        "europeanClubCup": 0
+      },
+      "description": "Champagne-region club that returns to Ligue 1 after a spell in the second tier.",
+      "logo": ""
     },
     {
       "id": 96,
@@ -1057,7 +1912,16 @@
       "country": "France",
       "city": "Le Mans",
       "stadium": "MMArena",
-      "founded": 1985
+      "stadiumCapacity": 25064,
+      "founded": 1985,
+      "trophies": {
+        "leagueTitles": 0,
+        "championsLeague": 0,
+        "domesticCup": 0,
+        "europeanClubCup": 0
+      },
+      "description": "Western France club best known internationally for the 24 Hours of Le Mans race, returning to the top flight.",
+      "logo": ""
     }
   ]
 }
