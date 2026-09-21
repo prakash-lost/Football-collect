@@ -14,8 +14,8 @@ import { IoEarth } from "react-icons/io5";
 const Footer = () => {
   return (
     <div className=" bg-blue-950 w-full ">
-      <div className="text-white mb-3 border-b-2 p-8 flex flex-col sm:flex-row justify-between items-center flex-wrap sm:p-8">
-        <div className="mb-8 text-center  order-1 ">
+      <div className="text-white mb-3 border-b-2 p-8 flex flex-col sm:flex-row justify-between items-center flex-wrap gap-8 sm:p-8">
+        <div className=" text-center  order-1 ">
           <h1 className="font-bold text-2xl font-serif ">
             <span className="">⚽</span>FOOTBALL HUB
             <span className="">⚽</span>
@@ -23,7 +23,7 @@ const Footer = () => {
           <p className="mt-3">
             Your place for teams, players, stats & football information.
           </p>
-          <div className="text-start flex gap-6 mt-6">
+          <div className="text-start flex flex-wrap justify-center gap-6 mt-6">
             <div>
               <IoShieldOutline className="ml-6" />
               50+ Teams
@@ -42,7 +42,7 @@ const Footer = () => {
             </div>
           </div>
         </div>
-        <div className="flex flex-row justify-between  gap-10 order-2 ">
+        <div className="flex flex-row flex-wrap justify-center gap-10 order-2">
           <section>
             <h1 className="font-bold">EXPLORE</h1>
             <ul className="list-disc">
@@ -71,7 +71,7 @@ const Footer = () => {
             </ul>
           </section>
         </div>
-        <div className="mb-8 text-center  order-3 ">
+        <div className="text-center  order-3 ">
           <h1 className="font-bold text-2xl font-serif mb-6 pt-2">
             Stay Updated
           </h1>
@@ -91,7 +91,7 @@ const Footer = () => {
         </div>
       </div>
 
-      <div className="text-white flex flex-row justify-between mx-20 pb-5">
+      <div className="text-white flex flex-col sm:flex-row justify-between items-center gap-4 text-center mx-4 sm:mx-20 pb-5">
         <div>
           <p>
             Follow Football Hub <br />[ Youtube ] [ Instagram ] [ Facebook ] [ X
