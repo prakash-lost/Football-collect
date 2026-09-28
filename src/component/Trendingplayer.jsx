@@ -75,19 +75,19 @@ const trendPlayer = [
 ];
 
 const Trendingplayer = () => {
-  const [clicked, setClicked] = useState(false);
+  // const [clicked, setClicked] = useState(false);
   return (
     <>
       <div 
-        onClick={() => setClicked(!clicked)}
-        className="flex justify-center items-center h-10 bg-blue-900 text-white gap-3 mx-10 text-xl  rounded-lg hover:text-slate-300 hover:cursor-pointer hover:scale-[1.02]"
+        // onClick={() => setClicked(!clicked)}
+        className="flex justify-center items-center py-2 px-4 bg-blue-900 text-white gap-3  text-xl  rounded-lg  hover:cursor-pointer hover:bg-blue-950"
       >
         <h1 className="font-bold">Trending players</h1>
-        <span>
+        {/* <span>
           <GiClick  />
-        </span>
+        </span> */}
       </div>
-      {clicked && (
+      {/* {clicked && ( */}
         <div className="w-full  overflow-x-auto">
           <div className="flex  flex-wrap gap-4 w-max ">
             {trendPlayer.map((val, i) => {
@@ -137,7 +137,7 @@ const Trendingplayer = () => {
             })}
           </div>
         </div>
-      )}
+      {/* // )} */}
     </>
   );
 };

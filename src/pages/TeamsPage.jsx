@@ -5,7 +5,7 @@ const TeamsPage = () => {
   const [putTeams, setPutTeams] = useState([]);
   const [visible, setVisible] = useState(12);
   const HandleVisible = () => {
-    setVisible((prev) => prev + 4);
+    setVisible((prev) => prev + 8);
   };
   useEffect(() => {
     const getTeams = async () => {
@@ -26,16 +26,16 @@ const TeamsPage = () => {
   // },[putTeams])
   return (
     <>
-      <div className="grid grid-cols-2 md:grid-cols-4 gap-4 hover:cursor-pointer">
+      <div className="grid grid-cols-2 sm:grid-cols-4  gap-4 hover:cursor-pointer">
         {putTeams.slice(0, visible).map((member) => (
           <div
             key={member.id}
-            className="h-32 overflow-hidden rounded-lg  text-white mt-2 hover:scale-[1.05]"
+            className=" overflow-hidden rounded-lg text-white mt-2 hover:scale-[1.05]"
           >
             <img
-              src={member.name}
+              src={member.logo}
               alt={member.shortName}
-              className="object-cover h-full w-full bg-slate-900"
+              className="object-contain  bg-slate-900"
             />
           </div>
         ))}
