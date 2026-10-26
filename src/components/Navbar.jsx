@@ -1,184 +1,241 @@
-//
-
-import React, { useContext, useState } from "react";
-import { Link } from "react-router";
+import React, { useContext, useState, useEffect } from "react";
+import { Link, useLocation } from "react-router";
 import { FaSearch } from "react-icons/fa";
+import { Menu, X, Sun, Moon, User, ArrowRight } from "lucide-react";
 import LoginForm from "../pages/LoginForm";
 import { Switch } from "../components/ui/switch";
 import { ThemeContext } from "../context/ThemeContext";
-import { Menu, X } from "lucide-react";
 
-// CHANGE 1: The links were written twice (desktop + mobile menu).
-// Now they live in ONE array. To add/remove a page, edit only this list.
 const navLinks = [
   { label: "Home", path: "/" },
+  { label: "Teams", path: "/teams" },
   { label: "Players", path: "/players" },
   { label: "Leagues", path: "/leagues" },
-  { label: "Teams", path: "/teams" },
   { label: "News", path: "/news" },
-  // { label: "About us", path: "/aboutus" },     // re-enable by uncommenting
-  // { label: "Contact us", path: "/contactus" }, // re-enable by uncommenting
 ];
 
-// CHANGE 2: This long class string was copy-pasted 4 times (Profile + Login,
-// on mobile and desktop). Now it is written once and reused.
-// "hover:cursor-pointer" became "cursor-pointer" (same result, shorter).
-const buttonStyle =
-  "bg-primary-foreground/10 hover:bg-primary-foreground/20 text-primary-foreground px-2 py-1 sm:p-2 text-xs sm:text-sm rounded-md cursor-pointer border border-primary-foreground/20";
-
-// CHANGE 3: Small reusable component for the links.
-// It is used twice: desktop bar and mobile dropdown. Only the className differs.
-// onLinkClick is optional - the mobile menu uses it to close itself.
-const NavLinks = ({ className, onLinkClick }) => (
-  <div className={className}>
-    {navLinks.map((link) => (
-      <Link key={link.path} to={link.path} onClick={onLinkClick}>
-        {link.label}
-      </Link>
-    ))}
-  </div>
-);
-
-// CHANGE 4: Small reusable component for Profile + Login buttons.
-// Used twice: mobile top row and desktop right side.
-const AuthButtons = ({ className, onLoginClick }) => (
-  <div className={`items-center gap-3 ${className}`}>
-    {/* CHANGE 5: A <button> inside a <Link> is invalid HTML (two clickable
-        elements nested). Now the Link itself carries the button style. */}
-    <Link to="/profile" className={buttonStyle}>
-      Profile
-    </Link>
-    <button onClick={onLoginClick} className={buttonStyle}>
-      Login
-    </button>
-  </div>
-);
-
 const Navbar = () => {
-  // CHANGE 6: Clearer state names.
-  // clicked -> showLogin, hamburger -> menuOpen
   const [showLogin, setShowLogin] = useState(false);
   const [mobileSearchOpen, setMobileSearchOpen] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
-  // CHANGE 7: One shared value for both search inputs (mobile + desktop).
-  // Before, each input kept its own text, so resizing the screen lost it.
   const [searchText, setSearchText] = useState("");
+  const [scrolled, setScrolled] = useState(false);
   const { isDark, setIsDark } = useContext(ThemeContext);
+  const location = useLocation?.() || { pathname: "/" };
+
+  // Detect scroll to add extra shadow & blur depth
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 20);
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   return (
-    <div className="sticky top-0 z-50">
-      {/* CHANGE 8: Removed extra spaces inside className strings. */}
-      <div className="px-3 sm:px-8 min-h-16 py-2 flex flex-col sm:flex-row justify-between items-center font-bold bg-primary text-primary-foreground shadow-[0_10px_30px_rgba(15,84,58,0.18)]">
-        {/* ---------- LEFT BLOCK: logo, (mobile buttons), icons ---------- */}
-        {/* CHANGE 9: Added items-center here, so the old "mb-3 sm:mt-3"
-            margin tricks on the button wrappers are no longer needed. */}
-        <div className="flex w-full sm:w-auto justify-between items-center">
-          {/* CHANGE 10: Removed the extra overflow-hidden wrapper div and
-              "aspect-video" (it did nothing because height + width were fixed). */}
-          <Link to="/" className="block">
-            <img
-              className="h-10 w-10 sm:h-14 sm:w-14 object-contain drop-shadow-sm"
-              // CHANGE 11: "/footballlogo.png" instead of "./footballlogo.png".
-              // A "./" path breaks on nested pages like /players/10.
-              src="/footballlogo.png"
-              // CHANGE 12: alt text added (screen readers + broken image case).
-              alt="Football logo"
-            />
-          </Link>
-
-          {/* Mobile-only Profile/Login (same idea as before) */}
-          <AuthButtons
-            className="flex sm:hidden"
-            onLoginClick={() => setShowLogin(true)}
-          />
-
-          {/* CHANGE 13: gap-2 spaces the icons, so no "pr-2" on the icon. */}
-          <div className="flex items-center gap-2">
-            <button
-              className="sm:hidden text-primary-foreground"
-              // CHANGE 14: aria-label, because an icon-only button has no text.
-              aria-label="Toggle search"
-              // CHANGE 15: (prev) => !prev is the safe way to flip a boolean.
-              onClick={() => setMobileSearchOpen((prev) => !prev)}
+    <>
+      <header
+        className={`sticky top-0 z-50 w-full transition-all duration-300 ${
+          scrolled
+            ? "bg-background/85 backdrop-blur-xl border-b border-border/60 shadow-lg shadow-black/5"
+            : "bg-background/95 sm:bg-background/80 backdrop-blur-md border-b border-border/30"
+        }`}
+      >
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex items-center justify-between h-16 sm:h-20 gap-4">
+            {/* ---------- BRAND LOGO ---------- */}
+            <Link
+              to="/"
+              className="flex items-center gap-3 group focus:outline-none"
             >
-              <FaSearch className="text-2xl" />
-            </button>
+              <div className="relative flex items-center justify-center w-10 h-10 sm:w-12 sm:h-12 rounded-xl bg-primary/10 border border-primary/20 group-hover:border-primary/40 transition-colors shadow-inner">
+                <img
+                  className="h-7 w-7 sm:h-8 sm:w-8 object-contain transition-transform duration-300 group-hover:scale-110 drop-shadow-md"
+                  src="/footballlogo.png"
+                  alt="Football Hub Logo"
+                  onError={(e) => {
+                    // Fallback emoji if image missing
+                    e.target.style.display = "none";
+                    e.target.nextSibling.style.display = "block";
+                  }}
+                />
+                <span className="hidden text-xl">⚽</span>
+              </div>
+              <div className="flex flex-col">
+                <span className="font-extrabold text-lg sm:text-xl tracking-tight text-foreground flex items-center gap-1.5 font-sans">
+                  FOOTBALL<span className="text-primary font-black">HUB</span>
+                </span>
+                <span className="text-[10px] uppercase font-bold tracking-widest text-muted-foreground hidden sm:block -mt-1">
+                  Collect & Stats
+                </span>
+              </div>
+            </Link>
 
-            {/* CHANGE 16: This is now the ONLY theme Switch. Your old code had
-                a second Switch inside a "hidden" div that never showed. */}
-            <Switch
-              checked={isDark}
-              onCheckedChange={setIsDark}
-              aria-label="Toggle dark mode"
-            />
+            {/* ---------- DESKTOP NAVIGATION LINKS ---------- */}
+            <nav className="hidden md:flex items-center gap-1 lg:gap-2">
+              {navLinks.map((link) => {
+                const isActive = location.pathname === link.path;
+                return (
+                  <Link
+                    key={link.path}
+                    to={link.path}
+                    className={`relative px-3 py-1.5 rounded-lg text-sm font-semibold tracking-wide transition-all duration-200 ${
+                      isActive
+                        ? "text-primary bg-primary/10 font-bold"
+                        : "text-muted-foreground hover:text-foreground hover:bg-accent/50"
+                    }`}
+                  >
+                    {link.label}
+                    {isActive && (
+                      <span className="absolute bottom-0 left-1/2 -translate-x-1/2 w-4 h-0.5 bg-primary rounded-full" />
+                    )}
+                  </Link>
+                );
+              })}
+            </nav>
 
-            <button
-              className="sm:hidden"
-              aria-label="Toggle menu"
-              aria-expanded={menuOpen}
-              onClick={() => setMenuOpen((prev) => !prev)}
-            >
-              {menuOpen ? <X /> : <Menu />}
-            </button>
+            {/* ---------- RIGHT ACTIONS: SEARCH + THEME + AUTH ---------- */}
+            <div className="flex items-center gap-2.5 sm:gap-4">
+              {/* Desktop Search Bar */}
+              <div className="hidden lg:flex items-center relative">
+                <FaSearch className="absolute left-3.5 text-muted-foreground text-xs pointer-events-none" />
+                <input
+                  name="search"
+                  className="w-48 xl:w-56 h-9 pl-9 pr-4 rounded-full text-xs bg-muted/50 border border-border/70 text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/40 focus:border-primary focus:w-64 transition-all duration-300"
+                  placeholder="Search clubs, players..."
+                  type="text"
+                  value={searchText}
+                  onChange={(e) => setSearchText(e.target.value)}
+                />
+              </div>
+
+              {/* Mobile Search Toggle Button */}
+              <button
+                className="lg:hidden p-2 rounded-lg text-muted-foreground hover:text-foreground hover:bg-accent/60 transition-colors"
+                aria-label="Toggle search"
+                onClick={() => setMobileSearchOpen((prev) => !prev)}
+              >
+                <FaSearch className="text-base" />
+              </button>
+
+              {/* Theme Toggle Pill */}
+              <div className="flex items-center gap-1.5 px-2 py-1 rounded-full bg-muted/60 border border-border/60">
+                {isDark ? (
+                  <Moon className="w-3.5 h-3.5 text-primary animate-in fade-in duration-200" />
+                ) : (
+                  <Sun className="w-3.5 h-3.5 text-amber-500 animate-in fade-in duration-200" />
+                )}
+                <Switch
+                  checked={isDark}
+                  onCheckedChange={setIsDark}
+                  aria-label="Toggle dark mode"
+                  className="scale-90"
+                />
+              </div>
+
+              {/* Auth Buttons */}
+              <div className="hidden sm:flex items-center gap-2.5">
+                <Link
+                  to="/profile"
+                  className="flex items-center gap-1.5 px-3 py-1.5 text-xs font-semibold rounded-lg text-foreground hover:text-primary hover:bg-accent/60 border border-border/80 transition-colors"
+                >
+                  <User className="w-3.5 h-3.5" />
+                  Profile
+                </Link>
+                <button
+                  onClick={() => setShowLogin(true)}
+                  className="px-4 py-1.5 text-xs font-bold rounded-lg bg-primary text-primary-foreground shadow-sm shadow-primary/20 hover:opacity-95 hover:shadow-primary/30 transition-all active:scale-95 cursor-pointer"
+                >
+                  Sign In
+                </button>
+              </div>
+
+              {/* Mobile Menu Hamburger Button */}
+              <button
+                className="md:hidden p-2 rounded-lg text-foreground hover:bg-accent/60 transition-colors"
+                aria-label="Toggle menu"
+                aria-expanded={menuOpen}
+                onClick={() => setMenuOpen((prev) => !prev)}
+              >
+                {menuOpen ? (
+                  <X className="w-6 h-6" />
+                ) : (
+                  <Menu className="w-6 h-6" />
+                )}
+              </button>
+            </div>
           </div>
         </div>
 
-        {/* ---------- CENTER: desktop links ---------- */}
-        {/* CHANGE 17: Uses <NavLinks /> instead of repeating every <Link>.
-            Removed flex-wrap and md:gap-3 (they had no real effect here). */}
-        <NavLinks className="hidden sm:flex gap-4 items-center text-lg font-serif text-primary-foreground/90" />
-
-        {/* ---------- RIGHT BLOCK: desktop search + buttons ---------- */}
-        {/* CHANGE 18: The whole block is hidden on mobile. Before, an empty
-            wrapper div stayed on mobile and only its children were hidden. */}
-        <div className="hidden sm:flex sm:mr-8 gap-4 items-center">
-          <div className="bg-card flex items-center rounded-full focus-within:ring-2 focus-within:ring-primary">
-            <input
-              name="search"
-              // CHANGE 19: w-28 instead of w-18 (w-18 is not a standard class
-              // in older Tailwind versions, w-28 works everywhere).
-              className="focus:outline-none w-28 h-7 pl-4 pr-3 text-sm text-foreground bg-transparent"
-              placeholder="Search"
-              type="text"
-              value={searchText}
-              onChange={(e) => setSearchText(e.target.value)}
-            />
+        {/* ---------- MOBILE EXPANDABLE SEARCH ---------- */}
+        {mobileSearchOpen && (
+          <div className="lg:hidden px-4 pb-3 pt-1 border-t border-border/40 bg-background/95 backdrop-blur-xl animate-in slide-in-from-top-2 duration-200">
+            <div className="relative flex items-center">
+              <FaSearch className="absolute left-3.5 text-muted-foreground text-xs" />
+              <input
+                name="mobile-search"
+                className="w-full h-10 pl-9 pr-4 rounded-xl text-sm bg-muted/70 border border-border text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/40 focus:border-primary"
+                placeholder="Search clubs, players, leagues..."
+                type="text"
+                autoFocus
+                value={searchText}
+                onChange={(e) => setSearchText(e.target.value)}
+              />
+            </div>
           </div>
+        )}
 
-          <AuthButtons
-            className="flex"
-            onLoginClick={() => setShowLogin(true)}
-          />
-        </div>
-      </div>
+        {/* ---------- MOBILE SLIDE-DOWN DRAWER ---------- */}
+        {menuOpen && (
+          <div className="md:hidden border-t border-border/60 bg-background/95 backdrop-blur-xl px-4 py-6 shadow-2xl animate-in slide-in-from-top-3 duration-200">
+            <div className="flex flex-col gap-2">
+              {navLinks.map((link) => {
+                const isActive = location.pathname === link.path;
+                return (
+                  <Link
+                    key={link.path}
+                    to={link.path}
+                    onClick={() => setMenuOpen(false)}
+                    className={`flex items-center justify-between px-4 py-3 rounded-xl text-base font-semibold transition-colors ${
+                      isActive
+                        ? "bg-primary text-primary-foreground font-bold shadow-sm"
+                        : "text-foreground hover:bg-muted"
+                    }`}
+                  >
+                    <span>{link.label}</span>
+                    <ArrowRight className="w-4 h-4 opacity-50" />
+                  </Link>
+                );
+              })}
 
+              {/* Mobile Auth CTAs */}
+              <div className="pt-4 mt-2 border-t border-border/60 flex flex-col gap-2.5">
+                <Link
+                  to="/profile"
+                  onClick={() => setMenuOpen(false)}
+                  className="flex items-center justify-center gap-2 w-full py-2.5 rounded-xl text-sm font-semibold border border-border bg-card text-foreground"
+                >
+                  <User className="w-4 h-4" />
+                  My Profile
+                </Link>
+                <button
+                  onClick={() => {
+                    setMenuOpen(false);
+                    setShowLogin(true);
+                  }}
+                  className="w-full py-2.5 rounded-xl text-sm font-bold bg-primary text-primary-foreground shadow-md shadow-primary/20"
+                >
+                  Sign In / Register
+                </button>
+              </div>
+            </div>
+          </div>
+        )}
+      </header>
+
+      {/* Login Modal */}
       {showLogin && <LoginForm onclose={() => setShowLogin(false)} />}
-
-      {mobileSearchOpen && (
-        <div className="sm:hidden w-full px-3 pb-2 bg-primary">
-          <input
-            name="mobile-search"
-            className="focus:outline-none w-full h-8 pl-4 rounded-full text-sm text-primary-foreground bg-primary-foreground/10 border border-primary-foreground/30"
-            placeholder="Search"
-            type="text"
-            autoFocus
-            // Same shared state as the desktop input (see CHANGE 7).
-            value={searchText}
-            onChange={(e) => setSearchText(e.target.value)}
-          />
-        </div>
-      )}
-
-      {menuOpen && (
-        // CHANGE 20: Clicking a link now closes the mobile menu.
-        // Before, the menu stayed open after you navigated.
-        // Added py-2 so the links are not squeezed against the edges.
-        <NavLinks
-          className="bg-primary text-primary-foreground sm:hidden flex justify-center flex-wrap gap-4 items-center py-2 text-base font-serif"
-          onLinkClick={() => setMenuOpen(false)}
-        />
-      )}
-    </div>
+    </>
   );
 };
 
