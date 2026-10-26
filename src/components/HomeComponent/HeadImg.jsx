@@ -4,7 +4,7 @@ import {
   Carousel,
   CarouselContent,
   CarouselItem,
-} from "../components/ui/carousel";
+} from "../ui/carousel";
 import Autoplay from "embla-carousel-autoplay";
 import {
   ChevronLeft,

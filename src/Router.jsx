@@ -11,7 +11,7 @@ import RegisterPage from "./pages/RegisterPage";
 import Profile from "./pages/Profile";
 import Players from "./pages/Players";
 import LoginForm from "./pages/LoginForm";
-import Team from "./components/Team";
+import Team from "./components/HomeComponent/Team";
 import TeamsPage from "./pages/TeamsPage";
 import News from "./components/News";
 import Leagues from "./components/Leagues";
