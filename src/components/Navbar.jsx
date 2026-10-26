@@ -1,10 +1,11 @@
-import React, { useContext, useState, useEffect } from "react";
+import React, { lazy, Suspense, useContext, useState, useEffect } from "react";
 import { Link, useLocation } from "react-router";
 import { FaSearch } from "react-icons/fa";
 import { Menu, X, Sun, Moon, User, ArrowRight } from "lucide-react";
-import LoginForm from "../pages/LoginForm";
 import { Switch } from "../components/ui/switch";
 import { ThemeContext } from "../context/ThemeContext";
+
+const LoginForm = lazy(() => import("../pages/LoginForm"));
 
 const navLinks = [
   { label: "Home", path: "/" },
@@ -234,7 +235,11 @@ const Navbar = () => {
       </header>
 
       {/* Login Modal */}
-      {showLogin && <LoginForm onclose={() => setShowLogin(false)} />}
+      {showLogin && (
+        <Suspense fallback={null}>
+          <LoginForm onclose={() => setShowLogin(false)} />
+        </Suspense>
+      )}
     </>
   );
 };
