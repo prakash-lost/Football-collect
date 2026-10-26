@@ -3,15 +3,14 @@ import { createBrowserRouter } from "react-router";
 import { RouterProvider } from "react-router/dom";
 import Layout from "./Layout";
 import Home from "./pages/Home";
-import AboutUsPage from "./pages/AboutUsPage";
-import ContactUsPage from "./pages/ContactUsPage";
-import AuthLayout from "./AuthLayout";
+import AboutUsPage from "./pages/Aboutuspage";      // FIXED: lowercase 'uspage'
+import ContactUsPage from "./pages/Contactuspage";  // FIXED: lowercase 'uspage'
+import AuthLayout from "./Authlayout";              // FIXED: lowercase 'layout'
 import LoginPage from "./pages/LoginForm";
-import RegisterPage from "./pages/RegisterPage";
+import RegisterPage from "./pages/Registerpage";    // FIXED: lowercase 'page'
 import Profile from "./pages/Profile";
 import Players from "./pages/Players";
 import LoginForm from "./pages/LoginForm";
-import Team from "./components/HomeComponent/Team";
 import TeamsPage from "./pages/TeamsPage";
 import News from "./components/News";
 import Leagues from "./components/Leagues";
