@@ -82,7 +82,7 @@ const Team = () => {
   const navigate=useNavigate()
   return (
     <>
-      <div onClick={()=>navigate("/teams")} className="bg-blue-900 rounded-lg  text-white flex justify-between items-center px-4 py-2 hover:cursor-pointer hover:bg-blue-950">
+      <div onClick={()=>navigate("/teams")} className="bg-primary rounded-lg text-primary-foreground flex justify-between items-center px-4 py-2 hover:cursor-pointer hover:opacity-95">
         <div>
 
         </div>

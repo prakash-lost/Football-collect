@@ -13,8 +13,8 @@ import { IoEarth } from "react-icons/io5";
 
 const Footer = () => {
   return (
-    <div className=" bg-blue-950 w-full ">
-      <div className="text-white mb-3 border-b-2 p-8 flex flex-col sm:flex-row justify-between items-center flex-wrap gap-8 sm:p-8">
+    <div className="bg-primary w-full text-primary-foreground">
+      <div className="mb-3 border-b border-primary-foreground/20 p-8 flex flex-col sm:flex-row justify-between items-center flex-wrap gap-8 sm:p-8">
         <div className=" text-center  order-1 ">
           <h1 className="font-bold text-2xl font-serif ">
             <span className="">⚽</span>FOOTBALL HUB
@@ -71,27 +71,27 @@ const Footer = () => {
             </ul>
           </section>
         </div>
-        <div className="text-center  order-3 ">
+        <div className="text-center order-3">
           <h1 className="font-bold text-2xl font-serif mb-6 pt-2">
             Stay Updated
           </h1>
           <p>
             Follow us for more intresting content <br />
           </p>
-          <div className="mt-4 ">
+          <div className="mt-4">
             <input
               type="email"
               placeholder="Enter your email"
-              className="bg-white text-black rounded-md mr-2 "
+              className="bg-card text-foreground rounded-md mr-2 border border-primary-foreground/20 px-3 py-2"
             />
-            <button className="bg-slate-500 p-1 rounded-md">
+            <button className="bg-secondary text-secondary-foreground p-2 rounded-md">
               <FaLocationArrow />
             </button>
           </div>
         </div>
       </div>
 
-      <div className="text-white flex flex-col sm:flex-row justify-between items-center gap-4 text-center mx-4 sm:mx-20 pb-5">
+      <div className="flex flex-col sm:flex-row justify-between items-center gap-4 text-center mx-4 sm:mx-20 pb-5 text-primary-foreground/90">
         <div>
           <p>
             Follow Football Hub <br />[ Youtube ] [ Instagram ] [ Facebook ] [ X

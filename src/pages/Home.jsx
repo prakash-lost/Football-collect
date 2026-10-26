@@ -9,15 +9,14 @@ import HeadIMG from "../component/HeadIMG";
 
 const Home = () => {
   return (
-    <div className=" bg-white dark:bg-slate-800 text-white">
+    <div className="bg-background text-foreground">
       <HeadIMG />
 
-      <div className=" p-4 flex flex-col gap-4 min-h-screen ">
+      <div className="p-4 flex flex-col gap-4 min-h-screen bg-background text-foreground">
         <Trendingplayer />
 
-        
         {/* <Transfer /> */}
-        <Team/>
+        <Team />
       </div>
     </div>
   );
