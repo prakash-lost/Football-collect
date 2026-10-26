@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
-import Navbar from './component/Navbar';
+import Navbar from './components/Navbar';
 import { Outlet } from 'react-router';
-import Footer from './component/Footer';
+import Footer from './components/Footer';
 import { ThemeContext } from './context/ThemeContext';
 
 const Layout = () => {

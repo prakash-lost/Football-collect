@@ -1,19 +1,19 @@
 import React from "react";
-import Trendingplayer from "../component/Trendingplayer";
-import Tables from "../component/Tables";
-import Latestscore from "../component/Latestscore";
-import Team from "../component/Team";
-import News from "../component/News";
-import Transfer from "../component/Transfer";
-import HeadIMG from "../component/HeadIMG";
+import TrendingPlayer from "../components/TrendingPlayer";
+import Tables from "../components/Tables";
+import LatestScore from "../components/LatestScore";
+import Team from "../components/Team";
+import News from "../components/News";
+import Transfer from "../components/Transfer";
+import HeadImg from "../components/HeadImg";
 
 const Home = () => {
   return (
     <div className="bg-background text-foreground">
-      <HeadIMG />
+      <HeadImg />
 
       <div className="p-4 flex flex-col gap-4 min-h-screen bg-background text-foreground">
-        <Trendingplayer />
+        <TrendingPlayer />
 
         {/* <Transfer /> */}
         <Team />

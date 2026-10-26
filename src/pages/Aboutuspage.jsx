@@ -1,9 +1,5 @@
-import React from 'react'
+const AboutUsPage = () => {
+  return <div>About us page</div>;
+};
 
-const Aboutuspage = () => {
-  return (
-    <div>Aboutuspage</div>
-  )
-}
-
-export default Aboutuspage
+export default AboutUsPage;

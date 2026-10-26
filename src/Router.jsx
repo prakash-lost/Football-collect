@@ -3,18 +3,18 @@ import { createBrowserRouter } from "react-router";
 import { RouterProvider } from "react-router/dom";
 import Layout from "./Layout";
 import Home from "./pages/Home";
-import Aboutuspage from "./pages/Aboutuspage";
-import Contactuspage from "./pages/Contactuspage";
-import Authlayout from "./Authlayout";
-import Loginpage from "./pages/LoginForm";
-import Registerpage from "./pages/Registerpage";
+import AboutUsPage from "./pages/AboutUsPage";
+import ContactUsPage from "./pages/ContactUsPage";
+import AuthLayout from "./AuthLayout";
+import LoginPage from "./pages/LoginForm";
+import RegisterPage from "./pages/RegisterPage";
 import Profile from "./pages/Profile";
 import Players from "./pages/Players";
 import LoginForm from "./pages/LoginForm";
-import Team from "./component/Team";
+import Team from "./components/Team";
 import TeamsPage from "./pages/TeamsPage";
-import News from "./component/News";
-import Leagues from "./component/Leagues";
+import News from "./components/News";
+import Leagues from "./components/Leagues";
 
 const Router = () => {
   const router = createBrowserRouter([
@@ -23,8 +23,8 @@ const Router = () => {
       Component: Layout,
       children: [
         { index: true, Component: Home },
-        { path: "aboutus", Component: Aboutuspage },
-        { path: "contactus", Component: Contactuspage },
+        { path: "aboutus", Component: AboutUsPage },
+        { path: "contactus", Component: ContactUsPage },
         { path: "players", Component: Players },
         { path: "login", Component: LoginForm },
         { path: "profile", Component: Profile },
@@ -35,10 +35,10 @@ const Router = () => {
     },
     {
       path: "auth",
-      Component: Authlayout,
+      Component: AuthLayout,
       children: [
-        { path: "login", Component: Loginpage },
-        { path: "register", Component: Registerpage },
+        { path: "login", Component: LoginPage },
+        { path: "register", Component: RegisterPage },
       ],
     },
   ]);

@@ -1,6 +1,6 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
-import Popupdetails from "../component/Popupdetails";
+import PopupDetails from "../components/PopupDetails";
 
 const Players = () => {
   const [items, setItems] = useState([]);
@@ -52,7 +52,7 @@ const Players = () => {
           </div>
         ))}
       {clicked && (
-        <Popupdetails players={clicked} onClose={() => setClicked(null)} />
+        <PopupDetails players={clicked} onClose={() => setClicked(null)} />
       )}
 
       {/* {clicked && (
