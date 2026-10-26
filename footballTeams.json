@@ -21,7 +21,7 @@
         "europeanClubCup": 0
       },
       "description": "North London club known as 'The Gunners', famed for attacking football and a rich FA Cup history.",
-      "logo": "https://logos-world.net/wp-content/uploads/2023/08/Arsenal-Logo.png"
+      "logo": "https://upload.wikimedia.org/wikipedia/en/5/53/Arsenal_FC.svg"
     },
     {
       "id": 2,
@@ -41,7 +41,7 @@
         "europeanClubCup": 1
       },
       "description": "One of England's oldest clubs, European champions in 1982, based in Birmingham.",
-      "logo": "https://logos-world.net/wp-content/uploads/2023/08/Aston-Villa-Logo.png"
+      "logo": "https://upload.wikimedia.org/wikipedia/en/9/9f/Aston_Villa_logo.svg"
     },
     {
       "id": 3,
@@ -61,7 +61,7 @@
         "europeanClubCup": 0
       },
       "description": "South coast club nicknamed 'The Cherries', a modern Premier League regular.",
-      "logo": "https://logos-world.net/wp-content/uploads/2023/08/Bournemouth-F.C-Logo.png"
+      "logo": "https://upload.wikimedia.org/wikipedia/en/e/e5/AFC_Bournemouth_%282013%29.svg"
     },
     {
       "id": 4,
@@ -81,7 +81,7 @@
         "europeanClubCup": 0
       },
       "description": "West London club known as 'The Bees', praised for data-driven recruitment and rapid rise.",
-      "logo": "https://logos-world.net/wp-content/uploads/2023/08/Brentford-Logo.png"
+      "logo": "https://upload.wikimedia.org/wikipedia/en/2/2a/Brentford_FC_crest.svg"
     },
     {
       "id": 5,
@@ -101,7 +101,7 @@
         "europeanClubCup": 0
       },
       "description": "South coast club nicknamed 'The Seagulls', known for progressive coaching and youth development.",
-      "logo": "https://logos-world.net/wp-content/uploads/2023/08/Brighton-Hove-Albion-Logo.png"
+      "logo": "https://upload.wikimedia.org/wikipedia/en/f/fd/Brighton_%26_Hove_Albion_logo.svg"
     },
     {
       "id": 6,
@@ -121,7 +121,7 @@
         "europeanClubCup": 3
       },
       "description": "West London giants, two-time Champions League winners and 2021 FIFA Club World Cup champions.",
-      "logo": "https://logos-world.net/wp-content/uploads/2023/08/Chelsea-Logo.png"
+      "logo": "https://upload.wikimedia.org/wikipedia/en/c/cc/Chelsea_FC.svg"
     },
     {
       "id": 7,
@@ -141,7 +141,7 @@
         "europeanClubCup": 0
       },
       "description": "South London club nicknamed 'The Eagles', winners of their first major trophy, the 2025 FA Cup.",
-      "logo": "https://logos-world.net/wp-content/uploads/2023/08/Crystal-Palace-Logo.png"
+      "logo": "https://upload.wikimedia.org/wikipedia/en/a/a2/Crystal_Palace_FC_logo_%282022%29.svg"
     },
     {
       "id": 8,
@@ -161,7 +161,7 @@
         "europeanClubCup": 0
       },
       "description": "Merseyside's 'Toffees', founding members of the Football League with a long top-flight history.",
-      "logo": "https://logos-world.net/wp-content/uploads/2023/08/Everton-Logo.png"
+      "logo": "https://upload.wikimedia.org/wikipedia/en/7/7c/Everton_FC_logo.svg"
     },
     {
       "id": 9,
@@ -181,7 +181,7 @@
         "europeanClubCup": 0
       },
       "description": "West London club, London's oldest professional football club, based on the banks of the Thames.",
-      "logo": "https://logos-world.net/wp-content/uploads/2023/08/Fulham-Logo.png"
+      "logo": "https://upload.wikimedia.org/wikipedia/en/e/eb/Fulham_FC_%28shield%29.svg"
     },
     {
       "id": 10,
@@ -201,7 +201,7 @@
         "europeanClubCup": 0
       },
       "description": "Yorkshire club with a storied 1960s-70s era under Don Revie, promoted back to the top flight.",
-      "logo": "https://logos-world.net/wp-content/uploads/2023/08/Leeds-United-Logo.png"
+      "logo": "https://upload.wikimedia.org/wikipedia/en/5/54/Leeds_United_F.C._logo.svg"
     },
     {
       "id": 11,
@@ -221,7 +221,7 @@
         "europeanClubCup": 5
       },
       "description": "Merseyside giants, one of Europe's most decorated clubs with six European Cup/Champions League titles.",
-      "logo": "https://logos-world.net/wp-content/uploads/2023/08/Liverpool-Logo.png"
+      "logo": "https://upload.wikimedia.org/wikipedia/en/0/0c/Liverpool_FC.svg"
     },
     {
       "id": 12,
@@ -241,7 +241,7 @@
         "europeanClubCup": 2
       },
       "description": "Reigning modern powerhouse of English football, 2023 treble winners and Club World Cup champions.",
-      "logo": "https://logos-world.net/wp-content/uploads/2023/08/Manchester-City-Logo.png"
+      "logo": "https://upload.wikimedia.org/wikipedia/en/e/eb/Manchester_City_FC_badge.svg"
     },
     {
       "id": 13,
@@ -261,7 +261,7 @@
         "europeanClubCup": 2
       },
       "description": "One of the world's most famous clubs, three-time European Cup winners based at 'The Theatre of Dreams'.",
-      "logo": "https://logos-world.net/wp-content/uploads/2023/08/Manchester-United-Logo.png"
+      "logo": "https://upload.wikimedia.org/wikipedia/en/7/7a/Manchester_United_FC_crest.svg"
     },
     {
       "id": 14,
@@ -281,7 +281,7 @@
         "europeanClubCup": 0
       },
       "description": "North East club nicknamed 'The Magpies', renowned for passionate support at St James' Park.",
-      "logo": "https://logos-world.net/wp-content/uploads/2023/08/Newcastle-United-Logo.png"
+      "logo": "https://upload.wikimedia.org/wikipedia/en/5/56/Newcastle_United_Logo.svg"
     },
     {
       "id": 15,
@@ -301,7 +301,7 @@
         "europeanClubCup": 1
       },
       "description": "Shock back-to-back European Cup winners in 1979 and 1980 under Brian Clough.",
-      "logo": "https://logos-world.net/wp-content/uploads/2023/08/Nottingham-Forest-Logo.png"
+      "logo": "https://upload.wikimedia.org/wikipedia/en/e/e5/Nottingham_Forest_F.C._logo.svg"
     },
     {
       "id": 16,
@@ -321,7 +321,7 @@
         "europeanClubCup": 0
       },
       "description": "North East club with six historic English top-flight titles, nicknamed 'The Black Cats'.",
-      "logo": "https://logos-world.net/wp-content/uploads/2023/08/Sunderland-Logo.png"
+      "logo": "https://upload.wikimedia.org/wikipedia/en/7/77/Logo_Sunderland_AFC.svg"
     },
     {
       "id": 17,
@@ -341,7 +341,7 @@
         "europeanClubCup": 0
       },
       "description": "North London club, the first British side to win a European trophy (1963 Cup Winners' Cup).",
-      "logo": "https://logos-world.net/wp-content/uploads/2023/08/Tottenham-Hotspur-Logo.png"
+      "logo": "https://upload.wikimedia.org/wikipedia/en/b/b4/Tottenham_Hotspur.svg"
     },
     {
       "id": 18,
@@ -361,7 +361,7 @@
         "europeanClubCup": 0
       },
       "description": "Midlands club famed for their shock 1987 FA Cup triumph, newly promoted to the top flight.",
-      "logo": "https://diamondpaint.uk/products/coventry-fc-logo-diamond-painting/"
+      "logo": "https://upload.wikimedia.org/wikipedia/en/9/94/Coventry_City_FC_logo.svg"
     },
     {
       "id": 19,
@@ -381,7 +381,7 @@
         "europeanClubCup": 0
       },
       "description": "Suffolk club that won the old First Division in 1962 under Alf Ramsey.",
-      "logo": "https://play.google.com/store/apps/details?id=uk.co.itfc.app"
+      "logo": "https://upload.wikimedia.org/wikipedia/en/4/43/Ipswich_Town.svg"
     },
     {
       "id": 20,
@@ -401,7 +401,7 @@
         "europeanClubCup": 0
       },
       "description": "East Yorkshire club nicknamed 'The Tigers', returning to the Premier League after a long absence.",
-      "logo": "https://logos-world.net/wp-content/uploads/2021/10/Hull-City-Logo.png"
+      "logo": "https://upload.wikimedia.org/wikipedia/en/5/54/Hull_City_A.F.C._logo.svg"
     },
     {
       "id": 21,
@@ -421,7 +421,7 @@
         "europeanClubCup": 0
       },
       "description": "Basque club known for defensive resilience and a long modern spell in La Liga.",
-      "logo": ""
+      "logo": "https://upload.wikimedia.org/wikipedia/en/f/f8/Deportivo_Alaves_logo_%282020%29.svg"
     },
     {
       "id": 22,
@@ -441,7 +441,7 @@
         "europeanClubCup": 0
       },
       "description": "Basque institution famous for its Basque-only player policy and historic Copa del Rey success.",
-      "logo": "https://logos-world.net/wp-content/uploads/2020/11/Athletic-Bilbao-Logo.png"
+      "logo": "https://upload.wikimedia.org/wikipedia/en/9/98/Club_Athletic_Bilbao_logo.svg"
     },
     {
       "id": 23,
@@ -461,7 +461,7 @@
         "europeanClubCup": 3
       },
       "description": "Madrid's fiercely competitive 'Los Rojiblancos', known for defensive discipline under Diego Simeone.",
-      "logo": "https://logos-world.net/wp-content/uploads/2020/06/atletico-madrid-Logo.png"
+      "logo": "https://upload.wikimedia.org/wikipedia/en/f/f4/Atletico_Madrid_2017_logo.svg"
     },
     {
       "id": 24,
@@ -481,7 +481,7 @@
         "europeanClubCup": 8
       },
       "description": "Catalan giants renowned for 'tiki-taka' football, one of the most successful clubs in history.",
-      "logo": "https://logoeps.com/wp-content/uploads/2015/12/FC-Barcelona-logoeps.com_.png"
+      "logo": "https://upload.wikimedia.org/wikipedia/en/4/47/FC_Barcelona_%28crest%29.svg"
     },
     {
       "id": 25,
@@ -501,7 +501,7 @@
         "europeanClubCup": 0
       },
       "description": "Seville club with passionate support, one of Andalusia's two big rivals.",
-      "logo": "https://logos-world.net/wp-content/uploads/2020/11/Real-Betis-Logo.png"
+      "logo": "https://upload.wikimedia.org/wikipedia/en/1/13/Real_betis_logo.svg"
     },
     {
       "id": 26,
@@ -521,7 +521,7 @@
         "europeanClubCup": 0
       },
       "description": "Galician club known for technical, attacking football on Spain's northwest coast.",
-      "logo": ""
+      "logo": "https://upload.wikimedia.org/wikipedia/en/1/12/RC_Celta_de_Vigo_logo.svg"
     },
     {
       "id": 27,
@@ -541,7 +541,7 @@
         "europeanClubCup": 0
       },
       "description": "Valencian community club with a modest history, a regular yo-yo between La Liga and Segunda.",
-      "logo": ""
+      "logo": "https://upload.wikimedia.org/wikipedia/en/a/a7/Elche_CF_logo.svg"
     },
     {
       "id": 28,
@@ -561,7 +561,7 @@
         "europeanClubCup": 0
       },
       "description": "Barcelona's 'other' club, four-time Copa del Rey winners with a proud founding history.",
-      "logo": ""
+      "logo": "https://upload.wikimedia.org/wikipedia/en/d/d6/Rcd_espanyol_logo.svg"
     },
     {
       "id": 29,
@@ -581,7 +581,7 @@
         "europeanClubCup": 0
       },
       "description": "Madrid-area club known for gritty, physical football and consistent top-flight survival.",
-      "logo": ""
+      "logo": "https://upload.wikimedia.org/wikipedia/en/7/7f/Getafe_logo.svg"
     },
     {
       "id": 30,
@@ -601,7 +601,7 @@
         "europeanClubCup": 0
       },
       "description": "Valencia-based club, historically a mid-table mainstay of Spanish football.",
-      "logo": ""
+      "logo": "https://upload.wikimedia.org/wikipedia/en/7/7b/Levante_Uni%C3%B3n_Deportiva%2C_S.A.D._logo.svg"
     },
     {
       "id": 31,
@@ -621,7 +621,7 @@
         "europeanClubCup": 0
       },
       "description": "Navarre club known for fierce home support at El Sadar and a communal ownership model.",
-      "logo": ""
+      "logo": "https://upload.wikimedia.org/wikipedia/en/d/db/Osasuna_logo.svg"
     },
     {
       "id": 32,
@@ -641,7 +641,7 @@
         "europeanClubCup": 0
       },
       "description": "Working-class Madrid club known for its passionate, left-leaning fanbase in the Vallecas district.",
-      "logo": ""
+      "logo": "https://upload.wikimedia.org/wikipedia/en/1/17/Rayo_Vallecano_logo.svg"
     },
     {
       "id": 33,
@@ -661,7 +661,7 @@
         "europeanClubCup": 13
       },
       "description": "The most decorated club in European football history, record 15-time Champions League winners.",
-      "logo": "https://logoeps.com/wp-content/uploads/2012/02/real-madrid-logo-vector.png"
+      "logo": "https://upload.wikimedia.org/wikipedia/en/5/56/Real_Madrid_CF.svg"
     },
     {
       "id": 34,
@@ -681,7 +681,7 @@
         "europeanClubCup": 0
       },
       "description": "Basque club known for producing homegrown talent and a strong European pedigree.",
-      "logo": "https://logos-world.net/wp-content/uploads/2020/11/Real-Sociedad-Logo.png"
+      "logo": "https://upload.wikimedia.org/wikipedia/en/f/f1/Real_Sociedad_logo.svg"
     },
     {
       "id": 35,
@@ -701,7 +701,7 @@
         "europeanClubCup": 1
       },
       "description": "Record seven-time Europa League winners, Andalusia's most successful modern club in Europe.",
-      "logo": ""
+      "logo": "https://upload.wikimedia.org/wikipedia/en/3/3b/Sevilla_FC_logo.svg"
     },
     {
       "id": 36,
@@ -721,7 +721,7 @@
         "europeanClubCup": 1
       },
       "description": "Historic Spanish club with six league titles and two Champions League final appearances.",
-      "logo": "https://logoeps.com/wp-content/uploads/2012/02/valencia-vector-logo.png"
+      "logo": "https://upload.wikimedia.org/wikipedia/en/c/ce/Valenciacf.svg"
     },
     {
       "id": 37,
@@ -741,7 +741,7 @@
         "europeanClubCup": 0
       },
       "description": "Small-town club known as the 'Yellow Submarine', a fixture in European competition.",
-      "logo": ""
+      "logo": "https://upload.wikimedia.org/wikipedia/en/7/70/Villarreal_CF_logo.svg"
     },
     {
       "id": 38,
@@ -761,7 +761,7 @@
         "europeanClubCup": 0
       },
       "description": "Cantabrian club with a long La Liga history, promoted back to the top flight.",
-      "logo": ""
+      "logo": "https://upload.wikimedia.org/wikipedia/en/8/87/Racing_Santander_logo.svg"
     },
     {
       "id": 39,
@@ -781,7 +781,7 @@
         "europeanClubCup": 0
       },
       "description": "Galician club remembered for its 'Super Depor' era, La Liga champions in 2000.",
-      "logo": ""
+      "logo": "https://upload.wikimedia.org/wikipedia/en/4/4e/RC_Deportivo_La_Coru%C3%B1a_logo.svg"
     },
     {
       "id": 40,
@@ -801,7 +801,7 @@
         "europeanClubCup": 0
       },
       "description": "Andalusian club that reached the Champions League quarter-finals in 2013, now back in the top flight.",
-      "logo": ""
+      "logo": "https://upload.wikimedia.org/wikipedia/en/d/d9/Malaga_CF.svg"
     },
     {
       "id": 41,
@@ -821,7 +821,7 @@
         "europeanClubCup": 0
       },
       "description": "Bergamo club known for attacking football and prolific youth development under Gian Piero Gasperini.",
-      "logo": ""
+      "logo": "https://upload.wikimedia.org/wikipedia/en/6/66/AtalantaBC.svg"
     },
     {
       "id": 42,
@@ -841,7 +841,7 @@
         "europeanClubCup": 0
       },
       "description": "Historic Emilia-Romagna club, seven-time Italian champions with a proud early-20th-century pedigree.",
-      "logo": ""
+      "logo": "https://upload.wikimedia.org/wikipedia/en/5/5b/Bologna_F.C._1909_logo.svg"
     },
     {
       "id": 43,
@@ -861,7 +861,7 @@
         "europeanClubCup": 0
       },
       "description": "Sardinian club that won a surprise Serie A title in 1970 led by Gigi Riva.",
-      "logo": ""
+      "logo": "https://upload.wikimedia.org/wikipedia/en/6/61/Cagliari_Calcio_1920.svg"
     },
     {
       "id": 44,
@@ -881,7 +881,7 @@
         "europeanClubCup": 0
       },
       "description": "Lakeside club that climbed back to Serie A after major recent investment.",
-      "logo": ""
+      "logo": "https://upload.wikimedia.org/wikipedia/commons/1/1a/Como_1907_logo.svg"
     },
     {
       "id": 45,
@@ -901,7 +901,7 @@
         "europeanClubCup": 0
       },
       "description": "Florence's 'Viola', two-time Serie A champions with a strong European cup history.",
-      "logo": ""
+      "logo": "https://upload.wikimedia.org/wikipedia/commons/7/79/ACF_Fiorentina_2022.svg"
     },
     {
       "id": 46,
@@ -921,7 +921,7 @@
         "europeanClubCup": 0
       },
       "description": "Italy's oldest football club, nine-time champions from the sport's earliest era in the country.",
-      "logo": ""
+      "logo": "https://upload.wikimedia.org/wikipedia/en/6/6c/Genoa_C.F.C._logo.svg"
     },
     {
       "id": 47,
@@ -941,7 +941,7 @@
         "europeanClubCup": 3
       },
       "description": "Milan giants known as 'Nerazzurri', three-time European Cup/Champions League winners.",
-      "logo": ""
+      "logo": "https://upload.wikimedia.org/wikipedia/commons/0/05/FC_Internazionale_Milano_2021.svg"
     },
     {
       "id": 48,
@@ -961,7 +961,7 @@
         "europeanClubCup": 4
       },
       "description": "Italy's most decorated club, record 36-time Serie A champions based in Turin.",
-      "logo": ""
+      "logo": "https://upload.wikimedia.org/wikipedia/commons/1/15/Juventus_FC_2017_logo.svg"
     },
     {
       "id": 49,
@@ -981,7 +981,7 @@
         "europeanClubCup": 1
       },
       "description": "Rome-based club with a passionate Curva Nord support, two-time Serie A champions.",
-      "logo": ""
+      "logo": "https://upload.wikimedia.org/wikipedia/en/c/ce/S.S._Lazio_badge.svg"
     },
     {
       "id": 50,
@@ -1001,7 +1001,7 @@
         "europeanClubCup": 0
       },
       "description": "Southern Italian club representing Puglia, known for resilient top-flight survival battles.",
-      "logo": ""
+      "logo": "https://upload.wikimedia.org/wikipedia/en/2/28/US_Lecce_logo.svg"
     },
     {
       "id": 51,
@@ -1021,7 +1021,7 @@
         "europeanClubCup": 9
       },
       "description": "One of the most successful clubs in European history, record seven-time European Cup winners.",
-      "logo": ""
+      "logo": "https://upload.wikimedia.org/wikipedia/commons/d/d0/Logo_of_AC_Milan.svg"
     },
     {
       "id": 52,
@@ -1041,7 +1041,7 @@
         "europeanClubCup": 0
       },
       "description": "Southern Italy's flagship club, home of Diego Maradona's legendary 1980s era and recent titles.",
-      "logo": ""
+      "logo": "https://upload.wikimedia.org/wikipedia/commons/b/ba/SSC_Napoli_2017.svg"
     },
     {
       "id": 53,
@@ -1061,7 +1061,7 @@
         "europeanClubCup": 1
       },
       "description": "Emilia-Romagna club that enjoyed a golden European era in the 1990s.",
-      "logo": ""
+      "logo": "https://upload.wikimedia.org/wikipedia/en/2/29/Parma_Calcio_1913_logo.svg"
     },
     {
       "id": 54,
@@ -1081,7 +1081,7 @@
         "europeanClubCup": 0
       },
       "description": "Capital city club with passionate support, three-time Serie A champions.",
-      "logo": ""
+      "logo": "https://upload.wikimedia.org/wikipedia/en/f/f7/AS_Roma_logo_%282017%29.svg"
     },
     {
       "id": 55,
@@ -1101,7 +1101,7 @@
         "europeanClubCup": 0
       },
       "description": "Small-town club known for a modern rise through the Italian divisions and attacking football.",
-      "logo": ""
+      "logo": "https://upload.wikimedia.org/wikipedia/en/1/1c/US_Sassuolo_Calcio_logo.svg"
     },
     {
       "id": 56,
@@ -1121,7 +1121,7 @@
         "europeanClubCup": 0
       },
       "description": "Turin club remembered for the legendary 'Grande Torino' side of the 1940s.",
-      "logo": ""
+      "logo": "https://upload.wikimedia.org/wikipedia/en/2/2e/Torino_FC_Logo.svg"
     },
     {
       "id": 57,
@@ -1141,7 +1141,7 @@
         "europeanClubCup": 0
       },
       "description": "Friuli region club known for shrewd scouting and player development.",
-      "logo": ""
+      "logo": "https://upload.wikimedia.org/wikipedia/en/c/ce/Udinese_Calcio_logo.svg"
     },
     {
       "id": 58,
@@ -1161,7 +1161,7 @@
         "europeanClubCup": 0
       },
       "description": "Venice's club, playing at one of Italy's most picturesque waterside stadiums.",
-      "logo": ""
+      "logo": "https://upload.wikimedia.org/wikipedia/commons/8/87/Venezia_FC_logo_2022.svg"
     },
     {
       "id": 59,
@@ -1181,7 +1181,7 @@
         "europeanClubCup": 0
       },
       "description": "Lazio-region club known for competitive spells shuttling between Serie A and Serie B.",
-      "logo": ""
+      "logo": "https://upload.wikimedia.org/wikipedia/en/6/64/Frosinone_Calcio_logo.svg"
     },
     {
       "id": 60,
@@ -1201,7 +1201,7 @@
         "europeanClubCup": 0
       },
       "description": "Lombardy club that reached Serie A for the first time in its history in 2022.",
-      "logo": ""
+      "logo": "https://upload.wikimedia.org/wikipedia/en/2/2e/AC_Monza_logo.svg"
     },
     {
       "id": 61,
@@ -1221,7 +1221,7 @@
         "europeanClubCup": 4
       },
       "description": "Germany's dominant club, six-time European Cup/Champions League winners and perennial Bundesliga champions.",
-      "logo": ""
+      "logo": "https://upload.wikimedia.org/wikipedia/en/1/1f/FC_Bayern_Munchen_logo.svg"
     },
     {
       "id": 62,
@@ -1241,7 +1241,7 @@
         "europeanClubCup": 0
       },
       "description": "Rhineland club that won a historic unbeaten Bundesliga title in 2024.",
-      "logo": ""
+      "logo": "https://upload.wikimedia.org/wikipedia/en/5/59/Bayer_04_Leverkusen_logo.svg"
     },
     {
       "id": 63,
@@ -1261,7 +1261,7 @@
         "europeanClubCup": 0
       },
       "description": "Modern club founded in 2009, quickly established among Germany's top sides.",
-      "logo": ""
+      "logo": "https://upload.wikimedia.org/wikipedia/en/0/04/RB_Leipzig_2020_logo.svg"
     },
     {
       "id": 64,
@@ -1281,7 +1281,7 @@
         "europeanClubCup": 1
       },
       "description": "Famous for the 'Yellow Wall' at Signal Iduna Park, 1997 European Cup winners.",
-      "logo": ""
+      "logo": "https://upload.wikimedia.org/wikipedia/commons/6/67/Borussia_Dortmund_logo.svg"
     },
     {
       "id": 65,
@@ -1301,7 +1301,7 @@
         "europeanClubCup": 1
       },
       "description": "Frankfurt club known for strong cup pedigree and passionate travelling support.",
-      "logo": ""
+      "logo": "https://upload.wikimedia.org/wikipedia/commons/0/04/Eintracht_Frankfurt_Logo.svg"
     },
     {
       "id": 66,
@@ -1321,7 +1321,7 @@
         "europeanClubCup": 0
       },
       "description": "Baden-Württemberg club with a strong youth academy and five Bundesliga titles.",
-      "logo": ""
+      "logo": "https://upload.wikimedia.org/wikipedia/commons/e/eb/VfB_Stuttgart_1893_Logo.svg"
     },
     {
       "id": 67,
@@ -1341,7 +1341,7 @@
         "europeanClubCup": 0
       },
       "description": "Dominant force of 1970s German football, five-time Bundesliga champions.",
-      "logo": ""
+      "logo": "https://upload.wikimedia.org/wikipedia/commons/8/81/Borussia_M%C3%B6nchengladbach_logo.svg"
     },
     {
       "id": 68,
@@ -1361,7 +1361,7 @@
         "europeanClubCup": 0
       },
       "description": "Black Forest club respected for consistent overperformance under long-serving coaching setups.",
-      "logo": ""
+      "logo": "https://upload.wikimedia.org/wikipedia/en/6/6d/SC_Freiburg_logo.svg"
     },
     {
       "id": 69,
@@ -1381,7 +1381,7 @@
         "europeanClubCup": 0
       },
       "description": "Small-town club whose rapid modern rise was backed by major private investment.",
-      "logo": ""
+      "logo": "https://upload.wikimedia.org/wikipedia/commons/e/e7/Logo_TSG_1899_Hoffenheim.svg"
     },
     {
       "id": 70,
@@ -1401,7 +1401,7 @@
         "europeanClubCup": 0
       },
       "description": "North German club with a strong attacking tradition and four Bundesliga titles.",
-      "logo": ""
+      "logo": "https://upload.wikimedia.org/wikipedia/commons/b/be/SV-Werder-Bremen-Logo.svg"
     },
     {
       "id": 71,
@@ -1421,7 +1421,7 @@
         "europeanClubCup": 0
       },
       "description": "Rhineland club known for developing coaches and players who go on to bigger stages.",
-      "logo": ""
+      "logo": "https://upload.wikimedia.org/wikipedia/commons/d/d6/1._FSV_Mainz_05_Logo.svg"
     },
     {
       "id": 72,
@@ -1441,7 +1441,7 @@
         "europeanClubCup": 0
       },
       "description": "East Berlin club famed for its fiercely loyal, community-driven fanbase.",
-      "logo": ""
+      "logo": "https://upload.wikimedia.org/wikipedia/commons/4/44/1._FC_Union_Berlin_Logo.svg"
     },
     {
       "id": 73,
@@ -1461,7 +1461,7 @@
         "europeanClubCup": 0
       },
       "description": "Bavarian club that reached the Bundesliga for the first time in 2011.",
-      "logo": ""
+      "logo": "https://upload.wikimedia.org/wikipedia/en/c/c5/FC_Augsburg_logo.svg"
     },
     {
       "id": 74,
@@ -1481,7 +1481,7 @@
         "europeanClubCup": 0
       },
       "description": "Historic Rhineland club and founding member of the Bundesliga in 1963.",
-      "logo": ""
+      "logo": "https://upload.wikimedia.org/wikipedia/en/5/53/FC_Cologne_logo.svg"
     },
     {
       "id": 75,
@@ -1501,7 +1501,7 @@
         "europeanClubCup": 0
       },
       "description": "One of Germany's oldest clubs, 1983 European Cup winners, back in the Bundesliga.",
-      "logo": ""
+      "logo": "https://upload.wikimedia.org/wikipedia/commons/6/66/HSV-Logo.svg"
     },
     {
       "id": 76,
@@ -1521,7 +1521,7 @@
         "europeanClubCup": 0
       },
       "description": "Ruhr region club with passionate mining-town roots, back in the top flight.",
-      "logo": ""
+      "logo": "https://upload.wikimedia.org/wikipedia/commons/6/6d/FC_Schalke_04_Logo.svg"
     },
     {
       "id": 77,
@@ -1541,7 +1541,7 @@
         "europeanClubCup": 0
       },
       "description": "Saarland club making its first appearance in the Bundesliga after a rapid rise.",
-      "logo": ""
+      "logo": "https://upload.wikimedia.org/wikipedia/commons/4/4b/SV_07_Elversberg_Logo.svg"
     },
     {
       "id": 78,
@@ -1561,7 +1561,7 @@
         "europeanClubCup": 0
       },
       "description": "North Rhine-Westphalia club known for yo-yoing between the top two German divisions.",
-      "logo": ""
+      "logo": "https://upload.wikimedia.org/wikipedia/commons/e/e0/SC_Paderborn_07_Logo.svg"
     },
     {
       "id": 79,
@@ -1581,7 +1581,7 @@
         "europeanClubCup": 1
       },
       "description": "France's dominant modern club, 2025 Champions League and UEFA Super Cup winners.",
-      "logo": ""
+      "logo": "https://upload.wikimedia.org/wikipedia/en/a/a7/Paris_Saint-Germain_F.C..svg"
     },
     {
       "id": 80,
@@ -1601,7 +1601,7 @@
         "europeanClubCup": 0
       },
       "description": "Southern France's passionate club, France's only European Cup winners (1993).",
-      "logo": ""
+      "logo": "https://upload.wikimedia.org/wikipedia/commons/d/d8/Olympique_Marseille_logo.svg"
     },
     {
       "id": 81,
@@ -1621,7 +1621,7 @@
         "europeanClubCup": 0
       },
       "description": "Principality club known for developing young talent and regular Champions League football.",
-      "logo": ""
+      "logo": "https://upload.wikimedia.org/wikipedia/en/b/ba/AS_Monaco_FC.svg"
     },
     {
       "id": 82,
@@ -1641,7 +1641,7 @@
         "europeanClubCup": 0
       },
       "description": "Northern France club that has produced surprise league title wins against bigger-spending rivals.",
-      "logo": ""
+      "logo": "https://upload.wikimedia.org/wikipedia/en/6/6f/LOSC_Lille_logo.svg"
     },
     {
       "id": 83,
@@ -1661,7 +1661,7 @@
         "europeanClubCup": 0
       },
       "description": "Dominant French club of the 2000s, winners of seven consecutive league titles.",
-      "logo": ""
+      "logo": "https://upload.wikimedia.org/wikipedia/en/c/c6/Olympique_Lyonnais.svg"
     },
     {
       "id": 84,
@@ -1681,7 +1681,7 @@
         "europeanClubCup": 0
       },
       "description": "French Riviera club known for defensive solidity and a strong 1950s heritage.",
-      "logo": ""
+      "logo": "https://upload.wikimedia.org/wikipedia/en/2/2e/OGC_Nice_logo.svg"
     },
     {
       "id": 85,
@@ -1701,7 +1701,7 @@
         "europeanClubCup": 0
       },
       "description": "Mining-region club famed for one of the most intense atmospheres in French football.",
-      "logo": ""
+      "logo": "https://upload.wikimedia.org/wikipedia/en/c/cc/RC_Lens_logo.svg"
     },
     {
       "id": 86,
@@ -1721,7 +1721,7 @@
         "europeanClubCup": 0
       },
       "description": "Brittany club known for strong youth development and Coupe de France pedigree.",
-      "logo": ""
+      "logo": "https://upload.wikimedia.org/wikipedia/en/9/9e/Stade_Rennais_FC.svg"
     },
     {
       "id": 87,
@@ -1741,7 +1741,7 @@
         "europeanClubCup": 0
       },
       "description": "Alsace club with a passionate fanbase, French champions in 1979.",
-      "logo": ""
+      "logo": "https://upload.wikimedia.org/wikipedia/en/8/80/Racing_Club_de_Strasbourg_logo.svg"
     },
     {
       "id": 88,
@@ -1761,7 +1761,7 @@
         "europeanClubCup": 0
       },
       "description": "Southern France club playing at a World Cup-hosting stadium.",
-      "logo": ""
+      "logo": "https://upload.wikimedia.org/wikipedia/en/8/8b/Toulouse_FC_2018_logo.svg"
     },
     {
       "id": 89,
@@ -1781,7 +1781,7 @@
         "europeanClubCup": 0
       },
       "description": "Burgundy club famous for the long managerial reign of Guy Roux.",
-      "logo": ""
+      "logo": "https://upload.wikimedia.org/wikipedia/en/b/b6/AJ_Auxerre.svg"
     },
     {
       "id": 90,
@@ -1801,7 +1801,7 @@
         "europeanClubCup": 0
       },
       "description": "Loire Valley club known for competitive mid-table Ligue 1 campaigns.",
-      "logo": ""
+      "logo": "https://upload.wikimedia.org/wikipedia/en/d/d4/Angers_SCO_logo.svg"
     },
     {
       "id": 91,
@@ -1821,7 +1821,7 @@
         "europeanClubCup": 0
       },
       "description": "Brittany coastal club that reached the Champions League for the first time in 2024.",
-      "logo": ""
+      "logo": "https://upload.wikimedia.org/wikipedia/en/0/05/Stade_Brestois_29_logo.svg"
     },
     {
       "id": 92,
@@ -1841,7 +1841,7 @@
         "europeanClubCup": 0
       },
       "description": "France's oldest football club, founded in the port city of Le Havre in 1872.",
-      "logo": ""
+      "logo": "https://upload.wikimedia.org/wikipedia/en/9/97/Le_Havre_AC_logo.svg"
     },
     {
       "id": 93,
@@ -1861,7 +1861,7 @@
         "europeanClubCup": 0
       },
       "description": "Paris-based club distinct from PSG, promoted to Ligue 1 with new investment backing.",
-      "logo": ""
+      "logo": "https://upload.wikimedia.org/wikipedia/en/4/40/Paris_FC_logo.svg"
     },
     {
       "id": 94,
@@ -1881,7 +1881,7 @@
         "europeanClubCup": 0
       },
       "description": "Brittany club known for a strong academy producing top French internationals.",
-      "logo": ""
+      "logo": "https://upload.wikimedia.org/wikipedia/en/1/1d/FC_Lorient_logo.svg"
     },
     {
       "id": 95,
@@ -1901,7 +1901,7 @@
         "europeanClubCup": 0
       },
       "description": "Champagne-region club that returns to Ligue 1 after a spell in the second tier.",
-      "logo": ""
+      "logo": "https://upload.wikimedia.org/wikipedia/en/0/07/ES_Troyes_AC.svg"
     },
     {
       "id": 96,
@@ -1921,7 +1921,7 @@
         "europeanClubCup": 0
       },
       "description": "Western France club best known internationally for the 24 Hours of Le Mans race, returning to the top flight.",
-      "logo": ""
+      "logo": "https://upload.wikimedia.org/wikipedia/en/1/1b/Le_Mans_FC_logo.svg"
     }
   ]
 }
