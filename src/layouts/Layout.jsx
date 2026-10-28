@@ -25,7 +25,7 @@ const Layout = () => {
   return (
     <div className={isDark ? "dark" : ""}>
       {/* 'flex flex-col' guarantees the footer always stays at the bottom */}
-      <div className="min-h-screen flex flex-col bg-background text-foreground transition-colors duration-300 selection:bg-primary/20 selection:text-primary">
+      <div className="min-h-screen flex flex-col bg-background text-foreground transition-colors duration-150 selection:bg-primary selection:text-primary-foreground">
         <Navbar />
 
         {/* 'flex-1' expands to fill available height */}
@@ -40,4 +40,3 @@ const Layout = () => {
 };
 
 export default Layout;
-

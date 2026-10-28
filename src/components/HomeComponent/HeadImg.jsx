@@ -9,7 +9,6 @@ import Autoplay from "embla-carousel-autoplay";
 import {
   ChevronLeft,
   ChevronRight,
-  Sparkles,
   Shield,
   ArrowRight,
 } from "lucide-react";
@@ -91,9 +90,8 @@ export default function HeadIMG() {
   const [api, setApi] = useState(null);
   const [current, setCurrent] = useState(0);
 
-  // Fast, lag-free autoplay
   const plugin = useRef(
-    Autoplay({ delay: 3500, stopOnInteraction: false, stopOnMouseEnter: true }),
+    Autoplay({ delay: 3500, stopOnInteraction: false, stopOnMouseEnter: true })
   );
 
   useEffect(() => {
@@ -106,58 +104,58 @@ export default function HeadIMG() {
   }, [api]);
 
   return (
-    <div className="relative w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-4 pb-6">
+    <div className="relative w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-2 pb-6">
       <Carousel
         setApi={setApi}
         opts={{ loop: true }}
         plugins={[plugin.current]}
-        className="relative w-full rounded-2xl sm:rounded-3xl overflow-hidden border border-border/80 shadow-2xl bg-black"
+        className="relative w-full rounded-xl overflow-hidden border border-border bg-[#111310]"
       >
         <CarouselContent className="m-0">
           {slides.map((slide, index) => (
             <CarouselItem key={index} className="p-0">
-              <div className="relative w-full h-[400px] sm:h-[480px] md:h-[560px] bg-black">
-                {/* 1. CRYSTAL CLEAR IMAGE (No blur, no lag) */}
+              <div className="relative w-full h-[380px] sm:h-[460px] md:h-[520px] bg-[#111310]">
+                {/* 1. Player Image */}
                 <img
                   src={slide.url}
                   alt={slide.name}
-                  className="w-full h-full object-cover object-top sm:object-center brightness-95 contrast-105"
+                  className="w-full h-full object-cover object-top sm:object-center brightness-90 contrast-105"
                   loading={index < 2 ? "eager" : "lazy"}
                 />
 
-                {/* 2. SUBTLE BOTTOM SHADOW ONLY (Never washes out the top/face) */}
-                <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/35 to-transparent pointer-events-none" />
+                {/* 2. Dark Overlay at bottom */}
+                <div className="absolute inset-0 bg-gradient-to-t from-[#111310] via-[#111310]/50 to-transparent pointer-events-none" />
 
-                {/* 3. CLEAN PLAYER CARD INFO (Bottom Left) */}
+                {/* 3. Player Card Info */}
                 <div className="absolute bottom-5 left-4 sm:bottom-8 sm:left-8 z-20 max-w-lg text-left">
                   {/* Accolade Badge */}
-                  <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-black/60 backdrop-blur-md border border-white/20 text-white text-xs font-semibold mb-2">
-                    <Sparkles className="w-3.5 h-3.5 text-primary" />
+                  <div className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-surface-elevated border border-border text-foreground text-xs font-semibold mb-2">
+                    <span className="w-1.5 h-1.5 rounded-full bg-primary" />
                     <span>{slide.badge}</span>
                   </div>
 
                   {/* Player Name */}
-                  <h2 className="text-2xl sm:text-4xl md:text-5xl font-extrabold tracking-tight text-white drop-shadow-md">
+                  <h2 className="text-2xl sm:text-4xl md:text-5xl font-black tracking-tight text-foreground font-sans">
                     {slide.name}
                   </h2>
 
                   {/* Club Details */}
-                  <p className="text-xs sm:text-sm text-zinc-300 font-medium mt-1 flex items-center gap-1.5 drop-shadow">
+                  <p className="text-xs sm:text-sm text-muted-foreground font-medium mt-1.5 flex items-center gap-1.5">
                     <Shield className="w-3.5 h-3.5 text-primary shrink-0" />
                     <span>{slide.club}</span>
-                    <span className="text-zinc-500">•</span>
+                    <span className="text-border">•</span>
                     <span className="text-primary font-semibold">
                       {slide.role}
                     </span>
                   </p>
 
                   {/* Action Link */}
-                  <div className="mt-3">
+                  <div className="mt-3.5">
                     <Link
                       to="/players"
-                      className="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-primary text-primary-foreground text-xs sm:text-sm font-bold shadow-md hover:opacity-90 transition-all active:scale-95"
+                      className="inline-flex items-center gap-2 px-4 py-2 rounded-md bg-primary text-primary-foreground text-xs sm:text-sm font-bold hover:bg-primary-hover active:scale-[0.98] transition-colors"
                     >
-                      <span>View Cards</span>
+                      <span>Explore Archive</span>
                       <ArrowRight className="w-4 h-4" />
                     </Link>
                   </div>
@@ -167,27 +165,27 @@ export default function HeadIMG() {
           ))}
         </CarouselContent>
 
-        {/* 4. CLEAN FLOATING CONTROLS (Bottom Right - Completely out of the way) */}
-        <div className="absolute bottom-4 right-4 sm:bottom-7 sm:right-7 z-30 flex items-center gap-2 bg-black/60 backdrop-blur-md px-3 py-1.5 rounded-full border border-white/20">
+        {/* 4. Controls */}
+        <div className="absolute bottom-4 right-4 sm:bottom-7 sm:right-7 z-30 flex items-center gap-1.5 bg-card border border-border px-2.5 py-1 rounded-md">
           {/* Previous Arrow */}
           <button
             onClick={() => api?.scrollPrev()}
-            className="p-1 rounded-full text-white/80 hover:text-white hover:bg-white/20 transition-colors"
+            className="p-1 rounded text-muted-foreground hover:text-foreground hover:bg-surface-elevated transition-colors cursor-pointer"
             aria-label="Previous slide"
           >
             <ChevronLeft className="w-4 h-4" />
           </button>
 
-          {/* Slide Counter (e.g., 3 / 10) */}
-          <span className="text-xs font-mono font-medium text-white/90 px-1">
-            {current + 1} <span className="text-white/40">/</span>{" "}
+          {/* Slide Counter */}
+          <span className="text-xs font-mono font-medium text-foreground px-1.5">
+            {current + 1} <span className="text-muted-foreground">/</span>{" "}
             {slides.length}
           </span>
 
           {/* Next Arrow */}
           <button
             onClick={() => api?.scrollNext()}
-            className="p-1 rounded-full text-white/80 hover:text-white hover:bg-white/20 transition-colors"
+            className="p-1 rounded text-muted-foreground hover:text-foreground hover:bg-surface-elevated transition-colors cursor-pointer"
             aria-label="Next slide"
           >
             <ChevronRight className="w-4 h-4" />

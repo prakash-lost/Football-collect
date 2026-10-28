@@ -132,22 +132,21 @@ const Profile = () => {
   return (
     <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12 flex flex-col gap-8">
       {/* ---------- 1. PROFILE BANNER & USER HEADER ---------- */}
-      <div className="relative rounded-3xl overflow-hidden border border-border/80 bg-card shadow-xl">
-        {/* Stadium Night Header Graphic */}
-        <div className="h-36 sm:h-48 w-full bg-gradient-to-r from-blue-900 via-indigo-900 to-sky-950 relative overflow-hidden">
-          <div className="absolute inset-0 opacity-20 bg-[radial-gradient(#fff_1px,transparent_1px)] [background-size:16px_16px]" />
-          <div className="absolute top-4 right-4 flex items-center gap-2 px-3 py-1.5 rounded-full bg-black/40 backdrop-blur-md text-white text-xs font-bold border border-white/20">
-            <Sparkles className="w-3.5 h-3.5 text-amber-400" />
+      <div className="relative rounded-xl overflow-hidden border border-border bg-card">
+        {/* Understated Pitch Header Banner */}
+        <div className="h-32 sm:h-40 w-full bg-surface-elevated border-b border-border relative overflow-hidden">
+          <div className="absolute top-4 right-4 flex items-center gap-2 px-3 py-1 rounded-md bg-card border border-border text-foreground text-xs font-semibold">
+            <Sparkles className="w-3.5 h-3.5 text-warning" />
             <span>VIP Collector Level 8</span>
           </div>
         </div>
 
         {/* User Identity Section */}
-        <div className="px-6 pb-6 pt-0 sm:px-8 sm:pb-8 flex flex-col sm:flex-row items-center sm:items-end justify-between gap-6 -mt-16 sm:-mt-20 relative z-10">
+        <div className="px-6 pb-6 pt-0 sm:px-8 sm:pb-8 flex flex-col sm:flex-row items-center sm:items-end justify-between gap-6 -mt-14 sm:-mt-16 relative z-10">
           <div className="flex flex-col sm:flex-row items-center sm:items-end gap-5 text-center sm:text-left">
             {/* Avatar */}
-            <div className="w-28 h-28 sm:w-32 sm:h-32 rounded-3xl bg-background border-4 border-card p-1 shadow-2xl flex items-center justify-center overflow-hidden">
-              <div className="w-full h-full rounded-2xl bg-gradient-to-tr from-primary via-indigo-500 to-sky-400 flex items-center justify-center text-white text-3xl font-black shadow-inner">
+            <div className="w-24 h-24 sm:w-28 sm:h-28 rounded-xl bg-background border-2 border-border p-1 flex items-center justify-center overflow-hidden">
+              <div className="w-full h-full rounded-lg bg-surface-elevated border border-border flex items-center justify-center text-primary text-2xl font-black">
                 AR
               </div>
             </div>
@@ -158,7 +157,7 @@ const Profile = () => {
                 <span className="font-black text-2xl sm:text-3xl text-foreground">
                   Alex Rossi
                 </span>
-                <span className="px-2 py-0.5 rounded-md bg-primary/10 border border-primary/20 text-primary text-xs font-bold">
+                <span className="px-2 py-0.5 rounded-md bg-surface-elevated border border-border text-primary text-xs font-semibold">
                   @rossi_football
                 </span>
               </div>
@@ -174,14 +173,14 @@ const Profile = () => {
           <div className="flex items-center gap-3">
             <Link
               to="/teams"
-              className="px-4 py-2.5 rounded-xl bg-primary text-primary-foreground text-xs font-bold shadow-md shadow-primary/20 hover:opacity-95 transition-all flex items-center gap-1.5"
+              className="px-4 py-2 rounded-md bg-primary text-primary-foreground text-xs font-semibold hover:bg-primary-hover active:scale-[0.98] transition-all flex items-center gap-1.5"
             >
               <Trophy className="w-3.5 h-3.5" />
               <span>Browse Teams</span>
             </Link>
             <button
               onClick={() => setActiveTab("settings")}
-              className="p-2.5 rounded-xl border border-border/80 bg-background text-foreground hover:bg-accent transition-colors cursor-pointer"
+              className="p-2 rounded-md border border-border bg-surface-elevated text-foreground hover:border-primary transition-colors cursor-pointer"
               aria-label="Settings"
             >
               <Settings className="w-4 h-4" />
@@ -190,12 +189,12 @@ const Profile = () => {
         </div>
 
         {/* Profile Stat Strip */}
-        <div className="border-t border-border/60 bg-muted/20 px-6 py-4 sm:px-8 grid grid-cols-2 sm:grid-cols-4 gap-4 text-center">
+        <div className="border-t border-border bg-surface-base px-6 py-4 sm:px-8 grid grid-cols-2 sm:grid-cols-4 gap-4 text-center">
           <div>
             <span className="text-lg sm:text-2xl font-black text-foreground block">
               42 / 96
             </span>
-            <span className="text-[11px] text-muted-foreground uppercase font-bold">
+            <span className="text-[11px] text-muted-foreground uppercase font-medium">
               Clubs Discovered
             </span>
           </div>
@@ -203,15 +202,15 @@ const Profile = () => {
             <span className="text-lg sm:text-2xl font-black text-primary block">
               84.6%
             </span>
-            <span className="text-[11px] text-muted-foreground uppercase font-bold">
+            <span className="text-[11px] text-muted-foreground uppercase font-medium">
               Prediction Accuracy
             </span>
           </div>
           <div>
-            <span className="text-lg sm:text-2xl font-black text-amber-500 block">
+            <span className="text-lg sm:text-2xl font-black text-warning block">
               18 Cards
             </span>
-            <span className="text-[11px] text-muted-foreground uppercase font-bold">
+            <span className="text-[11px] text-muted-foreground uppercase font-medium">
               Star Collection
             </span>
           </div>
@@ -219,7 +218,7 @@ const Profile = () => {
             <span className="text-lg sm:text-2xl font-black text-foreground block">
               #14 Global
             </span>
-            <span className="text-[11px] text-muted-foreground uppercase font-bold">
+            <span className="text-[11px] text-muted-foreground uppercase font-medium">
               Community Rank
             </span>
           </div>
@@ -240,10 +239,10 @@ const Profile = () => {
             <button
               key={tab.id}
               onClick={() => setActiveTab(tab.id)}
-              className={`px-4 py-2.5 rounded-xl text-xs font-bold whitespace-nowrap transition-all duration-200 cursor-pointer flex items-center gap-2 border ${
+              className={`px-3.5 py-1.5 rounded-md text-xs font-semibold whitespace-nowrap transition-colors cursor-pointer flex items-center gap-2 border ${
                 isSelected
-                  ? "bg-primary text-primary-foreground border-primary shadow-md shadow-primary/20"
-                  : "bg-card/70 border-border/80 text-muted-foreground hover:text-foreground hover:bg-accent/50"
+                  ? "bg-primary text-primary-foreground border-primary"
+                  : "bg-surface-elevated border-border text-muted-foreground hover:text-foreground hover:border-border"
               }`}
             >
               <Icon className="w-3.5 h-3.5" />
@@ -258,7 +257,7 @@ const Profile = () => {
         <div className="flex flex-col gap-5">
           <div className="flex items-center justify-between">
             <div>
-              <h3 className="text-xl font-black text-foreground">
+              <h3 className="text-xl font-bold text-foreground">
                 Pinned Club Roster
               </h3>
               <p className="text-xs text-muted-foreground">
@@ -267,7 +266,7 @@ const Profile = () => {
             </div>
             <Link
               to="/teams"
-              className="text-xs font-bold text-primary hover:underline flex items-center gap-1"
+              className="text-xs font-semibold text-primary hover:underline flex items-center gap-1"
             >
               <span>Add More Clubs</span>
               <ChevronRight className="w-3.5 h-3.5" />
@@ -278,20 +277,20 @@ const Profile = () => {
             {favoriteClubs.map((club) => (
               <div
                 key={club.id}
-                className="group p-5 rounded-2xl border border-border/80 bg-card/85 backdrop-blur-md flex flex-col justify-between hover:border-primary/50 hover:shadow-xl hover:shadow-primary/10 transition-all duration-300"
+                className="group p-5 rounded-xl border border-border bg-card flex flex-col justify-between hover:border-primary transition-colors"
               >
                 <div>
                   <div className="flex items-center justify-between text-[11px] mb-3">
-                    <span className="px-2.5 py-0.5 rounded-md bg-primary/10 text-primary font-bold">
+                    <span className="px-2 py-0.5 rounded-md bg-surface-elevated border border-border text-primary font-semibold">
                       {club.status}
                     </span>
-                    <span className="text-muted-foreground font-semibold">
+                    <span className="text-muted-foreground font-medium">
                       {club.league}
                     </span>
                   </div>
 
                   <div className="flex items-center gap-4 my-3">
-                    <div className="w-16 h-16 p-2 rounded-xl bg-background border border-border/60 flex items-center justify-center shrink-0">
+                    <div className="w-16 h-16 p-2 rounded-lg bg-background border border-border flex items-center justify-center shrink-0">
                       <img
                         src={club.logo}
                         alt={club.name}
@@ -299,7 +298,7 @@ const Profile = () => {
                       />
                     </div>
                     <div>
-                      <h4 className="text-lg font-black text-foreground group-hover:text-primary transition-colors">
+                      <h4 className="text-base font-bold text-foreground group-hover:text-primary transition-colors">
                         {club.name}
                       </h4>
                       <p className="text-xs text-muted-foreground">
@@ -308,9 +307,9 @@ const Profile = () => {
                     </div>
                   </div>
 
-                  <div className="mt-3 pt-3 border-t border-border/60 flex items-center justify-between text-xs text-muted-foreground">
+                  <div className="mt-3 pt-3 border-t border-border flex items-center justify-between text-xs text-muted-foreground">
                     <span>Champions Leagues</span>
-                    <span className="font-black text-amber-500 flex items-center gap-1">
+                    <span className="font-bold text-warning flex items-center gap-1">
                       <Trophy className="w-3.5 h-3.5" /> {club.ucl} UCL
                     </span>
                   </div>
@@ -319,7 +318,7 @@ const Profile = () => {
                 <div className="mt-4 pt-2">
                   <Link
                     to="/teams"
-                    className="w-full py-2 rounded-xl bg-background group-hover:bg-primary group-hover:text-primary-foreground border border-border/80 text-foreground text-xs font-bold flex items-center justify-center gap-1 transition-colors"
+                    className="w-full py-2 rounded-md bg-surface-elevated hover:bg-primary hover:text-primary-foreground border border-border text-foreground text-xs font-semibold flex items-center justify-center gap-1 transition-colors"
                   >
                     <span>View Club In Directory</span>
                     <ExternalLink className="w-3.5 h-3.5" />
@@ -336,7 +335,7 @@ const Profile = () => {
         <div className="flex flex-col gap-5">
           <div className="flex items-center justify-between">
             <div>
-              <h3 className="text-xl font-black text-foreground">
+              <h3 className="text-xl font-bold text-foreground">
                 My Star Card Showcase
               </h3>
               <p className="text-xs text-muted-foreground">
@@ -345,7 +344,7 @@ const Profile = () => {
             </div>
             <Link
               to="/players"
-              className="text-xs font-bold text-primary hover:underline flex items-center gap-1"
+              className="text-xs font-semibold text-primary hover:underline flex items-center gap-1"
             >
               <span>Explore Player Directory</span>
               <ChevronRight className="w-3.5 h-3.5" />
@@ -356,29 +355,29 @@ const Profile = () => {
             {collectedCards.map((card) => (
               <div
                 key={card.id}
-                className="group relative p-4 rounded-2xl border border-border/80 bg-gradient-to-b from-card via-card to-background hover:border-primary/50 hover:shadow-xl hover:shadow-primary/10 transition-all duration-300 flex flex-col justify-between"
+                className="group relative p-4 rounded-xl border border-border bg-card hover:border-primary transition-colors flex flex-col justify-between"
               >
                 <div>
                   <div className="flex items-center justify-between text-[11px] mb-2">
-                    <span className="px-2 py-0.5 rounded-md bg-amber-500/10 text-amber-500 border border-amber-500/20 font-black text-[10px]">
+                    <span className="px-2 py-0.5 rounded-md bg-surface-elevated text-warning border border-border font-semibold text-[10px]">
                       {card.tier}
                     </span>
-                    <span className="flex items-center gap-0.5 text-xs font-bold text-amber-400">
-                      <Star className="w-3 h-3 fill-amber-400" />
+                    <span className="flex items-center gap-0.5 text-xs font-bold text-warning">
+                      <Star className="w-3 h-3 fill-warning" />
                       {card.rating}
                     </span>
                   </div>
 
-                  <div className="my-3 h-36 rounded-xl overflow-hidden bg-background border border-border/60">
+                  <div className="my-3 h-36 rounded-lg overflow-hidden bg-background border border-border">
                     <img
                       src={card.photo}
                       alt={card.name}
-                      className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-300"
+                      className="w-full h-full object-cover object-top"
                     />
                   </div>
 
                   <div className="text-center">
-                    <h4 className="font-black text-foreground text-base truncate">
+                    <h4 className="font-bold text-foreground text-sm truncate">
                       {card.name}
                     </h4>
                     <p className="text-xs text-muted-foreground">
@@ -390,7 +389,7 @@ const Profile = () => {
                 <div className="mt-3 pt-2">
                   <Link
                     to={`/players/${card.id}`}
-                    className="w-full py-1.5 rounded-lg bg-primary/10 hover:bg-primary text-primary hover:text-primary-foreground text-xs font-bold flex items-center justify-center gap-1 transition-colors"
+                    className="w-full py-1.5 rounded-md bg-surface-elevated hover:bg-primary hover:text-primary-foreground border border-border text-foreground text-xs font-semibold flex items-center justify-center gap-1 transition-colors"
                   >
                     <span>Inspect Career</span>
                     <ChevronRight className="w-3 h-3" />
@@ -406,7 +405,7 @@ const Profile = () => {
       {activeTab === "predictions" && (
         <div className="flex flex-col gap-5">
           <div>
-            <h3 className="text-xl font-black text-foreground">
+            <h3 className="text-xl font-bold text-foreground">
               Matchday Predictor
             </h3>
             <p className="text-xs text-muted-foreground">
@@ -418,18 +417,18 @@ const Profile = () => {
             {matchPredictions.map((pred) => (
               <div
                 key={pred.id}
-                className="p-5 rounded-2xl border border-border/80 bg-card flex flex-col justify-between gap-4"
+                className="p-5 rounded-xl border border-border bg-card flex flex-col justify-between gap-4"
               >
                 <div>
                   <div className="flex items-center justify-between text-[11px] mb-3">
-                    <span className="text-muted-foreground font-semibold">
+                    <span className="text-muted-foreground font-medium">
                       {pred.competition}
                     </span>
                     <span
-                      className={`px-2 py-0.5 rounded-md font-bold text-[10px] ${
+                      className={`px-2 py-0.5 rounded-md font-semibold text-[10px] ${
                         pred.status === "Won"
-                          ? "bg-emerald-500/15 text-emerald-400 border border-emerald-500/30"
-                          : "bg-primary/15 text-primary border border-primary/30"
+                          ? "bg-surface-elevated text-success border border-success/40"
+                          : "bg-surface-elevated text-primary border border-border"
                       }`}
                     >
                       {pred.status}
@@ -439,39 +438,39 @@ const Profile = () => {
                   {/* Clash Display */}
                   <div className="flex items-center justify-between my-2">
                     <div className="flex flex-col items-center text-center w-24">
-                      <div className="w-12 h-12 p-1.5 rounded-xl bg-background border border-border/60 flex items-center justify-center mb-1">
+                      <div className="w-12 h-12 p-1.5 rounded-lg bg-background border border-border flex items-center justify-center mb-1">
                         <img
                           src={pred.homeLogo}
                           alt={pred.home}
                           className="w-full h-full object-contain"
                         />
                       </div>
-                      <span className="text-xs font-bold text-foreground truncate w-full">
+                      <span className="text-xs font-semibold text-foreground truncate w-full">
                         {pred.home}
                       </span>
                     </div>
 
-                    <span className="text-xs font-black text-primary px-2 py-1 rounded-md bg-primary/10">
+                    <span className="text-xs font-bold text-primary px-2 py-0.5 rounded-md bg-surface-elevated border border-border">
                       VS
                     </span>
 
                     <div className="flex flex-col items-center text-center w-24">
-                      <div className="w-12 h-12 p-1.5 rounded-xl bg-background border border-border/60 flex items-center justify-center mb-1">
+                      <div className="w-12 h-12 p-1.5 rounded-lg bg-background border border-border flex items-center justify-center mb-1">
                         <img
                           src={pred.awayLogo}
                           alt={pred.away}
                           className="w-full h-full object-contain"
                         />
                       </div>
-                      <span className="text-xs font-bold text-foreground truncate w-full">
+                      <span className="text-xs font-semibold text-foreground truncate w-full">
                         {pred.away}
                       </span>
                     </div>
                   </div>
 
-                  <div className="mt-4 p-3 rounded-xl bg-muted/30 border border-border/40 text-xs flex justify-between items-center">
+                  <div className="mt-4 p-3 rounded-lg bg-surface-elevated border border-border text-xs flex justify-between items-center">
                     <span className="text-muted-foreground">Your Pick:</span>
-                    <span className="font-black text-foreground">
+                    <span className="font-bold text-foreground">
                       {pred.prediction}
                     </span>
                   </div>
@@ -489,36 +488,36 @@ const Profile = () => {
 
       {/* ---------- 6. TAB 4: PREFERENCES & SETTINGS ---------- */}
       {activeTab === "settings" && (
-        <div className="max-w-2xl rounded-3xl border border-border/80 bg-card p-6 sm:p-8 flex flex-col gap-6">
+        <div className="max-w-2xl rounded-xl border border-border bg-card p-6 sm:p-8 flex flex-col gap-6">
           <div>
-            <h3 className="text-xl font-black text-foreground">
+            <h3 className="text-xl font-bold text-foreground">
               Account Preferences
             </h3>
             <p className="text-xs text-muted-foreground">
-              Customize your FootballHub experience and notification alerts.
+              Customize your Football Collect experience and notification alerts.
             </p>
           </div>
 
           {/* Theme Mode Toggle */}
-          <div className="flex items-center justify-between p-4 rounded-2xl bg-muted/30 border border-border/40">
+          <div className="flex items-center justify-between p-4 rounded-lg bg-surface-elevated border border-border">
             <div>
-              <h5 className="text-sm font-bold text-foreground">Dark Night Mode</h5>
+              <h5 className="text-sm font-semibold text-foreground">Pitch Dark Mode</h5>
               <p className="text-xs text-muted-foreground">
-                Champions League cosmic midnight theme
+                High contrast pitch dark theme
               </p>
             </div>
             <Switch checked={isDark} onCheckedChange={setIsDark} />
           </div>
 
           {/* Favorite League Selector */}
-          <div className="flex flex-col gap-2 p-4 rounded-2xl bg-muted/30 border border-border/40">
-            <label className="text-sm font-bold text-foreground">
+          <div className="flex flex-col gap-2 p-4 rounded-lg bg-surface-elevated border border-border">
+            <label className="text-sm font-semibold text-foreground">
               Default Homepage League
             </label>
             <select
               value={favoriteLeague}
               onChange={(e) => setFavoriteLeague(e.target.value)}
-              className="h-10 px-3 rounded-xl bg-background border border-border text-foreground text-xs font-semibold focus:outline-none focus:ring-2 focus:ring-primary/40 cursor-pointer"
+              className="h-10 px-3 rounded-md bg-background border border-border text-foreground text-xs font-medium focus:outline-none focus:ring-1 focus:ring-primary cursor-pointer"
             >
               <option value="Premier League">Premier League (England)</option>
               <option value="La Liga">La Liga (Spain)</option>
@@ -529,9 +528,9 @@ const Profile = () => {
           </div>
 
           {/* Match Alerts Toggle */}
-          <div className="flex items-center justify-between p-4 rounded-2xl bg-muted/30 border border-border/40">
+          <div className="flex items-center justify-between p-4 rounded-lg bg-surface-elevated border border-border">
             <div>
-              <h5 className="text-sm font-bold text-foreground">
+              <h5 className="text-sm font-semibold text-foreground">
                 Transfer & Goal Alerts
               </h5>
               <p className="text-xs text-muted-foreground">
@@ -547,7 +546,7 @@ const Profile = () => {
           <div className="pt-2">
             <button
               onClick={() => alert("Preferences updated successfully!")}
-              className="px-6 py-2.5 rounded-xl bg-primary text-primary-foreground font-bold text-xs shadow-md shadow-primary/20 hover:opacity-95 transition-all cursor-pointer"
+              className="px-5 py-2.5 rounded-md bg-primary text-primary-foreground font-semibold text-xs hover:bg-primary-hover active:scale-[0.98] transition-all cursor-pointer"
             >
               Save Preferences
             </button>

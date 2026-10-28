@@ -5,15 +5,11 @@ import {
   Search,
   Flame,
   Clock,
-  User,
-  Share2,
-  ChevronRight,
   ExternalLink,
   Sparkles,
   ArrowRight,
   X,
   Bookmark,
-  Check,
   Trophy,
 } from "lucide-react";
 
@@ -274,10 +270,10 @@ const News = () => {
   return (
     <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12 flex flex-col gap-8">
       {/* ---------- 1. HEADER & SEARCH BAR ---------- */}
-      <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-6 border-b border-border/60 pb-8">
+      <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-6 border-b border-border pb-8">
         <div>
-          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-primary/10 border border-primary/20 text-primary text-xs font-bold tracking-wide uppercase mb-2">
-            <Newspaper className="w-3.5 h-3.5" />
+          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-surface-elevated border border-border text-foreground text-xs font-semibold tracking-wider uppercase mb-2">
+            <Newspaper className="w-3.5 h-3.5 text-primary" />
             <span>Live Football Gazette • 2026 Season</span>
           </div>
           <h1 className="text-3xl sm:text-5xl font-black tracking-tight text-foreground">
@@ -297,7 +293,7 @@ const News = () => {
             placeholder="Search news, clubs, players..."
             value={search}
             onChange={(e) => setSearch(e.target.value)}
-            className="w-full h-11 pl-10 pr-4 rounded-xl bg-card border border-border/80 text-foreground text-xs sm:text-sm shadow-sm focus:outline-none focus:ring-2 focus:ring-primary/40 focus:border-primary transition-all"
+            className="w-full h-10 pl-10 pr-4 rounded-md bg-background border border-border text-foreground text-xs sm:text-sm focus:outline-none focus:ring-1 focus:ring-primary focus:border-primary transition-colors"
           />
         </div>
       </div>
@@ -310,10 +306,10 @@ const News = () => {
             <button
               key={tab.id}
               onClick={() => setSelectedCat(tab.id)}
-              className={`px-4 py-2 rounded-xl text-xs font-bold whitespace-nowrap transition-all duration-200 cursor-pointer flex items-center gap-2 border ${
+              className={`px-3.5 py-1.5 rounded-md text-xs font-semibold whitespace-nowrap transition-colors cursor-pointer flex items-center gap-2 border ${
                 isSelected
-                  ? "bg-primary text-primary-foreground border-primary shadow-md shadow-primary/20"
-                  : "bg-card/70 border-border/80 text-muted-foreground hover:text-foreground hover:bg-accent/50"
+                  ? "bg-primary text-primary-foreground border-primary"
+                  : "bg-surface-elevated border-border text-muted-foreground hover:text-foreground hover:border-border"
               }`}
             >
               <span>{tab.name}</span>
@@ -326,24 +322,24 @@ const News = () => {
       {!search && selectedCat === "all" && featuredStory && (
         <div
           onClick={() => setSelectedArticle(featuredStory)}
-          className="group relative rounded-3xl overflow-hidden border border-border/80 bg-card cursor-pointer shadow-xl hover:shadow-2xl hover:shadow-primary/10 transition-all duration-300"
+          className="group relative rounded-xl overflow-hidden border border-border bg-card cursor-pointer hover:border-primary transition-colors"
         >
           <div className="relative h-72 sm:h-96 md:h-[420px] w-full">
             <img
               src={featuredStory.image}
               alt={featuredStory.title}
-              className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+              className="w-full h-full object-cover"
             />
-            {/* Cinematic Gradient Overlay */}
-            <div className="absolute inset-0 bg-gradient-to-t from-background via-background/60 to-transparent" />
+            {/* Dark Pitch Overlay */}
+            <div className="absolute inset-0 bg-gradient-to-t from-background via-background/80 to-background/20" />
 
             {/* Content on Image */}
             <div className="absolute bottom-0 left-0 right-0 p-6 sm:p-8 md:p-10 flex flex-col gap-3">
               <div className="flex flex-wrap items-center gap-2.5">
-                <span className="px-3 py-1 rounded-full bg-primary text-primary-foreground font-black text-xs tracking-wider uppercase shadow-md">
-                  🔥 Featured Breaking News
+                <span className="px-3 py-1 rounded-md bg-primary text-primary-foreground font-bold text-xs tracking-wider uppercase">
+                  Featured Breaking News
                 </span>
-                <span className="px-2.5 py-0.5 rounded-full bg-background/80 backdrop-blur-md text-foreground font-bold text-xs border border-border/60">
+                <span className="px-2.5 py-0.5 rounded-md bg-surface-elevated text-foreground font-semibold text-xs border border-border">
                   {featuredStory.category}
                 </span>
                 <span className="text-xs text-muted-foreground font-medium flex items-center gap-1">
@@ -351,7 +347,7 @@ const News = () => {
                 </span>
               </div>
 
-              <h2 className="text-2xl sm:text-4xl md:text-5xl font-black text-foreground tracking-tight group-hover:text-primary transition-colors max-w-4xl leading-tight">
+              <h2 className="text-2xl sm:text-3xl md:text-4xl font-black text-foreground tracking-tight group-hover:text-primary transition-colors max-w-4xl leading-tight">
                 {featuredStory.title}
               </h2>
 
@@ -360,15 +356,15 @@ const News = () => {
               </p>
 
               <div className="flex items-center justify-between pt-2">
-                <div className="flex items-center gap-2 text-xs text-foreground font-semibold">
-                  <div className="w-6 h-6 rounded-full bg-primary/20 text-primary flex items-center justify-center font-bold">
+                <div className="flex items-center gap-2 text-xs text-foreground font-medium">
+                  <div className="w-6 h-6 rounded-full bg-surface-elevated text-primary border border-border flex items-center justify-center font-bold">
                     FB
                   </div>
                   <span>{featuredStory.author}</span>
                   <span className="text-muted-foreground">• {featuredStory.readTime}</span>
                 </div>
 
-                <div className="flex items-center gap-1 text-xs font-bold text-primary group-hover:translate-x-1 transition-transform">
+                <div className="flex items-center gap-1 text-xs font-semibold text-primary group-hover:translate-x-1 transition-transform">
                   <span>Read Full Exclusive</span>
                   <ArrowRight className="w-4 h-4" />
                 </div>
@@ -380,8 +376,8 @@ const News = () => {
 
       {/* ---------- 4. NEWS ARTICLES GRID ---------- */}
       {filteredArticles.length === 0 ? (
-        <div className="text-center py-16 border border-dashed border-border/80 rounded-3xl p-8">
-          <Newspaper className="w-12 h-12 text-muted-foreground/50 mx-auto mb-3" />
+        <div className="text-center py-16 border border-dashed border-border rounded-xl p-8">
+          <Newspaper className="w-12 h-12 text-muted-foreground/40 mx-auto mb-3" />
           <h3 className="text-lg font-bold text-foreground">
             No articles match your query
           </h3>
@@ -398,7 +394,7 @@ const News = () => {
               <div
                 key={article.id}
                 onClick={() => setSelectedArticle(article)}
-                className="group relative flex flex-col justify-between rounded-2xl border border-border/80 bg-card/85 backdrop-blur-md overflow-hidden hover:border-primary/50 hover:shadow-xl hover:shadow-primary/10 transition-all duration-300 hover:-translate-y-1.5 cursor-pointer"
+                className="group relative flex flex-col justify-between rounded-xl border border-border bg-card overflow-hidden hover:border-primary transition-colors cursor-pointer"
               >
                 <div>
                   {/* Article Thumbnail */}
@@ -406,7 +402,7 @@ const News = () => {
                     <img
                       src={article.image}
                       alt={article.title}
-                      className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                      className="w-full h-full object-cover"
                       loading="lazy"
                       onError={(e) => {
                         e.target.src =
@@ -414,7 +410,7 @@ const News = () => {
                       }}
                     />
                     <div className="absolute top-3 left-3">
-                      <span className="px-2.5 py-1 rounded-lg bg-background/90 backdrop-blur-md text-foreground font-black text-[11px] border border-border/60 shadow-sm">
+                      <span className="px-2.5 py-1 rounded-md bg-card/90 text-foreground font-semibold text-[11px] border border-border">
                         {article.category}
                       </span>
                     </div>
@@ -422,10 +418,10 @@ const News = () => {
                     {/* Bookmark Button */}
                     <button
                       onClick={(e) => toggleBookmark(article.id, e)}
-                      className={`absolute top-3 right-3 p-2 rounded-xl backdrop-blur-md transition-colors ${
+                      className={`absolute top-3 right-3 p-2 rounded-md transition-colors ${
                         isSaved
-                          ? "bg-primary text-primary-foreground shadow-md"
-                          : "bg-background/80 text-muted-foreground hover:text-foreground"
+                          ? "bg-primary text-primary-foreground"
+                          : "bg-surface-elevated/90 border border-border text-muted-foreground hover:text-foreground"
                       }`}
                       aria-label="Save story"
                     >
@@ -443,7 +439,7 @@ const News = () => {
                       <span>{article.readTime}</span>
                     </div>
 
-                    <h3 className="text-base sm:text-lg font-black text-foreground group-hover:text-primary transition-colors leading-snug line-clamp-2">
+                    <h3 className="text-base font-bold text-foreground group-hover:text-primary transition-colors leading-snug line-clamp-2">
                       {article.title}
                     </h3>
 
@@ -454,12 +450,12 @@ const News = () => {
                 </div>
 
                 {/* Footer Bar */}
-                <div className="px-5 pb-5 pt-3 border-t border-border/60 flex items-center justify-between text-xs text-muted-foreground">
-                  <span className="font-semibold text-foreground/80">
+                <div className="px-5 pb-5 pt-3 border-t border-border flex items-center justify-between text-xs text-muted-foreground">
+                  <span className="font-medium text-foreground/80">
                     By {article.author}
                   </span>
-                  <span className="font-bold text-primary flex items-center gap-1 group-hover:translate-x-0.5 transition-transform">
-                    Read Story <ChevronRight className="w-3.5 h-3.5" />
+                  <span className="font-semibold text-primary flex items-center gap-1 group-hover:translate-x-0.5 transition-transform">
+                    Read Story <ArrowRight className="w-3.5 h-3.5" />
                   </span>
                 </div>
               </div>
@@ -471,25 +467,25 @@ const News = () => {
       {/* ---------- 5. ARTICLE READER MODAL ---------- */}
       {selectedArticle && (
         <div
-          className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/75 backdrop-blur-sm animate-in fade-in duration-200"
+          className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 animate-in fade-in duration-150"
           onClick={() => setSelectedArticle(null)}
         >
           <div
-            className="relative w-full max-w-3xl rounded-3xl border border-border/80 bg-card p-6 sm:p-8 shadow-2xl text-foreground flex flex-col gap-6 max-h-[90vh] overflow-y-auto"
+            className="relative w-full max-w-3xl rounded-xl border border-border bg-card p-6 sm:p-8 shadow-2xl text-foreground flex flex-col gap-6 max-h-[90vh] overflow-y-auto"
             onClick={(e) => e.stopPropagation()}
           >
             {/* Close Button */}
             <button
               onClick={() => setSelectedArticle(null)}
-              className="absolute top-5 right-5 p-2 rounded-full bg-muted/60 hover:bg-muted text-muted-foreground hover:text-foreground transition-colors cursor-pointer"
+              className="absolute top-5 right-5 p-1.5 rounded-md bg-surface-elevated border border-border text-muted-foreground hover:text-foreground transition-colors cursor-pointer"
             >
-              <X className="w-5 h-5" />
+              <X className="w-4 h-4" />
             </button>
 
             {/* Header info */}
             <div>
               <div className="flex flex-wrap items-center gap-2 mb-2">
-                <span className="px-3 py-1 rounded-full bg-primary/10 border border-primary/20 text-primary font-bold text-xs">
+                <span className="px-2.5 py-0.5 rounded-md bg-surface-elevated border border-border text-primary font-semibold text-xs">
                   {selectedArticle.category}
                 </span>
                 <span className="text-xs text-muted-foreground">
@@ -497,12 +493,12 @@ const News = () => {
                 </span>
               </div>
 
-              <h1 className="text-2xl sm:text-3xl md:text-4xl font-black text-foreground tracking-tight leading-snug">
+              <h1 className="text-2xl sm:text-3xl font-black text-foreground tracking-tight leading-snug">
                 {selectedArticle.title}
               </h1>
 
-              <div className="flex items-center gap-3 mt-4 pt-4 border-t border-border/60">
-                <div className="w-10 h-10 rounded-full bg-primary/20 text-primary font-black flex items-center justify-center">
+              <div className="flex items-center gap-3 mt-4 pt-4 border-t border-border">
+                <div className="w-10 h-10 rounded-full bg-surface-elevated border border-border text-primary font-bold flex items-center justify-center">
                   {selectedArticle.author.slice(0, 2).toUpperCase()}
                 </div>
                 <div>
@@ -517,7 +513,7 @@ const News = () => {
             </div>
 
             {/* Main Article Image */}
-            <div className="h-64 sm:h-80 w-full rounded-2xl overflow-hidden border border-border/60">
+            <div className="h-64 sm:h-80 w-full rounded-lg overflow-hidden border border-border">
               <img
                 src={selectedArticle.image}
                 alt={selectedArticle.title}
@@ -538,12 +534,12 @@ const News = () => {
             </div>
 
             {/* Tags Strip */}
-            <div className="flex flex-wrap items-center gap-2 pt-4 border-t border-border/60">
-              <span className="text-xs font-bold text-muted-foreground">Tags:</span>
+            <div className="flex flex-wrap items-center gap-2 pt-4 border-t border-border">
+              <span className="text-xs font-semibold text-muted-foreground">Tags:</span>
               {selectedArticle.tags.map((tag) => (
                 <span
                   key={tag}
-                  className="px-2.5 py-1 rounded-lg bg-muted text-foreground text-xs font-semibold"
+                  className="px-2.5 py-1 rounded-md bg-surface-elevated border border-border text-foreground text-xs font-medium"
                 >
                   #{tag}
                 </span>
@@ -551,7 +547,7 @@ const News = () => {
             </div>
 
             {/* CTA to Explore Team */}
-            <div className="p-4 rounded-2xl bg-muted/40 border border-border/60 flex flex-col sm:flex-row items-center justify-between gap-4">
+            <div className="p-4 rounded-lg bg-surface-elevated border border-border flex flex-col sm:flex-row items-center justify-between gap-4">
               <div>
                 <h5 className="text-sm font-bold text-foreground">
                   Featured Club: {selectedArticle.relatedClub}
@@ -563,7 +559,7 @@ const News = () => {
               <Link
                 to="/teams"
                 onClick={() => setSelectedArticle(null)}
-                className="px-5 py-2.5 rounded-xl bg-primary text-primary-foreground font-bold text-xs flex items-center gap-2 shadow-md hover:opacity-95 transition-all shrink-0"
+                className="px-4 py-2 rounded-md bg-primary text-primary-foreground font-semibold text-xs flex items-center gap-2 hover:bg-primary-hover active:scale-[0.98] transition-all shrink-0"
               >
                 <span>View Clubs</span>
                 <ExternalLink className="w-3.5 h-3.5" />

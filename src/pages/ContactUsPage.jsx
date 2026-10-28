@@ -14,19 +14,19 @@ const contactMethods = [
     icon: Mail,
     title: "Editorial & News Desk",
     desc: "For matchday scoops, press releases, and breaking transfer stories.",
-    contact: "press@footballhub.com",
+    contact: "press@footballcollect.com",
   },
   {
     icon: Shield,
     title: "Club Database & Stats",
     desc: "Submit a trophy cabinet correction or update stadium capacities.",
-    contact: "data@footballhub.com",
+    contact: "data@footballcollect.com",
   },
   {
     icon: Globe2,
     title: "Commercial & Partnerships",
     desc: "Sponsorships, advertising partnerships, and API access.",
-    contact: "partnerships@footballhub.com",
+    contact: "partnerships@footballcollect.com",
   },
 ];
 
@@ -44,8 +44,8 @@ const faqs = [
     a: "All trophies, league titles, and stadium capacities are cross-verified with official UEFA registries, league association archives, and club documentation.",
   },
   {
-    q: "Is FootballHub free to browse and use for fans?",
-    a: "Yes! FootballHub is 100% free for all football fans worldwide, supported by passionate supporters and football enthusiasts.",
+    q: "Is Football Collect free to browse and use for fans?",
+    a: "Yes! Football Collect is 100% free for all football fans worldwide, supported by passionate supporters and football enthusiasts.",
   },
 ];
 
@@ -73,9 +73,9 @@ const ContactUsPage = () => {
     <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12 flex flex-col gap-12 sm:gap-16">
       {/* ---------- 1. HEADER ---------- */}
       <div className="text-center max-w-2xl mx-auto flex flex-col items-center">
-        <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-primary/10 border border-primary/20 text-primary text-xs font-bold tracking-wide uppercase mb-3">
-          <MessageSquare className="w-3.5 h-3.5" />
-          <span>FootballHub Support & Fan Desk</span>
+        <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-surface-elevated border border-border text-foreground text-xs font-semibold tracking-wider uppercase mb-3">
+          <MessageSquare className="w-3.5 h-3.5 text-primary" />
+          <span>Football Collect Support & Fan Desk</span>
         </div>
 
         <h1 className="text-3xl sm:text-5xl font-black tracking-tight text-foreground">
@@ -95,23 +95,23 @@ const ContactUsPage = () => {
           return (
             <div
               key={idx}
-              className="p-6 rounded-2xl border border-border/80 bg-card/85 backdrop-blur-md flex flex-col justify-between hover:border-primary/50 hover:shadow-xl hover:shadow-primary/10 transition-all duration-300"
+              className="p-6 rounded-xl border border-border bg-card flex flex-col justify-between hover:border-primary transition-colors"
             >
               <div>
-                <div className="w-12 h-12 rounded-xl bg-primary/10 text-primary flex items-center justify-center mb-4">
-                  <Icon className="w-6 h-6" />
+                <div className="w-10 h-10 rounded-lg bg-surface-elevated text-primary flex items-center justify-center mb-4 border border-border">
+                  <Icon className="w-5 h-5" />
                 </div>
-                <h3 className="text-lg font-black text-foreground">
+                <h3 className="text-base font-bold text-foreground">
                   {channel.title}
                 </h3>
                 <p className="text-xs text-muted-foreground mt-1 leading-relaxed">
                   {channel.desc}
                 </p>
               </div>
-              <div className="mt-4 pt-3 border-t border-border/60">
+              <div className="mt-4 pt-3 border-t border-border">
                 <a
                   href={`mailto:${channel.contact}`}
-                  className="text-xs font-black text-primary hover:underline"
+                  className="text-xs font-semibold text-primary hover:underline"
                 >
                   {channel.contact}
                 </a>
@@ -124,26 +124,26 @@ const ContactUsPage = () => {
       {/* ---------- 3. FORM & FAQ GRID ---------- */}
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
         {/* Contact Form (Span 7) */}
-        <div className="lg:col-span-7 rounded-3xl border border-border/80 bg-card p-6 sm:p-8 shadow-xl">
-          <h2 className="text-2xl font-black text-foreground tracking-tight mb-1">
+        <div className="lg:col-span-7 rounded-xl border border-border bg-card p-6 sm:p-8">
+          <h2 className="text-xl sm:text-2xl font-black text-foreground tracking-tight mb-1">
             Send a Message to the Desk 📬
           </h2>
           <p className="text-xs sm:text-sm text-muted-foreground mb-6">
-            Fill in the details below and a FootballHub team member will respond within 24 hours.
+            Fill in the details below and a Football Collect team member will respond within 24 hours.
           </p>
 
           {submitted ? (
-            <div className="p-8 rounded-2xl bg-emerald-500/10 border border-emerald-500/20 text-center flex flex-col items-center gap-3 animate-in fade-in">
-              <CheckCircle className="w-12 h-12 text-emerald-400" />
-              <h3 className="text-xl font-black text-foreground">
+            <div className="p-8 rounded-xl bg-surface-elevated border border-success/40 text-center flex flex-col items-center gap-3 animate-in fade-in">
+              <CheckCircle className="w-10 h-10 text-success" />
+              <h3 className="text-lg font-bold text-foreground">
                 Message Transmitted Successfully!
               </h3>
               <p className="text-xs text-muted-foreground max-w-sm">
-                Thank you for contributing to FootballHub. Our editorial team will review your inquiry shortly.
+                Thank you for contributing to Football Collect. Our editorial team will review your inquiry shortly.
               </p>
               <button
                 onClick={() => setSubmitted(false)}
-                className="mt-2 px-4 py-2 rounded-xl bg-primary text-primary-foreground text-xs font-bold"
+                className="mt-2 px-4 py-2 rounded-md bg-primary text-primary-foreground text-xs font-semibold hover:bg-primary-hover transition-colors"
               >
                 Send Another Message
               </button>
@@ -152,7 +152,7 @@ const ContactUsPage = () => {
             <form onSubmit={handleSubmit} className="space-y-4">
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div>
-                  <label className="block text-xs font-bold text-foreground mb-1">
+                  <label className="block text-xs font-semibold text-foreground mb-1">
                     Your Name
                   </label>
                   <input
@@ -163,11 +163,11 @@ const ContactUsPage = () => {
                     onChange={(e) =>
                       setFormData({ ...formData, name: e.target.value })
                     }
-                    className="w-full h-11 px-3.5 rounded-xl bg-background border border-border text-foreground text-xs sm:text-sm focus:outline-none focus:ring-2 focus:ring-primary/40 focus:border-primary transition-all"
+                    className="w-full h-10 px-3.5 rounded-md bg-background border border-border text-foreground text-xs sm:text-sm focus:outline-none focus:ring-1 focus:ring-primary focus:border-primary transition-colors"
                   />
                 </div>
                 <div>
-                  <label className="block text-xs font-bold text-foreground mb-1">
+                  <label className="block text-xs font-semibold text-foreground mb-1">
                     Email Address
                   </label>
                   <input
@@ -178,13 +178,13 @@ const ContactUsPage = () => {
                     onChange={(e) =>
                       setFormData({ ...formData, email: e.target.value })
                     }
-                    className="w-full h-11 px-3.5 rounded-xl bg-background border border-border text-foreground text-xs sm:text-sm focus:outline-none focus:ring-2 focus:ring-primary/40 focus:border-primary transition-all"
+                    className="w-full h-10 px-3.5 rounded-md bg-background border border-border text-foreground text-xs sm:text-sm focus:outline-none focus:ring-1 focus:ring-primary focus:border-primary transition-colors"
                   />
                 </div>
               </div>
 
               <div>
-                <label className="block text-xs font-bold text-foreground mb-1">
+                <label className="block text-xs font-semibold text-foreground mb-1">
                   Topic Category
                 </label>
                 <select
@@ -192,7 +192,7 @@ const ContactUsPage = () => {
                   onChange={(e) =>
                     setFormData({ ...formData, subject: e.target.value })
                   }
-                  className="w-full h-11 px-3.5 rounded-xl bg-background border border-border text-foreground text-xs font-semibold focus:outline-none focus:ring-2 focus:ring-primary/40 cursor-pointer"
+                  className="w-full h-10 px-3.5 rounded-md bg-background border border-border text-foreground text-xs font-medium focus:outline-none focus:ring-1 focus:ring-primary cursor-pointer"
                 >
                   <option value="data">Club Trophy / Stadium Data Correction</option>
                   <option value="player">Suggest a Star Player Profile</option>
@@ -203,7 +203,7 @@ const ContactUsPage = () => {
               </div>
 
               <div>
-                <label className="block text-xs font-bold text-foreground mb-1">
+                <label className="block text-xs font-semibold text-foreground mb-1">
                   Your Message
                 </label>
                 <textarea
@@ -214,13 +214,13 @@ const ContactUsPage = () => {
                   onChange={(e) =>
                     setFormData({ ...formData, message: e.target.value })
                   }
-                  className="w-full p-3.5 rounded-xl bg-background border border-border text-foreground text-xs sm:text-sm focus:outline-none focus:ring-2 focus:ring-primary/40 focus:border-primary transition-all resize-none"
+                  className="w-full p-3.5 rounded-md bg-background border border-border text-foreground text-xs sm:text-sm focus:outline-none focus:ring-1 focus:ring-primary focus:border-primary transition-colors resize-none"
                 />
               </div>
 
               <button
                 type="submit"
-                className="w-full sm:w-auto px-8 py-3 rounded-xl bg-primary text-primary-foreground font-bold text-xs sm:text-sm flex items-center justify-center gap-2 shadow-lg shadow-primary/20 hover:opacity-95 transition-all cursor-pointer"
+                className="w-full sm:w-auto px-6 py-2.5 rounded-md bg-primary text-primary-foreground font-semibold text-xs sm:text-sm flex items-center justify-center gap-2 hover:bg-primary-hover active:scale-[0.98] transition-all cursor-pointer"
               >
                 <span>Submit Inquiry</span>
                 <Send className="w-3.5 h-3.5" />
@@ -232,11 +232,11 @@ const ContactUsPage = () => {
         {/* FAQs Accordion (Span 5) */}
         <div className="lg:col-span-5 flex flex-col gap-4">
           <div>
-            <h3 className="text-xl font-black text-foreground tracking-tight">
+            <h3 className="text-xl font-bold text-foreground tracking-tight">
               Frequently Asked Questions
             </h3>
             <p className="text-xs text-muted-foreground mt-0.5">
-              Quick answers to common questions about FootballHub data.
+              Quick answers to common questions about Football Collect data.
             </p>
           </div>
 
@@ -246,11 +246,11 @@ const ContactUsPage = () => {
               return (
                 <div
                   key={index}
-                  className="rounded-2xl border border-border/80 bg-card overflow-hidden transition-all"
+                  className="rounded-lg border border-border bg-card overflow-hidden transition-colors"
                 >
                   <button
                     onClick={() => setOpenFaq(isOpen ? null : index)}
-                    className="w-full p-4 text-left flex items-center justify-between gap-3 text-xs sm:text-sm font-bold text-foreground hover:text-primary transition-colors cursor-pointer"
+                    className="w-full p-4 text-left flex items-center justify-between gap-3 text-xs sm:text-sm font-semibold text-foreground hover:text-primary transition-colors cursor-pointer"
                   >
                     <span>{faq.q}</span>
                     <ChevronDown
@@ -260,7 +260,7 @@ const ContactUsPage = () => {
                     />
                   </button>
                   {isOpen && (
-                    <div className="px-4 pb-4 text-xs text-muted-foreground leading-relaxed border-t border-border/40 pt-3">
+                    <div className="px-4 pb-4 text-xs text-muted-foreground leading-relaxed border-t border-border pt-3">
                       {faq.a}
                     </div>
                   )}

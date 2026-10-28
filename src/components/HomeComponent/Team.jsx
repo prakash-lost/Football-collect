@@ -93,15 +93,6 @@ const topClubs = [
   },
   {
     id: 10,
-    name: "Chelsea FC",
-    shortName: "CHE",
-    league: "Premier League",
-    country: "England 🏴󠁧󠁢󠁥󠁮󠁧󠁿",
-    image: "https://upload.wikimedia.org/wikipedia/en/c/cc/Chelsea_FC.svg",
-    titles: "2 UCL",
-  },
-  {
-    id: 11,
     name: "Borussia Dortmund",
     shortName: "BVB",
     league: "Bundesliga",
@@ -111,8 +102,17 @@ const topClubs = [
     titles: "1 UCL",
   },
   {
+    id: 11,
+    name: "Chelsea FC",
+    shortName: "CHE",
+    league: "Premier League",
+    country: "England 🏴󠁧󠁢󠁥󠁮󠁧󠁿",
+    image: "https://upload.wikimedia.org/wikipedia/en/c/cc/Chelsea_FC.svg",
+    titles: "2 UCL",
+  },
+  {
     id: 12,
-    name: "Juventus",
+    name: "Juventus FC",
     shortName: "JUV",
     league: "Serie A",
     country: "Italy 🇮🇹",
@@ -126,57 +126,57 @@ const Team = () => {
   const navigate = useNavigate();
 
   return (
-    <section className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+    <section className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
       {/* ---------- HEADER STRIP ---------- */}
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-6">
         <div>
-          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-primary/10 border border-primary/20 text-primary text-xs font-bold tracking-wide uppercase mb-2">
-            <Shield className="w-3.5 h-3.5" />
+          <div className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-surface-elevated border border-border text-foreground text-xs font-semibold uppercase tracking-wider mb-2">
+            <Shield className="w-3.5 h-3.5 text-primary" />
             <span>Club Showcase</span>
           </div>
-          <h2 className="text-2xl sm:text-3xl font-extrabold tracking-tight text-foreground flex items-center gap-2">
-            Featured Football Clubs
+          <h2 className="text-xl sm:text-2xl font-black tracking-tight text-foreground flex items-center gap-2">
+            Featured European Clubs
           </h2>
           <p className="text-xs sm:text-sm text-muted-foreground mt-1">
-            Browse the most storied clubs, historical honors, and squad rosters.
+            Browse Europe's most storied clubs, historical honors, and squad rosters.
           </p>
         </div>
 
         <Link
           to="/teams"
-          className="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-card border border-border/80 hover:border-primary/50 text-foreground text-xs sm:text-sm font-bold shadow-sm hover:text-primary transition-all w-fit group"
+          className="inline-flex items-center gap-2 px-3.5 py-2 rounded-md bg-card border border-border hover:border-primary text-foreground text-xs font-bold transition-colors w-fit group cursor-pointer"
         >
-          <span>View All 50+ Teams</span>
-          <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
+          <span>View All Clubs</span>
+          <ArrowRight className="w-3.5 h-3.5 text-primary" />
         </Link>
       </div>
 
       {/* ---------- 12 CLUBS BADGE GRID ---------- */}
-      <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-3.5 sm:gap-4">
+      <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-3">
         {topClubs.map((club) => (
           <div
             key={club.id}
-            onClick={() => navigate(`/teams`)}
-            className="group relative flex flex-col items-center justify-between p-4 rounded-2xl border border-border/80 bg-card/80 backdrop-blur-md hover:border-primary/50 hover:bg-card hover:shadow-lg hover:shadow-primary/10 hover:-translate-y-1.5 transition-all duration-300 cursor-pointer text-center"
+            onClick={() => navigate(`/teams?search=${encodeURIComponent(club.name)}`)}
+            className="group flex flex-col items-center justify-between p-3.5 rounded-lg border border-border bg-card hover:border-primary transition-colors cursor-pointer text-center"
           >
             {/* Top Badge: Trophy count */}
-            <span className="self-end px-2 py-0.5 rounded-md bg-muted/80 text-[10px] font-bold text-muted-foreground group-hover:text-primary transition-colors">
+            <span className="self-end px-1.5 py-0.5 rounded bg-surface-elevated border border-border text-[10px] font-mono font-bold text-primary">
               {club.titles}
             </span>
 
-            {/* Club Crest with Glow */}
-            <div className="relative my-3 w-16 h-16 sm:w-20 sm:h-20 flex items-center justify-center p-2 rounded-xl bg-background/50 border border-border/40 group-hover:border-primary/30 group-hover:scale-110 transition-all duration-300">
+            {/* Club Crest */}
+            <div className="my-2.5 w-14 h-14 sm:w-16 sm:h-16 flex items-center justify-center p-2 rounded-md bg-surface-elevated border border-border">
               <img
                 src={club.image}
                 alt={club.name}
-                className="w-full h-full object-contain filter drop-shadow-md"
+                className="w-full h-full object-contain"
                 loading="lazy"
               />
             </div>
 
             {/* Club Title & League */}
             <div className="w-full">
-              <h3 className="font-extrabold text-xs sm:text-sm text-foreground tracking-tight truncate group-hover:text-primary transition-colors">
+              <h3 className="font-bold text-xs sm:text-sm text-foreground tracking-tight truncate group-hover:text-primary transition-colors">
                 {club.name}
               </h3>
               <p className="text-[11px] text-muted-foreground mt-0.5 truncate">
@@ -184,10 +184,10 @@ const Team = () => {
               </p>
             </div>
 
-            {/* Subtle hover pill */}
-            <div className="mt-3 w-full py-1 rounded-lg bg-primary/0 group-hover:bg-primary/10 border border-transparent group-hover:border-primary/20 text-primary text-[10px] font-bold transition-all">
-              Squad Details →
-            </div>
+            {/* Action text */}
+            <span className="mt-2.5 text-[10px] font-semibold text-muted-foreground group-hover:text-primary transition-colors">
+              Inspect Club →
+            </span>
           </div>
         ))}
       </div>

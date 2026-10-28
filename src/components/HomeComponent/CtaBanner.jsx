@@ -4,27 +4,27 @@ import { Link } from "react-router";
 const CtaBanner = () => {
   return (
     <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full mt-2">
-      <div className="rounded-3xl border border-primary/30 bg-gradient-to-br from-primary/15 via-card/90 to-primary/5 p-8 sm:p-12 text-center shadow-xl backdrop-blur-md">
-        <div className="max-w-2xl mx-auto">
-          <span className="text-3xl sm:text-4xl block mb-2">⚽</span>
-          <h3 className="text-2xl sm:text-3xl font-black text-foreground tracking-tight">
-            Ready to Build Your Football Hub?
+      <div className="rounded-xl border border-border bg-card p-8 sm:p-10 text-center">
+        <div className="max-w-xl mx-auto">
+          <span className="text-3xl block mb-2">⚽</span>
+          <h3 className="text-xl sm:text-2xl font-black text-foreground tracking-tight font-sans">
+            Ready to Build Your Football Collect Archive?
           </h3>
-          <p className="mt-2 text-xs sm:text-sm text-muted-foreground">
-            Sign in to save your favorite club rosters, track player transfer values, and access exclusive matchday analytics.
+          <p className="mt-2 text-xs sm:text-sm text-muted-foreground leading-relaxed">
+            Follow your favorite club rosters, track player career milestones, and analyze European silverware records.
           </p>
-          <div className="mt-6 flex flex-wrap items-center justify-center gap-3">
+          <div className="mt-5 flex flex-wrap items-center justify-center gap-3">
             <Link
               to="/profile"
-              className="px-6 py-2.5 rounded-xl bg-primary text-primary-foreground text-xs sm:text-sm font-bold shadow-lg shadow-primary/25 hover:opacity-95 transition-all"
+              className="px-5 py-2.5 rounded-md bg-primary text-primary-foreground text-xs sm:text-sm font-bold hover:bg-primary-hover active:scale-[0.98] transition-colors"
             >
               Get Started Free
             </Link>
             <Link
               to="/teams"
-              className="px-6 py-2.5 rounded-xl bg-background border border-border/80 text-foreground text-xs sm:text-sm font-semibold hover:bg-accent/50 transition-all"
+              className="px-5 py-2.5 rounded-md bg-surface-elevated border border-border text-foreground text-xs sm:text-sm font-semibold hover:border-primary transition-colors"
             >
-              Browse All Teams
+              Browse All Clubs
             </Link>
           </div>
         </div>

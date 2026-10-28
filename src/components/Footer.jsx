@@ -34,63 +34,63 @@ const socialLinks = [
   {
     icon: AiOutlineYoutube,
     name: "YouTube",
-    href: "#",
-    hover: "hover:text-red-500 hover:border-red-500/40",
+    href: "https://youtube.com",
+    hover: "hover:text-destructive hover:border-destructive/40",
   },
   {
     icon: FaInstagram,
     name: "Instagram",
-    href: "#",
-    hover: "hover:text-pink-500 hover:border-pink-500/40",
+    href: "https://instagram.com",
+    hover: "hover:text-primary hover:border-primary/40",
   },
   {
     icon: FaFacebook,
     name: "Facebook",
-    href: "#",
-    hover: "hover:text-blue-500 hover:border-blue-500/40",
+    href: "https://facebook.com",
+    hover: "hover:text-info hover:border-info/40",
   },
   {
     icon: FaXTwitter,
     name: "X",
-    href: "#",
+    href: "https://x.com",
     hover: "hover:text-foreground hover:border-foreground/40",
   },
   {
     icon: FaLinkedin,
     name: "LinkedIn",
-    href: "#",
-    hover: "hover:text-sky-500 hover:border-sky-500/40",
+    href: "https://linkedin.com",
+    hover: "hover:text-info hover:border-info/40",
   },
   {
     icon: FaSquareGithub,
     name: "GitHub",
-    href: "#",
+    href: "https://github.com",
     hover: "hover:text-primary hover:border-primary/40",
   },
 ];
 
 const Footer = () => {
   return (
-    <footer className="w-full bg-card/60 border-t border-border/80 backdrop-blur-md text-foreground">
+    <footer className="w-full bg-card border-t border-border text-foreground">
       {/* ---------- TOP SECTION: STATS STRIP ---------- */}
-      <div className="border-b border-border/60 bg-muted/20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6">
+      <div className="border-b border-border bg-surface-elevated/40">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 sm:py-8">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4">
             {statHighlights.map((stat, idx) => {
               const Icon = stat.icon;
               return (
                 <div
                   key={idx}
-                  className="flex items-center gap-3.5 p-3.5 sm:p-4 rounded-xl border border-border/60 bg-background/50 hover:border-primary/40 transition-colors shadow-sm"
+                  className="flex items-center gap-3 p-3 sm:p-3.5 rounded-lg border border-border bg-card hover:border-primary/40 transition-colors"
                 >
-                  <div className="p-2.5 rounded-lg bg-primary/10 text-primary flex items-center justify-center shrink-0">
-                    <Icon className="w-5 h-5 sm:w-6 sm:h-6" />
+                  <div className="p-2 rounded-md bg-surface-elevated border border-border text-primary flex items-center justify-center shrink-0">
+                    <Icon className="w-4 h-4 sm:w-5 sm:h-5" />
                   </div>
                   <div>
-                    <h4 className="font-extrabold text-base sm:text-lg text-foreground tracking-tight">
+                    <h4 className="font-extrabold text-sm sm:text-base text-foreground tracking-tight">
                       {stat.value}
                     </h4>
-                    <p className="text-[11px] sm:text-xs text-muted-foreground line-clamp-1">
+                    <p className="text-[11px] text-muted-foreground line-clamp-1">
                       {stat.desc}
                     </p>
                   </div>
@@ -102,63 +102,46 @@ const Footer = () => {
       </div>
 
       {/* ---------- MAIN FOOTER CONTENT ---------- */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 lg:py-16">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 lg:gap-8">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 lg:py-14">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-8 lg:gap-8">
           {/* Brand Info (Span 4) */}
-          <div className="lg:col-span-4 flex flex-col gap-4">
-            <Link to="/" className="flex items-center gap-2.5">
-              <span className="text-2xl">⚽</span>
-              <span className="font-extrabold text-xl tracking-tight text-foreground">
-                FOOTBALL<span className="text-primary">HUB</span>
+          <div className="lg:col-span-4 flex flex-col gap-3">
+            <Link to="/" className="flex items-center gap-2">
+              <span className="text-xl">⚽</span>
+              <span className="font-extrabold text-lg tracking-tight text-foreground font-sans">
+                FOOTBALL<span className="text-primary font-black">COLLECT</span>
               </span>
             </Link>
-            <p className="text-sm text-muted-foreground leading-relaxed max-w-sm">
-              Your ultimate football destination for detailed team histories,
-              player cards, comprehensive league standings, and tactical stats.
+            <p className="text-xs sm:text-sm text-muted-foreground leading-relaxed max-w-sm">
+              Your football destination for verified club histories,
+              trophy cabinets, player career journeys, and tactical stats.
             </p>
-            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-primary/10 border border-primary/20 text-xs font-semibold text-primary w-fit">
-              <span className="w-2 h-2 rounded-full bg-primary animate-pulse" />
-              Live 2026 Season Coverage
+            <div className="inline-flex items-center gap-2 px-2.5 py-1 rounded-md bg-surface-elevated border border-border text-[11px] font-semibold text-foreground w-fit">
+              <span className="w-1.5 h-1.5 rounded-full bg-primary" />
+              <span>2026/27 European Football Archive</span>
             </div>
           </div>
 
-          {/* Nav Columns (Span 5) */}
-          <div className="lg:col-span-4 grid grid-cols-2 sm:grid-cols-3 gap-6 sm:gap-8">
+          {/* Nav Columns (Span 4) */}
+          <div className="lg:col-span-4 grid grid-cols-2 sm:grid-cols-3 gap-6">
             <div>
-              <h4 className="text-xs font-bold uppercase tracking-wider text-foreground mb-4">
+              <h4 className="text-xs font-bold uppercase tracking-wider text-foreground mb-3">
                 Explore
               </h4>
-              <ul className="space-y-2.5 text-sm text-muted-foreground">
-                {["Home", "Players", "Teams", "Competitions"].map((item) => (
-                  <li key={item}>
-                    <Link
-                      to={`/${item.toLowerCase()}`}
-                      className="hover:text-primary transition-colors block"
-                    >
-                      {item}
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            </div>
-
-            <div>
-              <h4 className="text-xs font-bold uppercase tracking-wider text-foreground mb-4">
-                Database
-              </h4>
-              <ul className="space-y-2.5 text-sm text-muted-foreground">
+              <ul className="space-y-2 text-xs text-muted-foreground">
                 {[
-                  "Top Clubs",
-                  "Squad Rosters",
-                  "Trophy Cabinets",
-                  "Rankings",
+                  { name: "Home", path: "/" },
+                  { name: "Teams", path: "/teams" },
+                  { name: "Players", path: "/players" },
+                  { name: "Leagues", path: "/leagues" },
+                  { name: "News", path: "/news" },
                 ].map((item) => (
-                  <li key={item}>
+                  <li key={item.name}>
                     <Link
-                      to="/teams"
+                      to={item.path}
                       className="hover:text-primary transition-colors block"
                     >
-                      {item}
+                      {item.name}
                     </Link>
                   </li>
                 ))}
@@ -166,81 +149,107 @@ const Footer = () => {
             </div>
 
             <div>
-              <h4 className="text-xs font-bold uppercase tracking-wider text-foreground mb-4">
-                Company
+              <h4 className="text-xs font-bold uppercase tracking-wider text-foreground mb-3">
+                Archive
               </h4>
-              <ul className="space-y-2.5 text-sm text-muted-foreground">
-                {["About Us", "Contact", "Privacy Policy", "Terms of Use"].map(
-                  (item) => (
-                    <li key={item}>
-                      <Link
-                        to="/aboutus"
-                        className="hover:text-primary transition-colors block"
-                      >
-                        {item}
-                      </Link>
-                    </li>
-                  ),
-                )}
+              <ul className="space-y-2 text-xs text-muted-foreground">
+                {[
+                  { name: "Top Clubs", path: "/teams" },
+                  { name: "Legends", path: "/players" },
+                  { name: "Honors", path: "/teams" },
+                  { name: "Transfers", path: "/news" },
+                ].map((item) => (
+                  <li key={item.name}>
+                    <Link
+                      to={item.path}
+                      className="hover:text-primary transition-colors block"
+                    >
+                      {item.name}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            <div>
+              <h4 className="text-xs font-bold uppercase tracking-wider text-foreground mb-3">
+                About
+              </h4>
+              <ul className="space-y-2 text-xs text-muted-foreground">
+                {[
+                  { name: "About Us", path: "/aboutus" },
+                  { name: "Contact", path: "/contactus" },
+                  { name: "Profile", path: "/profile" },
+                ].map((item) => (
+                  <li key={item.name}>
+                    <Link
+                      to={item.path}
+                      className="hover:text-primary transition-colors block"
+                    >
+                      {item.name}
+                    </Link>
+                  </li>
+                ))}
               </ul>
             </div>
           </div>
 
           {/* Newsletter Box (Span 4) */}
-          <div className="lg:col-span-4 flex flex-col gap-3">
-            <h4 className="text-base font-bold text-foreground tracking-tight">
-              Stay in the Game 📬
+          <div className="lg:col-span-4 flex flex-col gap-2.5">
+            <h4 className="text-sm font-bold text-foreground tracking-tight">
+              Football Gazette Newsletter
             </h4>
-            <p className="text-sm text-muted-foreground leading-relaxed">
-              Subscribe to get match updates, team transfers, and newly added
-              collectors' cards.
+            <p className="text-xs text-muted-foreground leading-relaxed">
+              Receive updates on matchday fixtures, trophy milestones, and newly documented player careers.
             </p>
             <form
               onSubmit={(e) => e.preventDefault()}
-              className="flex items-center gap-2 mt-2"
+              className="flex items-center gap-2 mt-1"
             >
               <input
                 type="email"
-                placeholder="Enter your email address"
-                className="w-full h-10 px-3.5 text-xs sm:text-sm rounded-lg bg-background border border-border text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/40 focus:border-primary transition-all"
+                placeholder="Enter email address"
+                className="w-full h-8 px-3 text-xs rounded-md bg-background border border-border text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-1 focus:ring-primary focus:border-primary transition-colors"
                 required
               />
               <button
                 type="submit"
                 aria-label="Subscribe"
-                className="h-10 px-4 rounded-lg bg-primary text-primary-foreground font-semibold flex items-center justify-center hover:opacity-90 transition-all shadow-md shadow-primary/20 shrink-0 cursor-pointer"
+                className="h-8 px-3.5 rounded-md bg-primary text-primary-foreground hover:bg-primary-hover font-semibold flex items-center justify-center transition-colors shrink-0 cursor-pointer"
               >
-                <FaLocationArrow className="w-3.5 h-3.5" />
+                <FaLocationArrow className="w-3 h-3" />
               </button>
             </form>
-            <span className="text-[11px] text-muted-foreground">
-              No spam. Unsubscribe anytime.
+            <span className="text-[10px] text-muted-foreground">
+              Direct inbox delivery. Unsubscribe anytime.
             </span>
           </div>
         </div>
       </div>
 
       {/* ---------- BOTTOM BAR: SOCIALS & COPYRIGHT ---------- */}
-      <div className="border-t border-border/60 bg-muted/10">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 flex flex-col sm:flex-row items-center justify-between gap-4">
-          <p className="text-xs text-muted-foreground text-center sm:text-left">
+      <div className="border-t border-border bg-surface-elevated/20">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 sm:py-5 flex flex-col sm:flex-row items-center justify-between gap-3">
+          <p className="text-[11px] text-muted-foreground text-center sm:text-left">
             © {new Date().getFullYear()}{" "}
-            <span className="font-semibold text-foreground">Football Hub</span>.
-            All rights reserved. Made for football fans worldwide.
+            <span className="font-semibold text-foreground">Football Collect</span>.
+            All rights reserved. Dedicated to European and global football archives.
           </p>
 
           {/* Social Media Pills */}
-          <div className="flex items-center gap-2">
+          <div className="flex items-center gap-1.5">
             {socialLinks.map((social) => {
               const Icon = social.icon;
               return (
                 <a
                   key={social.name}
                   href={social.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   aria-label={social.name}
-                  className={`p-2 rounded-lg border border-border/80 bg-background/60 text-muted-foreground transition-all duration-200 ${social.hover} hover:-translate-y-0.5 hover:shadow-sm`}
+                  className={`p-1.5 rounded-md border border-border bg-card text-muted-foreground transition-colors ${social.hover}`}
                 >
-                  <Icon className="w-4 h-4" />
+                  <Icon className="w-3.5 h-3.5" />
                 </a>
               );
             })}

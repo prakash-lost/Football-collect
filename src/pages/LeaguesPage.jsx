@@ -223,10 +223,10 @@ const Leagues = () => {
   return (
     <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12 flex flex-col gap-8">
       {/* ---------- 1. HEADER & SEARCH BAR ---------- */}
-      <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-6 border-b border-border/60 pb-8">
+      <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-6 border-b border-border pb-8">
         <div>
-          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-primary/10 border border-primary/20 text-primary text-xs font-bold tracking-wide uppercase mb-2">
-            <Trophy className="w-3.5 h-3.5" />
+          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-surface-elevated border border-border text-foreground text-xs font-semibold tracking-wider uppercase mb-2">
+            <Trophy className="w-3.5 h-3.5 text-primary" />
             <span>European Football Competitions • 2026/27</span>
           </div>
           <h1 className="text-3xl sm:text-5xl font-black tracking-tight text-foreground">
@@ -246,7 +246,7 @@ const Leagues = () => {
             placeholder="Search league, country, champion..."
             value={search}
             onChange={(e) => setSearch(e.target.value)}
-            className="w-full h-11 pl-10 pr-4 rounded-xl bg-card border border-border/80 text-foreground text-xs sm:text-sm shadow-sm focus:outline-none focus:ring-2 focus:ring-primary/40 focus:border-primary transition-all"
+            className="w-full h-10 pl-10 pr-4 rounded-md bg-background border border-border text-foreground text-xs sm:text-sm focus:outline-none focus:ring-1 focus:ring-primary focus:border-primary transition-colors"
           />
         </div>
       </div>
@@ -263,10 +263,10 @@ const Leagues = () => {
             <button
               key={tab.id}
               onClick={() => setSelectedType(tab.id)}
-              className={`px-4 py-2 rounded-xl text-xs font-bold whitespace-nowrap transition-all duration-200 cursor-pointer flex items-center gap-2 border ${
+              className={`px-3.5 py-1.5 rounded-md text-xs font-semibold whitespace-nowrap transition-colors cursor-pointer flex items-center gap-2 border ${
                 isSelected
-                  ? "bg-primary text-primary-foreground border-primary shadow-md shadow-primary/20"
-                  : "bg-card/70 border-border/80 text-muted-foreground hover:text-foreground hover:bg-accent/50"
+                  ? "bg-primary text-primary-foreground border-primary"
+                  : "bg-surface-elevated border-border text-muted-foreground hover:text-foreground hover:border-border"
               }`}
             >
               <span>{tab.flag}</span>
@@ -278,8 +278,8 @@ const Leagues = () => {
 
       {/* ---------- 3. LEAGUES GRID ---------- */}
       {filteredLeagues.length === 0 ? (
-        <div className="text-center py-16 border border-dashed border-border/80 rounded-3xl p-8">
-          <Trophy className="w-12 h-12 text-muted-foreground/50 mx-auto mb-3" />
+        <div className="text-center py-16 border border-dashed border-border rounded-xl p-8">
+          <Trophy className="w-12 h-12 text-muted-foreground/40 mx-auto mb-3" />
           <h3 className="text-lg font-bold text-foreground">
             No competitions match your search
           </h3>
@@ -293,27 +293,27 @@ const Leagues = () => {
             return (
               <div
                 key={lg.id}
-                className="group relative flex flex-col justify-between rounded-2xl border border-border/80 bg-card/85 backdrop-blur-md p-6 hover:border-primary/50 hover:shadow-xl hover:shadow-primary/10 transition-all duration-300 hover:-translate-y-1.5"
+                className="group relative flex flex-col justify-between rounded-xl border border-border bg-card p-6 hover:border-primary transition-colors"
               >
                 <div>
                   {/* Top Bar: Country & UEFA Rank Badge */}
                   <div className="flex items-center justify-between text-xs mb-4">
-                    <span className="flex items-center gap-1.5 px-3 py-1 rounded-full bg-muted/80 text-foreground font-bold">
+                    <span className="flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-surface-elevated border border-border text-foreground font-medium">
                       <span>{lg.flag}</span>
                       <span>{lg.country}</span>
                     </span>
-                    <span className="px-2.5 py-0.5 rounded-md bg-primary/10 border border-primary/20 text-primary font-black text-[11px]">
+                    <span className="px-2 py-0.5 rounded-md bg-surface-elevated border border-border text-primary font-semibold text-[11px]">
                       {lg.coefficientRank}
                     </span>
                   </div>
 
                   {/* League Crest + Title */}
                   <div className="flex items-center gap-4 my-2">
-                    <div className="w-16 h-16 sm:w-20 sm:h-20 p-2.5 rounded-2xl bg-background border border-border/60 group-hover:border-primary/40 group-hover:scale-105 transition-all duration-300 flex items-center justify-center shrink-0 shadow-inner">
+                    <div className="w-16 h-16 sm:w-20 sm:h-20 p-2.5 rounded-xl bg-background border border-border group-hover:border-primary transition-colors flex items-center justify-center shrink-0">
                       <img
                         src={lg.logo}
                         alt={lg.name}
-                        className="w-full h-full object-contain filter drop-shadow-md"
+                        className="w-full h-full object-contain"
                         onError={(e) => {
                           e.target.style.display = "none";
                           e.target.nextSibling.style.display = "flex";
@@ -324,7 +324,7 @@ const Leagues = () => {
                       </div>
                     </div>
                     <div>
-                      <h3 className="text-xl font-black text-foreground group-hover:text-primary transition-colors tracking-tight">
+                      <h3 className="text-lg font-bold text-foreground group-hover:text-primary transition-colors tracking-tight">
                         {lg.name}
                       </h3>
                       <p className="text-xs text-muted-foreground font-medium mt-0.5">
@@ -339,9 +339,9 @@ const Leagues = () => {
                   </p>
 
                   {/* Defending Champion Chip */}
-                  <div className="mt-4 p-3 rounded-xl bg-background/70 border border-border/60 flex items-center justify-between">
+                  <div className="mt-4 p-3 rounded-lg bg-surface-elevated border border-border flex items-center justify-between">
                     <div className="flex items-center gap-2.5">
-                      <div className="w-8 h-8 rounded-lg bg-card p-1 border border-border/40 flex items-center justify-center shrink-0">
+                      <div className="w-8 h-8 rounded-md bg-card p-1 border border-border flex items-center justify-center shrink-0">
                         <img
                           src={lg.defendingChampion.logo}
                           alt={lg.defendingChampion.name}
@@ -349,34 +349,34 @@ const Leagues = () => {
                         />
                       </div>
                       <div>
-                        <span className="text-[10px] text-muted-foreground uppercase font-bold block">
+                        <span className="text-[10px] text-muted-foreground uppercase font-semibold block">
                           Reigning Champion
                         </span>
-                        <span className="text-xs font-black text-foreground">
+                        <span className="text-xs font-bold text-foreground">
                           {lg.defendingChampion.name}
                         </span>
                       </div>
                     </div>
-                    <span className="text-xs font-bold text-amber-500 bg-amber-500/10 px-2 py-0.5 rounded-md border border-amber-500/20">
+                    <span className="text-xs font-semibold text-warning bg-card px-2 py-0.5 rounded-md border border-border">
                       🏆 {lg.defendingChampion.titles} Titles
                     </span>
                   </div>
 
                   {/* Metric Chips */}
                   <div className="mt-3 grid grid-cols-2 gap-2 text-xs">
-                    <div className="p-2 rounded-lg bg-muted/40 text-center">
-                      <span className="font-black text-foreground block">
+                    <div className="p-2 rounded-md bg-surface-elevated border border-border text-center">
+                      <span className="font-bold text-foreground block">
                         {lg.avgGoals}
                       </span>
-                      <span className="text-[10px] text-muted-foreground uppercase font-semibold">
+                      <span className="text-[10px] text-muted-foreground uppercase font-medium">
                         Goals / Match
                       </span>
                     </div>
-                    <div className="p-2 rounded-lg bg-muted/40 text-center">
-                      <span className="font-black text-primary block">
+                    <div className="p-2 rounded-md bg-surface-elevated border border-border text-center">
+                      <span className="font-bold text-primary block">
                         {lg.marketValue}
                       </span>
-                      <span className="text-[10px] text-muted-foreground uppercase font-semibold">
+                      <span className="text-[10px] text-muted-foreground uppercase font-medium">
                         Market Value
                       </span>
                     </div>
@@ -384,10 +384,10 @@ const Leagues = () => {
                 </div>
 
                 {/* Card Action Buttons */}
-                <div className="mt-5 pt-3 border-t border-border/60 flex items-center gap-2.5">
+                <div className="mt-5 pt-3 border-t border-border flex items-center gap-2.5">
                   <button
                     onClick={() => setActiveModalLeague(lg)}
-                    className="flex-1 py-2.5 px-3 rounded-xl bg-primary text-primary-foreground text-xs font-bold flex items-center justify-center gap-1.5 shadow-md shadow-primary/20 hover:opacity-95 transition-all cursor-pointer"
+                    className="flex-1 py-2 px-3 rounded-md bg-primary text-primary-foreground text-xs font-semibold flex items-center justify-center gap-1.5 hover:bg-primary-hover active:scale-[0.98] transition-all cursor-pointer"
                   >
                     <span>View Standings</span>
                     <Sparkles className="w-3.5 h-3.5" />
@@ -395,7 +395,7 @@ const Leagues = () => {
 
                   <button
                     onClick={() => navigate(`/teams?league=${encodeURIComponent(lg.name)}`)}
-                    className="py-2.5 px-3 rounded-xl bg-background border border-border/80 text-foreground hover:bg-accent text-xs font-bold flex items-center justify-center gap-1 transition-colors cursor-pointer"
+                    className="py-2 px-3 rounded-md bg-surface-elevated border border-border text-foreground hover:border-primary text-xs font-semibold flex items-center justify-center gap-1 transition-colors cursor-pointer"
                     title="View Clubs"
                   >
                     <span>Clubs</span>
@@ -411,24 +411,24 @@ const Leagues = () => {
       {/* ---------- 4. STANDINGS TABLE MODAL ---------- */}
       {activeModalLeague && (
         <div
-          className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/70 backdrop-blur-sm animate-in fade-in duration-200"
+          className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 animate-in fade-in duration-150"
           onClick={() => setActiveModalLeague(null)}
         >
           <div
-            className="relative w-full max-w-3xl rounded-3xl border border-border/80 bg-card p-6 sm:p-8 shadow-2xl text-foreground flex flex-col gap-5 max-h-[90vh] overflow-y-auto"
+            className="relative w-full max-w-3xl rounded-xl border border-border bg-card p-6 sm:p-8 shadow-2xl text-foreground flex flex-col gap-5 max-h-[90vh] overflow-y-auto"
             onClick={(e) => e.stopPropagation()}
           >
             {/* Close Button */}
             <button
               onClick={() => setActiveModalLeague(null)}
-              className="absolute top-5 right-5 p-2 rounded-full bg-muted/60 hover:bg-muted text-muted-foreground hover:text-foreground transition-colors cursor-pointer"
+              className="absolute top-5 right-5 p-1.5 rounded-md bg-surface-elevated border border-border text-muted-foreground hover:text-foreground transition-colors cursor-pointer"
             >
-              <X className="w-5 h-5" />
+              <X className="w-4 h-4" />
             </button>
 
             {/* Modal Header */}
             <div className="flex items-center gap-4">
-              <div className="w-14 h-14 sm:w-16 sm:h-16 p-2 rounded-2xl bg-background border border-border/60 flex items-center justify-center shadow-inner shrink-0">
+              <div className="w-14 h-14 sm:w-16 sm:h-16 p-2 rounded-xl bg-background border border-border flex items-center justify-center shrink-0">
                 <img
                   src={activeModalLeague.logo}
                   alt={activeModalLeague.name}
@@ -437,36 +437,36 @@ const Leagues = () => {
               </div>
               <div>
                 <div className="flex items-center gap-2">
-                  <span className="text-xs font-bold text-primary uppercase">
+                  <span className="text-xs font-semibold text-primary uppercase">
                     {activeModalLeague.country} • {activeModalLeague.flag}
                   </span>
                   <span className="text-xs text-muted-foreground">
                     Season 2026/27
                   </span>
                 </div>
-                <h2 className="text-2xl sm:text-3xl font-black text-foreground">
+                <h2 className="text-xl sm:text-2xl font-black text-foreground">
                   {activeModalLeague.name} Standings
                 </h2>
               </div>
             </div>
 
             {/* Live Standings Table */}
-            <div className="overflow-x-auto rounded-2xl border border-border/60 bg-background/50">
+            <div className="overflow-x-auto rounded-lg border border-border bg-background">
               <table className="w-full text-left border-collapse text-xs sm:text-sm">
                 <thead>
-                  <tr className="border-b border-border/60 bg-muted/30 text-muted-foreground font-bold text-[11px] uppercase">
-                    <th className="py-3 px-3 sm:px-4 text-center">#</th>
-                    <th className="py-3 px-3">Club</th>
-                    <th className="py-3 px-2 text-center">MP</th>
-                    <th className="py-3 px-2 text-center">W</th>
-                    <th className="py-3 px-2 text-center">D</th>
-                    <th className="py-3 px-2 text-center">L</th>
-                    <th className="py-3 px-2 text-center hidden sm:table-cell">GD</th>
-                    <th className="py-3 px-3 text-center font-black text-foreground">PTS</th>
-                    <th className="py-3 px-3 text-center hidden md:table-cell">Form</th>
+                  <tr className="border-b border-border bg-surface-elevated text-muted-foreground font-semibold text-[11px] uppercase">
+                    <th className="py-2.5 px-3 sm:px-4 text-center">#</th>
+                    <th className="py-2.5 px-3">Club</th>
+                    <th className="py-2.5 px-2 text-center">MP</th>
+                    <th className="py-2.5 px-2 text-center">W</th>
+                    <th className="py-2.5 px-2 text-center">D</th>
+                    <th className="py-2.5 px-2 text-center">L</th>
+                    <th className="py-2.5 px-2 text-center hidden sm:table-cell">GD</th>
+                    <th className="py-2.5 px-3 text-center font-bold text-foreground">PTS</th>
+                    <th className="py-2.5 px-3 text-center hidden md:table-cell">Form</th>
                   </tr>
                 </thead>
-                <tbody className="divide-y divide-border/40">
+                <tbody className="divide-y divide-border">
                   {activeModalLeague.standings.map((row) => {
                     const isUCL = row.pos <= 4;
                     const isTop = row.pos === 1;
@@ -474,14 +474,14 @@ const Leagues = () => {
                     return (
                       <tr
                         key={row.pos}
-                        className="hover:bg-muted/30 transition-colors"
+                        className="hover:bg-surface-elevated transition-colors"
                       >
                         {/* Position */}
-                        <td className="py-3 px-3 sm:px-4 text-center font-black">
+                        <td className="py-2.5 px-3 sm:px-4 text-center font-bold">
                           <span
-                            className={`inline-flex items-center justify-center w-6 h-6 rounded-full text-xs ${
+                            className={`inline-flex items-center justify-center w-5 h-5 rounded text-xs ${
                               isTop
-                                ? "bg-amber-500/20 text-amber-500 font-extrabold"
+                                ? "bg-warning/20 text-warning font-extrabold"
                                 : isUCL
                                 ? "bg-primary/20 text-primary font-bold"
                                 : "text-muted-foreground"
@@ -492,63 +492,63 @@ const Leagues = () => {
                         </td>
 
                         {/* Club */}
-                        <td className="py-3 px-3">
+                        <td className="py-2.5 px-3">
                           <div className="flex items-center gap-2.5">
-                            <div className="w-6 h-6 shrink-0 flex items-center justify-center">
+                            <div className="w-5 h-5 shrink-0 flex items-center justify-center">
                               <img
                                 src={row.logo}
                                 alt={row.club}
                                 className="w-full h-full object-contain"
                               />
                             </div>
-                            <span className="font-bold text-foreground truncate max-w-[140px] sm:max-w-none">
+                            <span className="font-semibold text-foreground truncate max-w-[140px] sm:max-w-none">
                               {row.club}
                             </span>
                           </div>
                         </td>
 
                         {/* Matches Played */}
-                        <td className="py-3 px-2 text-center text-muted-foreground font-semibold">
+                        <td className="py-2.5 px-2 text-center text-muted-foreground">
                           {row.p}
                         </td>
 
                         {/* Won */}
-                        <td className="py-3 px-2 text-center font-bold text-foreground">
+                        <td className="py-2.5 px-2 text-center font-semibold text-foreground">
                           {row.w}
                         </td>
 
                         {/* Draw */}
-                        <td className="py-3 px-2 text-center text-muted-foreground">
+                        <td className="py-2.5 px-2 text-center text-muted-foreground">
                           {row.d}
                         </td>
 
                         {/* Lost */}
-                        <td className="py-3 px-2 text-center text-muted-foreground">
+                        <td className="py-2.5 px-2 text-center text-muted-foreground">
                           {row.l}
                         </td>
 
                         {/* Goal Difference */}
-                        <td className="py-3 px-2 text-center font-semibold text-foreground/80 hidden sm:table-cell">
+                        <td className="py-2.5 px-2 text-center text-muted-foreground hidden sm:table-cell">
                           {row.gd}
                         </td>
 
                         {/* Points */}
-                        <td className="py-3 px-3 text-center font-black text-base text-primary">
+                        <td className="py-2.5 px-3 text-center font-bold text-sm text-primary">
                           {row.pts}
                         </td>
 
                         {/* Form Bubbles */}
-                        <td className="py-3 px-3 text-center hidden md:table-cell">
+                        <td className="py-2.5 px-3 text-center hidden md:table-cell">
                           <div className="flex items-center justify-center gap-1">
                             {row.form?.map((f, i) => (
                               <span
                                 key={i}
-                                className={`w-4 h-4 rounded text-[9px] font-black flex items-center justify-center text-white ${
+                                className={`w-4 h-4 rounded text-[9px] font-bold flex items-center justify-center text-foreground ${
                                   f === "W"
-                                    ? "bg-emerald-500"
+                                    ? "bg-success text-white"
                                     : f === "D"
-                                    ? "bg-amber-500"
-                                    : "bg-red-500"
+                                    ? "bg-warning text-black"
+                                    : "bg-destructive text-white"
                                 }`}
                               >
                                 {f}
@@ -571,7 +571,7 @@ const Leagues = () => {
                   <span>UEFA Champions League (Top 4)</span>
                 </span>
                 <span className="flex items-center gap-1.5">
-                  <span className="w-2.5 h-2.5 rounded-full bg-amber-500" />
+                  <span className="w-2.5 h-2.5 rounded-full bg-warning" />
                   <span>Title Leader (Rank 1)</span>
                 </span>
               </div>
@@ -579,7 +579,7 @@ const Leagues = () => {
               <Link
                 to="/teams"
                 onClick={() => setActiveModalLeague(null)}
-                className="font-bold text-primary hover:underline flex items-center gap-1"
+                className="font-semibold text-primary hover:underline flex items-center gap-1"
               >
                 <span>Browse {activeModalLeague.name} Teams</span>
                 <ChevronRight className="w-3.5 h-3.5" />

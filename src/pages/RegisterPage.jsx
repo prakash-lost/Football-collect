@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Link, useNavigate } from "react-router";
 import { z } from "zod";
 import { GiSoccerBall } from "react-icons/gi";
-import { Sparkles, ArrowRight } from "lucide-react";
+import { ArrowRight, CheckCircle, X } from "lucide-react";
 
 const registerSchema = z
   .object({
@@ -58,31 +58,32 @@ export default function RegisterPage() {
 
     setErrors({});
     setIsSubmitting(true);
-    await new Promise((resolve) => setTimeout(resolve, 1000));
+    await new Promise((resolve) => setTimeout(resolve, 800));
     setIsSubmitting(false);
     setSuccess(true);
     setTimeout(() => {
       navigate("/profile");
-    }, 1500);
+    }, 1200);
   }
 
   return (
-    <div className="min-h-screen flex items-center justify-center p-4 sm:p-6 bg-background text-foreground">
-      <div className="w-full max-w-md rounded-3xl border border-border/80 bg-card p-6 sm:p-8 shadow-2xl relative">
+    <div className="min-h-screen flex items-center justify-center p-4 bg-background text-foreground">
+      <div className="w-full max-w-md rounded-xl border border-border bg-card p-6 sm:p-8 shadow-2xl relative">
         <Link
           to="/"
-          className="absolute top-5 right-5 text-xs font-bold text-muted-foreground hover:text-foreground"
+          aria-label="Close"
+          className="absolute top-4 right-4 p-1.5 rounded-md text-muted-foreground hover:text-foreground hover:bg-surface-elevated transition-colors"
         >
-          ✕ Close
+          <X className="w-5 h-5" />
         </Link>
 
         {/* HEADING */}
         <div className="mb-6 text-center">
-          <div className="mx-auto mb-3 flex h-14 w-14 items-center justify-center rounded-2xl bg-primary/10 border border-primary/20 text-primary shadow-inner">
-            <GiSoccerBall className="h-8 w-8" />
+          <div className="mx-auto mb-3 flex h-12 w-12 items-center justify-center rounded-lg bg-surface-elevated border border-border text-primary">
+            <GiSoccerBall className="h-7 w-7" />
           </div>
-          <h1 className="text-2xl sm:text-3xl font-black text-foreground">
-            Join Football<span className="text-primary">Hub</span>
+          <h1 className="text-xl sm:text-2xl font-black text-foreground font-sans">
+            Join Football<span className="text-primary font-black">Collect</span>
           </h1>
           <p className="text-xs text-muted-foreground mt-1">
             Create your supporter profile & collect star footballer cards
@@ -90,20 +91,20 @@ export default function RegisterPage() {
         </div>
 
         {success ? (
-          <div className="p-6 rounded-2xl bg-emerald-500/10 border border-emerald-500/20 text-center flex flex-col items-center gap-2">
-            <Sparkles className="w-10 h-10 text-emerald-400" />
-            <h3 className="text-lg font-bold text-foreground">
-              Welcome to the Squad!
+          <div className="p-6 rounded-lg bg-surface-elevated border border-success/40 text-center flex flex-col items-center gap-2 animate-in fade-in">
+            <CheckCircle className="w-10 h-10 text-success" />
+            <h3 className="text-base font-bold text-foreground">
+              Welcome to Football Collect!
             </h3>
             <p className="text-xs text-muted-foreground">
               Account created. Redirecting to your fan profile...
             </p>
           </div>
         ) : (
-          <form onSubmit={handleSubmit} noValidate className="space-y-4">
+          <form onSubmit={handleSubmit} noValidate className="space-y-3.5">
             {/* FULL NAME */}
             <div>
-              <label className="block text-xs font-bold text-foreground mb-1">
+              <label className="block text-xs font-semibold uppercase tracking-wider text-foreground mb-1">
                 Full Name
               </label>
               <input
@@ -112,12 +113,12 @@ export default function RegisterPage() {
                 value={formData.name}
                 onChange={handleChange}
                 placeholder="Alex Rossi"
-                className={`w-full h-11 px-3.5 rounded-xl bg-background border text-xs sm:text-sm text-foreground focus:outline-none focus:ring-2 focus:ring-primary/40 ${
-                  errors.name ? "border-red-400" : "border-border"
+                className={`w-full h-9 px-3 rounded-md bg-background border text-xs text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-1 focus:ring-primary ${
+                  errors.name ? "border-destructive" : "border-border"
                 }`}
               />
               {errors.name && (
-                <p className="mt-1 text-xs text-red-500 font-semibold">
+                <p className="mt-1 text-xs text-destructive font-medium">
                   {errors.name}
                 </p>
               )}
@@ -125,7 +126,7 @@ export default function RegisterPage() {
 
             {/* EMAIL */}
             <div>
-              <label className="block text-xs font-bold text-foreground mb-1">
+              <label className="block text-xs font-semibold uppercase tracking-wider text-foreground mb-1">
                 Email Address
               </label>
               <input
@@ -134,12 +135,12 @@ export default function RegisterPage() {
                 value={formData.email}
                 onChange={handleChange}
                 placeholder="you@example.com"
-                className={`w-full h-11 px-3.5 rounded-xl bg-background border text-xs sm:text-sm text-foreground focus:outline-none focus:ring-2 focus:ring-primary/40 ${
-                  errors.email ? "border-red-400" : "border-border"
+                className={`w-full h-9 px-3 rounded-md bg-background border text-xs text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-1 focus:ring-primary ${
+                  errors.email ? "border-destructive" : "border-border"
                 }`}
               />
               {errors.email && (
-                <p className="mt-1 text-xs text-red-500 font-semibold">
+                <p className="mt-1 text-xs text-destructive font-medium">
                   {errors.email}
                 </p>
               )}
@@ -147,14 +148,14 @@ export default function RegisterPage() {
 
             {/* FAVORITE CLUB */}
             <div>
-              <label className="block text-xs font-bold text-foreground mb-1">
+              <label className="block text-xs font-semibold uppercase tracking-wider text-foreground mb-1">
                 Primary Supported Club
               </label>
               <select
                 name="favoriteClub"
                 value={formData.favoriteClub}
                 onChange={handleChange}
-                className="w-full h-11 px-3.5 rounded-xl bg-background border border-border text-foreground text-xs sm:text-sm font-semibold focus:outline-none focus:ring-2 focus:ring-primary/40 cursor-pointer"
+                className="w-full h-9 px-3 rounded-md bg-background border border-border text-foreground text-xs font-semibold focus:outline-none focus:ring-1 focus:ring-primary cursor-pointer"
               >
                 <option value="Real Madrid">Real Madrid (La Liga)</option>
                 <option value="FC Barcelona">FC Barcelona (La Liga)</option>
@@ -169,7 +170,7 @@ export default function RegisterPage() {
 
             {/* PASSWORD */}
             <div>
-              <label className="block text-xs font-bold text-foreground mb-1">
+              <label className="block text-xs font-semibold uppercase tracking-wider text-foreground mb-1">
                 Password
               </label>
               <input
@@ -178,12 +179,12 @@ export default function RegisterPage() {
                 value={formData.password}
                 onChange={handleChange}
                 placeholder="••••••••"
-                className={`w-full h-11 px-3.5 rounded-xl bg-background border text-xs sm:text-sm text-foreground focus:outline-none focus:ring-2 focus:ring-primary/40 ${
-                  errors.password ? "border-red-400" : "border-border"
+                className={`w-full h-9 px-3 rounded-md bg-background border text-xs text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-1 focus:ring-primary ${
+                  errors.password ? "border-destructive" : "border-border"
                 }`}
               />
               {errors.password && (
-                <p className="mt-1 text-xs text-red-500 font-semibold">
+                <p className="mt-1 text-xs text-destructive font-medium">
                   {errors.password}
                 </p>
               )}
@@ -191,7 +192,7 @@ export default function RegisterPage() {
 
             {/* CONFIRM PASSWORD */}
             <div>
-              <label className="block text-xs font-bold text-foreground mb-1">
+              <label className="block text-xs font-semibold uppercase tracking-wider text-foreground mb-1">
                 Confirm Password
               </label>
               <input
@@ -200,12 +201,12 @@ export default function RegisterPage() {
                 value={formData.confirmPassword}
                 onChange={handleChange}
                 placeholder="••••••••"
-                className={`w-full h-11 px-3.5 rounded-xl bg-background border text-xs sm:text-sm text-foreground focus:outline-none focus:ring-2 focus:ring-primary/40 ${
-                  errors.confirmPassword ? "border-red-400" : "border-border"
+                className={`w-full h-9 px-3 rounded-md bg-background border text-xs text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-1 focus:ring-primary ${
+                  errors.confirmPassword ? "border-destructive" : "border-border"
                 }`}
               />
               {errors.confirmPassword && (
-                <p className="mt-1 text-xs text-red-500 font-semibold">
+                <p className="mt-1 text-xs text-destructive font-medium">
                   {errors.confirmPassword}
                 </p>
               )}
@@ -215,15 +216,15 @@ export default function RegisterPage() {
             <button
               type="submit"
               disabled={isSubmitting}
-              className="w-full h-11 rounded-xl bg-primary text-primary-foreground text-xs sm:text-sm font-bold shadow-lg shadow-primary/20 hover:opacity-95 transition-all flex items-center justify-center gap-1.5 cursor-pointer mt-2"
+              className="w-full h-9 rounded-md bg-primary text-primary-foreground text-xs font-bold hover:bg-primary-hover active:scale-[0.98] transition-colors flex items-center justify-center gap-1.5 cursor-pointer mt-3 disabled:opacity-50"
             >
-              <span>{isSubmitting ? "Creating Account..." : "Join FootballHub"}</span>
-              <ArrowRight className="w-4 h-4" />
+              <span>{isSubmitting ? "Creating Account..." : "Create Free Account"}</span>
+              <ArrowRight className="w-3.5 h-3.5" />
             </button>
           </form>
         )}
 
-        <div className="mt-5 text-center text-xs text-muted-foreground border-t border-border/60 pt-4">
+        <div className="mt-5 text-center text-xs text-muted-foreground border-t border-border pt-4">
           Already have an account?{" "}
           <Link to="/" className="font-bold text-primary hover:underline">
             Sign In
