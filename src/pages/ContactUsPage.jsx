@@ -8,6 +8,10 @@ import {
   ChevronDown,
   Shield,
 } from "lucide-react";
+import { Input } from "../components/ui/input";
+import { Select } from "../components/ui/select";
+import { Button } from "../components/ui/button";
+import { Badge } from "../components/ui/badge";
 
 const contactMethods = [
   {
@@ -73,10 +77,10 @@ const ContactUsPage = () => {
     <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12 flex flex-col gap-12 sm:gap-16">
       {/* ---------- 1. HEADER ---------- */}
       <div className="text-center max-w-2xl mx-auto flex flex-col items-center">
-        <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-surface-elevated border border-border text-foreground text-xs font-semibold tracking-wider uppercase mb-3">
-          <MessageSquare className="w-3.5 h-3.5 text-primary" />
+        <Badge variant="secondary" size="lg" className="mb-3">
+          <MessageSquare className="size-3.5 text-primary" />
           <span>Football Collect Support & Fan Desk</span>
-        </div>
+        </Badge>
 
         <h1 className="text-3xl sm:text-5xl font-black tracking-tight text-foreground">
           Get in Touch With Us
@@ -98,8 +102,8 @@ const ContactUsPage = () => {
               className="p-6 rounded-xl border border-border bg-card flex flex-col justify-between hover:border-primary transition-colors"
             >
               <div>
-                <div className="w-10 h-10 rounded-lg bg-surface-elevated text-primary flex items-center justify-center mb-4 border border-border">
-                  <Icon className="w-5 h-5" />
+                <div className="size-10 rounded-lg bg-surface-elevated text-primary flex items-center justify-center mb-4 border border-border">
+                  <Icon className="size-5" />
                 </div>
                 <h3 className="text-base font-bold text-foreground">
                   {channel.title}
@@ -134,19 +138,21 @@ const ContactUsPage = () => {
 
           {submitted ? (
             <div className="p-8 rounded-xl bg-surface-elevated border border-success/40 text-center flex flex-col items-center gap-3 animate-in fade-in">
-              <CheckCircle className="w-10 h-10 text-success" />
+              <CheckCircle className="size-10 text-success" />
               <h3 className="text-lg font-bold text-foreground">
                 Message Transmitted Successfully!
               </h3>
               <p className="text-xs text-muted-foreground max-w-sm">
                 Thank you for contributing to Football Collect. Our editorial team will review your inquiry shortly.
               </p>
-              <button
+              <Button
+                variant="default"
+                size="sm"
                 onClick={() => setSubmitted(false)}
-                className="mt-2 px-4 py-2 rounded-md bg-primary text-primary-foreground text-xs font-semibold hover:bg-primary-hover transition-colors"
+                className="mt-2"
               >
                 Send Another Message
-              </button>
+              </Button>
             </div>
           ) : (
             <form onSubmit={handleSubmit} className="space-y-4">
@@ -155,22 +161,20 @@ const ContactUsPage = () => {
                   <label className="block text-xs font-semibold text-foreground mb-1">
                     Your Name
                   </label>
-                  <input
-                    type="text"
+                  <Input
                     required
                     placeholder="e.g., Alex Rossi"
                     value={formData.name}
                     onChange={(e) =>
                       setFormData({ ...formData, name: e.target.value })
                     }
-                    className="w-full h-10 px-3.5 rounded-md bg-background border border-border text-foreground text-xs sm:text-sm focus:outline-none focus:ring-1 focus:ring-primary focus:border-primary transition-colors"
                   />
                 </div>
                 <div>
                   <label className="block text-xs font-semibold text-foreground mb-1">
                     Email Address
                   </label>
-                  <input
+                  <Input
                     type="email"
                     required
                     placeholder="alex@example.com"
@@ -178,7 +182,6 @@ const ContactUsPage = () => {
                     onChange={(e) =>
                       setFormData({ ...formData, email: e.target.value })
                     }
-                    className="w-full h-10 px-3.5 rounded-md bg-background border border-border text-foreground text-xs sm:text-sm focus:outline-none focus:ring-1 focus:ring-primary focus:border-primary transition-colors"
                   />
                 </div>
               </div>
@@ -187,19 +190,18 @@ const ContactUsPage = () => {
                 <label className="block text-xs font-semibold text-foreground mb-1">
                   Topic Category
                 </label>
-                <select
+                <Select
                   value={formData.subject}
                   onChange={(e) =>
                     setFormData({ ...formData, subject: e.target.value })
                   }
-                  className="w-full h-10 px-3.5 rounded-md bg-background border border-border text-foreground text-xs font-medium focus:outline-none focus:ring-1 focus:ring-primary cursor-pointer"
                 >
                   <option value="data">Club Trophy / Stadium Data Correction</option>
                   <option value="player">Suggest a Star Player Profile</option>
                   <option value="partnership">Sponsorship / Commercial Inquiry</option>
                   <option value="bug">Bug Report / Technical Feedback</option>
                   <option value="general">General Football Chat</option>
-                </select>
+                </Select>
               </div>
 
               <div>
@@ -214,17 +216,19 @@ const ContactUsPage = () => {
                   onChange={(e) =>
                     setFormData({ ...formData, message: e.target.value })
                   }
-                  className="w-full p-3.5 rounded-md bg-background border border-border text-foreground text-xs sm:text-sm focus:outline-none focus:ring-1 focus:ring-primary focus:border-primary transition-colors resize-none"
+                  className="w-full p-3 rounded-md bg-background border border-border text-foreground text-xs sm:text-sm focus:outline-none focus:ring-1 focus:ring-primary focus:border-primary transition-colors resize-none"
                 />
               </div>
 
-              <button
+              <Button
                 type="submit"
-                className="w-full sm:w-auto px-6 py-2.5 rounded-md bg-primary text-primary-foreground font-semibold text-xs sm:text-sm flex items-center justify-center gap-2 hover:bg-primary-hover active:scale-[0.98] transition-all cursor-pointer"
+                variant="default"
+                size="default"
+                className="w-full sm:w-auto"
               >
                 <span>Submit Inquiry</span>
-                <Send className="w-3.5 h-3.5" />
-              </button>
+                <Send className="size-3.5" />
+              </Button>
             </form>
           )}
         </div>
@@ -250,11 +254,11 @@ const ContactUsPage = () => {
                 >
                   <button
                     onClick={() => setOpenFaq(isOpen ? null : index)}
-                    className="w-full p-4 text-left flex items-center justify-between gap-3 text-xs sm:text-sm font-semibold text-foreground hover:text-primary transition-colors cursor-pointer"
+                    className="w-full p-4 text-left flex items-center justify-between gap-3 text-xs sm:text-sm font-semibold text-foreground hover:text-primary transition-colors cursor-pointer outline-none focus-visible:ring-1 focus-visible:ring-primary"
                   >
                     <span>{faq.q}</span>
                     <ChevronDown
-                      className={`w-4 h-4 text-muted-foreground shrink-0 transition-transform duration-200 ${
+                      className={`size-4 text-muted-foreground shrink-0 transition-transform duration-200 ${
                         isOpen ? "rotate-180 text-primary" : ""
                       }`}
                     />

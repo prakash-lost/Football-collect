@@ -6,10 +6,14 @@ import {
   MapPin,
   Trophy,
   ChevronDown,
-  X,
-  ArrowUpDown,
 } from "lucide-react";
 import footballData from "../data/footballTeams.json";
+import { Input } from "../components/ui/input";
+import { Select } from "../components/ui/select";
+import { Button } from "../components/ui/button";
+import { Badge } from "../components/ui/badge";
+import { EmptyState } from "../components/ui/empty-state";
+import { Dialog, DialogContent } from "../components/ui/dialog";
 
 const leagues = [
   { id: "all", name: "All Leagues", flag: "🌍" },
@@ -80,7 +84,7 @@ const TeamsPage = () => {
       <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-6 border-b border-border pb-6">
         <div>
           <div className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-surface-elevated border border-border text-foreground text-xs font-semibold uppercase tracking-wider mb-2">
-            <Shield className="w-3.5 h-3.5 text-primary" />
+            <Shield className="size-3.5 text-primary" />
             <span>European Top Divisions • 2026/27</span>
           </div>
           <h1 className="text-2xl sm:text-4xl font-black tracking-tight text-foreground font-sans">
@@ -95,33 +99,31 @@ const TeamsPage = () => {
         {/* Search & Sort Controls */}
         <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-2.5 w-full lg:w-auto">
           {/* Search Box */}
-          <div className="relative flex-1 sm:w-64">
-            <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground" />
-            <input
-              type="text"
+          <div className="w-full sm:w-64">
+            <Input
+              size="sm"
+              leftIcon={Search}
               placeholder="Search club, city, venue..."
               value={search}
               onChange={(e) => {
                 setSearch(e.target.value);
                 setVisible(12);
               }}
-              className="w-full h-9 pl-9 pr-3 rounded-md bg-card border border-border text-foreground text-xs focus:outline-none focus:ring-1 focus:ring-primary focus:border-primary transition-colors placeholder:text-muted-foreground"
             />
           </div>
 
           {/* Sort Dropdown */}
-          <div className="relative">
-            <select
+          <div className="w-full sm:w-56">
+            <Select
+              size="sm"
               value={sortBy}
               onChange={(e) => setSortBy(e.target.value)}
-              className="h-9 px-3 pr-8 rounded-md bg-card border border-border text-foreground text-xs font-semibold focus:outline-none focus:ring-1 focus:ring-primary appearance-none cursor-pointer"
             >
               <option value="default">Sort: Default</option>
               <option value="ucl">Most Champions Leagues (UCL)</option>
               <option value="leagueTitles">Most Domestic Titles</option>
               <option value="capacity">Largest Venue Capacity</option>
-            </select>
-            <ArrowUpDown className="absolute right-2.5 top-1/2 -translate-y-1/2 w-3.5 h-3.5 text-muted-foreground pointer-events-none" />
+            </Select>
           </div>
         </div>
       </div>
@@ -152,15 +154,23 @@ const TeamsPage = () => {
 
       {/* ---------- 3. CLUB CARDS GRID ---------- */}
       {filteredTeams.length === 0 ? (
-        <div className="text-center py-16 border border-dashed border-border rounded-lg p-8">
-          <Shield className="w-10 h-10 text-muted-foreground mx-auto mb-2" />
-          <h3 className="text-base font-bold text-foreground">
-            No clubs match your query
-          </h3>
-          <p className="text-xs text-muted-foreground mt-1">
-            Try checking for spelling errors or choosing "All Leagues".
-          </p>
-        </div>
+        <EmptyState
+          icon={Shield}
+          title="No clubs match your query"
+          description="Try checking for spelling errors or choosing 'All Leagues'."
+          action={
+            <Button
+              variant="outline"
+              size="sm"
+              onClick={() => {
+                setSearch("");
+                setSelectedLeague("all");
+              }}
+            >
+              Reset Search
+            </Button>
+          }
+        />
       ) : (
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
           {filteredTeams.slice(0, visible).map((team) => {
@@ -175,14 +185,14 @@ const TeamsPage = () => {
                 <div>
                   {/* Top Bar: League & UCL Badge */}
                   <div className="flex items-center justify-between text-[11px] mb-2.5">
-                    <span className="px-2 py-0.5 rounded bg-surface-elevated border border-border text-foreground font-semibold">
+                    <Badge variant="secondary" size="sm">
                       {team.league}
-                    </span>
+                    </Badge>
                     {hasUCL ? (
-                      <span className="flex items-center gap-1 px-1.5 py-0.5 rounded bg-surface-elevated border border-border text-warning font-mono font-bold">
-                        <Trophy className="w-3 h-3 text-warning" />
+                      <Badge variant="warning" size="sm" className="font-mono">
+                        <Trophy className="size-3" />
                         {team.trophies.championsLeague} UCL
-                      </span>
+                      </Badge>
                     ) : (
                       <span className="text-muted-foreground font-mono text-[10px]">
                         {team.code}
@@ -192,7 +202,7 @@ const TeamsPage = () => {
 
                   {/* Club Crest */}
                   <div className="my-3 flex items-center justify-center">
-                    <div className="w-20 h-20 p-2.5 rounded-md bg-surface-elevated border border-border flex items-center justify-center">
+                    <div className="size-20 p-2.5 rounded-md bg-surface-elevated border border-border flex items-center justify-center">
                       {team.logo ? (
                         <img
                           src={team.logo}
@@ -210,7 +220,7 @@ const TeamsPage = () => {
                           team.logo ? "hidden" : "flex"
                         } w-full h-full flex-col items-center justify-center rounded bg-surface-elevated text-primary`}
                       >
-                        <Shield className="w-4 h-4 mb-0.5" />
+                        <Shield className="size-4 mb-0.5" />
                         <span className="font-bold text-[10px]">
                           {team.code || team.shortName?.slice(0, 3).toUpperCase()}
                         </span>
@@ -230,7 +240,7 @@ const TeamsPage = () => {
 
                   {/* Stadium Venue */}
                   <div className="mt-3 pt-2.5 border-t border-border flex items-center gap-1.5 justify-center text-[11px] text-muted-foreground">
-                    <MapPin className="w-3 h-3 text-primary shrink-0" />
+                    <MapPin className="size-3 text-primary shrink-0" />
                     <span className="truncate">{team.stadium}</span>
                   </div>
                 </div>
@@ -262,38 +272,27 @@ const TeamsPage = () => {
             clubs
           </p>
 
-          <button
+          <Button
             onClick={() => setVisible((prev) => prev + 12)}
-            className="px-5 py-2 rounded-md bg-primary text-primary-foreground text-xs font-bold hover:bg-primary-hover active:scale-[0.98] transition-colors cursor-pointer flex items-center gap-1.5"
+            variant="default"
+            size="sm"
           >
             <span>Load More Clubs</span>
-            <ChevronDown className="w-4 h-4" />
-          </button>
+            <ChevronDown className="size-4" />
+          </Button>
         </div>
       )}
 
       {/* ---------- 5. TEAM DETAILS MODAL ---------- */}
-      {selectedTeam && (
-        <div
-          className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 animate-in fade-in duration-150"
-          onClick={() => setSelectedTeam(null)}
-        >
-          <div
-            className="relative w-full max-w-lg rounded-xl border border-border bg-card p-6 shadow-2xl text-foreground flex flex-col gap-4 max-h-[90vh] overflow-y-auto"
-            onClick={(e) => e.stopPropagation()}
-          >
-            {/* Close Button */}
-            <button
-              onClick={() => setSelectedTeam(null)}
-              aria-label="Close details"
-              className="absolute top-4 right-4 p-1.5 rounded-md text-muted-foreground hover:text-foreground hover:bg-surface-elevated transition-colors cursor-pointer"
-            >
-              <X className="w-5 h-5" />
-            </button>
-
+      <Dialog
+        open={!!selectedTeam}
+        onOpenChange={(isOpen) => !isOpen && setSelectedTeam(null)}
+      >
+        {selectedTeam && (
+          <DialogContent size="md" onClose={() => setSelectedTeam(null)}>
             {/* Modal Header */}
             <div className="flex items-center gap-3.5">
-              <div className="w-14 h-14 p-2 rounded-lg bg-surface-elevated border border-border flex items-center justify-center shrink-0">
+              <div className="size-14 p-2 rounded-lg bg-surface-elevated border border-border flex items-center justify-center shrink-0">
                 {selectedTeam.logo ? (
                   <img
                     src={selectedTeam.logo}
@@ -301,19 +300,19 @@ const TeamsPage = () => {
                     className="w-full h-full object-contain"
                   />
                 ) : (
-                  <Shield className="w-6 h-6 text-primary" />
+                  <Shield className="size-6 text-primary" />
                 )}
               </div>
               <div>
                 <div className="flex items-center gap-2">
-                  <span className="text-xs font-bold text-primary uppercase font-mono">
+                  <Badge variant="default" size="sm">
                     {selectedTeam.league}
-                  </span>
+                  </Badge>
                   <span className="text-xs text-muted-foreground">
                     • Est. {selectedTeam.founded}
                   </span>
                 </div>
-                <h2 className="text-xl sm:text-2xl font-black text-foreground font-sans">
+                <h2 className="text-xl sm:text-2xl font-black text-foreground font-sans mt-0.5">
                   {selectedTeam.name}
                 </h2>
                 <p className="text-xs text-muted-foreground">
@@ -330,7 +329,7 @@ const TeamsPage = () => {
             {/* Trophy Cabinet Grid */}
             <div>
               <h4 className="text-xs font-bold uppercase tracking-wider text-muted-foreground mb-2 flex items-center gap-1.5">
-                <Trophy className="w-3.5 h-3.5 text-warning" /> Official Trophy Cabinet
+                <Trophy className="size-3.5 text-warning" /> Official Trophy Cabinet
               </h4>
               <div className="grid grid-cols-2 sm:grid-cols-4 gap-2.5">
                 <div className="p-2.5 rounded-md bg-surface-elevated border border-border text-center">
@@ -371,7 +370,7 @@ const TeamsPage = () => {
             {/* Stadium Details */}
             <div className="p-3.5 rounded-md bg-surface-elevated border border-border flex items-center justify-between">
               <div className="flex items-center gap-2.5">
-                <MapPin className="w-4 h-4 text-primary shrink-0" />
+                <MapPin className="size-4 text-primary shrink-0" />
                 <div>
                   <h5 className="text-xs font-bold text-foreground">
                     {selectedTeam.stadium}
@@ -390,9 +389,9 @@ const TeamsPage = () => {
                 </span>
               </div>
             </div>
-          </div>
-        </div>
-      )}
+          </DialogContent>
+        )}
+      </Dialog>
     </div>
   );
 };

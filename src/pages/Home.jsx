@@ -1,30 +1,30 @@
 import React from "react";
-import HeroIntro from "../components/HomeComponent/HeroIntro";
-import HeadIMG from "../components/HomeComponent/HeadImg";
+import MatchTicker from "../components/HomeComponent/MatchTicker";
+import EditorialHero from "../components/HomeComponent/EditorialHero";
+import LeagueHighlights from "../components/HomeComponent/LeagueHighlights";
+import TrendingPlayer from "../components/HomeComponent/TrendingPlayer";
 import Team from "../components/HomeComponent/Team";
-import RivalryBanner from "../components/HomeComponent/RivalryBanner";
-import Trendingplayer from "../components/HomeComponent/TrendingPlayer";
 import CtaBanner from "../components/HomeComponent/CtaBanner";
 
 const Home = () => {
   return (
-    <div className="w-full flex flex-col gap-6 sm:gap-10 pb-16">
-      {/* 1. Header & Live Search */}
-      <HeroIntro />
+    <div className="w-full flex flex-col pb-16">
+      {/* 1. Matchday Desk & Live Fixtures Ticker */}
+      <MatchTicker />
 
-      {/* 2. Superstar Spotlight Carousel */}
-      <HeadIMG />
+      {/* 2. Editorial Lead Story, Breaking Wire & Quick Database Search */}
+      <EditorialHero />
 
-      {/* 3. 12 European Giant Clubs Badge Grid */}
+      {/* 3. League Highlights, Standings & Continental Statistics */}
+      <LeagueHighlights />
+
+      {/* 4. In-Form Superstars with Matchday Ratings */}
+      <TrendingPlayer />
+
+      {/* 5. 12 European Giant Clubs Directory */}
       <Team />
 
-      {/* 4. Matchday Clash Spotlight (El Clásico) */}
-      <RivalryBanner />
-
-      {/* 5. In-Form Trending Stars with FotMob Ratings */}
-      <Trendingplayer />
-
-      {/* 6. Join the Hub / Collector Call-to-Action */}
+      {/* 6. Database Discovery Call-to-Action */}
       <CtaBanner />
     </div>
   );

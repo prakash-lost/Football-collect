@@ -5,8 +5,20 @@ import {
   Search,
   ChevronRight,
   Sparkles,
-  X,
 } from "lucide-react";
+import { Input } from "../components/ui/input";
+import { Button } from "../components/ui/button";
+import { Badge } from "../components/ui/badge";
+import { EmptyState } from "../components/ui/empty-state";
+import { Dialog, DialogContent } from "../components/ui/dialog";
+import {
+  Table,
+  TableHeader,
+  TableBody,
+  TableRow,
+  TableHead,
+  TableCell,
+} from "../components/ui/table";
 
 // Official top leagues & continental competitions data
 const leagueData = [
@@ -226,7 +238,7 @@ const Leagues = () => {
       <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-6 border-b border-border pb-8">
         <div>
           <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-surface-elevated border border-border text-foreground text-xs font-semibold tracking-wider uppercase mb-2">
-            <Trophy className="w-3.5 h-3.5 text-primary" />
+            <Trophy className="size-3.5 text-primary" />
             <span>European Football Competitions • 2026/27</span>
           </div>
           <h1 className="text-3xl sm:text-5xl font-black tracking-tight text-foreground">
@@ -239,14 +251,12 @@ const Leagues = () => {
         </div>
 
         {/* Search Input */}
-        <div className="relative w-full sm:w-72">
-          <Search className="absolute left-3.5 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground" />
-          <input
-            type="text"
+        <div className="w-full sm:w-72">
+          <Input
+            leftIcon={Search}
             placeholder="Search league, country, champion..."
             value={search}
             onChange={(e) => setSearch(e.target.value)}
-            className="w-full h-10 pl-10 pr-4 rounded-md bg-background border border-border text-foreground text-xs sm:text-sm focus:outline-none focus:ring-1 focus:ring-primary focus:border-primary transition-colors"
           />
         </div>
       </div>
@@ -278,15 +288,23 @@ const Leagues = () => {
 
       {/* ---------- 3. LEAGUES GRID ---------- */}
       {filteredLeagues.length === 0 ? (
-        <div className="text-center py-16 border border-dashed border-border rounded-xl p-8">
-          <Trophy className="w-12 h-12 text-muted-foreground/40 mx-auto mb-3" />
-          <h3 className="text-lg font-bold text-foreground">
-            No competitions match your search
-          </h3>
-          <p className="text-xs text-muted-foreground mt-1">
-            Try checking for typos or selecting "All Competitions".
-          </p>
-        </div>
+        <EmptyState
+          icon={Trophy}
+          title="No competitions match your search"
+          description="Try checking for typos or selecting 'All Competitions'."
+          action={
+            <Button
+              variant="outline"
+              size="sm"
+              onClick={() => {
+                setSearch("");
+                setSelectedType("all");
+              }}
+            >
+              Reset Filters
+            </Button>
+          }
+        />
       ) : (
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {filteredLeagues.map((lg) => {
@@ -302,9 +320,9 @@ const Leagues = () => {
                       <span>{lg.flag}</span>
                       <span>{lg.country}</span>
                     </span>
-                    <span className="px-2 py-0.5 rounded-md bg-surface-elevated border border-border text-primary font-semibold text-[11px]">
+                    <Badge variant="secondary" size="sm">
                       {lg.coefficientRank}
-                    </span>
+                    </Badge>
                   </div>
 
                   {/* League Crest + Title */}
@@ -341,7 +359,7 @@ const Leagues = () => {
                   {/* Defending Champion Chip */}
                   <div className="mt-4 p-3 rounded-lg bg-surface-elevated border border-border flex items-center justify-between">
                     <div className="flex items-center gap-2.5">
-                      <div className="w-8 h-8 rounded-md bg-card p-1 border border-border flex items-center justify-center shrink-0">
+                      <div className="size-8 rounded-md bg-card p-1 border border-border flex items-center justify-center shrink-0">
                         <img
                           src={lg.defendingChampion.logo}
                           alt={lg.defendingChampion.name}
@@ -357,9 +375,9 @@ const Leagues = () => {
                         </span>
                       </div>
                     </div>
-                    <span className="text-xs font-semibold text-warning bg-card px-2 py-0.5 rounded-md border border-border">
+                    <Badge variant="warning" size="sm">
                       🏆 {lg.defendingChampion.titles} Titles
-                    </span>
+                    </Badge>
                   </div>
 
                   {/* Metric Chips */}
@@ -385,22 +403,25 @@ const Leagues = () => {
 
                 {/* Card Action Buttons */}
                 <div className="mt-5 pt-3 border-t border-border flex items-center gap-2.5">
-                  <button
+                  <Button
                     onClick={() => setActiveModalLeague(lg)}
-                    className="flex-1 py-2 px-3 rounded-md bg-primary text-primary-foreground text-xs font-semibold flex items-center justify-center gap-1.5 hover:bg-primary-hover active:scale-[0.98] transition-all cursor-pointer"
+                    variant="default"
+                    size="sm"
+                    className="flex-1"
                   >
                     <span>View Standings</span>
-                    <Sparkles className="w-3.5 h-3.5" />
-                  </button>
+                    <Sparkles className="size-3.5" />
+                  </Button>
 
-                  <button
+                  <Button
                     onClick={() => navigate(`/teams?league=${encodeURIComponent(lg.name)}`)}
-                    className="py-2 px-3 rounded-md bg-surface-elevated border border-border text-foreground hover:border-primary text-xs font-semibold flex items-center justify-center gap-1 transition-colors cursor-pointer"
+                    variant="secondary"
+                    size="sm"
                     title="View Clubs"
                   >
                     <span>Clubs</span>
-                    <ChevronRight className="w-3.5 h-3.5" />
-                  </button>
+                    <ChevronRight className="size-3.5" />
+                  </Button>
                 </div>
               </div>
             );
@@ -409,26 +430,15 @@ const Leagues = () => {
       )}
 
       {/* ---------- 4. STANDINGS TABLE MODAL ---------- */}
-      {activeModalLeague && (
-        <div
-          className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 animate-in fade-in duration-150"
-          onClick={() => setActiveModalLeague(null)}
-        >
-          <div
-            className="relative w-full max-w-3xl rounded-xl border border-border bg-card p-6 sm:p-8 shadow-2xl text-foreground flex flex-col gap-5 max-h-[90vh] overflow-y-auto"
-            onClick={(e) => e.stopPropagation()}
-          >
-            {/* Close Button */}
-            <button
-              onClick={() => setActiveModalLeague(null)}
-              className="absolute top-5 right-5 p-1.5 rounded-md bg-surface-elevated border border-border text-muted-foreground hover:text-foreground transition-colors cursor-pointer"
-            >
-              <X className="w-4 h-4" />
-            </button>
-
+      <Dialog
+        open={!!activeModalLeague}
+        onOpenChange={(isOpen) => !isOpen && setActiveModalLeague(null)}
+      >
+        {activeModalLeague && (
+          <DialogContent size="xl" onClose={() => setActiveModalLeague(null)}>
             {/* Modal Header */}
             <div className="flex items-center gap-4">
-              <div className="w-14 h-14 sm:w-16 sm:h-16 p-2 rounded-xl bg-background border border-border flex items-center justify-center shrink-0">
+              <div className="size-14 sm:size-16 p-2 rounded-xl bg-background border border-border flex items-center justify-center shrink-0">
                 <img
                   src={activeModalLeague.logo}
                   alt={activeModalLeague.name}
@@ -450,128 +460,123 @@ const Leagues = () => {
               </div>
             </div>
 
-            {/* Live Standings Table */}
-            <div className="overflow-x-auto rounded-lg border border-border bg-background">
-              <table className="w-full text-left border-collapse text-xs sm:text-sm">
-                <thead>
-                  <tr className="border-b border-border bg-surface-elevated text-muted-foreground font-semibold text-[11px] uppercase">
-                    <th className="py-2.5 px-3 sm:px-4 text-center">#</th>
-                    <th className="py-2.5 px-3">Club</th>
-                    <th className="py-2.5 px-2 text-center">MP</th>
-                    <th className="py-2.5 px-2 text-center">W</th>
-                    <th className="py-2.5 px-2 text-center">D</th>
-                    <th className="py-2.5 px-2 text-center">L</th>
-                    <th className="py-2.5 px-2 text-center hidden sm:table-cell">GD</th>
-                    <th className="py-2.5 px-3 text-center font-bold text-foreground">PTS</th>
-                    <th className="py-2.5 px-3 text-center hidden md:table-cell">Form</th>
-                  </tr>
-                </thead>
-                <tbody className="divide-y divide-border">
-                  {activeModalLeague.standings.map((row) => {
-                    const isUCL = row.pos <= 4;
-                    const isTop = row.pos === 1;
+            {/* Live Standings Table Component */}
+            <Table>
+              <TableHeader>
+                <TableRow>
+                  <TableHead className="w-12 text-center">#</TableHead>
+                  <TableHead>Club</TableHead>
+                  <TableHead className="text-center">MP</TableHead>
+                  <TableHead className="text-center">W</TableHead>
+                  <TableHead className="text-center">D</TableHead>
+                  <TableHead className="text-center">L</TableHead>
+                  <TableHead className="text-center hidden sm:table-cell">GD</TableHead>
+                  <TableHead className="text-center font-bold text-foreground">PTS</TableHead>
+                  <TableHead className="text-center hidden md:table-cell">Form</TableHead>
+                </TableRow>
+              </TableHeader>
+              <TableBody>
+                {activeModalLeague.standings.map((row) => {
+                  const isUCL = row.pos <= 4;
+                  const isTop = row.pos === 1;
 
-                    return (
-                      <tr
-                        key={row.pos}
-                        className="hover:bg-surface-elevated transition-colors"
-                      >
-                        {/* Position */}
-                        <td className="py-2.5 px-3 sm:px-4 text-center font-bold">
-                          <span
-                            className={`inline-flex items-center justify-center w-5 h-5 rounded text-xs ${
-                              isTop
-                                ? "bg-warning/20 text-warning font-extrabold"
-                                : isUCL
-                                ? "bg-primary/20 text-primary font-bold"
-                                : "text-muted-foreground"
-                            }`}
-                          >
-                            {row.pos}
+                  return (
+                    <TableRow key={row.pos}>
+                      {/* Position */}
+                      <TableCell className="text-center font-bold">
+                        <span
+                          className={`inline-flex items-center justify-center size-5 rounded text-xs ${
+                            isTop
+                              ? "bg-warning/20 text-warning font-extrabold"
+                              : isUCL
+                              ? "bg-primary/20 text-primary font-bold"
+                              : "text-muted-foreground"
+                          }`}
+                        >
+                          {row.pos}
+                        </span>
+                      </TableCell>
+
+                      {/* Club */}
+                      <TableCell>
+                        <div className="flex items-center gap-2.5">
+                          <div className="size-5 shrink-0 flex items-center justify-center">
+                            <img
+                              src={row.logo}
+                              alt={row.club}
+                              className="w-full h-full object-contain"
+                            />
+                          </div>
+                          <span className="font-semibold text-foreground truncate max-w-[140px] sm:max-w-none">
+                            {row.club}
                           </span>
-                        </td>
+                        </div>
+                      </TableCell>
 
-                        {/* Club */}
-                        <td className="py-2.5 px-3">
-                          <div className="flex items-center gap-2.5">
-                            <div className="w-5 h-5 shrink-0 flex items-center justify-center">
-                              <img
-                                src={row.logo}
-                                alt={row.club}
-                                className="w-full h-full object-contain"
-                              />
-                            </div>
-                            <span className="font-semibold text-foreground truncate max-w-[140px] sm:max-w-none">
-                              {row.club}
+                      {/* Matches Played */}
+                      <TableCell className="text-center text-muted-foreground">
+                        {row.p}
+                      </TableCell>
+
+                      {/* Won */}
+                      <TableCell className="text-center font-semibold text-foreground">
+                        {row.w}
+                      </TableCell>
+
+                      {/* Draw */}
+                      <TableCell className="text-center text-muted-foreground">
+                        {row.d}
+                      </TableCell>
+
+                      {/* Lost */}
+                      <TableCell className="text-center text-muted-foreground">
+                        {row.l}
+                      </TableCell>
+
+                      {/* Goal Difference */}
+                      <TableCell className="text-center text-muted-foreground hidden sm:table-cell">
+                        {row.gd}
+                      </TableCell>
+
+                      {/* Points */}
+                      <TableCell className="text-center font-bold text-sm text-primary">
+                        {row.pts}
+                      </TableCell>
+
+                      {/* Form Bubbles */}
+                      <TableCell className="text-center hidden md:table-cell">
+                        <div className="flex items-center justify-center gap-1">
+                          {row.form?.map((f, i) => (
+                            <span
+                              key={i}
+                              className={`size-4 rounded text-[9px] font-bold flex items-center justify-center ${
+                                f === "W"
+                                  ? "bg-success text-white"
+                                  : f === "D"
+                                  ? "bg-warning text-black"
+                                  : "bg-destructive text-white"
+                              }`}
+                            >
+                              {f}
                             </span>
-                          </div>
-                        </td>
-
-                        {/* Matches Played */}
-                        <td className="py-2.5 px-2 text-center text-muted-foreground">
-                          {row.p}
-                        </td>
-
-                        {/* Won */}
-                        <td className="py-2.5 px-2 text-center font-semibold text-foreground">
-                          {row.w}
-                        </td>
-
-                        {/* Draw */}
-                        <td className="py-2.5 px-2 text-center text-muted-foreground">
-                          {row.d}
-                        </td>
-
-                        {/* Lost */}
-                        <td className="py-2.5 px-2 text-center text-muted-foreground">
-                          {row.l}
-                        </td>
-
-                        {/* Goal Difference */}
-                        <td className="py-2.5 px-2 text-center text-muted-foreground hidden sm:table-cell">
-                          {row.gd}
-                        </td>
-
-                        {/* Points */}
-                        <td className="py-2.5 px-3 text-center font-bold text-sm text-primary">
-                          {row.pts}
-                        </td>
-
-                        {/* Form Bubbles */}
-                        <td className="py-2.5 px-3 text-center hidden md:table-cell">
-                          <div className="flex items-center justify-center gap-1">
-                            {row.form?.map((f, i) => (
-                              <span
-                                key={i}
-                                className={`w-4 h-4 rounded text-[9px] font-bold flex items-center justify-center text-foreground ${
-                                  f === "W"
-                                    ? "bg-success text-white"
-                                    : f === "D"
-                                    ? "bg-warning text-black"
-                                    : "bg-destructive text-white"
-                                }`}
-                              >
-                                {f}
-                              </span>
-                            ))}
-                          </div>
-                        </td>
-                      </tr>
-                    );
-                  })}
-                </tbody>
-              </table>
-            </div>
+                          ))}
+                        </div>
+                      </TableCell>
+                    </TableRow>
+                  );
+                })}
+              </TableBody>
+            </Table>
 
             {/* Table Legend */}
             <div className="flex flex-wrap items-center justify-between gap-3 text-xs text-muted-foreground pt-1">
               <div className="flex items-center gap-4">
                 <span className="flex items-center gap-1.5">
-                  <span className="w-2.5 h-2.5 rounded-full bg-primary" />
+                  <span className="size-2.5 rounded-full bg-primary" />
                   <span>UEFA Champions League (Top 4)</span>
                 </span>
                 <span className="flex items-center gap-1.5">
-                  <span className="w-2.5 h-2.5 rounded-full bg-warning" />
+                  <span className="size-2.5 rounded-full bg-warning" />
                   <span>Title Leader (Rank 1)</span>
                 </span>
               </div>
@@ -582,12 +587,12 @@ const Leagues = () => {
                 className="font-semibold text-primary hover:underline flex items-center gap-1"
               >
                 <span>Browse {activeModalLeague.name} Teams</span>
-                <ChevronRight className="w-3.5 h-3.5" />
+                <ChevronRight className="size-3.5" />
               </Link>
             </div>
-          </div>
-        </div>
-      )}
+          </DialogContent>
+        )}
+      </Dialog>
     </div>
   );
 };

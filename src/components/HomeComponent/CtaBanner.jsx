@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router";
+import { Button } from "../ui/button";
 
 const CtaBanner = () => {
   return (
@@ -14,18 +15,12 @@ const CtaBanner = () => {
             Follow your favorite club rosters, track player career milestones, and analyze European silverware records.
           </p>
           <div className="mt-5 flex flex-wrap items-center justify-center gap-3">
-            <Link
-              to="/profile"
-              className="px-5 py-2.5 rounded-md bg-primary text-primary-foreground text-xs sm:text-sm font-bold hover:bg-primary-hover active:scale-[0.98] transition-colors"
-            >
-              Get Started Free
-            </Link>
-            <Link
-              to="/teams"
-              className="px-5 py-2.5 rounded-md bg-surface-elevated border border-border text-foreground text-xs sm:text-sm font-semibold hover:border-primary transition-colors"
-            >
-              Browse All Clubs
-            </Link>
+            <Button asChild variant="default" size="default">
+              <Link to="/profile">Get Started Free</Link>
+            </Button>
+            <Button asChild variant="secondary" size="default">
+              <Link to="/teams">Browse All Clubs</Link>
+            </Button>
           </div>
         </div>
       </div>

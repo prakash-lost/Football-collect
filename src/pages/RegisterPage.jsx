@@ -2,38 +2,53 @@ import React, { useState } from "react";
 import { Link, useNavigate } from "react-router";
 import { z } from "zod";
 import { GiSoccerBall } from "react-icons/gi";
-import { ArrowRight, CheckCircle, X } from "lucide-react";
+import { CheckCircle, ArrowRight } from "lucide-react";
+import { Input } from "../components/ui/input";
+import { Select } from "../components/ui/select";
+import { Button } from "../components/ui/button";
 
 const registerSchema = z
   .object({
-    name: z.string().min(2, "Name must be at least 2 characters"),
+    name: z
+      .string()
+      .min(1, "Name is required")
+      .min(2, "Name must be at least 2 characters"),
+
     email: z
       .string()
       .min(1, "Email is required")
       .email("Enter a valid email address"),
-    favoriteClub: z.string().min(1, "Please select your favorite club"),
+
+    favoriteClub: z.string().min(1, "Please select a supported club"),
+
     password: z
       .string()
+      .min(1, "Password is required")
       .min(6, "Password must be at least 6 characters"),
-    confirmPassword: z.string().min(1, "Please confirm your password"),
+
+    confirmPassword: z
+      .string()
+      .min(1, "Confirm password is required"),
   })
   .refine((data) => data.password === data.confirmPassword, {
     message: "Passwords do not match",
     path: ["confirmPassword"],
   });
 
+const initialFormData = {
+  name: "",
+  email: "",
+  favoriteClub: "Real Madrid",
+  password: "",
+  confirmPassword: "",
+};
+
 export default function RegisterPage() {
-  const navigate = useNavigate();
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    favoriteClub: "Real Madrid",
-    password: "",
-    confirmPassword: "",
-  });
+  const [formData, setFormData] = useState(initialFormData);
   const [errors, setErrors] = useState({});
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [success, setSuccess] = useState(false);
+  const navigate = useNavigate();
 
   function handleChange(e) {
     const { name, value } = e.target;
@@ -42,6 +57,7 @@ export default function RegisterPage() {
 
   async function handleSubmit(e) {
     e.preventDefault();
+
     const result = registerSchema.safeParse(formData);
 
     if (!result.success) {
@@ -58,29 +74,24 @@ export default function RegisterPage() {
 
     setErrors({});
     setIsSubmitting(true);
+
     await new Promise((resolve) => setTimeout(resolve, 800));
+
     setIsSubmitting(false);
     setSuccess(true);
+
     setTimeout(() => {
       navigate("/profile");
-    }, 1200);
+    }, 1500);
   }
 
   return (
-    <div className="min-h-screen flex items-center justify-center p-4 bg-background text-foreground">
-      <div className="w-full max-w-md rounded-xl border border-border bg-card p-6 sm:p-8 shadow-2xl relative">
-        <Link
-          to="/"
-          aria-label="Close"
-          className="absolute top-4 right-4 p-1.5 rounded-md text-muted-foreground hover:text-foreground hover:bg-surface-elevated transition-colors"
-        >
-          <X className="w-5 h-5" />
-        </Link>
-
+    <div className="w-full flex items-center justify-center min-h-[calc(100vh-14rem)] py-8 px-4">
+      <div className="w-full max-w-md bg-card border border-border rounded-xl p-6 sm:p-8 text-foreground shadow-2xl">
         {/* HEADING */}
         <div className="mb-6 text-center">
-          <div className="mx-auto mb-3 flex h-12 w-12 items-center justify-center rounded-lg bg-surface-elevated border border-border text-primary">
-            <GiSoccerBall className="h-7 w-7" />
+          <div className="mx-auto mb-3 flex size-12 items-center justify-center rounded-lg bg-surface-elevated border border-border text-primary">
+            <GiSoccerBall className="size-7" />
           </div>
           <h1 className="text-xl sm:text-2xl font-black text-foreground font-sans">
             Join Football<span className="text-primary font-black">Collect</span>
@@ -92,7 +103,7 @@ export default function RegisterPage() {
 
         {success ? (
           <div className="p-6 rounded-lg bg-surface-elevated border border-success/40 text-center flex flex-col items-center gap-2 animate-in fade-in">
-            <CheckCircle className="w-10 h-10 text-success" />
+            <CheckCircle className="size-10 text-success" />
             <h3 className="text-base font-bold text-foreground">
               Welcome to Football Collect!
             </h3>
@@ -107,15 +118,13 @@ export default function RegisterPage() {
               <label className="block text-xs font-semibold uppercase tracking-wider text-foreground mb-1">
                 Full Name
               </label>
-              <input
+              <Input
                 name="name"
                 type="text"
                 value={formData.name}
                 onChange={handleChange}
                 placeholder="Alex Rossi"
-                className={`w-full h-9 px-3 rounded-md bg-background border text-xs text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-1 focus:ring-primary ${
-                  errors.name ? "border-destructive" : "border-border"
-                }`}
+                error={errors.name}
               />
               {errors.name && (
                 <p className="mt-1 text-xs text-destructive font-medium">
@@ -129,15 +138,13 @@ export default function RegisterPage() {
               <label className="block text-xs font-semibold uppercase tracking-wider text-foreground mb-1">
                 Email Address
               </label>
-              <input
+              <Input
                 name="email"
                 type="email"
                 value={formData.email}
                 onChange={handleChange}
                 placeholder="you@example.com"
-                className={`w-full h-9 px-3 rounded-md bg-background border text-xs text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-1 focus:ring-primary ${
-                  errors.email ? "border-destructive" : "border-border"
-                }`}
+                error={errors.email}
               />
               {errors.email && (
                 <p className="mt-1 text-xs text-destructive font-medium">
@@ -151,11 +158,10 @@ export default function RegisterPage() {
               <label className="block text-xs font-semibold uppercase tracking-wider text-foreground mb-1">
                 Primary Supported Club
               </label>
-              <select
+              <Select
                 name="favoriteClub"
                 value={formData.favoriteClub}
                 onChange={handleChange}
-                className="w-full h-9 px-3 rounded-md bg-background border border-border text-foreground text-xs font-semibold focus:outline-none focus:ring-1 focus:ring-primary cursor-pointer"
               >
                 <option value="Real Madrid">Real Madrid (La Liga)</option>
                 <option value="FC Barcelona">FC Barcelona (La Liga)</option>
@@ -165,7 +171,7 @@ export default function RegisterPage() {
                 <option value="Bayern Munich">Bayern Munich (Bundesliga)</option>
                 <option value="Inter Milan">Inter Milan (Serie A)</option>
                 <option value="Paris Saint-Germain">Paris Saint-Germain (Ligue 1)</option>
-              </select>
+              </Select>
             </div>
 
             {/* PASSWORD */}
@@ -173,15 +179,13 @@ export default function RegisterPage() {
               <label className="block text-xs font-semibold uppercase tracking-wider text-foreground mb-1">
                 Password
               </label>
-              <input
+              <Input
                 name="password"
                 type="password"
                 value={formData.password}
                 onChange={handleChange}
                 placeholder="••••••••"
-                className={`w-full h-9 px-3 rounded-md bg-background border text-xs text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-1 focus:ring-primary ${
-                  errors.password ? "border-destructive" : "border-border"
-                }`}
+                error={errors.password}
               />
               {errors.password && (
                 <p className="mt-1 text-xs text-destructive font-medium">
@@ -195,15 +199,13 @@ export default function RegisterPage() {
               <label className="block text-xs font-semibold uppercase tracking-wider text-foreground mb-1">
                 Confirm Password
               </label>
-              <input
+              <Input
                 name="confirmPassword"
                 type="password"
                 value={formData.confirmPassword}
                 onChange={handleChange}
                 placeholder="••••••••"
-                className={`w-full h-9 px-3 rounded-md bg-background border text-xs text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-1 focus:ring-primary ${
-                  errors.confirmPassword ? "border-destructive" : "border-border"
-                }`}
+                error={errors.confirmPassword}
               />
               {errors.confirmPassword && (
                 <p className="mt-1 text-xs text-destructive font-medium">
@@ -213,14 +215,15 @@ export default function RegisterPage() {
             </div>
 
             {/* SUBMIT BUTTON */}
-            <button
+            <Button
               type="submit"
-              disabled={isSubmitting}
-              className="w-full h-9 rounded-md bg-primary text-primary-foreground text-xs font-bold hover:bg-primary-hover active:scale-[0.98] transition-colors flex items-center justify-center gap-1.5 cursor-pointer mt-3 disabled:opacity-50"
+              loading={isSubmitting}
+              className="w-full mt-3"
+              size="lg"
             >
               <span>{isSubmitting ? "Creating Account..." : "Create Free Account"}</span>
-              <ArrowRight className="w-3.5 h-3.5" />
-            </button>
+              <ArrowRight className="size-3.5" />
+            </Button>
           </form>
         )}
 

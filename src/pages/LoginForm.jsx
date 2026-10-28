@@ -2,7 +2,9 @@ import React, { useState } from "react";
 import { Link } from "react-router";
 import { z } from "zod";
 import { GiSoccerBall } from "react-icons/gi";
-import { X } from "lucide-react";
+import { Input } from "../components/ui/input";
+import { Button } from "../components/ui/button";
+import { Dialog, DialogContent } from "../components/ui/dialog";
 
 const loginSchema = z.object({
   email: z
@@ -51,27 +53,17 @@ export default function LoginForm({ onclose }) {
     setErrors({});
     setIsSubmitting(true);
 
-    await new Promise((resolve) => setTimeout(resolve, 800));
+    await new Promise((resolve) => setTimeout(resolve, 600));
 
-    console.log("Login data:", result.data);
     setIsSubmitting(false);
     onclose?.();
   }
 
   return (
-    <div className="fixed inset-0 bg-black/75 flex items-center justify-center p-4 z-50 animate-in fade-in duration-150">
-      <div className="w-full max-w-sm bg-card border border-border rounded-xl shadow-2xl p-6 sm:p-8 relative text-foreground">
-        <button
-          type="button"
-          onClick={onclose}
-          aria-label="Close dialog"
-          className="absolute top-4 right-4 p-1.5 rounded-md text-muted-foreground hover:text-foreground hover:bg-surface-elevated transition-colors cursor-pointer"
-        >
-          <X className="w-5 h-5" />
-        </button>
-
+    <Dialog open={true} onOpenChange={(isOpen) => !isOpen && onclose?.()}>
+      <DialogContent size="sm" onClose={onclose}>
         {/* HEADING */}
-        <div className="mb-6 text-center">
+        <div className="mb-4 text-center">
           <div className="mx-auto mb-3 flex h-11 w-11 items-center justify-center rounded-lg bg-surface-elevated border border-border text-primary">
             <GiSoccerBall className="h-6 w-6" />
           </div>
@@ -87,16 +79,14 @@ export default function LoginForm({ onclose }) {
             <label htmlFor="email" className="block text-xs font-semibold text-foreground mb-1.5 uppercase tracking-wider">
               Email
             </label>
-            <input
+            <Input
               id="email"
               name="email"
               type="email"
               value={formData.email}
               onChange={handleChange}
               placeholder="you@example.com"
-              className={`w-full rounded-md border px-3 py-2 text-sm bg-background text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-1 focus:ring-primary ${
-                errors.email ? "border-destructive" : "border-border"
-              }`}
+              error={errors.email}
             />
             {errors.email && (
               <p className="mt-1 text-xs text-destructive font-medium">{errors.email}</p>
@@ -108,16 +98,14 @@ export default function LoginForm({ onclose }) {
             <label htmlFor="password" className="block text-xs font-semibold text-foreground mb-1.5 uppercase tracking-wider">
               Password
             </label>
-            <input
+            <Input
               id="password"
               name="password"
               type="password"
               value={formData.password}
               onChange={handleChange}
               placeholder="••••••••"
-              className={`w-full rounded-md border px-3 py-2 text-sm bg-background text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-1 focus:ring-primary ${
-                errors.password ? "border-destructive" : "border-border"
-              }`}
+              error={errors.password}
             />
             {errors.password && (
               <p className="mt-1 text-xs text-destructive font-medium">{errors.password}</p>
@@ -125,16 +113,17 @@ export default function LoginForm({ onclose }) {
           </div>
 
           {/* LOGIN BUTTON */}
-          <button
+          <Button
             type="submit"
-            disabled={isSubmitting}
-            className="w-full rounded-md py-2.5 text-sm font-bold bg-primary text-primary-foreground hover:bg-primary-hover active:scale-[0.98] transition-colors cursor-pointer disabled:opacity-50 disabled:pointer-events-none mt-2"
+            loading={isSubmitting}
+            className="w-full mt-2"
+            size="lg"
           >
             {isSubmitting ? "Signing in..." : "Sign In"}
-          </button>
+          </Button>
         </form>
 
-        <p className="mt-5 text-center text-xs text-muted-foreground">
+        <p className="mt-4 text-center text-xs text-muted-foreground">
           Don't have an account?{" "}
           <Link
             to="/auth/register"
@@ -144,7 +133,7 @@ export default function LoginForm({ onclose }) {
             Create account
           </Link>
         </p>
-      </div>
-    </div>
+      </DialogContent>
+    </Dialog>
   );
 }

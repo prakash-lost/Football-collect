@@ -10,6 +10,9 @@ import {
 import { FaXTwitter, FaSquareGithub } from "react-icons/fa6";
 import { IoShieldOutline, IoTrophySharp, IoEarth } from "react-icons/io5";
 import { MdGroups } from "react-icons/md";
+import { Input } from "./ui/input";
+import { Button } from "./ui/button";
+import { Badge } from "./ui/badge";
 
 const statHighlights = [
   {
@@ -84,7 +87,7 @@ const Footer = () => {
                   className="flex items-center gap-3 p-3 sm:p-3.5 rounded-lg border border-border bg-card hover:border-primary/40 transition-colors"
                 >
                   <div className="p-2 rounded-md bg-surface-elevated border border-border text-primary flex items-center justify-center shrink-0">
-                    <Icon className="w-4 h-4 sm:w-5 sm:h-5" />
+                    <Icon className="size-4 sm:size-5" />
                   </div>
                   <div>
                     <h4 className="font-extrabold text-sm sm:text-base text-foreground tracking-tight">
@@ -116,10 +119,10 @@ const Footer = () => {
               Your football destination for verified club histories,
               trophy cabinets, player career journeys, and tactical stats.
             </p>
-            <div className="inline-flex items-center gap-2 px-2.5 py-1 rounded-md bg-surface-elevated border border-border text-[11px] font-semibold text-foreground w-fit">
-              <span className="w-1.5 h-1.5 rounded-full bg-primary" />
+            <Badge variant="secondary" size="default" className="w-fit">
+              <span className="size-1.5 rounded-full bg-primary" />
               <span>2026/27 European Football Archive</span>
-            </div>
+            </Badge>
           </div>
 
           {/* Nav Columns (Span 4) */}
@@ -206,19 +209,20 @@ const Footer = () => {
               onSubmit={(e) => e.preventDefault()}
               className="flex items-center gap-2 mt-1"
             >
-              <input
+              <Input
+                size="sm"
                 type="email"
                 placeholder="Enter email address"
-                className="w-full h-8 px-3 text-xs rounded-md bg-background border border-border text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-1 focus:ring-primary focus:border-primary transition-colors"
                 required
               />
-              <button
+              <Button
                 type="submit"
+                variant="default"
+                size="sm"
                 aria-label="Subscribe"
-                className="h-8 px-3.5 rounded-md bg-primary text-primary-foreground hover:bg-primary-hover font-semibold flex items-center justify-center transition-colors shrink-0 cursor-pointer"
               >
-                <FaLocationArrow className="w-3 h-3" />
-              </button>
+                <FaLocationArrow className="size-3" />
+              </Button>
             </form>
             <span className="text-[10px] text-muted-foreground">
               Direct inbox delivery. Unsubscribe anytime.
@@ -249,7 +253,7 @@ const Footer = () => {
                   aria-label={social.name}
                   className={`p-1.5 rounded-md border border-border bg-card text-muted-foreground transition-colors ${social.hover}`}
                 >
-                  <Icon className="w-3.5 h-3.5" />
+                  <Icon className="size-3.5" />
                 </a>
               );
             })}

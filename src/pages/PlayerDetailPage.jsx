@@ -5,16 +5,17 @@ import {
   Star,
   ChevronLeft,
   Calendar,
-  Award,
   Milestone,
   Landmark,
   Flame,
   ExternalLink,
   ArrowRight,
-  Activity,
   Shield,
 } from "lucide-react";
 import footballPlayersData from "../data/footballPlayers.json";
+import { Badge } from "../components/ui/badge";
+import { Button } from "../components/ui/button";
+import { EmptyState } from "../components/ui/empty-state";
 
 const PlayerDetailPage = () => {
   const { id } = useParams();
@@ -41,22 +42,19 @@ const PlayerDetailPage = () => {
   if (!player) {
     return (
       <div className="w-full max-w-4xl mx-auto px-4 py-20 text-center">
-        <div className="p-10 rounded-xl border border-dashed border-border bg-card flex flex-col items-center gap-3">
-          <Trophy className="w-12 h-12 text-muted-foreground/50 mb-1" />
-          <h2 className="text-xl sm:text-2xl font-black text-foreground">
-            Player Profile Not Found
-          </h2>
-          <p className="text-xs text-muted-foreground max-w-md">
-            The player identifier <code className="text-primary font-mono font-bold">"{id}"</code> does not exist in our historical archive.
-          </p>
-          <Link
-            to="/players"
-            className="mt-3 px-5 py-2 rounded-md bg-primary text-primary-foreground font-bold text-xs flex items-center gap-2 hover:bg-primary-hover transition-colors"
-          >
-            <ChevronLeft className="w-4 h-4" />
-            <span>Return to Career Archive</span>
-          </Link>
-        </div>
+        <EmptyState
+          icon={Trophy}
+          title="Player Profile Not Found"
+          description={`The player identifier "${id}" does not exist in our historical archive.`}
+          action={
+            <Button asChild variant="default" size="sm">
+              <Link to="/players" className="inline-flex items-center gap-2">
+                <ChevronLeft className="size-4" />
+                <span>Return to Career Archive</span>
+              </Link>
+            </Button>
+          }
+        />
       </div>
     );
   }
@@ -67,30 +65,26 @@ const PlayerDetailPage = () => {
     <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 flex flex-col gap-8">
       {/* ---------- 1. TOP BREADCRUMB & ACTION BAR ---------- */}
       <div className="flex flex-wrap items-center justify-between gap-4 border-b border-border pb-4">
-        <Link
-          to="/players"
-          className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-md border border-border bg-card hover:bg-surface-elevated text-foreground text-xs font-semibold transition-colors"
-        >
-          <ChevronLeft className="w-4 h-4" />
-          <span>Back to All Careers</span>
-        </Link>
+        <Button asChild variant="outline" size="sm">
+          <Link to="/players" className="inline-flex items-center gap-1.5">
+            <ChevronLeft className="size-4" />
+            <span>Back to All Careers</span>
+          </Link>
+        </Button>
 
         <div className="flex items-center gap-2">
-          <span
-            className={`px-2.5 py-1 rounded-md text-xs font-bold uppercase tracking-wide border flex items-center gap-1.5 ${
-              isLegend
-                ? "bg-surface-elevated border-border text-warning"
-                : "bg-surface-elevated border-border text-primary"
-            }`}
+          <Badge
+            variant={isLegend ? "warning" : "default"}
+            size="default"
           >
-            {isLegend ? <Landmark className="w-3.5 h-3.5" /> : <Flame className="w-3.5 h-3.5" />}
+            {isLegend ? <Landmark className="size-3.5" /> : <Flame className="size-3.5" />}
             <span>{player.eraLabel}</span>
-          </span>
+          </Badge>
 
-          <span className="flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-surface-elevated border border-border text-primary font-mono font-bold text-xs">
-            <Star className="w-3.5 h-3.5 fill-primary" />
+          <Badge variant="secondary" size="default" className="font-mono font-bold text-primary">
+            <Star className="size-3.5 fill-primary" />
             <span>{player.rating.toFixed(2)} Icon Rating</span>
-          </span>
+          </Badge>
         </div>
       </div>
 
@@ -98,7 +92,7 @@ const PlayerDetailPage = () => {
       <div className="rounded-xl border border-border bg-card p-6 sm:p-8">
         <div className="flex flex-col lg:flex-row items-center lg:items-start gap-6 sm:gap-8">
           {/* Large Player Portrait */}
-          <div className="relative w-40 h-40 sm:w-48 sm:h-48 rounded-xl bg-surface-elevated border border-border flex items-center justify-center overflow-hidden shrink-0">
+          <div className="relative size-40 sm:size-48 rounded-xl bg-surface-elevated border border-border flex items-center justify-center overflow-hidden shrink-0">
             <span className="absolute bottom-1 right-2 text-4xl font-black text-foreground/5 select-none pointer-events-none font-mono">
               #{player.number}
             </span>
@@ -120,11 +114,11 @@ const PlayerDetailPage = () => {
           <div className="flex-1 text-center lg:text-left flex flex-col justify-between">
             <div>
               <div className="flex flex-wrap items-center justify-center lg:justify-start gap-2 mb-2">
-                <span className="px-2 py-0.5 rounded bg-surface-elevated border border-border text-foreground font-mono font-bold text-xs uppercase">
+                <Badge variant="secondary" size="sm" className="font-mono uppercase font-bold">
                   {player.posCode || player.position} #{player.number}
-                </span>
+                </Badge>
                 <span className="text-xs font-semibold text-muted-foreground flex items-center gap-1.5">
-                  <Calendar className="w-3.5 h-3.5 text-primary" />
+                  <Calendar className="size-3.5 text-primary" />
                   <span>{player.careerSpan}</span>
                 </span>
               </div>
@@ -139,7 +133,9 @@ const PlayerDetailPage = () => {
                 <span className="text-border">•</span>
                 <span>Prime: <strong className="text-primary">{player.primeClub}</strong></span>
                 <span className="text-border">•</span>
-                <span className="text-xs px-2 py-0.5 rounded bg-surface-elevated border border-border text-foreground">{player.currentClub}</span>
+                <Badge variant="secondary" size="sm">
+                  {player.currentClub}
+                </Badge>
               </div>
 
               {/* Biography Quote */}
@@ -150,13 +146,15 @@ const PlayerDetailPage = () => {
 
             {/* Quick Link to Prime Club */}
             <div className="mt-5 pt-3.5 border-t border-border flex flex-wrap items-center justify-center lg:justify-start gap-3">
-              <Link
-                to={`/teams?search=${encodeURIComponent(player.primeClub)}`}
-                className="px-4 py-2 rounded-md bg-primary text-primary-foreground text-xs font-bold flex items-center gap-2 hover:bg-primary-hover active:scale-[0.98] transition-colors"
-              >
-                <span>View {player.primeClub} in Directory</span>
-                <ExternalLink className="w-3.5 h-3.5" />
-              </Link>
+              <Button asChild variant="default" size="sm">
+                <Link
+                  to={`/teams?search=${encodeURIComponent(player.primeClub)}`}
+                  className="inline-flex items-center gap-2"
+                >
+                  <span>View {player.primeClub} in Directory</span>
+                  <ExternalLink className="size-3.5" />
+                </Link>
+              </Button>
             </div>
           </div>
         </div>
@@ -217,10 +215,10 @@ const PlayerDetailPage = () => {
       <div className="rounded-xl border border-border bg-card p-6 flex flex-col gap-4">
         <div className="flex items-center justify-between">
           <div>
-            <div className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-surface-elevated border border-border text-warning text-xs font-semibold uppercase mb-1">
-              <Trophy className="w-3.5 h-3.5" />
+            <Badge variant="warning" size="default" className="mb-1">
+              <Trophy className="size-3.5" />
               <span>Personal & Team Honors</span>
-            </div>
+            </Badge>
             <h3 className="text-lg sm:text-xl font-black text-foreground font-sans">
               Trophy & Accolades Cabinet
             </h3>
@@ -284,10 +282,10 @@ const PlayerDetailPage = () => {
       {/* ---------- 5. CHRONOLOGICAL CLUB TIMELINE JOURNEY ---------- */}
       <div className="rounded-xl border border-border bg-card p-6 flex flex-col gap-4">
         <div>
-          <div className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-surface-elevated border border-border text-primary text-xs font-semibold uppercase mb-1">
-            <Milestone className="w-3.5 h-3.5" />
+          <Badge variant="default" size="default" className="mb-1">
+            <Milestone className="size-3.5" />
             <span>Club-By-Club Journey</span>
-          </div>
+          </Badge>
           <h3 className="text-lg sm:text-xl font-black text-foreground font-sans">
             Chronological Career Timeline
           </h3>
@@ -300,7 +298,7 @@ const PlayerDetailPage = () => {
           {player.timeline?.map((step, idx) => (
             <div key={idx} className="relative group">
               {/* Timeline Pin */}
-              <div className="absolute -left-[27px] sm:-left-[31px] top-2 w-3 h-3 rounded-full bg-background border-2 border-primary" />
+              <div className="absolute -left-[27px] sm:-left-[31px] top-2 size-3 rounded-full bg-background border-2 border-primary" />
 
               <div className="p-4 rounded-lg border border-border bg-surface-elevated flex flex-col sm:flex-row sm:items-center justify-between gap-3">
                 <div>
@@ -318,15 +316,18 @@ const PlayerDetailPage = () => {
                   </p>
                 </div>
 
-                <div className="flex items-center gap-3 text-xs font-semibold shrink-0 bg-card px-3 py-1.5 rounded-md border border-border">
-                  <div>
-                    <span className="text-[9px] uppercase text-muted-foreground block">Matches</span>
-                    <span className="font-bold text-foreground font-mono">{step.apps}</span>
+                <div className="flex items-center gap-3 shrink-0 self-start sm:self-center">
+                  <div className="text-right">
+                    <span className="text-xs font-mono font-bold text-primary block">
+                      {step.goals} Goals
+                    </span>
+                    <span className="text-[10px] text-muted-foreground">
+                      in {step.matches} matches
+                    </span>
                   </div>
-                  <div className="h-5 w-px bg-border" />
-                  <div>
-                    <span className="text-[9px] uppercase text-muted-foreground block">Goals</span>
-                    <span className="font-bold text-primary font-mono">{step.goals}</span>
+
+                  <div className="p-2 rounded bg-card border border-border text-xs font-bold text-foreground">
+                    ⚽
                   </div>
                 </div>
               </div>
@@ -335,111 +336,55 @@ const PlayerDetailPage = () => {
         </div>
       </div>
 
-      {/* ---------- 6. ATTRIBUTES & SIGNATURE MOMENT GRID ---------- */}
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-5 items-stretch">
-        {/* Tactical Attributes Radar */}
-        {player.stats && (
-          <div className="p-6 rounded-xl border border-border bg-card flex flex-col justify-between gap-4">
-            <div>
-              <div className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-surface-elevated border border-border text-primary text-xs font-semibold uppercase mb-1">
-                <Activity className="w-3.5 h-3.5" />
-                <span>Attributes</span>
-              </div>
-              <h3 className="text-base sm:text-lg font-black text-foreground font-sans">
-                Tactical Skill Ratings (1-100)
-              </h3>
-            </div>
-
-            <div className="grid grid-cols-2 gap-2.5">
-              {Object.entries(player.stats).map(([stat, val]) => (
-                <div
-                  key={stat}
-                  className="p-2.5 rounded-lg bg-surface-elevated border border-border flex flex-col gap-1.5"
-                >
-                  <div className="flex justify-between items-center text-xs">
-                    <span className="capitalize font-semibold text-muted-foreground">
-                      {stat}
-                    </span>
-                    <span className="font-bold text-foreground font-mono">{val}</span>
-                  </div>
-                  <div className="w-full h-1.5 rounded-full bg-card overflow-hidden">
-                    <div
-                      className="h-full rounded-full bg-primary"
-                      style={{ width: `${Math.min(val, 100)}%` }}
-                    />
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-        )}
-
-        {/* Signature Career Moment */}
-        <div className="p-6 rounded-xl border border-border bg-card flex flex-col justify-between gap-4">
-          <div>
-            <div className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-surface-elevated border border-border text-warning text-xs font-semibold uppercase mb-1">
-              <Award className="w-3.5 h-3.5" />
-              <span>Career Masterpiece</span>
-            </div>
-            <h3 className="text-base sm:text-lg font-black text-foreground font-sans">
-              Signature Career Moment
-            </h3>
-            <p className="mt-2 text-xs sm:text-sm text-foreground/90 leading-relaxed font-normal bg-surface-elevated p-3.5 rounded-lg border border-border">
-              "{player.signatureMoment}"
-            </p>
-          </div>
-
-          <div className="p-3 rounded-lg bg-surface-elevated border border-border flex items-center justify-between text-xs">
-            <span className="text-muted-foreground">Historical Status</span>
-            <span className="font-bold text-warning font-mono">
-              All-Time Football Pantheon
-            </span>
-          </div>
-        </div>
-      </div>
-
-      {/* ---------- 7. RELATED LEGENDS & SUPERSTARS ---------- */}
+      {/* ---------- 6. RELATED FOOTBALLERS ROW ---------- */}
       {relatedPlayers.length > 0 && (
-        <div className="flex flex-col gap-3.5 pt-4 border-t border-border">
+        <div className="flex flex-col gap-4">
           <div className="flex items-center justify-between">
             <div>
-              <h3 className="text-base sm:text-lg font-black text-foreground font-sans">
-                Explore More {player.position}s
+              <h3 className="text-lg sm:text-xl font-black text-foreground font-sans">
+                Similar Stars in Archive
               </h3>
               <p className="text-xs text-muted-foreground">
-                Compare other stars from our historical archive.
+                Footballers sharing the {player.position} position or {player.eraLabel} heritage.
               </p>
             </div>
             <Link
               to="/players"
               className="text-xs font-bold text-primary hover:underline flex items-center gap-1"
             >
-              <span>View All Careers</span>
-              <ArrowRight className="w-3.5 h-3.5" />
+              <span>Explore All</span>
+              <ArrowRight className="size-3.5" />
             </Link>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-3">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4">
             {relatedPlayers.map((rel) => (
               <Link
                 key={rel.id}
                 to={`/players/${rel.id}`}
-                className="group p-3 rounded-lg border border-border bg-card hover:border-primary transition-colors flex items-center gap-3"
+                className="group p-4 rounded-lg border border-border bg-card hover:border-primary transition-colors flex items-center gap-3.5"
               >
-                <div className="w-10 h-10 rounded-md bg-surface-elevated border border-border overflow-hidden shrink-0">
-                  <img
-                    src={rel.photo}
-                    alt={rel.name}
-                    className="w-full h-full object-cover object-top"
-                  />
+                <div className="size-12 rounded-md bg-surface-elevated border border-border flex items-center justify-center overflow-hidden shrink-0">
+                  {rel.photo ? (
+                    <img
+                      src={rel.photo}
+                      alt={rel.name}
+                      className="w-full h-full object-cover object-top"
+                    />
+                  ) : (
+                    <Shield className="size-4 text-primary" />
+                  )}
                 </div>
                 <div className="truncate">
-                  <h5 className="font-bold text-foreground text-xs group-hover:text-primary transition-colors truncate">
+                  <h4 className="text-xs sm:text-sm font-bold text-foreground group-hover:text-primary transition-colors truncate">
                     {rel.name}
-                  </h5>
+                  </h4>
                   <p className="text-[11px] text-muted-foreground truncate">
-                    {rel.flag} {rel.primeClub}
+                    {rel.primeClub} • {rel.position}
                   </p>
+                  <span className="text-[10px] font-mono text-warning font-bold flex items-center gap-1 mt-0.5">
+                    <Star className="size-2.5 fill-warning" /> {rel.rating}
+                  </span>
                 </div>
               </Link>
             ))}

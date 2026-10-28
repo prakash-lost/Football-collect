@@ -13,6 +13,10 @@ import {
 } from "lucide-react";
 import { ThemeContext } from "../context/ThemeContext";
 import { Switch } from "../components/ui/switch";
+import { Tabs, TabsList, TabsTrigger } from "../components/ui/tabs";
+import { Select } from "../components/ui/select";
+import { Button } from "../components/ui/button";
+import { Badge } from "../components/ui/badge";
 
 const favoriteClubs = [
   {
@@ -136,7 +140,7 @@ const Profile = () => {
         {/* Understated Pitch Header Banner */}
         <div className="h-32 sm:h-40 w-full bg-surface-elevated border-b border-border relative overflow-hidden">
           <div className="absolute top-4 right-4 flex items-center gap-2 px-3 py-1 rounded-md bg-card border border-border text-foreground text-xs font-semibold">
-            <Sparkles className="w-3.5 h-3.5 text-warning" />
+            <Sparkles className="size-3.5 text-warning" />
             <span>VIP Collector Level 8</span>
           </div>
         </div>
@@ -145,7 +149,7 @@ const Profile = () => {
         <div className="px-6 pb-6 pt-0 sm:px-8 sm:pb-8 flex flex-col sm:flex-row items-center sm:items-end justify-between gap-6 -mt-14 sm:-mt-16 relative z-10">
           <div className="flex flex-col sm:flex-row items-center sm:items-end gap-5 text-center sm:text-left">
             {/* Avatar */}
-            <div className="w-24 h-24 sm:w-28 sm:h-28 rounded-xl bg-background border-2 border-border p-1 flex items-center justify-center overflow-hidden">
+            <div className="size-24 sm:size-28 rounded-xl bg-background border-2 border-border p-1 flex items-center justify-center overflow-hidden">
               <div className="w-full h-full rounded-lg bg-surface-elevated border border-border flex items-center justify-center text-primary text-2xl font-black">
                 AR
               </div>
@@ -157,9 +161,9 @@ const Profile = () => {
                 <span className="font-black text-2xl sm:text-3xl text-foreground">
                   Alex Rossi
                 </span>
-                <span className="px-2 py-0.5 rounded-md bg-surface-elevated border border-border text-primary text-xs font-semibold">
+                <Badge variant="secondary" size="sm" className="text-primary font-semibold">
                   @rossi_football
-                </span>
+                </Badge>
               </div>
               <p className="text-xs sm:text-sm text-muted-foreground flex items-center justify-center sm:justify-start gap-2">
                 <span>🇪🇸 Madrid, Spain</span>
@@ -171,20 +175,20 @@ const Profile = () => {
 
           {/* Quick Buttons */}
           <div className="flex items-center gap-3">
-            <Link
-              to="/teams"
-              className="px-4 py-2 rounded-md bg-primary text-primary-foreground text-xs font-semibold hover:bg-primary-hover active:scale-[0.98] transition-all flex items-center gap-1.5"
-            >
-              <Trophy className="w-3.5 h-3.5" />
-              <span>Browse Teams</span>
-            </Link>
-            <button
+            <Button asChild size="sm" variant="default">
+              <Link to="/teams" className="inline-flex items-center gap-1.5">
+                <Trophy className="size-3.5" />
+                <span>Browse Teams</span>
+              </Link>
+            </Button>
+            <Button
+              variant="outline"
+              size="icon-sm"
               onClick={() => setActiveTab("settings")}
-              className="p-2 rounded-md border border-border bg-surface-elevated text-foreground hover:border-primary transition-colors cursor-pointer"
               aria-label="Settings"
             >
-              <Settings className="w-4 h-4" />
-            </button>
+              <Settings className="size-4" />
+            </Button>
           </div>
         </div>
 
@@ -226,31 +230,26 @@ const Profile = () => {
       </div>
 
       {/* ---------- 2. TAB CONTROLS ---------- */}
-      <div className="flex items-center gap-2 overflow-x-auto pb-2 scrollbar-none">
-        {[
-          { id: "clubs", label: "Favorite Clubs", icon: Shield },
-          { id: "cards", label: "Collected Star Cards", icon: Sparkles },
-          { id: "predictions", label: "Matchday Predictions", icon: TrendingUp },
-          { id: "settings", label: "Preferences & Settings", icon: Settings },
-        ].map((tab) => {
-          const isSelected = activeTab === tab.id;
-          const Icon = tab.icon;
-          return (
-            <button
-              key={tab.id}
-              onClick={() => setActiveTab(tab.id)}
-              className={`px-3.5 py-1.5 rounded-md text-xs font-semibold whitespace-nowrap transition-colors cursor-pointer flex items-center gap-2 border ${
-                isSelected
-                  ? "bg-primary text-primary-foreground border-primary"
-                  : "bg-surface-elevated border-border text-muted-foreground hover:text-foreground hover:border-border"
-              }`}
-            >
-              <Icon className="w-3.5 h-3.5" />
-              <span>{tab.label}</span>
-            </button>
-          );
-        })}
-      </div>
+      <Tabs value={activeTab} onValueChange={setActiveTab}>
+        <TabsList>
+          <TabsTrigger value="clubs">
+            <Shield className="size-3.5" />
+            <span>Favorite Clubs</span>
+          </TabsTrigger>
+          <TabsTrigger value="cards">
+            <Sparkles className="size-3.5" />
+            <span>Collected Star Cards</span>
+          </TabsTrigger>
+          <TabsTrigger value="predictions">
+            <TrendingUp className="size-3.5" />
+            <span>Matchday Predictions</span>
+          </TabsTrigger>
+          <TabsTrigger value="settings">
+            <Settings className="size-3.5" />
+            <span>Preferences & Settings</span>
+          </TabsTrigger>
+        </TabsList>
+      </Tabs>
 
       {/* ---------- 3. TAB 1: FAVORITE CLUBS ---------- */}
       {activeTab === "clubs" && (
@@ -269,7 +268,7 @@ const Profile = () => {
               className="text-xs font-semibold text-primary hover:underline flex items-center gap-1"
             >
               <span>Add More Clubs</span>
-              <ChevronRight className="w-3.5 h-3.5" />
+              <ChevronRight className="size-3.5" />
             </Link>
           </div>
 
@@ -281,16 +280,16 @@ const Profile = () => {
               >
                 <div>
                   <div className="flex items-center justify-between text-[11px] mb-3">
-                    <span className="px-2 py-0.5 rounded-md bg-surface-elevated border border-border text-primary font-semibold">
+                    <Badge variant="secondary" size="sm" className="text-primary font-semibold">
                       {club.status}
-                    </span>
+                    </Badge>
                     <span className="text-muted-foreground font-medium">
                       {club.league}
                     </span>
                   </div>
 
                   <div className="flex items-center gap-4 my-3">
-                    <div className="w-16 h-16 p-2 rounded-lg bg-background border border-border flex items-center justify-center shrink-0">
+                    <div className="size-16 p-2 rounded-lg bg-background border border-border flex items-center justify-center shrink-0">
                       <img
                         src={club.logo}
                         alt={club.name}
@@ -310,7 +309,7 @@ const Profile = () => {
                   <div className="mt-3 pt-3 border-t border-border flex items-center justify-between text-xs text-muted-foreground">
                     <span>Champions Leagues</span>
                     <span className="font-bold text-warning flex items-center gap-1">
-                      <Trophy className="w-3.5 h-3.5" /> {club.ucl} UCL
+                      <Trophy className="size-3.5" /> {club.ucl} UCL
                     </span>
                   </div>
                 </div>
@@ -321,7 +320,7 @@ const Profile = () => {
                     className="w-full py-2 rounded-md bg-surface-elevated hover:bg-primary hover:text-primary-foreground border border-border text-foreground text-xs font-semibold flex items-center justify-center gap-1 transition-colors"
                   >
                     <span>View Club In Directory</span>
-                    <ExternalLink className="w-3.5 h-3.5" />
+                    <ExternalLink className="size-3.5" />
                   </Link>
                 </div>
               </div>
@@ -347,7 +346,7 @@ const Profile = () => {
               className="text-xs font-semibold text-primary hover:underline flex items-center gap-1"
             >
               <span>Explore Player Directory</span>
-              <ChevronRight className="w-3.5 h-3.5" />
+              <ChevronRight className="size-3.5" />
             </Link>
           </div>
 
@@ -359,11 +358,11 @@ const Profile = () => {
               >
                 <div>
                   <div className="flex items-center justify-between text-[11px] mb-2">
-                    <span className="px-2 py-0.5 rounded-md bg-surface-elevated text-warning border border-border font-semibold text-[10px]">
+                    <Badge variant="warning" size="sm">
                       {card.tier}
-                    </span>
+                    </Badge>
                     <span className="flex items-center gap-0.5 text-xs font-bold text-warning">
-                      <Star className="w-3 h-3 fill-warning" />
+                      <Star className="size-3 fill-warning" />
                       {card.rating}
                     </span>
                   </div>
@@ -392,7 +391,7 @@ const Profile = () => {
                     className="w-full py-1.5 rounded-md bg-surface-elevated hover:bg-primary hover:text-primary-foreground border border-border text-foreground text-xs font-semibold flex items-center justify-center gap-1 transition-colors"
                   >
                     <span>Inspect Career</span>
-                    <ChevronRight className="w-3 h-3" />
+                    <ChevronRight className="size-3" />
                   </Link>
                 </div>
               </div>
@@ -424,21 +423,18 @@ const Profile = () => {
                     <span className="text-muted-foreground font-medium">
                       {pred.competition}
                     </span>
-                    <span
-                      className={`px-2 py-0.5 rounded-md font-semibold text-[10px] ${
-                        pred.status === "Won"
-                          ? "bg-surface-elevated text-success border border-success/40"
-                          : "bg-surface-elevated text-primary border border-border"
-                      }`}
+                    <Badge
+                      variant={pred.status === "Won" ? "success" : "secondary"}
+                      size="sm"
                     >
                       {pred.status}
-                    </span>
+                    </Badge>
                   </div>
 
                   {/* Clash Display */}
                   <div className="flex items-center justify-between my-2">
                     <div className="flex flex-col items-center text-center w-24">
-                      <div className="w-12 h-12 p-1.5 rounded-lg bg-background border border-border flex items-center justify-center mb-1">
+                      <div className="size-12 p-1.5 rounded-lg bg-background border border-border flex items-center justify-center mb-1">
                         <img
                           src={pred.homeLogo}
                           alt={pred.home}
@@ -455,7 +451,7 @@ const Profile = () => {
                     </span>
 
                     <div className="flex flex-col items-center text-center w-24">
-                      <div className="w-12 h-12 p-1.5 rounded-lg bg-background border border-border flex items-center justify-center mb-1">
+                      <div className="size-12 p-1.5 rounded-lg bg-background border border-border flex items-center justify-center mb-1">
                         <img
                           src={pred.awayLogo}
                           alt={pred.away}
@@ -477,7 +473,7 @@ const Profile = () => {
                 </div>
 
                 <div className="text-[11px] text-muted-foreground flex items-center gap-1.5">
-                  <Calendar className="w-3.5 h-3.5" />
+                  <Calendar className="size-3.5" />
                   <span>Scheduled: {pred.date}</span>
                 </div>
               </div>
@@ -514,17 +510,16 @@ const Profile = () => {
             <label className="text-sm font-semibold text-foreground">
               Default Homepage League
             </label>
-            <select
+            <Select
               value={favoriteLeague}
               onChange={(e) => setFavoriteLeague(e.target.value)}
-              className="h-10 px-3 rounded-md bg-background border border-border text-foreground text-xs font-medium focus:outline-none focus:ring-1 focus:ring-primary cursor-pointer"
             >
               <option value="Premier League">Premier League (England)</option>
               <option value="La Liga">La Liga (Spain)</option>
               <option value="Serie A">Serie A (Italy)</option>
               <option value="Bundesliga">Bundesliga (Germany)</option>
               <option value="Ligue 1">Ligue 1 (France)</option>
-            </select>
+            </Select>
           </div>
 
           {/* Match Alerts Toggle */}
@@ -544,12 +539,13 @@ const Profile = () => {
           </div>
 
           <div className="pt-2">
-            <button
+            <Button
               onClick={() => alert("Preferences updated successfully!")}
-              className="px-5 py-2.5 rounded-md bg-primary text-primary-foreground font-semibold text-xs hover:bg-primary-hover active:scale-[0.98] transition-all cursor-pointer"
+              variant="default"
+              size="sm"
             >
               Save Preferences
-            </button>
+            </Button>
           </div>
         </div>
       )}

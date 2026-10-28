@@ -1,29 +1,13 @@
 import React from "react";
 import { Link } from "react-router";
 import { Flame, Star, ArrowRight } from "lucide-react";
+import { Badge } from "../ui/badge";
 
 const trendPlayer = [
   {
-    id: "raphinha",
-    image:
-      "https://cdn.resfu.com/media/img_news/raphinha--l--celebra-uno-de-sus-goles-en-el-barcelona-valencia-de-primera-division-2025-26--efe-alejandro-garcia.jpg?size=1000x&lossy=1",
-    displayName: "Raphinha",
-    fullName: "Raphael Dias Belloli",
-    clubName: "FC Barcelona",
-    clubimage:
-      "https://upload.wikimedia.org/wikipedia/en/4/47/FC_Barcelona_%28crest%29.svg",
-    position: "RW / CF",
-    number: "11",
-    averageRating: "8.73",
-    goal: "6",
-    assist: "1",
-    appearance: "4",
-    form: "On Fire 🔥",
-  },
-  {
     id: "lamine-yamal",
     image:
-      "https://i.pinimg.com/736x/ee/ac/43/eeac43ed02a73ea08935f8c4faff7a20.jpg",
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR1gOPDnlymyyZwOJa79aru7oiaeDESuziOBldLNbmIZgHSRD1wEOWDAHg&s=10",
     displayName: "Lamine Yamal",
     fullName: "Lamine Yamal Nasraoui",
     clubName: "FC Barcelona",
@@ -31,16 +15,33 @@ const trendPlayer = [
       "https://upload.wikimedia.org/wikipedia/en/4/47/FC_Barcelona_%28crest%29.svg",
     position: "Right Winger",
     number: "19",
-    averageRating: "8.50",
+    averageRating: "8.85",
     goal: "6",
-    assist: "3",
+    assist: "5",
     appearance: "5",
     form: "Sensational 🌟",
   },
   {
+    id: "erling-haaland",
+    image:
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQs2XNFB5wGfBgK-i1NuGcmFYuWJIWEHcUJwLRuFeieIs32mXhkI4N3e3Id&s=10",
+    displayName: "Erling Haaland",
+    fullName: "Erling Braut Haaland",
+    clubName: "Man City",
+    clubimage:
+      "https://upload.wikimedia.org/wikipedia/en/e/eb/Manchester_City_FC_badge.svg",
+    position: "Striker",
+    number: "9",
+    averageRating: "8.90",
+    goal: "7",
+    assist: "1",
+    appearance: "4",
+    form: "Unstoppable 🤖",
+  },
+  {
     id: "kylian-mbappe",
     image:
-      "https://i.pinimg.com/1200x/7c/31/90/7c3190475b42a989a95df8e6677217e7.jpg",
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRin_hXretTz2zqtgry2DU4Si6CuPGzHuyczMphM_25vzVmua5anta5ASA&s=10",
     displayName: "Kylian Mbappé",
     fullName: "Kylian Mbappé Lottin",
     clubName: "Real Madrid",
@@ -48,34 +49,17 @@ const trendPlayer = [
       "https://upload.wikimedia.org/wikipedia/en/5/56/Real_Madrid_CF.svg",
     position: "Striker",
     number: "9",
-    averageRating: "8.60",
+    averageRating: "8.70",
     goal: "6",
     assist: "2",
     appearance: "5",
     form: "Electric ⚡",
   },
   {
-    id: "erling-haaland",
+    id: "vinicius-jr",
     image:
-      "https://assets.goal.com/images/v3/getty-2241952135/crop/MM5DENBUHA5DCMZXG45G433XMU5DMMJSHIYTAMA=/GettyImages-2241952135.jpg?auto=webp&format=pjpg&width=3840&quality=60",
-    displayName: "Erling Haaland",
-    fullName: "Erling Braut Haaland",
-    clubName: "Manchester City",
-    clubimage:
-      "https://upload.wikimedia.org/wikipedia/en/e/eb/Manchester_City_FC_badge.svg",
-    position: "Center Forward",
-    number: "9",
-    averageRating: "8.70",
-    goal: "4",
-    assist: "1",
-    appearance: "4",
-    form: "Lethal 🎯",
-  },
-  {
-    id: "harry-kane",
-    image:
-      "https://i.pinimg.com/736x/88/64/a4/8864a40106890c8ea92496df98bcf23f.jpg",
-    displayName: "Vinícius Jr",
+      "https://upload.wikimedia.org/wikipedia/commons/f/f3/Vinicius_Junior_2024.jpg",
+    displayName: "Vinícius Jr.",
     fullName: "Vinícius José Paixão de Oliveira Júnior",
     clubName: "Real Madrid",
     clubimage:
@@ -88,22 +72,39 @@ const trendPlayer = [
     appearance: "5",
     form: "Clinical 👑",
   },
+  {
+    id: "jude-bellingham",
+    image:
+      "https://upload.wikimedia.org/wikipedia/commons/4/46/Jude_Bellingham_2024.jpg",
+    displayName: "Jude Bellingham",
+    fullName: "Jude Victor William Bellingham",
+    clubName: "Real Madrid",
+    clubimage:
+      "https://upload.wikimedia.org/wikipedia/en/5/56/Real_Madrid_CF.svg",
+    position: "Attacking Midfielder",
+    number: "5",
+    averageRating: "8.75",
+    goal: "5",
+    assist: "4",
+    appearance: "5",
+    form: "Maestro 💫",
+  },
 ];
 
-const Trendingplayer = () => {
+const TrendingPlayer = () => {
   return (
-    <section className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 sm:py-8">
+    <section className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
       {/* ---------- SECTION HEADER ---------- */}
-      <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-6">
+      <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-4">
         <div>
-          <div className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-surface-elevated border border-border text-foreground text-xs font-semibold uppercase tracking-wider mb-2">
-            <Flame className="w-3.5 h-3.5 text-primary" />
+          <Badge variant="secondary" size="default" className="mb-1.5">
+            <Flame className="size-3.5 text-primary" />
             <span>Form & Performance</span>
-          </div>
+          </Badge>
           <h2 className="text-xl sm:text-2xl font-black tracking-tight text-foreground flex items-center gap-2">
-            Trending Superstars
+            In-Form Superstars
           </h2>
-          <p className="text-xs sm:text-sm text-muted-foreground mt-1">
+          <p className="text-xs sm:text-sm text-muted-foreground mt-0.5">
             Top performing stars based on matchday ratings and decisive goal contributions.
           </p>
         </div>
@@ -112,13 +113,13 @@ const Trendingplayer = () => {
           to="/players"
           className="inline-flex items-center gap-1.5 text-xs font-bold text-foreground hover:text-primary transition-colors w-fit group"
         >
-          <span>View All Players</span>
-          <ArrowRight className="w-3.5 h-3.5 text-primary" />
+          <span>View All 27 Player Profiles</span>
+          <ArrowRight className="size-3.5 text-primary" />
         </Link>
       </div>
 
       {/* ---------- PLAYERS CARDS GRID ---------- */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-3.5">
         {trendPlayer.map((player) => (
           <Link
             key={player.id}
@@ -127,23 +128,23 @@ const Trendingplayer = () => {
           >
             {/* Top Bar: Jersey Number & Match Rating */}
             <div className="flex items-center justify-between p-3 pb-0">
-              <span className="px-1.5 py-0.5 rounded bg-surface-elevated border border-border text-[11px] font-mono font-bold text-foreground">
+              <Badge variant="secondary" size="sm" className="font-mono font-bold">
                 #{player.number}
-              </span>
+              </Badge>
 
               {/* Match Rating */}
               <div className="flex items-center gap-1 px-1.5 py-0.5 rounded bg-surface-elevated border border-border text-primary text-xs font-mono font-bold">
-                <Star className="w-3 h-3 fill-primary" />
+                <Star className="size-3 fill-primary" />
                 <span>{player.averageRating}</span>
               </div>
             </div>
 
             {/* Player Photo with Club Badge Overlay */}
-            <div className="relative h-44 sm:h-48 w-full overflow-hidden mt-2 bg-[#111310]">
+            <div className="relative h-44 sm:h-48 w-full overflow-hidden mt-2 bg-surface-base">
               <img
                 src={player.image}
                 alt={player.displayName}
-                className="w-full h-full object-cover object-top"
+                className="w-full h-full object-cover object-top transition-transform duration-300 group-hover:scale-105"
                 loading="lazy"
               />
 
@@ -155,7 +156,7 @@ const Trendingplayer = () => {
                 <img
                   src={player.clubimage}
                   alt={player.clubName}
-                  className="w-3.5 h-3.5 object-contain"
+                  className="size-3.5 object-contain"
                 />
                 <span className="text-[10px] font-bold text-foreground tracking-tight">
                   {player.clubName}
@@ -209,4 +210,4 @@ const Trendingplayer = () => {
   );
 };
 
-export default Trendingplayer;
+export default TrendingPlayer;

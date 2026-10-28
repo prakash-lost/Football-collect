@@ -1,4 +1,4 @@
-import React, { useRef, useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { Link } from "react-router";
 import {
   Carousel,
@@ -6,96 +6,89 @@ import {
   CarouselItem,
 } from "../ui/carousel";
 import Autoplay from "embla-carousel-autoplay";
-import {
-  ChevronLeft,
-  ChevronRight,
-  Shield,
-  ArrowRight,
-} from "lucide-react";
+import { ChevronLeft, ChevronRight, ArrowRight, Shield } from "lucide-react";
+import { Badge } from "../ui/badge";
+import { Button } from "../ui/button";
 
 const slides = [
   {
-    url: "https://i.pinimg.com/736x/b8/1c/27/b81c2733626b8df32f9dcd9bfd93be89.jpg",
+    url: "https://i.pinimg.com/1200x/c7/2b/96/c72b96fa1d9774653551532f831fbe61.jpg",
     name: "Lionel Messi",
-    role: "Playmaker",
-    club: "Inter Miami & Argentina",
-    badge: "World Champion 🏆",
+    club: "FC Barcelona Legend • Inter Miami",
+    role: "8x Ballon d'Or Winner",
+    badge: "Greatest of All Time",
   },
   {
-    url: "https://i.pinimg.com/1200x/49/b8/a8/49b8a80ec2dc2c2d24ecd98b0c5c964c.jpg",
+    url: "https://i.pinimg.com/736x/2b/d8/6d/2bd86d6fe558d7c2a71f0082725fa896.jpg",
     name: "Cristiano Ronaldo",
-    role: "Striker",
-    club: "Al Nassr & Portugal",
-    badge: "All-Time Top Scorer ⚡",
+    club: "Real Madrid Legend • Al-Nassr",
+    role: "5x Ballon d'Or Winner • 5x UCL",
+    badge: "All-Time Top Scorer",
   },
   {
-    url: "https://assets.goal.com/images/v3/getty-2241952135/crop/MM5DENBUHA5DCMZXG45G433XMU5DMMJSHIYTAMA=/GettyImages-2241952135.jpg?auto=webp&format=pjpg&width=3840&quality=60",
-    name: "Erling Haaland",
-    role: "Goal Machine",
-    club: "Manchester City",
-    badge: "Golden Boot 🎯",
-  },
-  {
-    url: "https://i.pinimg.com/1200x/76/67/a3/7667a36e9d679b98ab9347716b0569a6.jpg",
-    name: "Neymar Jr",
-    role: "Winger",
-    club: "Santos & Brazil",
-    badge: "Samba Flair 🇧🇷",
-  },
-  {
-    url: "https://i.pinimg.com/736x/ee/ac/43/eeac43ed02a73ea08935f8c4faff7a20.jpg",
-    name: "Lamine Yamal",
-    role: "Wonderkid",
-    club: "FC Barcelona & Spain",
-    badge: "Euro 2024 Winner 🌟",
-  },
-  {
-    url: "https://i.pinimg.com/1200x/7c/31/90/7c3190475b42a989a95df8e6677217e7.jpg",
+    url: "https://i.pinimg.com/1200x/80/e5/22/80e522ff673b5df5b871c86eecaeaafe.jpg",
     name: "Kylian Mbappé",
-    role: "Forward",
-    club: "Real Madrid & France",
-    badge: "Speed Demon ⚡",
+    club: "Real Madrid • France Captain",
+    role: "World Cup Golden Boot",
+    badge: "Galáctico Era 2026",
   },
   {
-    url: "https://i.pinimg.com/736x/4f/90/47/4f904785a5a6784576ee97ee7ac74c10.jpg",
+    url: "https://i.pinimg.com/736x/db/51/93/db5193910c59cc7c6dfb1e8477f10b27.jpg",
+    name: "Erling Haaland",
+    club: "Manchester City • Norway",
+    role: "Premier League Record Breaker",
+    badge: "Goal Machine",
+  },
+  {
+    url: "https://i.pinimg.com/1200x/aa/8d/62/aa8d62cecf17a151fe53b0bc4aa7f794.jpg",
+    name: "Lamine Yamal",
+    club: "FC Barcelona • Spain",
+    role: "Euro 2024 Champion & Young Player",
+    badge: "Generation Next",
+  },
+  {
+    url: "https://i.pinimg.com/1200x/31/6a/d0/316ad06b6eb81427cbb022bf2f38d38b.jpg",
     name: "Jude Bellingham",
-    role: "Midfielder",
-    club: "Real Madrid & England",
-    badge: "Golden Boy 👑",
+    club: "Real Madrid • England",
+    role: "Champions League Winner",
+    badge: "Midfield Maestro",
   },
   {
-    url: "https://i.pinimg.com/736x/88/64/a4/8864a40106890c8ea92496df98bcf23f.jpg",
-    name: "Vinícius Jr",
-    role: "Winger",
-    club: "Real Madrid & Brazil",
-    badge: "UCL Champion 🔥",
+    url: "https://i.pinimg.com/736x/89/3b/b7/893bb7b952f4ae10f54070a25fa1fc6d.jpg",
+    name: "Vinícius Júnior",
+    club: "Real Madrid • Brazil",
+    role: "2x Champions League Final Scorer",
+    badge: "Samba Flair",
   },
   {
-    url: "https://i.pinimg.com/1200x/05/0a/09/050a091bf3c83065ea01be93a683dd7c.jpg",
-    name: "Pedri González",
-    role: "Midfielder",
-    club: "FC Barcelona & Spain",
-    badge: "Visionary 🧠",
+    url: "https://i.pinimg.com/736x/87/0c/33/870c33a3915bc5c9ae1994e098a5840d.jpg",
+    name: "Cole Palmer",
+    club: "Chelsea • England",
+    role: "PFA Young Player of the Year",
+    badge: "Cold Precision",
   },
   {
-    url: "https://i.pinimg.com/736x/f3/23/e9/f323e9976a061731a601c101ec8d05fa.jpg",
-    name: "Michael Olise",
-    role: "Winger",
-    club: "Bayern Munich & France",
-    badge: "Rising Star 💫",
+    url: "https://i.pinimg.com/736x/67/f6/cb/67f6cb3d4b68bb3f81ebffc6e7f77977.jpg",
+    name: "Florian Wirtz",
+    club: "Bayer Leverkusen • Germany",
+    role: "Bundesliga Player of the Season",
+    badge: "Master Playmaker",
   },
 ];
 
-export default function HeadIMG() {
+const HeadImg = () => {
   const [api, setApi] = useState(null);
   const [current, setCurrent] = useState(0);
+  const [count, setCount] = useState(0);
 
   const plugin = useRef(
-    Autoplay({ delay: 3500, stopOnInteraction: false, stopOnMouseEnter: true })
+    Autoplay({ delay: 5000, stopOnInteraction: false, stopOnMouseEnter: true })
   );
 
   useEffect(() => {
     if (!api) return;
+
+    setCount(api.scrollSnapList().length);
     setCurrent(api.selectedScrollSnap());
 
     api.on("select", () => {
@@ -129,10 +122,10 @@ export default function HeadIMG() {
                 {/* 3. Player Card Info */}
                 <div className="absolute bottom-5 left-4 sm:bottom-8 sm:left-8 z-20 max-w-lg text-left">
                   {/* Accolade Badge */}
-                  <div className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-surface-elevated border border-border text-foreground text-xs font-semibold mb-2">
-                    <span className="w-1.5 h-1.5 rounded-full bg-primary" />
+                  <Badge variant="secondary" size="default" className="mb-2">
+                    <span className="size-1.5 rounded-full bg-primary" />
                     <span>{slide.badge}</span>
-                  </div>
+                  </Badge>
 
                   {/* Player Name */}
                   <h2 className="text-2xl sm:text-4xl md:text-5xl font-black tracking-tight text-foreground font-sans">
@@ -141,7 +134,7 @@ export default function HeadIMG() {
 
                   {/* Club Details */}
                   <p className="text-xs sm:text-sm text-muted-foreground font-medium mt-1.5 flex items-center gap-1.5">
-                    <Shield className="w-3.5 h-3.5 text-primary shrink-0" />
+                    <Shield className="size-3.5 text-primary shrink-0" />
                     <span>{slide.club}</span>
                     <span className="text-border">•</span>
                     <span className="text-primary font-semibold">
@@ -151,13 +144,12 @@ export default function HeadIMG() {
 
                   {/* Action Link */}
                   <div className="mt-3.5">
-                    <Link
-                      to="/players"
-                      className="inline-flex items-center gap-2 px-4 py-2 rounded-md bg-primary text-primary-foreground text-xs sm:text-sm font-bold hover:bg-primary-hover active:scale-[0.98] transition-colors"
-                    >
-                      <span>Explore Archive</span>
-                      <ArrowRight className="w-4 h-4" />
-                    </Link>
+                    <Button asChild variant="default" size="sm">
+                      <Link to="/players" className="inline-flex items-center gap-2">
+                        <span>Explore Archive</span>
+                        <ArrowRight className="size-4" />
+                      </Link>
+                    </Button>
                   </div>
                 </div>
               </div>
@@ -166,20 +158,19 @@ export default function HeadIMG() {
         </CarouselContent>
 
         {/* 4. Controls */}
-        <div className="absolute bottom-4 right-4 sm:bottom-7 sm:right-7 z-30 flex items-center gap-1.5 bg-card border border-border px-2.5 py-1 rounded-md">
+        <div className="absolute bottom-4 right-4 sm:bottom-7 sm:right-7 z-30 flex items-center gap-1.5 bg-card border border-border px-2 py-1 rounded-md">
           {/* Previous Arrow */}
           <button
             onClick={() => api?.scrollPrev()}
             className="p-1 rounded text-muted-foreground hover:text-foreground hover:bg-surface-elevated transition-colors cursor-pointer"
             aria-label="Previous slide"
           >
-            <ChevronLeft className="w-4 h-4" />
+            <ChevronLeft className="size-4" />
           </button>
 
           {/* Slide Counter */}
           <span className="text-xs font-mono font-medium text-foreground px-1.5">
-            {current + 1} <span className="text-muted-foreground">/</span>{" "}
-            {slides.length}
+            {current + 1} / {count || slides.length}
           </span>
 
           {/* Next Arrow */}
@@ -188,10 +179,12 @@ export default function HeadIMG() {
             className="p-1 rounded text-muted-foreground hover:text-foreground hover:bg-surface-elevated transition-colors cursor-pointer"
             aria-label="Next slide"
           >
-            <ChevronRight className="w-4 h-4" />
+            <ChevronRight className="size-4" />
           </button>
         </div>
       </Carousel>
     </div>
   );
-}
+};
+
+export default HeadImg;

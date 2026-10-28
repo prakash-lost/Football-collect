@@ -1,8 +1,9 @@
-import React, { lazy, Suspense, useContext, useState, useEffect } from "react";
+import React, { lazy, Suspense, useContext, useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router";
-import { FaSearch } from "react-icons/fa";
-import { Menu, X, Sun, Moon, User, ArrowRight } from "lucide-react";
-import { Switch } from "../components/ui/switch";
+import { Search, Menu, X, Sun, Moon, User, ArrowRight } from "lucide-react";
+import { Switch } from "./ui/switch";
+import { Button } from "./ui/button";
+import { Input } from "./ui/input";
 import { ThemeContext } from "../context/ThemeContext";
 
 const LoginForm = lazy(() => import("../pages/LoginForm"));
@@ -40,7 +41,7 @@ const Navbar = () => {
             {/* ---------- BRAND LOGO ---------- */}
             <Link
               to="/"
-              className="flex items-center gap-3 group focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary rounded-lg p-1"
+              className="flex items-center gap-3 group focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-primary rounded-lg p-1"
             >
               <div className="flex items-center justify-center w-9 h-9 sm:w-10 sm:h-10 rounded-lg bg-surface-elevated border border-border group-hover:border-primary transition-colors">
                 <img
@@ -72,7 +73,7 @@ const Navbar = () => {
                   <Link
                     key={link.path}
                     to={link.path}
-                    className={`px-3 py-1.5 rounded-md text-xs font-semibold tracking-wide transition-colors ${
+                    className={`px-3 py-1.5 rounded-md text-xs font-semibold tracking-wide transition-colors outline-none focus-visible:ring-1 focus-visible:ring-primary ${
                       isActive
                         ? "text-primary bg-surface-elevated font-bold"
                         : "text-muted-foreground hover:text-foreground hover:bg-surface-elevated/60"
@@ -87,33 +88,33 @@ const Navbar = () => {
             {/* ---------- RIGHT ACTIONS: SEARCH + THEME + AUTH ---------- */}
             <div className="flex items-center gap-2.5 sm:gap-3">
               {/* Desktop Search Form */}
-              <form onSubmit={handleSearchSubmit} className="hidden lg:flex items-center relative">
-                <FaSearch className="absolute left-3 text-muted-foreground text-xs pointer-events-none" />
-                <input
-                  name="search"
-                  className="w-48 xl:w-56 h-8 pl-8 pr-3 rounded-md text-xs bg-card border border-border text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-1 focus:ring-primary focus:border-primary transition-all"
-                  placeholder="Search clubs or players..."
-                  type="text"
+              <form onSubmit={handleSearchSubmit} className="hidden lg:flex items-center w-48 xl:w-56">
+                <Input
+                  size="sm"
+                  leftIcon={Search}
+                  placeholder="Search clubs or stars..."
                   value={searchText}
                   onChange={(e) => setSearchText(e.target.value)}
                 />
               </form>
 
               {/* Mobile Search Toggle Button */}
-              <button
-                className="lg:hidden p-2 rounded-md text-muted-foreground hover:text-foreground hover:bg-surface-elevated transition-colors cursor-pointer"
+              <Button
+                variant="ghost"
+                size="icon-sm"
+                className="lg:hidden"
                 aria-label="Toggle search"
                 onClick={() => setMobileSearchOpen((prev) => !prev)}
               >
-                <FaSearch className="text-sm" />
-              </button>
+                <Search className="size-4" />
+              </Button>
 
               {/* Theme Toggle Pill */}
               <div className="flex items-center gap-1.5 px-2 py-1 rounded-md bg-card border border-border">
                 {isDark ? (
-                  <Moon className="w-3.5 h-3.5 text-primary" />
+                  <Moon className="size-3.5 text-primary" />
                 ) : (
-                  <Sun className="w-3.5 h-3.5 text-warning" />
+                  <Sun className="size-3.5 text-warning" />
                 )}
                 <Switch
                   checked={isDark}
@@ -127,28 +128,31 @@ const Navbar = () => {
               <div className="hidden sm:flex items-center gap-2">
                 <Link
                   to="/profile"
-                  className="flex items-center gap-1.5 px-3 py-1.5 text-xs font-semibold rounded-md text-foreground hover:text-primary hover:bg-surface-elevated border border-border transition-colors"
+                  className="inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-semibold rounded-md text-foreground hover:text-primary hover:bg-surface-elevated border border-border transition-colors outline-none focus-visible:ring-1 focus-visible:ring-primary"
                 >
-                  <User className="w-3.5 h-3.5" />
-                  Profile
+                  <User className="size-3.5" />
+                  <span>Profile</span>
                 </Link>
-                <button
+                <Button
+                  size="sm"
+                  variant="default"
                   onClick={() => setShowLogin(true)}
-                  className="px-3.5 py-1.5 text-xs font-bold rounded-md bg-primary text-primary-foreground hover:bg-primary-hover active:scale-[0.98] transition-colors cursor-pointer"
                 >
                   Sign In
-                </button>
+                </Button>
               </div>
 
               {/* Mobile Menu Hamburger Button */}
-              <button
-                className="md:hidden p-2 rounded-md text-foreground hover:bg-surface-elevated transition-colors cursor-pointer"
+              <Button
+                variant="ghost"
+                size="icon-sm"
+                className="md:hidden"
                 aria-label="Toggle menu"
                 aria-expanded={menuOpen}
                 onClick={() => setMenuOpen((prev) => !prev)}
               >
-                {menuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
-              </button>
+                {menuOpen ? <X className="size-5" /> : <Menu className="size-5" />}
+              </Button>
             </div>
           </div>
         </div>
@@ -156,14 +160,12 @@ const Navbar = () => {
         {/* ---------- MOBILE EXPANDABLE SEARCH ---------- */}
         {mobileSearchOpen && (
           <div className="lg:hidden px-4 pb-3 pt-2 border-t border-border bg-card animate-in slide-in-from-top-1 duration-150">
-            <form onSubmit={handleSearchSubmit} className="relative flex items-center">
-              <FaSearch className="absolute left-3.5 text-muted-foreground text-xs" />
-              <input
-                name="mobile-search"
-                className="w-full h-9 pl-9 pr-3 rounded-md text-xs bg-background border border-border text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-1 focus:ring-primary"
-                placeholder="Search clubs, players, leagues..."
-                type="text"
+            <form onSubmit={handleSearchSubmit}>
+              <Input
+                size="sm"
+                leftIcon={Search}
                 autoFocus
+                placeholder="Search clubs, players, leagues..."
                 value={searchText}
                 onChange={(e) => setSearchText(e.target.value)}
               />
@@ -182,14 +184,14 @@ const Navbar = () => {
                     key={link.path}
                     to={link.path}
                     onClick={() => setMenuOpen(false)}
-                    className={`flex items-center justify-between px-3.5 py-2.5 rounded-md text-sm font-semibold transition-colors ${
+                    className={`flex items-center justify-between px-3.5 py-2.5 rounded-md text-sm font-semibold transition-colors outline-none focus-visible:ring-1 focus-visible:ring-primary ${
                       isActive
                         ? "bg-surface-elevated text-primary font-bold"
                         : "text-foreground hover:bg-surface-elevated/60"
                     }`}
                   >
                     <span>{link.label}</span>
-                    <ArrowRight className="w-4 h-4 opacity-40" />
+                    <ArrowRight className="size-4 opacity-40" />
                   </Link>
                 );
               })}
@@ -201,18 +203,20 @@ const Navbar = () => {
                   onClick={() => setMenuOpen(false)}
                   className="flex items-center justify-center gap-2 w-full py-2 rounded-md text-xs font-semibold border border-border bg-background text-foreground"
                 >
-                  <User className="w-3.5 h-3.5" />
-                  My Profile
+                  <User className="size-3.5" />
+                  <span>My Profile</span>
                 </Link>
-                <button
+                <Button
+                  size="sm"
+                  variant="default"
                   onClick={() => {
                     setMenuOpen(false);
                     setShowLogin(true);
                   }}
-                  className="w-full py-2 rounded-md text-xs font-bold bg-primary text-primary-foreground hover:bg-primary-hover transition-colors cursor-pointer"
+                  className="w-full"
                 >
                   Sign In / Register
-                </button>
+                </Button>
               </div>
             </div>
           </div>
