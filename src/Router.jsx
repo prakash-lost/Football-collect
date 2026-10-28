@@ -34,6 +34,12 @@ const Router = () => {
           }),
         },
         {
+          path: "players/:id",
+          lazy: async () => ({
+            Component: (await import("./pages/PlayerDetailPage")).default,
+          }),
+        },
+        {
           path: "login",
           lazy: async () => ({
             Component: (await import("./pages/LoginForm")).default,

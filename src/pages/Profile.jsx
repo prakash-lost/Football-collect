@@ -46,6 +46,7 @@ const favoriteClubs = [
 
 const collectedCards = [
   {
+    id: "kylian-mbappe",
     name: "Kylian Mbappé",
     club: "Real Madrid",
     pos: "FWD",
@@ -55,6 +56,7 @@ const collectedCards = [
       "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRin_hXretTz2zqtgry2DU4Si6CuPGzHuyczMphM_25vzVmua5anta5ASA&s=10",
   },
   {
+    id: "erling-haaland",
     name: "Erling Haaland",
     club: "Man City",
     pos: "FWD",
@@ -64,6 +66,7 @@ const collectedCards = [
       "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQs2XNFB5wGfBgK-i1NuGcmFYuWJIWEHcUJwLRuFeieIs32mXhkI4N3e3Id&s=10",
   },
   {
+    id: "lamine-yamal",
     name: "Lamine Yamal",
     club: "FC Barcelona",
     pos: "FWD",
@@ -73,6 +76,7 @@ const collectedCards = [
       "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR1gOPDnlymyyZwOJa79aru7oiaeDESuziOBldLNbmIZgHSRD1wEOWDAHg&s=10",
   },
   {
+    id: "jude-bellingham",
     name: "Jude Bellingham",
     club: "Real Madrid",
     pos: "MID",
@@ -349,9 +353,9 @@ const Profile = () => {
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-5">
-            {collectedCards.map((card, idx) => (
+            {collectedCards.map((card) => (
               <div
-                key={idx}
+                key={card.id}
                 className="group relative p-4 rounded-2xl border border-border/80 bg-gradient-to-b from-card via-card to-background hover:border-primary/50 hover:shadow-xl hover:shadow-primary/10 transition-all duration-300 flex flex-col justify-between"
               >
                 <div>
@@ -385,10 +389,11 @@ const Profile = () => {
 
                 <div className="mt-3 pt-2">
                   <Link
-                    to="/players"
+                    to={`/players/${card.id}`}
                     className="w-full py-1.5 rounded-lg bg-primary/10 hover:bg-primary text-primary hover:text-primary-foreground text-xs font-bold flex items-center justify-center gap-1 transition-colors"
                   >
-                    <span>Inspect Stats</span>
+                    <span>Inspect Career</span>
+                    <ChevronRight className="w-3 h-3" />
                   </Link>
                 </div>
               </div>
