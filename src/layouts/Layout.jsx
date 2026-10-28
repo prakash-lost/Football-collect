@@ -1,8 +1,8 @@
 import React, { useContext, useEffect } from "react";
-import Navbar from "./components/Navbar";
 import { Outlet, useLocation } from "react-router";
-import Footer from "./components/Footer";
-import { ThemeContext } from "./context/ThemeContext";
+import Navbar from "../components/Navbar";
+import Footer from "../components/Footer";
+import { ThemeContext } from "../context/ThemeContext";
 
 const Layout = () => {
   const { isDark } = useContext(ThemeContext);
@@ -40,3 +40,4 @@ const Layout = () => {
 };
 
 export default Layout;
+

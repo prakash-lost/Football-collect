@@ -14,7 +14,7 @@ import {
   ArrowRight,
   Activity,
 } from "lucide-react";
-import footballPlayersData from "../../footballPlayers.json";
+import footballPlayersData from "../data/footballPlayers.json";
 
 const PlayerDetailPage = () => {
   const { id } = useParams();

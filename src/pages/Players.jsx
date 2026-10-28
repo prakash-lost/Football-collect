@@ -14,7 +14,7 @@ import {
 } from "lucide-react";
 
 // Direct JSON import - 100% reliable on Vercel and offline!
-import footballPlayersData from "../../footballPlayers.json";
+import footballPlayersData from "../data/footballPlayers.json";
 
 const eraFilters = [
   { id: "all", name: "All Eras", icon: Crown },

@@ -1,7 +1,7 @@
 import { createBrowserRouter } from "react-router";
 import { RouterProvider } from "react-router/dom";
-import Layout from "./Layout";
-import AuthLayout from "./AuthLayout";
+import Layout from "./layouts/Layout";
+import AuthLayout from "./layouts/AuthLayout";
 
 const Router = () => {
   const router = createBrowserRouter([
@@ -60,13 +60,13 @@ const Router = () => {
         {
           path: "news",
           lazy: async () => ({
-            Component: (await import("./components/News")).default,
+            Component: (await import("./pages/NewsPage")).default,
           }),
         },
         {
           path: "leagues",
           lazy: async () => ({
-            Component: (await import("./components/Leagues")).default,
+            Component: (await import("./pages/LeaguesPage")).default,
           }),
         },
       ],

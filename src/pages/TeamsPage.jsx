@@ -15,7 +15,7 @@ import {
 } from "lucide-react";
 
 // Direct JSON import - works 100% on Vercel without network errors!
-import footballData from "../../footballTeams.json";
+import footballData from "../data/footballTeams.json";
 
 // League filter tabs with flags
 const leagues = [
