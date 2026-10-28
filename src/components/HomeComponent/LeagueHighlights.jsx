@@ -342,7 +342,7 @@ const LeagueHighlights = () => {
                   <TableHead className="text-center w-14 font-bold text-foreground">
                     PTS
                   </TableHead>
-                  <TableHead className="text-right w-28">Form</TableHead>
+                  <TableHead className="text-right w-28 hidden sm:table-cell">Form</TableHead>
                 </TableRow>
               </TableHeader>
               <TableBody>
@@ -379,22 +379,22 @@ const LeagueHighlights = () => {
                     </TableCell>
 
                     {/* Matches Played */}
-                    <TableCell className="text-center font-mono text-xs text-muted-foreground">
+                    <TableCell className="text-center font-mono tabular-nums text-xs text-muted-foreground">
                       {row.mp}
                     </TableCell>
 
                     {/* Goal Difference */}
-                    <TableCell className="text-center font-mono text-xs text-muted-foreground">
+                    <TableCell className="text-center font-mono tabular-nums text-xs text-muted-foreground">
                       {row.gd}
                     </TableCell>
 
                     {/* Points */}
-                    <TableCell className="text-center font-mono font-bold text-xs sm:text-sm text-foreground">
+                    <TableCell className="text-center font-mono tabular-nums font-black text-sm text-foreground">
                       {row.pts}
                     </TableCell>
 
                     {/* Form pills */}
-                    <TableCell className="text-right">
+                    <TableCell className="text-right hidden sm:table-cell">
                       <div className="flex items-center justify-end gap-1">
                         {row.form.map((res, i) => (
                           <span

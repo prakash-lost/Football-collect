@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { Link } from "react-router";
-import { Calendar, ChevronRight, Activity } from "lucide-react";
-import { Badge } from "../ui/badge";
+import { ChevronRight } from "lucide-react";
 
 const matchData = [
   {

@@ -214,12 +214,14 @@ const Footer = () => {
                 type="email"
                 placeholder="Enter email address"
                 required
+                className="flex-1 min-w-0"
               />
               <Button
                 type="submit"
                 variant="default"
                 size="sm"
                 aria-label="Subscribe"
+                className="shrink-0"
               >
                 <FaLocationArrow className="size-3" />
               </Button>

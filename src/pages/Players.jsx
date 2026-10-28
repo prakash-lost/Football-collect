@@ -50,8 +50,8 @@ const Players = () => {
 
       const matchEra =
         selectedEra === "all" ||
-        (selectedEra === "active" && player.status === "Active") ||
-        (selectedEra === "legend" && player.status === "Retired");
+        (selectedEra === "active" && player.era === "active") ||
+        (selectedEra === "legend" && player.era === "legend");
 
       const matchPos =
         selectedPos === "all" || player.position === selectedPos;
@@ -200,7 +200,7 @@ const Players = () => {
       ) : (
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
           {filteredPlayers.slice(0, visible).map((player) => {
-            const isActive = player.status === "Active";
+            const isActive = player.era === "active";
 
             return (
               <Link
@@ -211,7 +211,7 @@ const Players = () => {
                 <div>
                   {/* Top Bar: Position Pill & Status */}
                   <div className="flex items-center justify-between text-[11px] mb-2.5">
-                    <Badge variant="secondary" size="sm">
+                    <Badge variant={isActive ? "default" : "secondary"} size="sm">
                       {player.position}
                     </Badge>
                     <span className="flex items-center gap-1 text-warning font-mono font-bold text-xs">

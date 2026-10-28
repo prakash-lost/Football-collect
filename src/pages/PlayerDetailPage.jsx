@@ -163,7 +163,7 @@ const PlayerDetailPage = () => {
       {/* ---------- 3. CAREER TOTALS DASHBOARD STRIP ---------- */}
       <div className="grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4">
         <div className="p-4 sm:p-5 rounded-lg border border-border bg-card text-center">
-          <span className="text-2xl sm:text-3xl font-black text-foreground block tracking-tight font-mono">
+          <span className="text-2xl sm:text-3xl font-black text-foreground block tracking-tight font-mono tabular-nums">
             {player.careerGoals}
           </span>
           <span className="text-xs font-bold text-primary block mt-1 uppercase">
@@ -175,7 +175,7 @@ const PlayerDetailPage = () => {
         </div>
 
         <div className="p-4 sm:p-5 rounded-lg border border-border bg-card text-center">
-          <span className="text-2xl sm:text-3xl font-black text-foreground block tracking-tight font-mono">
+          <span className="text-2xl sm:text-3xl font-black text-foreground block tracking-tight font-mono tabular-nums">
             {player.careerApps}
           </span>
           <span className="text-xs font-bold text-primary block mt-1 uppercase">
@@ -187,7 +187,7 @@ const PlayerDetailPage = () => {
         </div>
 
         <div className="p-4 sm:p-5 rounded-lg border border-border bg-card text-center">
-          <span className="text-2xl sm:text-3xl font-black text-primary block tracking-tight font-mono">
+          <span className="text-2xl sm:text-3xl font-black text-primary block tracking-tight font-mono tabular-nums">
             {player.intlCaps}
           </span>
           <span className="text-xs font-bold text-foreground block mt-1 uppercase">
@@ -199,7 +199,7 @@ const PlayerDetailPage = () => {
         </div>
 
         <div className="p-4 sm:p-5 rounded-lg border border-border bg-card text-center">
-          <span className="text-2xl sm:text-3xl font-black text-warning block tracking-tight font-mono">
+          <span className="text-2xl sm:text-3xl font-black text-warning block tracking-tight font-mono tabular-nums">
             {player.totalTrophies}
           </span>
           <span className="text-xs font-bold text-foreground block mt-1 uppercase">
@@ -210,6 +210,76 @@ const PlayerDetailPage = () => {
           </span>
         </div>
       </div>
+
+      {/* ---------- 3B. TECHNICAL ATTRIBUTES & PERFORMANCE STATS ---------- */}
+      {player.stats && (
+        <div className="rounded-xl border border-border bg-card p-6 flex flex-col gap-4">
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-border pb-3">
+            <div>
+              <div className="flex items-center gap-2">
+                <Badge variant="default" size="sm">
+                  Technical Matrix
+                </Badge>
+                <span className="text-xs font-mono text-muted-foreground">
+                  FIFA / UEFA Normalized (0–100)
+                </span>
+              </div>
+              <h3 className="text-lg sm:text-xl font-black text-foreground font-sans mt-1">
+                Core Competency & Skill Ratings
+              </h3>
+            </div>
+            <span className="text-xs font-mono text-primary font-bold">
+              Peak Prime Ability
+            </span>
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 pt-1">
+            {[
+              { key: "pace", label: "Pace & Acceleration", val: player.stats.pace, desc: "Sprint speed & off-the-mark burst" },
+              { key: "shooting", label: "Finishing & Power", val: player.stats.shooting, desc: "Shot conversion & clinical ball striking" },
+              { key: "passing", label: "Passing & Vision", val: player.stats.passing, desc: "Through balls, crossing & distribution" },
+              { key: "dribbling", label: "Dribbling & Agility", val: player.stats.dribbling, desc: "Tight-space control & carrying under pressure" },
+              { key: "defending", label: "Defensive Awareness", val: player.stats.defending, desc: "Tackling, interception & pressing work rate" },
+              { key: "physical", label: "Physicality & Stamina", val: player.stats.physical, desc: "Strength, aerial duel success & endurance" },
+            ].map((stat) => {
+              const isElite = stat.val >= 85;
+              return (
+                <div
+                  key={stat.key}
+                  className="p-3.5 rounded-lg bg-surface-elevated border border-border flex flex-col justify-between gap-2"
+                >
+                  <div className="flex items-center justify-between">
+                    <span className="text-xs font-bold text-foreground">
+                      {stat.label}
+                    </span>
+                    <span
+                      className={`text-sm font-mono font-black tabular-nums ${
+                        isElite ? "text-primary" : "text-foreground"
+                      }`}
+                    >
+                      {stat.val}
+                    </span>
+                  </div>
+
+                  {/* Progress Meter Bar */}
+                  <div className="w-full h-2 rounded-full bg-card border border-border overflow-hidden">
+                    <div
+                      className={`h-full rounded-full transition-all duration-500 ${
+                        isElite ? "bg-primary" : "bg-muted-foreground"
+                      }`}
+                      style={{ width: `${stat.val}%` }}
+                    />
+                  </div>
+
+                  <span className="text-[10px] text-muted-foreground leading-tight">
+                    {stat.desc}
+                  </span>
+                </div>
+              );
+            })}
+          </div>
+        </div>
+      )}
 
       {/* ---------- 4. OFFICIAL TROPHY & HONORS ROOM ---------- */}
       <div className="rounded-xl border border-border bg-card p-6 flex flex-col gap-4">
@@ -321,8 +391,8 @@ const PlayerDetailPage = () => {
                     <span className="text-xs font-mono font-bold text-primary block">
                       {step.goals} Goals
                     </span>
-                    <span className="text-[10px] text-muted-foreground">
-                      in {step.matches} matches
+                    <span className="text-[10px] text-muted-foreground font-mono">
+                      in {step.apps} matches
                     </span>
                   </div>
 

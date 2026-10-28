@@ -41,11 +41,11 @@ const Navbar = () => {
             {/* ---------- BRAND LOGO ---------- */}
             <Link
               to="/"
-              className="flex items-center gap-3 group focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-primary rounded-lg p-1"
+              className="flex items-center gap-2.5 sm:gap-3 group focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-primary rounded-lg p-1 shrink-0"
             >
-              <div className="flex items-center justify-center w-9 h-9 sm:w-10 sm:h-10 rounded-lg bg-surface-elevated border border-border group-hover:border-primary transition-colors">
+              <div className="flex items-center justify-center w-8 h-8 sm:w-10 sm:h-10 rounded-lg bg-surface-elevated border border-border group-hover:border-primary transition-colors shrink-0">
                 <img
-                  className="h-6 w-6 sm:h-7 sm:w-7 object-contain"
+                  className="h-5 w-5 sm:h-7 sm:w-7 object-contain"
                   src="/footballlogo.png"
                   alt="Football Collect"
                   onError={(e) => {
@@ -56,7 +56,7 @@ const Navbar = () => {
                 <span className="hidden text-base">⚽</span>
               </div>
               <div className="flex flex-col">
-                <span className="font-extrabold text-base sm:text-lg tracking-tight text-foreground flex items-center gap-1 font-sans">
+                <span className="font-extrabold text-sm sm:text-base md:text-lg tracking-tight text-foreground flex items-center gap-1 font-sans">
                   FOOTBALL<span className="text-primary font-black">COLLECT</span>
                 </span>
                 <span className="text-[10px] uppercase font-bold tracking-widest text-muted-foreground hidden sm:block -mt-1">
@@ -86,7 +86,7 @@ const Navbar = () => {
             </nav>
 
             {/* ---------- RIGHT ACTIONS: SEARCH + THEME + AUTH ---------- */}
-            <div className="flex items-center gap-2.5 sm:gap-3">
+            <div className="flex items-center gap-1.5 sm:gap-3 shrink-0">
               {/* Desktop Search Form */}
               <form onSubmit={handleSearchSubmit} className="hidden lg:flex items-center w-48 xl:w-56">
                 <Input

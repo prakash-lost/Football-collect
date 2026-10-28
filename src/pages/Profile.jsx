@@ -403,81 +403,109 @@ const Profile = () => {
       {/* ---------- 5. TAB 3: MATCHDAY PREDICTIONS ---------- */}
       {activeTab === "predictions" && (
         <div className="flex flex-col gap-5">
-          <div>
-            <h3 className="text-xl font-bold text-foreground">
-              Matchday Predictor
-            </h3>
-            <p className="text-xs text-muted-foreground">
-              Test your tactical knowledge on upcoming European heavyweight ties.
-            </p>
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+            <div>
+              <h3 className="text-xl font-bold text-foreground">
+                Matchday Predictor & Fixtures
+              </h3>
+              <p className="text-xs text-muted-foreground">
+                Track your tactical picks on upcoming European heavyweight ties and settled outcomes.
+              </p>
+            </div>
+
+            <div className="flex items-center gap-2">
+              <Badge variant="secondary" size="sm">
+                3 Total Predictions
+              </Badge>
+              <Badge variant="success" size="sm">
+                1 Won (100% Accuracy)
+              </Badge>
+            </div>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
-            {matchPredictions.map((pred) => (
-              <div
-                key={pred.id}
-                className="p-5 rounded-xl border border-border bg-card flex flex-col justify-between gap-4"
-              >
-                <div>
-                  <div className="flex items-center justify-between text-[11px] mb-3">
-                    <span className="text-muted-foreground font-medium">
+          {/* Compact Well-Aligned Match Rows */}
+          <div className="rounded-lg border border-border bg-card overflow-hidden divide-y divide-border/60">
+            {matchPredictions.map((pred) => {
+              const isWon = pred.status === "Won";
+
+              return (
+                <div
+                  key={pred.id}
+                  className="px-4 py-3 flex flex-col sm:flex-row sm:items-center justify-between gap-3 sm:gap-4 hover:bg-surface-elevated/30 transition-colors"
+                >
+                  {/* Left: Competition & Date */}
+                  <div className="w-full sm:w-44 shrink-0 flex items-center justify-between sm:flex-col sm:items-start text-xs">
+                    <span className="font-semibold text-foreground truncate max-w-[200px] sm:max-w-none">
                       {pred.competition}
                     </span>
-                    <Badge
-                      variant={pred.status === "Won" ? "success" : "secondary"}
-                      size="sm"
-                    >
-                      {pred.status}
-                    </Badge>
+                    <span className="text-[11px] font-mono text-muted-foreground mt-0.5 flex items-center gap-1">
+                      <Calendar className="size-3 text-primary" />
+                      <span>{pred.date}</span>
+                    </span>
                   </div>
 
-                  {/* Clash Display */}
-                  <div className="flex items-center justify-between my-2">
-                    <div className="flex flex-col items-center text-center w-24">
-                      <div className="size-12 p-1.5 rounded-lg bg-background border border-border flex items-center justify-center mb-1">
-                        <img
-                          src={pred.homeLogo}
-                          alt={pred.home}
-                          className="w-full h-full object-contain"
-                        />
-                      </div>
-                      <span className="text-xs font-semibold text-foreground truncate w-full">
+                  {/* Center: Matchup & Score / VS Box */}
+                  <div className="flex-1 flex items-center justify-center max-w-md mx-auto w-full">
+                    {/* Home Team */}
+                    <div className="flex-1 flex items-center justify-end gap-2 text-right min-w-0">
+                      <span className="font-bold text-xs sm:text-sm text-foreground truncate">
                         {pred.home}
+                      </span>
+                      <img
+                        src={pred.homeLogo}
+                        alt={pred.home}
+                        className="size-5 sm:size-6 object-contain shrink-0"
+                      />
+                    </div>
+
+                    {/* VS / Result Pill */}
+                    <div className="w-20 text-center shrink-0 px-2">
+                      <span
+                        className={`text-xs font-mono font-bold px-2 py-0.5 rounded border ${
+                          isWon
+                            ? "bg-emerald-500/10 text-emerald-400 border-emerald-500/20"
+                            : "bg-surface-elevated text-muted-foreground border-border"
+                        }`}
+                      >
+                        {isWon ? "FT 2-0" : "VS"}
                       </span>
                     </div>
 
-                    <span className="text-xs font-bold text-primary px-2 py-0.5 rounded-md bg-surface-elevated border border-border">
-                      VS
-                    </span>
-
-                    <div className="flex flex-col items-center text-center w-24">
-                      <div className="size-12 p-1.5 rounded-lg bg-background border border-border flex items-center justify-center mb-1">
-                        <img
-                          src={pred.awayLogo}
-                          alt={pred.away}
-                          className="w-full h-full object-contain"
-                        />
-                      </div>
-                      <span className="text-xs font-semibold text-foreground truncate w-full">
+                    {/* Away Team */}
+                    <div className="flex-1 flex items-center justify-start gap-2 text-left min-w-0">
+                      <img
+                        src={pred.awayLogo}
+                        alt={pred.away}
+                        className="size-5 sm:size-6 object-contain shrink-0"
+                      />
+                      <span className="font-bold text-xs sm:text-sm text-foreground truncate">
                         {pred.away}
                       </span>
                     </div>
                   </div>
 
-                  <div className="mt-4 p-3 rounded-lg bg-surface-elevated border border-border text-xs flex justify-between items-center">
-                    <span className="text-muted-foreground">Your Pick:</span>
-                    <span className="font-bold text-foreground">
-                      {pred.prediction}
-                    </span>
+                  {/* Right: User's Pick & Status */}
+                  <div className="flex items-center justify-between sm:justify-end gap-3 w-full sm:w-48 shrink-0 border-t sm:border-t-0 pt-2 sm:pt-0 border-border/50">
+                    <div className="text-right">
+                      <span className="text-[10px] uppercase font-bold text-muted-foreground block">
+                        Your Pick
+                      </span>
+                      <span className="text-xs font-bold text-foreground">
+                        {pred.prediction}
+                      </span>
+                    </div>
+
+                    <Badge
+                      variant={isWon ? "success" : "secondary"}
+                      size="sm"
+                      className="font-mono"
+                    >
+                      {pred.status}
+                    </Badge>
                   </div>
                 </div>
-
-                <div className="text-[11px] text-muted-foreground flex items-center gap-1.5">
-                  <Calendar className="size-3.5" />
-                  <span>Scheduled: {pred.date}</span>
-                </div>
-              </div>
-            ))}
+              );
+            })}
           </div>
         </div>
       )}

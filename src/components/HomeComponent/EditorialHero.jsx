@@ -4,11 +4,7 @@ import {
   Search,
   ArrowRight,
   Clock,
-  ExternalLink,
   Flame,
-  Shield,
-  Trophy,
-  TrendingUp,
 } from "lucide-react";
 import { Input } from "../ui/input";
 import { Button } from "../ui/button";
@@ -164,25 +160,25 @@ const EditorialHero = () => {
             <div className="absolute inset-0 bg-gradient-to-t from-card via-card/20 to-transparent" />
 
             {/* Duel Club Crests Overlaid */}
-            <div className="absolute bottom-3 left-4 sm:bottom-4 sm:left-6 flex items-center gap-2.5 px-3 py-1.5 rounded-md bg-card/90 border border-border backdrop-blur-sm">
-              <div className="flex items-center gap-2">
+            <div className="absolute bottom-3 left-4 sm:bottom-4 sm:left-6 flex items-center gap-2 sm:gap-2.5 px-2.5 sm:px-3 py-1.5 rounded-md bg-card/90 border border-border backdrop-blur-sm max-w-[calc(100%-2rem)]">
+              <div className="flex items-center gap-1.5 sm:gap-2 min-w-0">
                 <img
                   src={leadArticle.relatedClubs[0].logo}
                   alt={leadArticle.relatedClubs[0].name}
-                  className="size-5 object-contain"
+                  className="size-4 sm:size-5 object-contain shrink-0"
                 />
-                <span className="text-xs font-bold text-foreground">
+                <span className="text-[11px] sm:text-xs font-bold text-foreground truncate">
                   {leadArticle.relatedClubs[0].name}
                 </span>
               </div>
-              <span className="text-xs font-black text-primary px-1">VS</span>
-              <div className="flex items-center gap-2">
+              <span className="text-[10px] sm:text-xs font-black text-primary px-1 shrink-0">VS</span>
+              <div className="flex items-center gap-1.5 sm:gap-2 min-w-0">
                 <img
                   src={leadArticle.relatedClubs[1].logo}
                   alt={leadArticle.relatedClubs[1].name}
-                  className="size-5 object-contain"
+                  className="size-4 sm:size-5 object-contain shrink-0"
                 />
-                <span className="text-xs font-bold text-foreground">
+                <span className="text-[11px] sm:text-xs font-bold text-foreground truncate">
                   {leadArticle.relatedClubs[1].name}
                 </span>
               </div>
@@ -217,17 +213,17 @@ const EditorialHero = () => {
                 </div>
               </div>
 
-              <div className="flex items-center gap-2">
+              <div className="flex items-center gap-2 w-full sm:w-auto">
                 <Button
                   onClick={() => setSelectedArticle(leadArticle)}
                   variant="default"
                   size="sm"
-                  className="w-full sm:w-auto"
+                  className="flex-1 sm:flex-initial"
                 >
                   <span>Read Full Analysis</span>
                   <ArrowRight className="size-3.5" />
                 </Button>
-                <Button asChild variant="secondary" size="sm">
+                <Button asChild variant="secondary" size="sm" className="flex-1 sm:flex-initial">
                   <Link to="/news">
                     <span>All News</span>
                   </Link>
@@ -337,8 +333,8 @@ const EditorialHero = () => {
           <div
             key={stat.label}
             className={`flex flex-col items-center text-center ${
-              i > 0 ? "border-l border-border pl-2" : ""
-            }`}
+              i % 2 !== 0 ? "border-l border-border pl-2" : ""
+            } sm:border-l sm:first:border-l-0 sm:pl-2`}
           >
             <span className="font-mono text-base sm:text-xl font-black text-foreground">
               {stat.val}

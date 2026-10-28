@@ -20,7 +20,7 @@ export const ThemeProvider = ({ children }) => {
       document.documentElement.style.colorScheme = "dark";
     } else {
       document.documentElement.classList.remove("dark");
-      document.documentElement.style.colorScheme = "dark";
+      document.documentElement.style.colorScheme = "light";
     }
     localStorage.setItem("football_collect_theme", isDark ? "dark" : "light");
   }, [isDark]);

@@ -61,7 +61,7 @@ function DialogContent({
       data-slot="dialog-content"
       onClick={(e) => e.stopPropagation()}
       className={cn(
-        "relative w-full rounded-xl border border-border bg-card p-6 sm:p-8 shadow-2xl text-foreground flex flex-col gap-5 max-h-[90vh] overflow-y-auto animate-in zoom-in-95 duration-150",
+        "relative w-full rounded-xl border border-border bg-card p-4 sm:p-6 md:p-8 shadow-2xl text-foreground flex flex-col gap-5 max-h-[90vh] overflow-y-auto animate-in zoom-in-95 duration-150",
         sizeClasses,
         className
       )}

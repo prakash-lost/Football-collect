@@ -1,15 +1,16 @@
 import React, { useState, useMemo } from "react";
-import { Link } from "react-router";
 import {
   Newspaper,
   Search,
-  Flame,
   Clock,
-  ExternalLink,
   Sparkles,
   ArrowRight,
   Bookmark,
   Trophy,
+  ArrowRightLeft,
+  CheckCircle2,
+  HelpCircle,
+  BarChart3,
 } from "lucide-react";
 import { Input } from "../components/ui/input";
 import { Button } from "../components/ui/button";
@@ -137,6 +138,11 @@ With Ryan Gravenberch anchoring the pivot and Virgil van Dijk reading counter-at
     `,
     relatedClub: "Liverpool",
     tags: ["Liverpool", "Arne Slot", "Tactics", "Salah", "Van Dijk"],
+    tacticalPhases: [
+      { phase: "Defensive Shape", detail: "Mid-block 4-2-3-1 pressing trigger keyed to opposition full-back reception." },
+      { phase: "Transition", detail: "Vertical direct balls into half-spaces targeting Salah and Díaz." },
+      { phase: "Midfield Anchor", detail: "Gravenberch leading Europe in progressive carries through central channels." },
+    ],
   },
   {
     id: "news-6",
@@ -160,12 +166,12 @@ His first was a blistering sprint that left the defense helpless before clipping
 The French captain now leads the European Golden Shoe race alongside Erling Haaland and Harry Kane.
     `,
     relatedClub: "Real Madrid",
-    tags: ["Mbappe", "Real Madrid", "La Liga", "Hat Trick"],
+    tags: ["Mbappe", "Real Madrid", "La Liga", "Hat-Trick"],
   },
   {
     id: "news-7",
     featured: false,
-    title: "Cole Palmer's Cold Precision: Why Chelsea's No. 20 is the Premier League's Most Composed Star",
+    title: "The Cole Palmer Blueprint: Decoding Maresca's Inverted Playmaker at Chelsea",
     category: "Tactics",
     categoryCode: "tactics",
     date: "1 day ago",
@@ -173,29 +179,34 @@ The French captain now leads the European Golden Shoe race alongside Erling Haal
     author: "Jonathan Pierce",
     authorRole: "Senior Tactical Analyst",
     image:
-      "https://upload.wikimedia.org/wikipedia/commons/0/07/Cole_Palmer_2024.jpg",
+      "https://i.pinimg.com/736x/87/0c/33/870c33a3915bc5c9ae1994e098a5840d.jpg",
     summary:
-      "Analytical breakdown of Cole Palmer's body posture, vision under pressure, and how his trademark low-tempo deceptive rhythm unlocks compact Premier League backlines.",
+      "Statistical analysis of Cole Palmer's role as Chelsea's primary attacking orchestrator, creating 3.4 chances per 90 from the right half-space.",
     content: `
-Few players in European football manipulate time and space quite like Cole Palmer. While modern wingers and attacking midfielders often rely on explosive sprint metrics, Palmer excels through deception, hesitation, and immaculate spatial awareness.
+Cole Palmer has cemented himself as the Premier League's most versatile attacking playmaker. Operating nominally on the right flank, Palmer routinely drifts inside into zone 14 to exploit the gaps between opponent central midfields and defensive lines.
 
-Statistical data shows Palmer completes 88% of passes executed under high pressure inside the final third — the highest rate for any attacking midfielder in England this season.
+Under Enzo Maresca, Palmer's creative responsibilities have expanded. With inverted full-backs tucking inside to provide defensive rest, Palmer is given complete freedom to dictate passing tempo, take set pieces, and unlock low blocks with disguised through-balls.
     `,
     relatedClub: "Chelsea",
-    tags: ["Palmer", "Chelsea", "Premier League", "Tactical Analysis"],
+    tags: ["Cole Palmer", "Chelsea", "Premier League", "Tactics"],
+    tacticalPhases: [
+      { phase: "Positioning", detail: "Inverted right winger with free roaming license across zone 14." },
+      { phase: "Chance Creation", detail: "3.4 big chances created per 90 minutes; 88% passing accuracy in final third." },
+      { phase: "Rest Defense", detail: "Supported by inverted left-back Cucurella occupying central midfield pivot." },
+    ],
   },
   {
     id: "news-8",
     featured: false,
-    title: "Harry Kane Hits 30 Bundesliga Goals in Record Time as Bayern March On",
+    title: "Harry Kane Reaches 30 Bundesliga Goals as Bayern Crush Frankfurt 3-0",
     category: "Bundesliga",
     categoryCode: "bundesliga",
     date: "1 day ago",
-    readTime: "3 min read",
+    readTime: "2 min read",
     author: "Liam Henderson",
-    authorRole: "Chief Premier League Reporter",
+    authorRole: "Chief European Reporter",
     image:
-      "https://upload.wikimedia.org/wikipedia/commons/2/22/Harry_Kane_2024.jpg",
+      "https://upload.wikimedia.org/wikipedia/commons/1/1b/FC_Bayern_M%C3%BCnchen_logo_%282017%29.svg",
     summary:
       "The England captain reached the 30-goal milestone in just 24 league outings, driving Bayern Munich back to the summit of German football.",
     content: `
@@ -230,22 +241,96 @@ Lautaro Martínez proved the decisive factor, heading home an in-swinging corner
   },
 ];
 
+// Structured transfer desk records with confirmed vs rumored differentiation
+const transferRadar = [
+  {
+    id: "tr-1",
+    status: "confirmed",
+    statusLabel: "Official Extension",
+    player: "Lamine Yamal",
+    position: "Right Winger",
+    age: 19,
+    photo:
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR1gOPDnlymyyZwOJa79aru7oiaeDESuziOBldLNbmIZgHSRD1wEOWDAHg&s=10",
+    fromClub: "FC Barcelona",
+    toClub: "FC Barcelona",
+    clubLogo: "https://upload.wikimedia.org/wikipedia/en/4/47/FC_Barcelona_%28crest%29.svg",
+    dealType: "Contract Extension",
+    fee: "€1.0B Release Clause",
+    contract: "June 2031",
+    date: "5 hours ago",
+    articleId: "news-3",
+  },
+  {
+    id: "tr-2",
+    status: "confirmed",
+    statusLabel: "Official Signing",
+    player: "Kylian Mbappé",
+    position: "Striker",
+    age: 26,
+    photo:
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRin_hXretTz2zqtgry2DU4Si6CuPGzHuyczMphM_25vzVmua5anta5ASA&s=10",
+    fromClub: "Paris Saint-Germain",
+    toClub: "Real Madrid",
+    clubLogo: "https://upload.wikimedia.org/wikipedia/en/5/56/Real_Madrid_CF.svg",
+    dealType: "Free Transfer",
+    fee: "Free (Signing Bonus)",
+    contract: "June 2029",
+    date: "Official",
+    articleId: "news-6",
+  },
+  {
+    id: "tr-3",
+    status: "rumored",
+    statusLabel: "Active Bidding War",
+    player: "Florian Wirtz",
+    position: "Attacking Midfielder",
+    age: 22,
+    photo: "https://upload.wikimedia.org/wikipedia/commons/f/fc/Florian_Wirtz_2024.jpg",
+    fromClub: "Bayer Leverkusen",
+    toClub: "Real Madrid / Man City",
+    clubLogo: "https://upload.wikimedia.org/wikipedia/en/5/59/Bayer_04_Leverkusen_logo.svg",
+    dealType: "Summer Window Target",
+    fee: "€130M Asking Price",
+    contract: "Expected 2030",
+    date: "7 hours ago",
+    articleId: "news-4",
+  },
+  {
+    id: "tr-4",
+    status: "rumored",
+    statusLabel: "Contract Negotiation",
+    player: "Trent Alexander-Arnold",
+    position: "Right Back",
+    age: 26,
+    photo: "https://upload.wikimedia.org/wikipedia/en/0/0c/Liverpool_FC.svg",
+    fromClub: "Liverpool",
+    toClub: "Real Madrid",
+    clubLogo: "https://upload.wikimedia.org/wikipedia/en/5/56/Real_Madrid_CF.svg",
+    dealType: "Free Agent Pursuit",
+    fee: "Pre-Contract Talk",
+    contract: "Pending",
+    date: "1 day ago",
+    articleId: "news-1",
+  },
+];
+
 const categoryTabs = [
   { id: "all", name: "All Stories", icon: Newspaper },
-  { id: "Transfers", name: "Transfers 🔄", icon: Flame },
+  { id: "Transfers", name: "Transfer Radar 🔄", icon: ArrowRightLeft },
+  { id: "Tactics", name: "Tactics & Analysis 📊", icon: BarChart3 },
   { id: "Champions League", name: "Champions League 🏆", icon: Trophy },
   { id: "Premier League", name: "Premier League 🏴󠁧󠁢󠁥󠁮󠁧󠁿", icon: Sparkles },
   { id: "La Liga", name: "La Liga 🇪🇸", icon: Sparkles },
-  { id: "Tactics", name: "Tactics & Analysis 📊", icon: Sparkles },
 ];
 
-const News = () => {
+const NewsPage = () => {
   const [search, setSearch] = useState("");
   const [selectedCat, setSelectedCat] = useState("all");
   const [selectedArticle, setSelectedArticle] = useState(null);
   const [savedArticles, setSavedArticles] = useState([]);
+  const [transferFilter, setTransferFilter] = useState("all"); // "all" | "confirmed" | "rumored"
 
-  // Toggle bookmark
   const toggleBookmark = (id, e) => {
     e.stopPropagation();
     setSavedArticles((prev) =>
@@ -269,23 +354,38 @@ const News = () => {
     });
   }, [search, selectedCat]);
 
-  const featuredStory = newsArticles.find((a) => a.featured) || newsArticles[0];
+  // Lead story is the featured one, or the first in the filtered list
+  const leadStory = filteredArticles.find((a) => a.featured) || filteredArticles[0];
+  const secondaryStories = filteredArticles.filter((a) => a.id !== leadStory?.id);
+
+  // Filtered transfers
+  const filteredTransfers = useMemo(() => {
+    return transferRadar.filter((t) => {
+      const matchSearch =
+        t.player.toLowerCase().includes(search.toLowerCase()) ||
+        t.fromClub.toLowerCase().includes(search.toLowerCase()) ||
+        t.toClub.toLowerCase().includes(search.toLowerCase());
+
+      if (!matchSearch) return false;
+      if (transferFilter === "all") return true;
+      return t.status === transferFilter;
+    });
+  }, [search, transferFilter]);
 
   return (
-    <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12 flex flex-col gap-8">
+    <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 sm:py-10 flex flex-col gap-6">
       {/* ---------- 1. HEADER & SEARCH BAR ---------- */}
-      <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-6 border-b border-border pb-8">
+      <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-4 border-b border-border pb-6">
         <div>
-          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-surface-elevated border border-border text-foreground text-xs font-semibold tracking-wider uppercase mb-2">
+          <div className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-surface-elevated border border-border text-foreground text-xs font-semibold tracking-wider uppercase mb-2">
             <Newspaper className="size-3.5 text-primary" />
-            <span>Live Football Gazette • 2026 Season</span>
+            <span>Football Gazette & News Desk • 2026/27</span>
           </div>
-          <h1 className="text-3xl sm:text-5xl font-black tracking-tight text-foreground">
-            News & Transfer Desk
+          <h1 className="text-2xl sm:text-4xl font-black tracking-tight text-foreground font-sans">
+            Football News, Transfers & Tactics
           </h1>
-          <p className="text-xs sm:text-sm text-muted-foreground mt-1 max-w-xl">
-            Live transfer news, matchday scoops, Champions League tactical breakdowns,
-            and exclusive European football coverage.
+          <p className="text-xs sm:text-sm text-muted-foreground mt-1 max-w-2xl leading-relaxed">
+            Exclusive European dispatches, verified transfer radar, and detailed tactical breakdowns.
           </p>
         </div>
 
@@ -293,283 +393,460 @@ const News = () => {
         <div className="w-full sm:w-72">
           <Input
             leftIcon={Search}
-            placeholder="Search news, clubs, players..."
+            placeholder="Search news, transfers, tactics..."
             value={search}
             onChange={(e) => setSearch(e.target.value)}
+            className="h-9.5 text-xs"
           />
         </div>
       </div>
 
-      {/* ---------- 2. CATEGORY FILTER TABS ---------- */}
-      <div className="flex items-center gap-2 overflow-x-auto pb-2 scrollbar-none">
+      {/* ---------- 2. CATEGORY TABS ---------- */}
+      <div className="flex items-center gap-1.5 overflow-x-auto pb-1 scrollbar-none border-b border-border pb-3">
         {categoryTabs.map((tab) => {
           const isSelected = selectedCat === tab.id;
+          const Icon = tab.icon;
           return (
             <button
               key={tab.id}
               onClick={() => setSelectedCat(tab.id)}
-              className={`px-3.5 py-1.5 rounded-md text-xs font-semibold whitespace-nowrap transition-colors cursor-pointer flex items-center gap-2 border ${
+              className={`px-3 py-1.5 rounded-md text-xs font-bold transition-colors cursor-pointer flex items-center gap-1.5 shrink-0 border ${
                 isSelected
                   ? "bg-primary text-primary-foreground border-primary"
-                  : "bg-surface-elevated border-border text-muted-foreground hover:text-foreground hover:border-border"
+                  : "bg-card border-border text-muted-foreground hover:text-foreground hover:bg-surface-elevated"
               }`}
             >
+              <Icon className="size-3.5" />
               <span>{tab.name}</span>
             </button>
           );
         })}
       </div>
 
-      {/* ---------- 3. HERO FEATURED STORY (Shown when no search query) ---------- */}
-      {!search && selectedCat === "all" && featuredStory && (
-        <div
-          onClick={() => setSelectedArticle(featuredStory)}
-          className="group relative rounded-xl overflow-hidden border border-border bg-card cursor-pointer hover:border-primary transition-colors"
-        >
-          <div className="relative h-72 sm:h-96 md:h-[420px] w-full">
-            <img
-              src={featuredStory.image}
-              alt={featuredStory.title}
-              className="w-full h-full object-cover"
-            />
-            {/* Dark Pitch Overlay */}
-            <div className="absolute inset-0 bg-gradient-to-t from-background via-background/80 to-background/20" />
-
-            {/* Content on Image */}
-            <div className="absolute bottom-0 left-0 right-0 p-6 sm:p-8 md:p-10 flex flex-col gap-3">
-              <div className="flex flex-wrap items-center gap-2.5">
-                <Badge variant="default" size="sm">
-                  Featured Breaking News
-                </Badge>
-                <Badge variant="secondary" size="sm">
-                  {featuredStory.category}
-                </Badge>
-                <span className="text-xs text-muted-foreground font-medium flex items-center gap-1">
-                  <Clock className="size-3.5" /> {featuredStory.date}
-                </span>
-              </div>
-
-              <h2 className="text-2xl sm:text-3xl md:text-4xl font-black text-foreground tracking-tight group-hover:text-primary transition-colors max-w-4xl leading-tight">
-                {featuredStory.title}
-              </h2>
-
-              <p className="text-xs sm:text-sm text-muted-foreground max-w-2xl line-clamp-2 sm:line-clamp-3">
-                {featuredStory.summary}
-              </p>
-
-              <div className="flex items-center justify-between pt-2">
-                <div className="flex items-center gap-2 text-xs text-foreground font-medium">
-                  <div className="size-6 rounded-full bg-surface-elevated text-primary border border-border flex items-center justify-center font-bold">
-                    FB
-                  </div>
-                  <span>{featuredStory.author}</span>
-                  <span className="text-muted-foreground">• {featuredStory.readTime}</span>
-                </div>
-
-                <div className="flex items-center gap-1 text-xs font-semibold text-primary group-hover:translate-x-1 transition-transform">
-                  <span>Read Full Exclusive</span>
-                  <ArrowRight className="size-4" />
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      )}
-
-      {/* ---------- 4. NEWS ARTICLES GRID ---------- */}
-      {filteredArticles.length === 0 ? (
-        <EmptyState
-          icon={Newspaper}
-          title="No articles match your query"
-          description="Try checking for typos or resetting your category filter."
-          action={
-            <Button
-              variant="outline"
-              size="sm"
-              onClick={() => {
-                setSearch("");
-                setSelectedCat("all");
-              }}
-            >
-              Reset Filters
-            </Button>
-          }
-        />
-      ) : (
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {filteredArticles.map((article) => {
-            const isSaved = savedArticles.includes(article.id);
-
-            return (
-              <div
-                key={article.id}
-                onClick={() => setSelectedArticle(article)}
-                className="group relative flex flex-col justify-between rounded-xl border border-border bg-card overflow-hidden hover:border-primary transition-colors cursor-pointer"
-              >
-                <div>
-                  {/* Article Thumbnail */}
-                  <div className="relative h-48 w-full overflow-hidden bg-background">
-                    <img
-                      src={article.image}
-                      alt={article.title}
-                      className="w-full h-full object-cover"
-                      loading="lazy"
-                      onError={(e) => {
-                        e.target.src =
-                          "https://assets.goal.com/images/v3/getty-2241952135/crop/MM5DENBUHA5DCMZXG45G433XMU5DMMJSHIYTAMA=/GettyImages-2241952135.jpg";
-                      }}
-                    />
-                    <div className="absolute top-3 left-3">
-                      <Badge variant="secondary" size="sm">
-                        {article.category}
-                      </Badge>
-                    </div>
-
-                    {/* Bookmark Button */}
-                    <button
-                      type="button"
-                      onClick={(e) => toggleBookmark(article.id, e)}
-                      className={`absolute top-3 right-3 p-2 rounded-md transition-colors ${
-                        isSaved
-                          ? "bg-primary text-primary-foreground"
-                          : "bg-surface-elevated/90 border border-border text-muted-foreground hover:text-foreground"
-                      }`}
-                      aria-label="Save story"
-                    >
-                      <Bookmark className="size-3.5" />
-                    </button>
-                  </div>
-
-                  {/* Body Content */}
-                  <div className="p-5">
-                    <div className="flex items-center gap-2 text-[11px] text-muted-foreground mb-2">
-                      <span className="flex items-center gap-1">
-                        <Clock className="size-3" /> {article.date}
-                      </span>
-                      <span>•</span>
-                      <span>{article.readTime}</span>
-                    </div>
-
-                    <h3 className="text-base font-bold text-foreground group-hover:text-primary transition-colors leading-snug line-clamp-2">
-                      {article.title}
-                    </h3>
-
-                    <p className="text-xs text-muted-foreground mt-2 line-clamp-3 leading-relaxed">
-                      {article.summary}
-                    </p>
-                  </div>
-                </div>
-
-                {/* Footer Bar */}
-                <div className="px-5 pb-5 pt-3 border-t border-border flex items-center justify-between text-xs text-muted-foreground">
-                  <span className="font-medium text-foreground/80">
-                    By {article.author}
-                  </span>
-                  <span className="font-semibold text-primary flex items-center gap-1 group-hover:translate-x-0.5 transition-transform">
-                    Read Story <ArrowRight className="size-3.5" />
-                  </span>
-                </div>
-              </div>
-            );
-          })}
-        </div>
-      )}
-
-      {/* ---------- 5. ARTICLE READER MODAL ---------- */}
-      <Dialog
-        open={!!selectedArticle}
-        onOpenChange={(isOpen) => !isOpen && setSelectedArticle(null)}
-      >
-        {selectedArticle && (
-          <DialogContent size="xl" onClose={() => setSelectedArticle(null)}>
-            {/* Header info */}
-            <div>
-              <div className="flex flex-wrap items-center gap-2 mb-2">
-                <Badge variant="default" size="sm">
-                  {selectedArticle.category}
-                </Badge>
-                <span className="text-xs text-muted-foreground">
-                  Published {selectedArticle.date} • {selectedArticle.readTime}
-                </span>
-              </div>
-
-              <h1 className="text-2xl sm:text-3xl font-black text-foreground tracking-tight leading-snug">
-                {selectedArticle.title}
-              </h1>
-
-              <div className="flex items-center gap-3 mt-4 pt-4 border-t border-border">
-                <div className="size-10 rounded-full bg-surface-elevated border border-border text-primary font-bold flex items-center justify-center">
-                  {selectedArticle.author.slice(0, 2).toUpperCase()}
-                </div>
-                <div>
-                  <h4 className="text-sm font-bold text-foreground">
-                    {selectedArticle.author}
-                  </h4>
-                  <p className="text-xs text-muted-foreground">
-                    {selectedArticle.authorRole}
-                  </p>
-                </div>
-              </div>
-            </div>
-
-            {/* Main Article Image */}
-            <div className="h-64 sm:h-80 w-full rounded-lg overflow-hidden border border-border">
-              <img
-                src={selectedArticle.image}
-                alt={selectedArticle.title}
-                className="w-full h-full object-cover"
-              />
-            </div>
-
-            {/* Story Text */}
-            <div className="space-y-4 text-sm sm:text-base text-muted-foreground leading-relaxed">
-              {selectedArticle.content
-                .trim()
-                .split("\n\n")
-                .map((paragraph, index) => (
-                  <p key={index} className="text-foreground/90">
-                    {paragraph}
-                  </p>
-                ))}
-            </div>
-
-            {/* Tags Strip */}
-            <div className="flex flex-wrap items-center gap-2 pt-4 border-t border-border">
-              <span className="text-xs font-semibold text-muted-foreground">Tags:</span>
-              {selectedArticle.tags.map((tag) => (
-                <Badge key={tag} variant="secondary" size="sm">
-                  #{tag}
-                </Badge>
+      {/* =================================================================== */}
+      {/* ---------- CONTENT PATTERN 1: TRANSFERS DESK (COMPACT RADAR) ------ */}
+      {/* =================================================================== */}
+      {selectedCat === "Transfers" ? (
+        <div className="flex flex-col gap-5">
+          {/* Transfer Filter Controls */}
+          <div className="flex items-center justify-between flex-wrap gap-3">
+            <div className="flex items-center gap-1.5">
+              {[
+                { id: "all", label: "All Movements" },
+                { id: "confirmed", label: "Official & Confirmed" },
+                { id: "rumored", label: "Rumored & In Negotiations" },
+              ].map((f) => (
+                <button
+                  key={f.id}
+                  onClick={() => setTransferFilter(f.id)}
+                  className={`px-2.5 py-1 rounded text-xs font-bold transition-colors cursor-pointer border ${
+                    transferFilter === f.id
+                      ? "bg-surface-elevated text-primary border-primary"
+                      : "text-muted-foreground border-transparent hover:text-foreground"
+                  }`}
+                >
+                  {f.label}
+                </button>
               ))}
             </div>
 
-            {/* CTA to Explore Team */}
-            <div className="p-4 rounded-lg bg-surface-elevated border border-border flex flex-col sm:flex-row items-center justify-between gap-4">
-              <div>
-                <h5 className="text-sm font-bold text-foreground">
-                  Featured Club: {selectedArticle.relatedClub}
-                </h5>
-                <p className="text-xs text-muted-foreground">
-                  View current squad, trophies, and fixtures in the club directory.
-                </p>
-              </div>
-              <Button
-                variant="default"
-                size="sm"
-                onClick={() => setSelectedArticle(null)}
-                asChild
+            <span className="text-xs font-mono text-muted-foreground">
+              {filteredTransfers.length} Tracked Deal{filteredTransfers.length === 1 ? "" : "s"}
+            </span>
+          </div>
+
+          {/* Compact Transfer Rows Table/List */}
+          <div className="rounded-lg border border-border bg-card overflow-hidden divide-y divide-border/60">
+            {filteredTransfers.map((tr) => {
+              const isConfirmed = tr.status === "confirmed";
+
+              return (
+                <div
+                  key={tr.id}
+                  onClick={() => {
+                    const matched = newsArticles.find((a) => a.id === tr.articleId);
+                    if (matched) setSelectedArticle(matched);
+                  }}
+                  className="px-4 py-3 flex flex-col md:flex-row md:items-center justify-between gap-3 hover:bg-surface-elevated/40 transition-colors cursor-pointer group"
+                >
+                  {/* Status Badge + Player Identity */}
+                  <div className="flex items-center gap-3 min-w-[220px]">
+                    <div className="relative size-11 rounded-md bg-surface-elevated border border-border overflow-hidden shrink-0">
+                      <img
+                        src={tr.photo}
+                        alt={tr.player}
+                        className="w-full h-full object-cover object-top"
+                      />
+                    </div>
+
+                    <div>
+                      <div className="flex items-center gap-1.5 mb-0.5">
+                        <span
+                          className={`inline-flex items-center gap-1 px-1.5 py-0.2 rounded text-[10px] font-mono font-bold uppercase tracking-wider ${
+                            isConfirmed
+                              ? "bg-emerald-500/15 text-emerald-400 border border-emerald-500/30"
+                              : "bg-amber-500/15 text-amber-400 border border-amber-500/30"
+                          }`}
+                        >
+                          {isConfirmed ? (
+                            <CheckCircle2 className="size-2.5" />
+                          ) : (
+                            <HelpCircle className="size-2.5" />
+                          )}
+                          <span>{isConfirmed ? "Confirmed" : "Rumor"}</span>
+                        </span>
+                        <span className="text-[10px] text-muted-foreground font-mono">
+                          {tr.date}
+                        </span>
+                      </div>
+
+                      <h3 className="text-sm font-bold text-foreground group-hover:text-primary transition-colors">
+                        {tr.player}
+                      </h3>
+                      <p className="text-[11px] text-muted-foreground">
+                        {tr.position} • Age {tr.age}
+                      </p>
+                    </div>
+                  </div>
+
+                  {/* Club Movement (From -> To) */}
+                  <div className="flex items-center gap-2 text-xs">
+                    <span className="font-semibold text-muted-foreground truncate max-w-[110px]">
+                      {tr.fromClub}
+                    </span>
+                    <ArrowRight className="size-3 text-primary shrink-0" />
+                    <span className="font-bold text-foreground truncate max-w-[140px] flex items-center gap-1">
+                      <img
+                        src={tr.clubLogo}
+                        alt={tr.toClub}
+                        className="size-4 object-contain inline"
+                      />
+                      <span>{tr.toClub}</span>
+                    </span>
+                  </div>
+
+                  {/* Financial Terms & Contract */}
+                  <div className="flex items-center justify-between md:justify-end gap-5 text-right">
+                    <div>
+                      <span className="font-mono font-bold text-xs text-primary block">
+                        {tr.fee}
+                      </span>
+                      <span className="text-[10px] text-muted-foreground font-mono">
+                        {tr.contract}
+                      </span>
+                    </div>
+
+                    <div className="flex items-center gap-1 text-xs font-bold text-muted-foreground group-hover:text-primary transition-colors">
+                      <span className="hidden sm:inline">Details</span>
+                      <ArrowRight className="size-3.5" />
+                    </div>
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+        </div>
+      ) : selectedCat === "Tactics" ? (
+        /* =================================================================== */
+        /* ---------- CONTENT PATTERN 2: TACTICAL ANALYSIS DESK -------------- */
+        /* =================================================================== */
+        <div className="flex flex-col gap-6">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+            {filteredArticles.map((art) => (
+              <article
+                key={art.id}
+                onClick={() => setSelectedArticle(art)}
+                className="rounded-lg border border-border bg-card p-5 flex flex-col justify-between hover:border-primary transition-colors cursor-pointer group"
               >
-                <Link to="/teams" className="inline-flex items-center gap-2">
-                  <span>View Clubs</span>
-                  <ExternalLink className="size-3.5" />
-                </Link>
+                <div>
+                  {/* Top Bar: Tactical Category & Read time */}
+                  <div className="flex items-center justify-between text-xs mb-3">
+                    <Badge variant="default" size="sm">
+                      Tactical Blueprint
+                    </Badge>
+                    <span className="text-muted-foreground font-mono text-[11px] flex items-center gap-1">
+                      <Clock className="size-3 text-primary" />
+                      <span>{art.readTime}</span>
+                    </span>
+                  </div>
+
+                  {/* Image with 16:9 ratio */}
+                  <div className="relative aspect-[16/9] w-full rounded-md overflow-hidden bg-surface-elevated mb-4">
+                    <img
+                      src={art.image}
+                      alt={art.title}
+                      className="w-full h-full object-cover group-hover:scale-102 transition-transform duration-300"
+                    />
+                    <div className="absolute bottom-2 left-2 px-2 py-0.5 rounded bg-card/90 border border-border text-[10px] font-bold text-primary">
+                      {art.relatedClub}
+                    </div>
+                  </div>
+
+                  <h2 className="text-lg font-black tracking-tight text-foreground group-hover:text-primary transition-colors leading-snug">
+                    {art.title}
+                  </h2>
+
+                  <p className="mt-2 text-xs text-muted-foreground leading-relaxed line-clamp-3">
+                    {art.summary}
+                  </p>
+
+                  {/* Structured Tactical Phases Preview */}
+                  {art.tacticalPhases && (
+                    <div className="mt-4 pt-3 border-t border-border flex flex-col gap-2">
+                      <span className="text-[10px] font-bold uppercase tracking-wider text-muted-foreground">
+                        Tactical Execution Triggers
+                      </span>
+                      {art.tacticalPhases.map((phase, idx) => (
+                        <div
+                          key={idx}
+                          className="p-2 rounded bg-surface-elevated/60 border border-border text-xs flex flex-col gap-0.5"
+                        >
+                          <span className="font-bold text-primary text-[11px]">
+                            {phase.phase}
+                          </span>
+                          <span className="text-muted-foreground text-[11px] leading-tight">
+                            {phase.detail}
+                          </span>
+                        </div>
+                      ))}
+                    </div>
+                  )}
+                </div>
+
+                <div className="mt-5 pt-3 border-t border-border flex items-center justify-between text-xs">
+                  <span className="text-muted-foreground text-[11px]">
+                    By <strong className="text-foreground">{art.author}</strong>
+                  </span>
+                  <span className="font-bold text-primary inline-flex items-center gap-1">
+                    <span>Read Full Tactical Breakdown</span>
+                    <ArrowRight className="size-3.5" />
+                  </span>
+                </div>
+              </article>
+            ))}
+          </div>
+        </div>
+      ) : (
+        /* =================================================================== */
+        /* ---------- CONTENT PATTERN 3: EDITORIAL NEWS HIERARCHY ------------ */
+        /* =================================================================== */
+        filteredArticles.length === 0 ? (
+          <EmptyState
+            icon={Newspaper}
+            title="No news dispatches found"
+            description="Try searching with different terms or reset your filters."
+            action={
+              <Button
+                variant="outline"
+                size="sm"
+                onClick={() => {
+                  setSearch("");
+                  setSelectedCat("All");
+                }}
+              >
+                Reset News Filters
               </Button>
+            }
+          />
+        ) : (
+          <div className="flex flex-col gap-6">
+          {/* 1. Lead Editorial Story */}
+          {leadStory && !search && (
+            <article
+              onClick={() => setSelectedArticle(leadStory)}
+              className="rounded-lg border border-border bg-card overflow-hidden group cursor-pointer hover:border-primary transition-colors"
+            >
+              <div className="grid grid-cols-1 lg:grid-cols-12">
+                {/* 16:9 Image on Desktop (7 Cols) */}
+                <div className="lg:col-span-7 relative aspect-[16/9] lg:aspect-auto w-full overflow-hidden bg-surface-elevated">
+                  <img
+                    src={leadStory.image}
+                    alt={leadStory.title}
+                    className="w-full h-full object-cover group-hover:scale-102 transition-transform duration-300"
+                    loading="eager"
+                  />
+                  <div className="absolute top-3 left-3 flex items-center gap-2">
+                    <Badge variant="default" size="sm">
+                      Lead Dispatch
+                    </Badge>
+                    <Badge variant="secondary" size="sm">
+                      {leadStory.category}
+                    </Badge>
+                  </div>
+                </div>
+
+                {/* Lead Headline & Excerpt (5 Cols) */}
+                <div className="lg:col-span-5 p-5 sm:p-7 flex flex-col justify-between">
+                  <div>
+                    <div className="flex items-center gap-2 text-[11px] font-mono text-muted-foreground mb-2">
+                      <Clock className="size-3 text-primary" />
+                      <span>{leadStory.date}</span>
+                      <span>•</span>
+                      <span>{leadStory.readTime}</span>
+                    </div>
+
+                    <h2 className="text-xl sm:text-2xl font-black tracking-tight text-foreground group-hover:text-primary transition-colors leading-tight">
+                      {leadStory.title}
+                    </h2>
+
+                    <p className="mt-3 text-xs sm:text-sm text-muted-foreground leading-relaxed">
+                      {leadStory.summary}
+                    </p>
+                  </div>
+
+                  <div className="mt-6 pt-4 border-t border-border flex items-center justify-between">
+                    <div className="text-[11px] leading-tight">
+                      <span className="font-bold text-foreground block">
+                        {leadStory.author}
+                      </span>
+                      <span className="text-muted-foreground">
+                        {leadStory.authorRole}
+                      </span>
+                    </div>
+
+                    <Button variant="default" size="sm">
+                      <span>Read Story</span>
+                      <ArrowRight className="size-3.5" />
+                    </Button>
+                  </div>
+                </div>
+              </div>
+            </article>
+          )}
+
+          {/* 2. Secondary Editorial Grid (2 Columns, consistent 16:9 image ratios) */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+            {secondaryStories.map((art) => (
+              <article
+                key={art.id}
+                onClick={() => setSelectedArticle(art)}
+                className="rounded-lg border border-border bg-card p-4 flex flex-col justify-between group cursor-pointer hover:border-primary transition-colors"
+              >
+                <div>
+                  {/* Consistent 16:9 Image Thumbnail */}
+                  <div className="relative aspect-[16/9] w-full rounded-md overflow-hidden bg-surface-elevated mb-3.5">
+                    <img
+                      src={art.image}
+                      alt={art.title}
+                      className="w-full h-full object-cover group-hover:scale-102 transition-transform duration-300"
+                      loading="lazy"
+                    />
+                    <div className="absolute top-2.5 left-2.5">
+                      <Badge variant="secondary" size="sm">
+                        {art.category}
+                      </Badge>
+                    </div>
+
+                    <button
+                      type="button"
+                      onClick={(e) => toggleBookmark(art.id, e)}
+                      className={`absolute top-2.5 right-2.5 p-1.5 rounded-md transition-colors cursor-pointer ${
+                        savedArticles.includes(art.id)
+                          ? "bg-primary text-primary-foreground"
+                          : "bg-card/90 border border-border text-muted-foreground hover:text-foreground"
+                      }`}
+                      aria-label="Save story"
+                    >
+                      <Bookmark className="size-3" />
+                    </button>
+                  </div>
+
+                  <div className="flex items-center gap-2 text-[10px] font-mono text-muted-foreground mb-1.5">
+                    <span>{art.date}</span>
+                    <span>•</span>
+                    <span>{art.readTime}</span>
+                  </div>
+
+                  <h3 className="text-base font-bold tracking-tight text-foreground group-hover:text-primary transition-colors leading-snug line-clamp-2">
+                    {art.title}
+                  </h3>
+
+                  <p className="mt-1.5 text-xs text-muted-foreground leading-relaxed line-clamp-2">
+                    {art.summary}
+                  </p>
+                </div>
+
+                <div className="mt-4 pt-3 border-t border-border flex items-center justify-between text-xs text-muted-foreground">
+                  <span>By {art.author}</span>
+                  <span className="font-bold text-foreground group-hover:text-primary transition-colors inline-flex items-center gap-1 text-[11px]">
+                    <span>Read Article</span>
+                    <ArrowRight className="size-3" />
+                  </span>
+                </div>
+              </article>
+            ))}
+          </div>
+        </div>
+        )
+      )}
+
+      {/* ---------- ARTICLE DETAIL DIALOG MODAL ---------- */}
+      <Dialog
+        open={Boolean(selectedArticle)}
+        onOpenChange={(open) => !open && setSelectedArticle(null)}
+      >
+        <DialogContent
+          title={selectedArticle?.title || "Article Dispatch"}
+          description={selectedArticle?.summary}
+          className="max-w-2xl max-h-[85vh] overflow-y-auto"
+        >
+          {selectedArticle && (
+            <div className="space-y-4 pt-2">
+              <div className="relative aspect-video w-full rounded-md overflow-hidden bg-surface-elevated">
+                <img
+                  src={selectedArticle.image}
+                  alt={selectedArticle.title}
+                  className="w-full h-full object-cover"
+                />
+              </div>
+
+              <div className="flex items-center justify-between text-xs text-muted-foreground font-mono border-b border-border pb-3">
+                <Badge variant="default" size="sm">
+                  {selectedArticle.category}
+                </Badge>
+                <div className="flex items-center gap-2">
+                  <span>{selectedArticle.date}</span>
+                  <span>•</span>
+                  <span>{selectedArticle.readTime}</span>
+                </div>
+              </div>
+
+              <div className="text-sm text-foreground/90 whitespace-pre-line leading-relaxed font-sans">
+                {selectedArticle.content.trim()}
+              </div>
+
+              {selectedArticle.tacticalPhases && (
+                <div className="p-3.5 rounded-lg bg-surface-elevated border border-border flex flex-col gap-2">
+                  <span className="text-xs font-bold uppercase tracking-wider text-primary">
+                    Tactical Phase Key Takeaways
+                  </span>
+                  {selectedArticle.tacticalPhases.map((tp, i) => (
+                    <div key={i} className="text-xs">
+                      <strong className="text-foreground">{tp.phase}:</strong>{" "}
+                      <span className="text-muted-foreground">{tp.detail}</span>
+                    </div>
+                  ))}
+                </div>
+              )}
+
+              <div className="pt-4 border-t border-border flex items-center justify-between">
+                <div className="text-xs text-muted-foreground">
+                  By <strong className="text-foreground">{selectedArticle.author}</strong> ({selectedArticle.authorRole})
+                </div>
+                <Button
+                  onClick={() => setSelectedArticle(null)}
+                  variant="outline"
+                  size="sm"
+                >
+                  Close Dispatch
+                </Button>
+              </div>
             </div>
-          </DialogContent>
-        )}
+          )}
+        </DialogContent>
       </Dialog>
     </div>
   );
 };
 
-export default News;
+export default NewsPage;
