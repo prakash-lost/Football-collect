@@ -1,7 +1,7 @@
 import { createBrowserRouter } from "react-router";
 import { RouterProvider } from "react-router/dom";
 import Layout from "./Layout";
-import AuthLayout from "./Authlayout";
+import AuthLayout from "./AuthLayout";
 
 const Router = () => {
   const router = createBrowserRouter([
@@ -18,13 +18,13 @@ const Router = () => {
         {
           path: "aboutus",
           lazy: async () => ({
-            Component: (await import("./pages/Aboutuspage")).default,
+            Component: (await import("./pages/AboutUsPage")).default,
           }),
         },
         {
           path: "contactus",
           lazy: async () => ({
-            Component: (await import("./pages/Contactuspage")).default,
+            Component: (await import("./pages/ContactUsPage")).default,
           }),
         },
         {
@@ -78,7 +78,7 @@ const Router = () => {
         {
           path: "register",
           lazy: async () => ({
-            Component: (await import("./pages/Registerpage")).default,
+            Component: (await import("./pages/RegisterPage")).default,
           }),
         },
       ],

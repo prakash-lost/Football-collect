@@ -1,4 +1,5 @@
-import React, { useState, useMemo } from "react";
+import React, { useState, useMemo, useEffect } from "react";
+import { useSearchParams } from "react-router";
 import {
   Shield,
   Search,
@@ -28,12 +29,22 @@ const leagues = [
 
 const TeamsPage = () => {
   const teamsList = useMemo(() => footballData?.teams || [], []);
+  const [searchParams] = useSearchParams();
 
   const [visible, setVisible] = useState(12);
-  const [search, setSearch] = useState("");
-  const [selectedLeague, setSelectedLeague] = useState("all");
+  const [search, setSearch] = useState(searchParams.get("search") || "");
+  const [selectedLeague, setSelectedLeague] = useState(
+    searchParams.get("league") || "all"
+  );
   const [sortBy, setSortBy] = useState("default");
   const [selectedTeam, setSelectedTeam] = useState(null); // Modal state
+
+  useEffect(() => {
+    const q = searchParams.get("search");
+    if (q !== null) setSearch(q);
+    const lg = searchParams.get("league");
+    if (lg !== null) setSelectedLeague(lg);
+  }, [searchParams]);
 
   // Filter and Sort teams
   const filteredTeams = useMemo(() => {
