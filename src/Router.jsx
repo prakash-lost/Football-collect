@@ -69,6 +69,24 @@ const Router = () => {
             Component: (await import("./pages/LeaguesPage")).default,
           }),
         },
+        {
+          path: "fixtures",
+          lazy: async () => ({
+            Component: (await import("./pages/FixturesPage")).default,
+          }),
+        },
+        {
+          path: "fixtures/:id",
+          lazy: async () => ({
+            Component: (await import("./pages/MatchDetailPage")).default,
+          }),
+        },
+        {
+          path: "matches/:id",
+          lazy: async () => ({
+            Component: (await import("./pages/MatchDetailPage")).default,
+          }),
+        },
       ],
     },
     {

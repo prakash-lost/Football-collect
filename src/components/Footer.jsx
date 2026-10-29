@@ -134,6 +134,7 @@ const Footer = () => {
               <ul className="space-y-2 text-xs text-muted-foreground">
                 {[
                   { name: "Home", path: "/" },
+                  { name: "Fixtures", path: "/fixtures" },
                   { name: "Teams", path: "/teams" },
                   { name: "Players", path: "/players" },
                   { name: "Leagues", path: "/leagues" },

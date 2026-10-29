@@ -800,6 +800,23 @@ const LeaguesPage = () => {
       {/* =================================================================== */}
       {activeView === "fixtures" && (
         <div className="flex flex-col gap-5">
+          {/* Calendar Fixture Link Banner */}
+          <div className="flex items-center justify-between p-3 rounded-lg bg-surface-elevated/70 border border-border flex-wrap gap-2 text-xs">
+            <div className="flex items-center gap-2">
+              <span className="size-2 rounded-full bg-primary animate-pulse" />
+              <span className="font-bold text-foreground">
+                Full calendar date picker, live scores & match details available on the Fixtures Desk.
+              </span>
+            </div>
+            <Link
+              to="/fixtures"
+              className="font-bold text-primary hover:underline flex items-center gap-1 ml-auto"
+            >
+              <span>Open Fixture Desk & Live Scores</span>
+              <ArrowRight className="size-3.5" />
+            </Link>
+          </div>
+
           {/* Fixture Filters */}
           <div className="flex items-center gap-2 overflow-x-auto pb-1 scrollbar-none">
             {[

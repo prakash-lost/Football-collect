@@ -1,6 +1,7 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router";
 import { ChevronRight } from "lucide-react";
+import { footballApi } from "../../services/footballApi";
 
 const matchData = [
   {
@@ -107,8 +108,47 @@ const matchData = [
 
 const MatchTicker = () => {
   const [filter, setFilter] = useState("all");
+  const [liveMatches, setLiveMatches] = useState(matchData);
 
-  const filteredMatches = matchData.filter((m) => {
+  useEffect(() => {
+    let isMounted = true;
+    footballApi
+      .getFixtures()
+      .then((res) => {
+        if (!isMounted || !res.fixtures || res.fixtures.length === 0) return;
+        const mapped = res.fixtures.slice(0, 10).map((f) => ({
+          id: f.id,
+          competition: f.competition?.name || "Match",
+          leagueCode: (f.competition?.name || "").toLowerCase().includes("champions")
+            ? "ucl"
+            : (f.competition?.name || "").toLowerCase().includes("premier")
+            ? "epl"
+            : "other",
+          date: f.status.isLive ? `${f.status.label}` : f.status.isFinished ? "FT" : f.localKickoff,
+          status: f.status.isFinished ? "FT" : f.status.isLive ? "LIVE" : "UPCOMING",
+          home: {
+            name: f.home.name,
+            short: f.home.short,
+            logo: f.home.logo,
+            score: f.home.score,
+          },
+          away: {
+            name: f.away.name,
+            short: f.away.short,
+            logo: f.away.logo,
+            score: f.away.score,
+          },
+        }));
+        setLiveMatches(mapped);
+      })
+      .catch(() => {});
+
+    return () => {
+      isMounted = false;
+    };
+  }, []);
+
+  const filteredMatches = liveMatches.filter((m) => {
     if (filter === "all") return true;
     if (filter === "ucl") return m.leagueCode === "ucl";
     if (filter === "epl") return m.leagueCode === "epl";
@@ -122,7 +162,7 @@ const MatchTicker = () => {
           {/* Left label & quick filter */}
           <div className="flex items-center gap-2 shrink-0">
             <span className="flex items-center gap-1.5 text-xs font-bold text-foreground uppercase tracking-wider">
-              <span className="size-2 rounded-full bg-primary" />
+              <span className="size-2 rounded-full bg-primary animate-pulse" />
               <span className="hidden sm:inline">Matchday Desk</span>
             </span>
 
@@ -151,11 +191,12 @@ const MatchTicker = () => {
           <div className="flex items-center gap-2.5 overflow-x-auto scrollbar-none py-1">
             {filteredMatches.map((m) => {
               const isFinished = m.status === "FT";
+              const isLive = m.status === "LIVE";
 
               return (
                 <Link
                   key={m.id}
-                  to={`/teams?search=${encodeURIComponent(m.home.name)}`}
+                  to={`/fixtures/${m.id}`}
                   className="flex items-center gap-3 px-3 py-1.5 rounded-md bg-card border border-border hover:border-primary transition-colors shrink-0 text-left"
                 >
                   {/* Competition & status */}
@@ -165,7 +206,7 @@ const MatchTicker = () => {
                     </span>
                     <span
                       className={`font-mono font-bold mt-0.5 ${
-                        isFinished ? "text-muted-foreground" : "text-primary"
+                        isLive ? "text-primary animate-pulse" : isFinished ? "text-muted-foreground" : "text-foreground"
                       }`}
                     >
                       {m.date}
@@ -183,13 +224,14 @@ const MatchTicker = () => {
                           src={m.home.logo}
                           alt={m.home.name}
                           className="size-3.5 object-contain shrink-0"
+                          onError={(e) => { e.target.style.display = "none"; }}
                         />
                         <span className="text-xs font-semibold text-foreground truncate">
                           {m.home.short}
                         </span>
                       </div>
                       <span className="font-mono text-xs font-bold text-foreground">
-                        {isFinished ? m.home.score : "—"}
+                        {isFinished || isLive ? m.home.score ?? 0 : "—"}
                       </span>
                     </div>
 
@@ -200,13 +242,14 @@ const MatchTicker = () => {
                           src={m.away.logo}
                           alt={m.away.name}
                           className="size-3.5 object-contain shrink-0"
+                          onError={(e) => { e.target.style.display = "none"; }}
                         />
                         <span className="text-xs font-semibold text-foreground truncate">
                           {m.away.short}
                         </span>
                       </div>
                       <span className="font-mono text-xs font-bold text-foreground">
-                        {isFinished ? m.away.score : "—"}
+                        {isFinished || isLive ? m.away.score ?? 0 : "—"}
                       </span>
                     </div>
                   </div>
@@ -217,7 +260,7 @@ const MatchTicker = () => {
 
           {/* Right link to leagues/fixtures */}
           <Link
-            to="/leagues"
+            to="/fixtures"
             className="hidden lg:flex items-center gap-1 text-xs font-semibold text-muted-foreground hover:text-primary transition-colors shrink-0"
           >
             <span>All Fixtures</span>

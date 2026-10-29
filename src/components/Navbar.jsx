@@ -10,6 +10,7 @@ const LoginForm = lazy(() => import("../pages/LoginForm"));
 
 const navLinks = [
   { label: "Home", path: "/" },
+  { label: "Fixtures", path: "/fixtures" },
   { label: "Teams", path: "/teams" },
   { label: "Players", path: "/players" },
   { label: "Leagues", path: "/leagues" },
